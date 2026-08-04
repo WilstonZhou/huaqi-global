@@ -21,7 +21,7 @@ window.HQ_DATA = {
     clientsServed: '数万家',
     experienceYears: 10,
     phone: '186-1090-2181',
-    email: '3506755739@qq.com',
+    email: 'contact@hq10000.com',
     address: '深圳市龙华区龙胜路融创智汇大厦14层1421',
     workday: '周一至周日 9:00-21:00',
     vision: '成为中国企业走向全球的首选品牌',
