@@ -143,11 +143,12 @@
     });
   }
 
-  // ============ AI 对话 demo ============
+  // ============ AI 对话 demo(规则匹配引擎) ============
   function bindAIDemo() {
     var demo = $('#aiDemo');
     if (!demo) return;
     var body = $('.ai-body', demo);
+    var inputWrap = $('.ai-input', demo);
     var input = $('.ai-input input', demo);
     var dialog = (D.aiMatch && D.aiMatch.sampleDialog) || [];
     var idx = 0;
@@ -170,6 +171,127 @@
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
       });
     }
+
+    // ---- 规则匹配引擎:识别国家 + 服务 + 场景 ----
+    var COUNTRY_MAP = {
+      '新加坡': 'SG', 'singapore': 'SG', '狮城': 'SG',
+      '美国': 'US', '美帝': 'US', ' us': 'US', 'usa': 'US', 'united states': 'US',
+      '马来西亚': 'MY', '马来': 'MY', 'malaysia': 'MY',
+      '泰国': 'TH', 'thai': 'TH', 'thailand': 'TH',
+      '印尼': 'ID', '印度尼西亚': 'ID', 'indonesia': 'ID',
+      '香港': 'HK', 'hongkong': 'HK', 'hong kong': 'HK',
+      '开曼': 'CAY', 'cayman': 'CAY', 'bvi': 'CAY', '英属维尔京': 'CAY',
+      '英国': 'UK', '德国': 'DE', '法国': 'FR', '荷兰': 'NL',
+      '日本': 'JP', '韩国': 'KR', '越南': 'VN', '菲律宾': 'PH',
+      '阿联酋': 'AE', '迪拜': 'AE', '沙特': 'SA'
+    };
+    var SERVICE_MAP = {
+      '注册': 'company-registration', '设立': 'company-registration', '开公司': 'company-registration', '成立公司': 'company-registration',
+      '开户': 'bank-account', '银行': 'bank-account', '账户': 'bank-account', '开户行': 'bank-account',
+      '年审': 'annual-review', '年报': 'annual-review', '续期': 'annual-review',
+      '审计': 'audit', '报表': 'audit',
+      '注销': 'company-deregistration', '转让': 'company-deregistration', '解散': 'company-deregistration', '关闭公司': 'company-deregistration',
+      'vat': 'tax-planning', '税': 'tax-planning', '税务': 'tax-planning', 'odi': 'tax-planning', '备案': 'tax-planning', 'epr': 'tax-planning', '消费税': 'tax-planning',
+      'vie': 'fund-planning', '架构': 'fund-planning', '红筹': 'fund-planning', '资金': 'fund-planning', '离岸': 'fund-planning', '信托': 'fund-planning',
+      '商标': 'other-services', '专利': 'other-services', '公证': 'other-services', '海牙': 'other-services', '认证': 'other-services', 'apostille': 'other-services'
+    };
+    var SCENARIO_MAP = {
+      '跨境': '跨境电商出海', '亚马逊': '跨境电商出海', 'shopify': '跨境电商出海', '独立站': '跨境电商出海', 'ebay': '跨境电商出海',
+      '上市': 'VIE 红筹架构', '融资': 'VIE 红筹架构', 'ipo': 'VIE 红筹架构',
+      '移民': '海外身份规划', '身份': '海外身份规划', '签证': '海外身份规划', '绿卡': '海外身份规划',
+      '建厂': '海外建厂落地', '工厂': '海外建厂落地', '制造': '海外建厂落地'
+    };
+
+    function matchRule(userText) {
+      var t = (' ' + userText.toLowerCase() + ' ');
+      var services = D.services || [];
+      var matchedCountry = null;
+      var matchedServices = [];
+      var scenario = null;
+
+      for (var k in COUNTRY_MAP) {
+        if (t.indexOf(k) > -1) { matchedCountry = COUNTRY_MAP[k]; break; }
+      }
+      for (var k2 in SERVICE_MAP) {
+        if (t.indexOf(k2) > -1) {
+          var svc = services.filter(function (s) { return s.id === SERVICE_MAP[k2]; })[0];
+          if (svc && matchedServices.indexOf(svc) === -1) matchedServices.push(svc);
+        }
+      }
+      for (var k3 in SCENARIO_MAP) {
+        if (t.indexOf(k3) > -1) { scenario = SCENARIO_MAP[k3]; break; }
+      }
+      // 无明确服务但有场景:推荐组合
+      if (!matchedServices.length && scenario) {
+        if (scenario === '跨境电商出海') {
+          matchedServices = [
+            services.filter(function (s) { return s.id === 'company-registration'; })[0],
+            services.filter(function (s) { return s.id === 'bank-account'; })[0],
+            services.filter(function (s) { return s.id === 'tax-planning'; })[0]
+          ].filter(Boolean);
+        } else if (scenario === 'VIE 红筹架构') {
+          matchedServices = [
+            services.filter(function (s) { return s.id === 'fund-planning'; })[0],
+            services.filter(function (s) { return s.id === 'tax-planning'; })[0]
+          ].filter(Boolean);
+        } else if (scenario === '海外建厂落地') {
+          matchedServices = [
+            services.filter(function (s) { return s.id === 'company-registration'; })[0],
+            services.filter(function (s) { return s.id === 'audit'; })[0]
+          ].filter(Boolean);
+        }
+      }
+      return { country: matchedCountry, services: matchedServices, scenario: scenario, raw: userText };
+    }
+
+    function generateReply(match) {
+      var phone = (D.company && D.company.phone) || '';
+      if (!match.services.length && !match.scenario) {
+        return '感谢您的咨询!您的需求我需要更多信息来精准推荐。\n\n请补充:\n1) 目标国家(如新加坡/美国/泰国)\n2) 业务类型(如注册/开户/审计/VIE架构)\n\n或直接拨打 ' + phone + ' 由资深顾问为您服务。';
+      }
+      var reply = '基于您的需求,我为您生成以下方案:\n\n';
+      var total = 0;
+      if (match.scenario) reply += '🎯 识别场景:' + match.scenario + '\n';
+      if (match.country) {
+        var cname = { SG: '新加坡', US: '美国', MY: '马来西亚', TH: '泰国', ID: '印尼', HK: '香港', CAY: '开曼/BVI', UK: '英国', JP: '日本' }[match.country] || match.country;
+        reply += '🌍 目标国家:' + cname + '\n';
+      }
+      reply += '\n';
+      match.services.forEach(function (s, i) {
+        var country = s.countries.filter(function (c) { return c.code === match.country; })[0];
+        var price, timeline, entity;
+        if (country) {
+          price = country.priceFrom; timeline = country.timeline; entity = country.entity;
+        } else {
+          var min = s.countries[0];
+          s.countries.forEach(function (c) { if (c.priceFrom < min.priceFrom) min = c; });
+          price = min.priceFrom; timeline = min.timeline; entity = min.entity;
+        }
+        total += price;
+        reply += (i + 1) + ') ' + s.icon + ' ' + s.name + (country ? '(' + country.name + ' ' + entity + ')' : '') + '\n';
+        reply += '   费用 ¥' + price.toLocaleString() + ' 起 | 周期 ' + timeline + '\n\n';
+      });
+      reply += '━━━━━━━━━━━━━━\n';
+      reply += '💰 预估总价:¥' + total.toLocaleString() + ' 起\n';
+      reply += '⏱️ 综合周期:约 2-6 周(视服务组合)\n\n';
+      reply += '下一步:\n• 继续提问可细化方案(如"加银行开户")\n• 拨打 ' + phone + ' 转 5 年+ 资深顾问\n• 或填写联系表单获取可下载方案书';
+      return reply;
+    }
+
+    function send() {
+      var val = (input && input.value || '').trim();
+      if (!val) return;
+      appendMsg('user', val);
+      input.value = '';
+      var t = typing();
+      setTimeout(function () {
+        t.remove();
+        var match = matchRule(val);
+        appendMsg('ai', generateReply(match));
+      }, 700 + Math.random() * 500);
+    }
+
+    // 自动播放预设对话
     function playNext() {
       if (idx >= dialog.length) return;
       var item = dialog[idx++];
@@ -189,25 +311,23 @@
     }
     playNext();
 
-    // 快捷问句
+    // 加发送按钮(若尚未添加)
+    if (inputWrap && !$('button', inputWrap) && input) {
+      var sendBtn = el('button', { class: 'btn btn-primary btn-sm', type: 'button', text: '发送' });
+      inputWrap.appendChild(sendBtn);
+      sendBtn.addEventListener('click', send);
+    }
+
+    // 快捷问句:点击即发送
     $all('.ai-suggestion', demo).forEach(function (s) {
       s.addEventListener('click', function () {
-        input.value = s.textContent;
-        input.focus();
+        if (input) { input.value = s.textContent; send(); }
       });
     });
-    // 用户输入(模拟回复)
+    // 回车发送
     if (input) {
       input.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' && input.value.trim()) {
-          appendMsg('user', input.value.trim());
-          input.value = '';
-          var t = typing();
-          setTimeout(function () {
-            t.remove();
-            appendMsg('ai', '收到您的需求!基于您描述的情况,建议您点击下方"生成方案"按钮,或拨打 ' + (D.company && D.company.phone || '') + ' 由资深顾问为您出具定制方案。');
-          }, 1200);
-        }
+        if (e.key === 'Enter') { e.preventDefault(); send(); }
       });
     }
   }
