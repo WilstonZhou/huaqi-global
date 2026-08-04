@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华企环球国际咨询 | 全球企业出海一站式服务 · AI 智能企服匹配</title>
+<meta name="description" content="华企环球国际咨询,2012年成立于深圳,港深双总部,业务覆盖全球126个国家及地区。提供海外公司注册、银行开户、年审审计、税务规划等一站式出海服务。AI 智能企服匹配引擎,3 分钟生成定制方案,明码标价,实时交付追踪。">
+<meta name="keywords" content="华企环球,海外公司注册,新加坡公司注册,美国公司注册,马来西亚公司注册,泰国公司注册,银行开户,公司年审,税务规划,AI企服匹配">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">🚀 2026 全新升级 · 行业首创 AI 出海顾问</div>
+        <h1>让出海生意更简单<br><span class="text-gold">让身份规划无难事</span></h1>
+        <p class="hero-desc">华企环球国际咨询,2012 年成立,港深双总部,业务覆盖全球 <strong style="color:var(--c-gold)">126 个国家及地区</strong>。从公司注册、银行开户到税务规划、VIE 架构,一站式服务 + AI 智能匹配 + 透明定价 + 实时交付追踪。</p>
+        <div class="hero-actions">
+          <a href="ai-match.html" class="btn btn-gold btn-lg">🤖 立即 AI 匹配方案</a>
+          <a href="services/company-registration.html" class="btn btn-outline btn-lg" style="color:white;border-color:white;">浏览服务</a>
+        </div>
+        <div class="hero-stats" id="heroStats"></div>
+      </div>
+      <div class="hero-card" id="heroAICard"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 大差异化功能 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">CORE ADVANTAGES</span>
+      <h2 class="section-title">4 大差异化优势,行业首创</h2>
+      <p class="section-desc">深度分析万企帮、唐诚、小牛国际、中港星 4 家竞品后,识别出 4 个市场空白点,打造行业首个智能企服平台。</p>
+    </div>
+    <div class="features-grid" id="featuresGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 8 大服务 ============ -->
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">SERVICE SCOPE</span>
+      <h2 class="section-title">8 大服务板块,全链路出海服务</h2>
+      <p class="section-desc">从公司设立到合规运营,从资金出境到税务筹划,覆盖企业出海全生命周期。</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+    <div class="text-center mt-4">
+      <a href="global-network.html" class="btn btn-outline">查看全球 126 国覆盖网络 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 透明定价 + 方案配置器 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">TRANSPARENT PRICING</span>
+      <h2 class="section-title">明码标价,拒绝隐形消费</h2>
+      <p class="section-desc">行业首创透明化定价。标准化服务显示固定价,复杂服务显示区间价与影响因素,在线勾选实时算价。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;" id="pricingLayout">
+      <div>
+        <h3 style="font-size:18px;color:var(--c-primary);margin-bottom:16px;">📐 标准化固定价(适合引流)</h3>
+        <table class="pricing-table" id="pricingFixed"></table>
+        <h3 style="font-size:18px;color:var(--c-primary);margin:24px 0 16px;">📊 复杂服务区间价</h3>
+        <table class="pricing-table" id="pricingRange"></table>
+      </div>
+      <div class="configurator" id="configurator">
+        <h3 style="font-size:18px;color:var(--c-primary);margin-bottom:8px;">🛒 方案配置器</h3>
+        <p style="font-size:13px;color:var(--c-text-light);margin-bottom:20px;">勾选您需要的服务,实时计算总费用。最终报价以顾问确认为准。</p>
+        <div id="configItems"></div>
+        <div class="config-summary">
+          <div class="config-total"><small>预估总价</small><br><span class="total-num">¥0</span></div>
+          <a href="ai-match.html" class="btn btn-primary btn-sm">生成方案</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI 智能匹配演示 ============ -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">AI MATCH ENGINE</span>
+      <h2 class="section-title">AI 智能企服匹配引擎</h2>
+      <p class="section-desc">对话式交互引导需求,AI 自动识别服务组合,3 分钟生成个性化方案。覆盖 200+ 服务场景,数据来源 400+ 服务 SKU、50+ 国家信息库。</p>
+    </div>
+    <div style="max-width:760px;margin:0 auto;">
+      <div class="ai-demo" id="aiDemo">
+        <div class="ai-header">
+          <div class="ai-avatar">🤖</div>
+          <div>
+            <div class="ai-title">华企环球 AI 企服顾问</div>
+            <div class="ai-status">在线 · 平均响应 30 秒</div>
+          </div>
+        </div>
+        <div class="ai-body"></div>
+        <div class="ai-suggestions">
+          <span class="ai-suggestion">我想在新加坡注册跨境电商公司</span>
+          <span class="ai-suggestion">美国公司 LLC 和 INC 怎么选</span>
+          <span class="ai-suggestion">VIE 架构搭建要多少钱</span>
+        </div>
+        <div class="ai-input">
+          <input type="text" placeholder="输入您的出海需求,例如:我想在泰国开工厂...">
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <a href="ai-match.html" class="btn btn-gold">立即体验完整 AI 匹配 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 实时交付追踪 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">DELIVERY TRACKING</span>
+      <h2 class="section-title">实时交付追踪,进度全可视</h2>
+      <p class="section-desc">下单即获专属订单追踪页,时间线视图展示办理节点。4 家竞品均无此能力,直接解决行业最大痛点。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;">
+      <div>
+        <h3 style="font-size:22px;color:var(--c-primary);margin-bottom:16px;">付费后不再"石沉大海"</h3>
+        <p style="color:var(--c-text-light);line-height:1.8;margin-bottom:24px;">传统模式下客户付费后只能反复微信/电话催问。华企环球交付追踪系统让每个节点透明可见:</p>
+        <ul style="list-style:none;">
+          <li style="padding:10px 0;border-bottom:1px dashed var(--c-border);"><strong style="color:var(--c-primary)">✓ 时间线视图</strong>:已完成打勾,当前高亮,未来预览</li>
+          <li style="padding:10px 0;border-bottom:1px dashed var(--c-border);"><strong style="color:var(--c-primary)">✓ 智能通知</strong>:签字/材料提交等关键节点主动推送</li>
+          <li style="padding:10px 0;border-bottom:1px dashed var(--c-border);"><strong style="color:var(--c-primary)">✓ 文档归档</strong>:营业执照、税务编号等产出文件随时下载</li>
+          <li style="padding:10px 0;"><strong style="color:var(--c-primary)">✓ 超时预警</strong>:服务超期自动标红并通知客户与顾问</li>
+        </ul>
+        <a href="delivery-tracking.html" class="btn btn-primary mt-3">查看完整追踪演示 →</a>
+      </div>
+      <div class="tracking-timeline" id="trackingTimeline"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 知识中心 ============ -->
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">KNOWLEDGE HUB</span>
+      <h2 class="section-title">专业知识中心</h2>
+      <p class="section-desc">"专业但不装,透明且有用"。系统化国家指南、政策解读、行业方案,每篇都回答一个具体的用户问题。</p>
+    </div>
+    <div class="knowledge-grid" id="knowledgeGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 客户案例 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">CLIENT CASES</span>
+      <h2 class="section-title">数万家企业的共同选择</h2>
+      <p class="section-desc">从跨境电商到高科技,从制造业到金融服务,助力不同行业企业成功出海。</p>
+    </div>
+    <div class="cases-grid" id="casesGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section-soft">
+  <div class="container container-sm">
+    <div class="section-header">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title">常见问题</h2>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>3 分钟生成您的出海方案</h2>
+      <p>AI 智能匹配 + 透明定价 + 交付追踪,行业首创数字化出海体验</p>
+      <div class="hero-actions">
+        <a href="ai-match.html" class="btn btn-gold btn-lg">🤖 立即 AI 匹配</a>
+        <a href="tel:186-1090-2181" class="btn btn-outline btn-lg" style="color:white;border-color:white;">📞 186-1090-2181</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+// 首页定价表与配置器渲染
+(function(){
+  var D = window.HQ_DATA || {};
+  // 固定价表
+  var pf = document.getElementById('pricingFixed');
+  if (pf && D.pricing && D.pricing.transparent) {
+    pf.innerHTML = '<thead><tr><th>服务</th><th>价格</th><th>周期</th></tr></thead><tbody>' +
+      D.pricing.transparent.slice(0,6).map(function(p){
+        return '<tr><td>' + p.service + '</td><td class="price-tag">¥' + p.price.toLocaleString() + '</td><td>' + p.period + '</td></tr>';
+      }).join('') + '</tbody>';
+  }
+  // 区间价表
+  var pr = document.getElementById('pricingRange');
+  if (pr && D.pricing && D.pricing.range) {
+    pr.innerHTML = '<thead><tr><th>服务</th><th>起步价</th><th>区间</th></tr></thead><tbody>' +
+      D.pricing.range.map(function(p){
+        return '<tr><td>' + p.service + '</td><td class="price-tag">¥' + p.priceFrom.toLocaleString() + ' 起</td><td>¥' + p.priceFrom.toLocaleString() + ' - ¥' + p.priceTo.toLocaleString() + '</td></tr>';
+      }).join('') + '</tbody>';
+  }
+  // 配置器
+  var ci = document.getElementById('configItems');
+  if (ci && D.pricing && D.pricing.transparent) {
+    ci.innerHTML = D.pricing.transparent.slice(0,6).map(function(p){
+      return '<div class="config-item" data-price="' + p.price + '">' +
+        '<div class="config-check"><input type="checkbox" id="cfg-' + p.service.replace(/[^\w]/g,'') + '"><label for="cfg-' + p.service.replace(/[^\w]/g,'') + '">' + p.service + '<br><small style="color:var(--c-text-light);font-weight:400;">' + p.period + '</small></label></div>' +
+        '<div class="config-price">¥' + p.price.toLocaleString() + '</div>' +
+      '</div>';
+    }).join('');
+  }
+})();
+</script>
+</body>
+</html>
