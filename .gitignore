@@ -22,3 +22,5 @@ npm-debug.log*
 # 临时
 tmp/
 *.tmp
+
+.vercel

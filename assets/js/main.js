@@ -250,7 +250,6 @@
         return '感谢您的咨询!您的需求我需要更多信息来精准推荐。\n\n请补充:\n1) 目标国家(如新加坡/美国/泰国)\n2) 业务类型(如注册/开户/审计/VIE架构)\n\n或直接拨打 ' + phone + ' 由资深顾问为您服务。';
       }
       var reply = '基于您的需求,我为您生成以下方案:\n\n';
-      var total = 0;
       if (match.scenario) reply += '🎯 识别场景:' + match.scenario + '\n';
       if (match.country) {
         var cname = { SG: '新加坡', US: '美国', MY: '马来西亚', TH: '泰国', ID: '印尼', HK: '香港', CAY: '开曼/BVI', UK: '英国', JP: '日本' }[match.country] || match.country;
@@ -259,22 +258,21 @@
       reply += '\n';
       match.services.forEach(function (s, i) {
         var country = s.countries.filter(function (c) { return c.code === match.country; })[0];
-        var price, timeline, entity;
+        var timeline, entity;
         if (country) {
-          price = country.priceFrom; timeline = country.timeline; entity = country.entity;
+          timeline = country.timeline; entity = country.entity;
         } else {
           var min = s.countries[0];
           s.countries.forEach(function (c) { if (c.priceFrom < min.priceFrom) min = c; });
-          price = min.priceFrom; timeline = min.timeline; entity = min.entity;
+          timeline = min.timeline; entity = min.entity;
         }
-        total += price;
         reply += (i + 1) + ') ' + s.icon + ' ' + s.name + (country ? '(' + country.name + ' ' + entity + ')' : '') + '\n';
-        reply += '   费用 ¥' + price.toLocaleString() + ' 起 | 周期 ' + timeline + '\n\n';
+        reply += '   周期 ' + timeline + ' | 费用:定制报价\n\n';
       });
       reply += '━━━━━━━━━━━━━━\n';
-      reply += '💰 预估总价:¥' + total.toLocaleString() + ' 起\n';
-      reply += '⏱️ 综合周期:约 2-6 周(视服务组合)\n\n';
-      reply += '下一步:\n• 继续提问可细化方案(如"加银行开户")\n• 拨打 ' + phone + ' 转 5 年+ 资深顾问\n• 或填写联系表单获取可下载方案书';
+      reply += '⏱️ 综合周期:约 2-6 周(视服务组合)\n';
+      reply += '💰 费用:顾问将根据需求精准报价,承诺无隐形消费\n\n';
+      reply += '下一步:\n• 继续提问可细化方案(如"加银行开户")\n• 拨打 ' + phone + ' 转 5 年+ 资深顾问获取报价\n• 或填写联系表单,顾问 30 秒内响应';
       return reply;
     }
 
@@ -425,14 +423,13 @@
     var svcHost = $('#servicesGrid');
     if (svcHost && D.services) {
       svcHost.innerHTML = D.services.map(function (s) {
-        var minPrice = Math.min.apply(null, s.countries.map(function (c) { return c.priceFrom; }));
         return '<a class="service-card" href="' + relLink(s.link) + '">' +
           '<div class="service-icon">' + s.icon + '</div>' +
           '<div class="service-name">' + s.name + '</div>' +
           '<div class="service-tagline">' + s.tagline + '</div>' +
           '<div class="service-desc">' + s.desc + '</div>' +
           '<div class="service-meta">' +
-            '<div class="service-price">起步价<br><strong>' + fmtPrice(minPrice) + '</strong></div>' +
+            '<div class="service-price">定制方案<br><strong>咨询报价</strong></div>' +
             '<span class="service-link">查看详情 →</span>' +
           '</div>' +
         '</a>';
