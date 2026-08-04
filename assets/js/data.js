@@ -11,7 +11,8 @@ window.HQ_DATA = {
   company: {
     name: '华企环球国际咨询',
     shortName: '华企环球',
-    fullName: '华企环球国际咨询有限公司',
+    fullName: '华企环球（深圳）国际咨询有限公司',
+    domain: 'hq10000.com',
     formerName: '鑫荣昇集团', // 历史品牌
     foundedYear: 2012,
     globalBusinessYear: 2013,
@@ -28,7 +29,7 @@ window.HQ_DATA = {
     mission: '让出海生意更简单,让身份规划无难事',
     values: '成就客户,共创共赢',
     slogan: '连接全球机遇,成就商业新高度',
-    copyright: 'Copyright © 2023-2026 华企环球国际咨询 All Rights Reserved'
+    copyright: 'Copyright © 2023-2026 华企环球（深圳）国际咨询有限公司 All Rights Reserved'
   },
 
   // ============ 4 大差异化功能 ============
