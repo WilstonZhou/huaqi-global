@@ -52,7 +52,7 @@
           '<div class="nav-phone">咨询热线<br><strong>' + (c.phone || '') + '</strong></div>' +
           '<a href="' + relLink('ai-match.html') + '" class="btn btn-gold btn-sm">立即匹配</a>' +
         '</div>' +
-        '<button class="nav-toggle" id="navToggle" aria-label="菜单"><span></span><span></span><span></span></button>' +
+        '<button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>' +
       '</div>';
   }
 
@@ -107,7 +107,7 @@
       '</div>';
   }
 
-  // ============ 漂浮客服 ============
+  // ============ 漂浮客服 + 移动端底部 CTA 栏 ============
   function renderFloat() {
     if ($('#floatService')) return;
     var c = D.company || {};
@@ -117,15 +117,57 @@
       '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">📞</span><span>电话</span></a>' +
       '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">💬</span><span>留言</span></a>';
     document.body.appendChild(f);
+
+    // 移动端底部固定 CTA 栏（CSS 仅移动端显示）
+    if (!$('#mobileCtaBar')) {
+      var bar = el('div', { class: 'mobile-cta-bar', id: 'mobileCtaBar' });
+      bar.innerHTML =
+        '<a class="btn btn-gold" href="' + relLink('ai-match.html') + '">🤖 AI 匹配</a>' +
+        '<a class="btn btn-primary" href="tel:' + (c.phone || '').replace(/-/g, '') + '">📞 电话咨询</a>';
+      document.body.appendChild(bar);
+    }
   }
 
   // ============ 移动端菜单 ============
   function bindNav() {
     var toggle = $('#navToggle');
     var menu = $('#navMenu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', function () { menu.classList.toggle('show'); });
+    if (!toggle || !menu) return;
+
+    // 遮罩元素
+    var overlay = el('div', { class: 'nav-overlay', id: 'navOverlay' });
+    document.body.appendChild(overlay);
+
+    function openMenu() {
+      menu.classList.add('show');
+      overlay.classList.add('show');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
+    function closeMenu() {
+      menu.classList.remove('show');
+      overlay.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', function () {
+      if (menu.classList.contains('show')) closeMenu(); else openMenu();
+    });
+    // 点击遮罩关闭
+    overlay.addEventListener('click', closeMenu);
+    // 点击菜单内链接后自动关闭
+    $all('a', menu).forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+    // ESC 关闭
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('show')) closeMenu();
+    });
+    // 窗口放大时重置
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 768) closeMenu();
+    });
   }
 
   // ============ 国家 tab 切换 ============

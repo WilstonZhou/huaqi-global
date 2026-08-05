@@ -500,7 +500,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; text-align: center; }
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 8px; max-width: 880px; margin-left: auto; margin-right: auto; }
 
-/* ---------- 移动端 ---------- */
+/* ---------- 响应式工具类（移动端优先，替代内联 grid 样式） ---------- */
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.split-layout { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .split-layout { grid-template-columns: 1fr 1.2fr; gap: 48px; }
+}
+@media (min-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- 平板 ---------- */
 @media (max-width: 1024px) {
   .features-grid, .services-grid, .knowledge-grid, .cases-grid { grid-template-columns: repeat(2, 1fr); }
   .region-grid, .office-grid, .values-grid { grid-template-columns: repeat(2, 1fr); }
@@ -511,30 +527,139 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ---------- 移动端 ---------- */
 @media (max-width: 768px) {
-  .container, .container-sm { padding: 0 16px; }
-  .section { padding: 56px 0; }
-  .nav-menu { display: none; }
-  .nav-toggle { display: flex; }
-  .nav-menu.show { display: flex; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: white; padding: 16px; border-bottom: 1px solid var(--c-border); box-shadow: var(--shadow-md); max-height: 80vh; overflow-y: auto; }
-  .nav-menu.show .nav-item { width: 100%; }
-  .nav-menu.show .nav-link { padding: 12px; }
-  .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding: 0 0 0 16px; }
+  :root { --nav-h: 56px; }
+
+  .container, .container-sm {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .section { padding: 44px 0; }
+  .section-header { margin-bottom: 32px; }
+  .section-title { font-size: 24px; }
+  .section-desc { font-size: 15px; }
+
+  /* 导航：全屏抽屉式菜单 */
+  .nav-menu {
+    display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+    background: white; padding: 8px 16px max(16px, env(safe-area-inset-bottom));
+    overflow-y: auto; flex-direction: column; align-items: stretch; gap: 0; z-index: 99;
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-menu.show { display: flex; animation: slideDown .25s ease; }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .nav-toggle { display: flex; width: 44px; height: 44px; }
+  .nav-menu.show .nav-item { width: 100%; border-bottom: 1px solid var(--c-border); }
+  .nav-menu.show .nav-link { padding: 14px 8px; font-size: 16px; }
+  .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding: 0 0 4px 16px; }
+  .nav-dropdown a { padding: 12px 8px; font-size: 14px; }
   .nav-cta { display: none; }
-  .hero { padding: 56px 0 72px; }
-  .hero h1 { font-size: 28px; }
-  .hero-stats { gap: 20px; }
-  .features-grid, .services-grid, .knowledge-grid, .cases-grid, .region-grid, .office-grid, .values-grid, .info-grid { grid-template-columns: 1fr; }
-  .page-title { font-size: 28px; }
-  .section-title { font-size: 26px; }
+
+  /* Hero */
+  .hero { padding: 36px 0 52px; }
+  .hero h1 { font-size: 26px; line-height: 1.3; margin-bottom: 16px; }
+  .hero-desc { font-size: 15px; margin-bottom: 24px; }
+  .hero-eyebrow { font-size: 12px; margin-bottom: 16px; }
+  .hero-actions { flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .hero-actions .btn { width: 100%; }
+  .hero-stats { gap: 16px 24px; justify-content: space-between; }
+  .hero-stat .num { font-size: 24px; }
+  .hero-stat .label { font-size: 12px; }
+  .hero-card { padding: 20px; }
+
+  /* 按钮：加大触摸区，防误触 */
+  .btn { padding: 14px 20px; min-height: 48px; }
+  .btn-lg { padding: 16px 24px; min-height: 54px; font-size: 16px; }
+  .btn-sm { min-height: 40px; }
+  .btn-block { width: 100%; }
+
+  /* 页面 Hero */
+  .page-hero { padding: 36px 0 48px; }
+  .page-title { font-size: 26px; }
+  .page-subtitle { font-size: 15px; }
+  .page-actions { flex-direction: column; gap: 12px; }
+  .page-actions .btn { width: 100%; }
+
+  /* 网格单列 */
+  .features-grid, .services-grid, .knowledge-grid, .cases-grid,
+  .region-grid, .office-grid, .values-grid, .info-grid { grid-template-columns: 1fr; }
   .about-story, .contact-grid, .form-row { grid-template-columns: 1fr; gap: 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .float-service { right: 16px; bottom: 16px; }
-  .pricing-table { font-size: 12px; }
-  .pricing-table th, .pricing-table td { padding: 10px 8px; }
+
+  /* 卡片间距收紧 */
+  .feature-card, .service-card, .knowledge-card { padding: 22px 18px; }
+  .content-block { padding: 20px 16px; }
+  .info-card { padding: 16px 12px; }
+
+  /* AI demo */
+  .ai-body { height: 320px; padding: 16px; }
+  .ai-header { padding: 12px 16px; }
+  .ai-msg { max-width: 90%; }
+  .ai-suggestions { padding: 10px 16px; }
+  .ai-suggestion { font-size: 13px; padding: 8px 12px; }
+
+  /* 交付追踪时间线 */
+  .tracking-timeline { padding-left: 32px; }
+  .tracking-dot { left: -32px; width: 26px; height: 26px; font-size: 12px; }
+
+  /* 定价表横向滚动 */
+  .pricing-table { font-size: 13px; display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  .pricing-table th, .pricing-table td { padding: 10px 10px; }
+
+  /* CTA */
+  .cta-banner { padding: 40px 20px; }
+  .cta-banner h2 { font-size: 24px; }
+  .cta-banner p { font-size: 14px; }
+  .cta-banner .hero-actions { flex-direction: column; }
+
+  /* 漂浮客服上移，避开底部 CTA 栏 */
+  .float-service { right: 12px; bottom: 76px; }
+  .float-btn { width: 48px; height: 48px; }
+
+  /* 页脚安全区 */
+  .site-footer { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+
+  /* 表单：≥16px 防 iOS 聚焦缩放 */
+  .form-group input, .form-group textarea, .form-group select { padding: 12px 14px; font-size: 16px; }
+  .faq-q { padding: 16px; font-size: 15px; }
+  .configurator { padding: 20px 16px; }
+
+  /* 按钮组：垂直堆叠，清除换行后错位的 margin-left */
+  .text-center .btn + .btn { margin-left: 0; margin-top: 12px; }
+
+  /* 文章 */
+  .article-body { font-size: 15px; }
+  .article-body h2 { font-size: 20px; }
+}
+
+/* ---------- 底部固定 CTA 栏（仅移动端） ---------- */
+.mobile-cta-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 95;
+  display: none; gap: 8px;
+  padding: 8px 12px max(8px, env(safe-area-inset-bottom));
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+  border-top: 1px solid var(--c-border); box-shadow: 0 -2px 12px rgba(10,43,92,0.08);
+}
+.mobile-cta-bar .btn { flex: 1; min-height: 44px; padding: 10px 8px; font-size: 14px; }
+@media (max-width: 768px) {
+  .mobile-cta-bar { display: flex; }
+  body { padding-bottom: 64px; }
+}
+
+/* ---------- 菜单遮罩 ---------- */
+.nav-overlay {
+  display: none; position: fixed; inset: var(--nav-h) 0 0 0; z-index: 98;
+  background: rgba(6,26,58,0.4); backdrop-filter: blur(2px);
+}
+.nav-overlay.show { display: block; animation: fadeIn .2s; }
+
+/* ---------- 无障碍：降低动效 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
 
 /* 打印优化 */
 @media print {
-  .site-header, .site-footer, .float-service, .nav-cta { display: none; }
+  .site-header, .site-footer, .float-service, .nav-cta, .mobile-cta-bar, .nav-overlay { display: none !important; }
 }
