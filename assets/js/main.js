@@ -846,6 +846,26 @@
         '</div>';
       }).join('');
     }
+
+    // 相关推荐模块(SEO内链策略)
+    var relatedHost = $('#relatedServicesGrid');
+    if (relatedHost && D.relatedServices) {
+      var currentPath = window.location.pathname;
+      // 规范化路径:去除开头的斜杠
+      var normalizedPath = currentPath.replace(/^\//, '');
+      // 尝试精确匹配,如果没有则使用 default
+      var related = D.relatedServices[normalizedPath] || D.relatedServices['default'];
+      if (related) {
+        relatedHost.innerHTML = related.map(function (r) {
+          return '<a href="' + r.url + '" class="info-card" style="padding:24px;text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;display:block;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.08)\'" onmouseout="this.style.transform=\'translateY(0)\';this.style.boxShadow=\'none\'">' +
+            '<div style="font-size:36px;margin-bottom:12px;">' + r.icon + '</div>' +
+            '<h3 style="font-size:18px;color:var(--c-primary);margin:0 0 12px 0;">' + r.title + '</h3>' +
+            '<p style="font-size:14px;color:var(--c-text-light);margin:0;line-height:1.6;">' + r.desc + '</p>' +
+            '<div style="margin-top:16px;font-size:13px;color:var(--c-gold);font-weight:600;">查看详情 →</div>' +
+          '</a>';
+        }).join('');
+      }
+    }
   }
 
   // ============ 启动 ============
