@@ -694,7 +694,7 @@ window.HQ_DATA = {
     { name: '全球网络', link: 'global-network' },
     { name: 'AI 智能匹配', link: 'ai-match', badge: 'NEW' },
     { name: '交付追踪', link: 'delivery-tracking' },
-    { name: '知识中心', link: 'knowledge/index', dropdown: [
+    { name: '知识中心', link: 'knowledge', dropdown: [
       { name: '新加坡注册指南', link: 'knowledge/singapore-registration-guide' },
       { name: '美国税收政策', link: 'knowledge/us-company-tax-policy' },
       { name: '跨境电商合规', link: 'knowledge/cross-border-compliance' }

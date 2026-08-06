@@ -48,7 +48,7 @@ function headerHtml(p) {
     '    <div class="nav-item"><a class="nav-link" href="' + p + 'global-network">全球网络</a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="' + p + 'ai-match">AI 智能匹配<span class="badge-new">NEW</span></a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="' + p + 'delivery-tracking">交付追踪</a></div>\n' +
-    '    <div class="nav-item"><a class="nav-link" href="' + p + 'knowledge/index">知识中心</a><div class="nav-dropdown">\n' +
+    '    <div class="nav-item"><a class="nav-link" href="' + p + 'knowledge">知识中心</a><div class="nav-dropdown">\n' +
     '      <a href="' + p + 'knowledge/singapore-registration-guide">新加坡注册指南</a><a href="' + p + 'knowledge/us-company-tax-policy">美国税收政策</a><a href="' + p + 'knowledge/cross-border-compliance">跨境电商合规</a><a href="' + p + 'news/index">政策动态</a>\n' +
     '    </div></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="' + p + 'about">关于我们</a></div>\n' +
