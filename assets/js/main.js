@@ -689,7 +689,7 @@
             '<span style="font-size:12px;padding:4px 10px;background:rgba(59,130,246,0.08);color:#3b82f6;border-radius:20px;">' + v.timeline + '</span>' +
           '</div>' +
           '<div style="font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:8px;">' + v.name + '</div>' +
-          '<div style="font-size:13px;color:var(--c-primary);font-weight:600;">￥' + (typeof v.priceFrom === 'number' ? v.priceFrom.toLocaleString() : v.priceFrom) + ' 起</div>' +
+          '<div style="font-size:13px;color:var(--c-primary);font-weight:600;">咨询报价</div>' +
         '</div>';
       }).join('');
     }
@@ -704,7 +704,7 @@
             '<span style="font-size:12px;padding:2px 8px;background:var(--c-bg-soft);color:var(--c-primary);border-radius:12px;">' + e.area + '</span>' +
           '</div>' +
           '<div style="font-size:14px;font-weight:600;color:var(--c-text);margin-bottom:6px;">' + e.category + '</div>' +
-          '<div style="font-size:12px;color:var(--c-primary);font-weight:600;">￥' + e.priceFrom.toLocaleString() + ' 起/年</div>' +
+          '<div style="font-size:12px;color:var(--c-primary);font-weight:600;">咨询报价</div>' +
         '</div>';
       }).join('');
     }
@@ -716,7 +716,7 @@
         return '<div class="info-card" style="padding:20px;text-align:left;">' +
           '<div style="font-size:16px;font-weight:700;color:var(--c-primary);margin-bottom:8px;">✅ ' + c.name + '</div>' +
           '<div style="font-size:13px;color:var(--c-text-light);margin-bottom:10px;">' + c.scope + '</div>' +
-          '<div style="font-size:13px;color:var(--c-gold);font-weight:600;">￥' + (typeof c.priceFrom === 'number' ? c.priceFrom.toLocaleString() : c.priceFrom) + ' 起</div>' +
+          '<div style="font-size:13px;color:var(--c-gold);font-weight:600;">咨询报价</div>' +
         '</div>';
       }).join('');
     }
@@ -731,7 +731,7 @@
             '<span style="font-size:11px;padding:1px 6px;background:rgba(250,204,21,0.15);color:#ca8a04;border-radius:10px;">' + t.type + '</span>' +
           '</div>' +
           '<div style="font-size:13px;font-weight:500;color:var(--c-text);margin-bottom:4px;">' + t.area + ' ' + t.type + '</div>' +
-          '<div style="font-size:11px;color:var(--c-primary);font-weight:600;">￥' + t.priceFrom.toLocaleString() + ' 起</div>' +
+          '<div style="font-size:11px;color:var(--c-primary);font-weight:600;">咨询报价</div>' +
         '</div>';
       }).join('');
     }
