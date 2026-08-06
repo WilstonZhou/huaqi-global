@@ -342,6 +342,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero {
   position: relative; padding: 88px 0 104px; overflow: hidden;
   background:
+    url('../images/hero-banner.jpg') no-repeat center / cover,
     url('../images/hero-banner.png') no-repeat center / cover,
     url('../images/global-network.svg') no-repeat center / cover,
     var(--grad-hero);
@@ -973,3 +974,100 @@ a:focus-visible, button:focus-visible,
 @media print {
   .site-header, .site-footer, .float-service, .nav-cta, .mobile-cta-bar, .nav-overlay { display: none !important; }
 }
+
+/* ---------- 免费核名 / 留资表单 ---------- */
+.namecheck-card {
+  background: linear-gradient(135deg, #fff 0%, #f7f9ff 100%);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+.namecheck-card .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.namecheck-card .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.namecheck-card label { font-size: 13px; font-weight: 600; color: var(--c-ink); }
+.namecheck-card input, .namecheck-card select {
+  min-height: 44px; padding: 10px 12px; border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm); font-size: 14px; background: #fff;
+}
+.namecheck-card input:focus, .namecheck-card select:focus {
+  border-color: var(--c-primary); outline: 2px solid rgba(37,99,235,0.15);
+}
+.namecheck-tip { font-size: 12px; color: var(--c-text-light); line-height: 1.6; }
+#nameCheckSuccess {
+  display: none; margin-top: 14px; padding: 12px 16px; border-radius: var(--radius-sm);
+  background: var(--c-bg-soft); border: 1px solid var(--c-border); font-size: 14px; color: var(--c-primary);
+}
+@media (max-width: 768px) {
+  .namecheck-card .form-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- 信任背书条 ---------- */
+.trust-strip {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  background: #fff; border: 1px solid var(--c-border); border-radius: var(--radius-lg);
+  padding: 22px 26px; box-shadow: var(--shadow-md); margin-top: -44px; position: relative; z-index: 2;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; justify-content: center; }
+.trust-item .trust-ico { font-size: 24px; line-height: 1; }
+.trust-item .trust-txt { font-size: 13px; color: var(--c-ink); font-weight: 600; line-height: 1.45; }
+.trust-item .trust-txt small { display: block; font-size: 11px; color: var(--c-text-light); font-weight: 400; }
+@media (max-width: 960px) {
+  .trust-strip { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .trust-strip { grid-template-columns: repeat(2, 1fr); padding: 16px; }
+}
+
+/* ---------- 悬浮微信提示 ---------- */
+.float-tip {
+  position: fixed; right: 24px; bottom: 150px; z-index: 999;
+  background: var(--c-ink); color: #fff; font-size: 13px; line-height: 1.5;
+  padding: 12px 16px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
+  animation: fadeIn .25s ease;
+}
+
+/* ---------- 企业微信二维码弹层 ---------- */
+.wechat-pop {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  z-index: 1000; width: 280px; padding: 26px 24px 22px; text-align: center;
+  background: #fff; border-radius: var(--radius-lg); box-shadow: 0 20px 60px rgba(6,26,58,0.35);
+  border: 1px solid var(--c-border);
+}
+.wechat-pop-close {
+  position: absolute; top: 8px; right: 10px; width: 30px; height: 30px; line-height: 1;
+  border: none; background: transparent; font-size: 22px; color: var(--c-text-light); cursor: pointer;
+}
+.wechat-pop-close:hover { color: var(--c-primary); }
+.wechat-pop-title { font-size: 17px; font-weight: 700; color: var(--c-ink); margin-bottom: 14px; }
+.wechat-pop-qr {
+  width: 180px; height: 180px; object-fit: contain; border-radius: var(--radius-sm);
+  border: 1px solid var(--c-border); padding: 6px; background: #fff; margin: 0 auto 12px;
+}
+.wechat-pop-tip { font-size: 13px; color: var(--c-text-light); margin-bottom: 6px; }
+.wechat-pop-no { font-size: 13px; color: var(--c-primary); font-weight: 600; margin-bottom: 12px; }
+.wechat-pop-copy { width: 100%; }
+
+/* ---------- 联系页二维码卡片 ---------- */
+.contact-wechat-card .wechat-qr-img {
+  display: block; margin-top: 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--c-border); padding: 6px; background: #fff;
+}
+@media (max-width: 560px) {
+  .wechat-pop { width: 260px; }
+}
+
+/* ---------- 行业墙 / 案例卡片 ---------- */
+.industry-pill {
+  display: inline-block; padding: 8px 18px; border-radius: var(--radius-full);
+  background: var(--c-bg-soft); border: 1px solid var(--c-border);
+  font-size: 14px; font-weight: 600; color: var(--c-primary);
+}
+.industry-pill:hover { border-color: var(--c-gold); color: var(--c-gold-deep); }
+.case-card {
+  background: #fff; border: 1px solid var(--c-border); border-radius: var(--radius-lg);
+  padding: 26px; box-shadow: var(--shadow-sm); height: 100%;
+}
+.case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.case-tag { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 10px;
+  background: var(--c-gold-soft); color: var(--c-gold-deep); margin-right: 6px; }

@@ -20,12 +20,12 @@ window.HQ_DATA = {
     globalBusinessYear: 2013,
     headquarters: ['香港', '深圳'],
     domesticBranches: ['北京', '上海', '广州', '武汉', '东莞', '佛山', '中山', '海南'],
-    overseasBranchesCount: 6, // 全球海外分支机构
+    overseasBranchesCount: 5, // 海外分支(不含深圳总部)
     countriesCovered: 126,
     coreCountries: '60+', // 核心可办理国家
     clientsServed: '数万家',
     casesCount: '300,000+', // 累计成功案例
-    experienceYears: 10, // 鑫荣昇品牌时期总经验
+    experienceYears: 14, // 集团总经验(2012-2026)
     coreFocusYears: 8, // 8 年出海落地合规服务精研(2018-2026)
     // 团队规模
     team: {
@@ -37,18 +37,18 @@ window.HQ_DATA = {
     },
     // 核心资质
     license: {
-      malaysiaGovernmentSecretary: true, // 马来西亚政府持牌秘书机构
-      description: '马来西亚政府SSM持牌商务秘书机构,非中间商转包'
+      malaysiaCompanySecretary: true, // 马来西亚 SSM 持牌公司秘书
+      description: '马来西亚 SSM 持牌公司秘书机构,自有团队直连官方,非中间商转包'
     },
     phone: '186-1090-2181',
     email: 'contact@hq10000.com',
     address: '深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座14层21',
     workday: '周一至周日 9:00-21:00',
-    vision: '7年内成为全球领先的企业服务集团',
+    vision: '成为全球领先的一站式企业出海服务平台',
     // 双版本使命并存
-    mission1: '让企业无难事,让创业更简单',
-    mission2: '让出海生意更简单,让身份规划无难事', // 鑫荣昇/出海版使命
-    mission: '让出海生意更简单,让身份规划无难事 · 让企业无难事,让创业更简单',
+    mission1: '让出海生意更简单,让身份规划无难事',
+    mission2: '让出海生意更简单,让身份规划无难事',
+    mission: '让出海生意更简单,让身份规划无难事',
     values: '成就客户,共创共赢',
     slogan: '连接全球机遇,成就商业新高度',
     copyright: 'Copyright © 2023-2026 华企环球（深圳）国际咨询有限公司 All Rights Reserved'
@@ -499,7 +499,7 @@ window.HQ_DATA = {
     ]
   },
 
-  // ============ 知识中心文章(3 篇) ============
+  // ============ 知识中心文章 ============
   knowledge: [
     {
       id: 'singapore-registration-guide',
@@ -533,6 +533,61 @@ window.HQ_DATA = {
       publishDate: '2026-07-10',
       link: 'knowledge/cross-border-compliance',
       keywords: ['跨境电商', 'VAT', 'EPR', '商标注册', '银行开户']
+    },
+    {
+      id: 'hk-vs-sg-company',
+      title: '香港公司 vs 新加坡公司:怎么选?',
+      category: '对比指南',
+      tag: '蓝海',
+      excerpt: '从税制、开户、融资、合规成本四个维度对比香港与新加坡公司,结合业务场景给出选择建议,附 2026 年最新政策要点。',
+      readTime: '9 分钟',
+      publishDate: '2026-08-05',
+      link: 'knowledge/hk-vs-sg-company',
+      keywords: ['香港公司注册', '新加坡公司注册', '香港新加坡对比']
+    },
+    {
+      id: 'cayman-vs-bvi',
+      title: '开曼 vs BVI:离岸公司怎么选?',
+      category: '对比指南',
+      tag: '蓝海',
+      excerpt: '开曼群岛与 BVI 是离岸架构两大核心选择,从税务、上市、经济实质、年费成本等维度对比,讲清 VIE 与红筹架构中如何取舍。',
+      readTime: '8 分钟',
+      publishDate: '2026-08-04',
+      link: 'knowledge/cayman-vs-bvi',
+      keywords: ['开曼公司注册', 'BVI公司注册', '离岸架构']
+    },
+    {
+      id: 'registration-cost-comparison',
+      title: '各国公司注册周期与费用对比(2026)',
+      category: '费用参考',
+      tag: '核验',
+      excerpt: '新加坡、美国、香港、马来西亚、泰国、英国、日本、韩国八大热门市场注册周期与公开规费对比,帮你建立预算预期,规避隐形消费。',
+      readTime: '7 分钟',
+      publishDate: '2026-08-03',
+      link: 'knowledge/registration-cost-comparison',
+      keywords: ['公司注册费用', '注册周期对比', '海外公司注册多少钱']
+    },
+    {
+      id: 'overseas-bank-account-guide',
+      title: '海外银行开户指南:材料、周期与银行怎么选',
+      category: '操作指南',
+      tag: '实战',
+      excerpt: '新加坡、香港、美国、马来西亚开户的材料清单、面签方式与周期,以及如何提高首审通过率,避免"有公司无账户"的困境。',
+      readTime: '10 分钟',
+      publishDate: '2026-08-02',
+      link: 'knowledge/overseas-bank-account-guide',
+      keywords: ['海外银行开户', '新加坡开户', '香港开户', '美国开户']
+    },
+    {
+      id: 'odi-vie-guide',
+      title: 'ODI 备案与 VIE 架构:跨境融资必读',
+      category: '资本架构',
+      tag: '高端',
+      excerpt: 'ODI 备案适用场景与办理流程、VIE 与红筹架构的区别、37 号文登记要点,以及架构搭建中常见的合规坑,一次讲清。',
+      readTime: '11 分钟',
+      publishDate: '2026-08-01',
+      link: 'knowledge/odi-vie-guide',
+      keywords: ['ODI备案', 'VIE架构', '红筹架构', '37号文']
     }
   ],
 
@@ -595,13 +650,14 @@ window.HQ_DATA = {
   // ============ 客户案例与数据 ============
   stats: [
     { value: '60+', unit: '核心国家', label: '均可办理' },
-    { value: '30万+', unit: '成功案例', label: '累计服务' },
-    { value: '8', unit: '年+', label: '合规服务精研' },
-    { value: '6', unit: '家', label: '全球分支机构' },
+    { value: '126', unit: '国', label: '服务网络覆盖' },
+    { value: '30万+', unit: '成功案例', label: '累计交付' },
+    { value: '14', unit: '年', label: '企业出海服务' },
+    { value: '5', unit: '处', label: '海外分支(港深双总部)' },
     { value: '300+', unit: '人', label: '专业团队规模' },
     { value: '20+', unit: '位', label: '资深合伙人' },
     { value: '100+', unit: '名', label: '客户经理' },
-    { value: '30+', unit: '名', label: '资深研究员' }
+    { value: '30+', unit: '名', label: '研究员(联动100+律师会计师)' }
   ],
 
   // ============ 客户案例 ============
@@ -626,6 +682,7 @@ window.HQ_DATA = {
     { name: '首页', link: '/' },
     { name: '服务', link: 'services/company-registration', dropdown: [
       { name: '海外公司注册', link: 'services/company-registration' },
+      { name: '热门国家注册', link: 'country' },
       { name: '公司开户', link: 'services/bank-account' },
       { name: '公司年审', link: 'services/annual-review' },
       { name: '公司审计', link: 'services/audit' },
@@ -637,10 +694,11 @@ window.HQ_DATA = {
     { name: '全球网络', link: 'global-network' },
     { name: 'AI 智能匹配', link: 'ai-match', badge: 'NEW' },
     { name: '交付追踪', link: 'delivery-tracking' },
-    { name: '知识中心', link: 'knowledge/singapore-registration-guide', dropdown: [
+    { name: '知识中心', link: 'knowledge/index', dropdown: [
       { name: '新加坡注册指南', link: 'knowledge/singapore-registration-guide' },
       { name: '美国税收政策', link: 'knowledge/us-company-tax-policy' },
       { name: '跨境电商合规', link: 'knowledge/cross-border-compliance' }
+      ,{ name: '政策动态', link: 'news/index' }
     ]},
     { name: '关于我们', link: 'about' },
     { name: '联系我们', link: 'contact' }

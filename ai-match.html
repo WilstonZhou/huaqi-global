@@ -59,13 +59,13 @@
   <nav class="nav-menu" id="navMenu">
     <div class="nav-item"><a class="nav-link" href="/">首页</a></div>
     <div class="nav-item"><a class="nav-link" href="services/company-registration">服务</a><div class="nav-dropdown">
-      <a href="services/company-registration">海外公司注册</a><a href="services/bank-account">公司开户</a><a href="services/annual-review">公司年审</a><a href="services/audit">公司审计</a><a href="services/company-deregistration">公司注销/转让</a><a href="services/tax-planning">税务规划</a><a href="services/fund-planning">资金规划</a><a href="services/other-services">其他业务</a>
+      <a href="services/company-registration">海外公司注册</a><a href="country">热门国家注册</a><a href="services/bank-account">公司开户</a><a href="services/annual-review">公司年审</a><a href="services/audit">公司审计</a><a href="services/company-deregistration">公司注销/转让</a><a href="services/tax-planning">税务规划</a><a href="services/fund-planning">资金规划</a><a href="services/other-services">其他业务</a>
     </div></div>
     <div class="nav-item"><a class="nav-link" href="global-network">全球网络</a></div>
     <div class="nav-item"><a class="nav-link" href="ai-match">AI 智能匹配<span class="badge-new">NEW</span></a></div>
     <div class="nav-item"><a class="nav-link" href="delivery-tracking">交付追踪</a></div>
     <div class="nav-item"><a class="nav-link" href="knowledge/singapore-registration-guide">知识中心</a><div class="nav-dropdown">
-      <a href="knowledge/singapore-registration-guide">新加坡注册指南</a><a href="knowledge/us-company-tax-policy">美国税收政策</a><a href="knowledge/cross-border-compliance">跨境电商合规</a>
+      <a href="knowledge/singapore-registration-guide">新加坡注册指南</a><a href="knowledge/us-company-tax-policy">美国税收政策</a><a href="knowledge/cross-border-compliance">跨境电商合规</a><a href="news/index">政策动态</a>
     </div></div>
     <div class="nav-item"><a class="nav-link" href="about">关于我们</a></div>
     <div class="nav-item"><a class="nav-link" href="contact">联系我们</a></div>
@@ -300,6 +300,49 @@
   </div>
 </section>
 
+<!-- 免费核名 -->
+<section class="section section-soft" id="nameCheckSection">
+  <div class="container container-sm">
+    <div class="section-header">
+      <span class="section-eyebrow">FREE NAME CHECK</span>
+      <h2 class="section-title">免费查询海外公司名称是否可用</h2>
+      <p class="section-desc">注册前先核名,避免重名白跑一趟。提交后顾问将为您免费查询目标国家注册机关的名称可用性,并反馈注册建议(1 个工作日内)。</p>
+    </div>
+    <div class="namecheck-card">
+      <form id="nameCheckForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ncCompany">拟注册的公司名称 *</label>
+            <input type="text" id="ncCompany" name="company" placeholder="例如:Huaqi Global Pte. Ltd." required>
+          </div>
+          <div class="form-group">
+            <label for="ncCountry">目标国家/地区 *</label>
+            <select id="ncCountry" name="country">
+              <option value="新加坡">新加坡</option>
+              <option value="美国">美国</option>
+              <option value="香港">香港</option>
+              <option value="马来西亚">马来西亚</option>
+              <option value="泰国">泰国</option>
+              <option value="英国">英国</option>
+              <option value="日本">日本</option>
+              <option value="韩国">韩国</option>
+              <option value="开曼/BVI">开曼/BVI</option>
+              <option value="其他">其他(请备注)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ncContact">您的电话或微信 *</label>
+          <input type="text" id="ncContact" name="contact" placeholder="用于接收核名结果,绝对保密" required>
+        </div>
+        <button type="submit" class="btn btn-gold btn-lg w-100" id="nameCheckBtn">提交免费核名申请</button>
+        <div id="nameCheckSuccess">✓ 已为您打开邮件客户端,请点击"发送"完成提交;若未自动打开,请直接拨打 186-1090-2181(微信同号)。</div>
+        <p class="namecheck-tip mt-12">提交即表示您同意我们通过电话/微信与您联系。核名结果以目标国家注册机关官方数据库为准,最终可用性由顾问核实后反馈。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="section pt-0">
   <div class="container">
@@ -334,13 +377,13 @@
 </div>
     </div>
     <div class="footer-col"><h4>服务范围</h4>
-      <a href="services/company-registration">海外公司注册</a><a href="services/bank-account">公司开户</a><a href="services/annual-review">公司年审</a><a href="services/audit">公司审计</a><a href="services/company-deregistration">公司注销/转让</a><a href="services/tax-planning">税务规划</a><a href="services/fund-planning">资金规划</a><a href="services/other-services">其他业务</a>
+      <a href="services/company-registration">海外公司注册</a><a href="country">热门国家注册</a><a href="services/bank-account">公司开户</a><a href="services/annual-review">公司年审</a><a href="services/audit">公司审计</a><a href="services/company-deregistration">公司注销/转让</a><a href="services/tax-planning">税务规划</a><a href="services/fund-planning">资金规划</a><a href="services/other-services">其他业务</a>
     </div>
     <div class="footer-col"><h4>知识中心</h4>
-      <a href="knowledge/singapore-registration-guide">2026 新加坡公司注册完全指南</a><a href="knowledge/us-company-tax-policy">美国公司税收政策解读</a><a href="knowledge/cross-border-compliance">跨境电商出海合规全方案</a>
+      <a href="knowledge/singapore-registration-guide">2026 新加坡公司注册完全指南</a><a href="knowledge/us-company-tax-policy">美国公司税收政策解读</a><a href="knowledge/cross-border-compliance">跨境电商出海合规全方案</a><a href="news/index">政策动态</a><a href="knowledge/registration-cost-comparison">各国注册周期与费用对比</a>
     </div>
     <div class="footer-col"><h4>关于</h4>
-      <a href="about">公司简介</a><a href="global-network">全球网络</a><a href="ai-match">AI 智能匹配</a><a href="delivery-tracking">交付追踪</a><a href="contact">联系我们</a>
+      <a href="about">公司简介</a><a href="global-network">全球网络</a><a href="ai-match">AI 智能匹配</a><a href="delivery-tracking">交付追踪</a><a href="cases">客户案例</a><a href="contact">联系我们</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -355,4 +398,3 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-

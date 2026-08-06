@@ -70,7 +70,7 @@
     var l = String(link).replace(/\.html$/, '');
     if (l === 'index') l = '/';
     // 检测当前页深度
-    var inSub = location.pathname.indexOf('/services/') > -1 || location.pathname.indexOf('/knowledge/') > -1;
+    var inSub = /\/(services|knowledge|country|solutions|news|cases)\//.test(location.pathname);
     if (inSub && l.indexOf('http') !== 0 && l.indexOf('/') !== 0) {
       return '../' + l;
     }
@@ -112,7 +112,7 @@
         '</div>' +
         '<div class="footer-bottom">' +
           '<div>' + (c.copyright || '') + '</div>' +
-          '<div class="footer-disclaimer">免责申明:本网站所收集的部分公开资料来源于互联网,转载目的在于传递更多信息及用于网络分享,并不代表本站赞同其观点和对其真实性负责。本站不对其版权负责,如有侵犯您的知识产权的作品,请联系我们及时修改或删除。</div>' +
+          '<div class="footer-disclaimer">免责声明:本网站内容仅供参考,各国政策、办理周期与费用以最新官方信息及双方合同约定为准。如需专业意见,请联系我们的顾问团队。</div>' +
         '</div>' +
       '</div>';
   }
@@ -125,8 +125,47 @@
     f.innerHTML =
       '<a class="float-btn" href="' + relLink('ai-match.html') + '" title="AI 匹配"><span class="float-icon">' + iconHtml('🤖', '', 20) + '</span><span>AI</span></a>' +
       '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">' + iconHtml('📞', '', 20) + '</span><span>电话</span></a>' +
-      '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>留言</span></a>';
+      '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>留言</span></a>' +
+      '<a class="float-btn float-btn-wechat" href="javascript:void(0)" title="复制微信号" id="floatWechat"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>微信</span></a>';
     document.body.appendChild(f);
+
+    // 微信按钮:展示企业微信二维码弹层(可复制微信号)
+    var wechat = $('#floatWechat');
+    if (wechat) {
+      wechat.addEventListener('click', function (e) {
+        e.preventDefault();
+        if ($('#wechatPop')) { $('#wechatPop').remove(); return; }
+        var wechatNo = (c.wechat || c.phone || '186-1090-2181').replace(/-/g, '');
+        var pop = el('div', { class: 'wechat-pop', id: 'wechatPop' });
+        pop.innerHTML =
+          '<button type="button" class="wechat-pop-close" aria-label="关闭">×</button>' +
+          '<div class="wechat-pop-title">企业微信</div>' +
+          '<img src="' + relLink('assets/images/wechat-qr.jpg') + '" alt="华企环球企业微信二维码" class="wechat-pop-qr">' +
+          '<div class="wechat-pop-tip">打开微信"扫一扫"添加专属顾问</div>' +
+          '<div class="wechat-pop-no">微信号:' + wechatNo + '</div>' +
+          '<button type="button" class="btn btn-outline btn-sm wechat-pop-copy">复制微信号</button>';
+        document.body.appendChild(pop);
+        var close = function () { if (pop.parentNode) pop.parentNode.removeChild(pop); };
+        $('.wechat-pop-close', pop).addEventListener('click', close);
+        pop.addEventListener('click', function (ev) { if (ev.target === pop) close(); });
+        document.addEventListener('keydown', function esc(e) {
+          if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+        });
+        $('.wechat-pop-copy', pop).addEventListener('click', function () {
+          var done = function () {
+            var tip = el('div', { class: 'float-tip' });
+            tip.textContent = '已复制微信号 ' + wechatNo + ',请到微信搜索添加';
+            document.body.appendChild(tip);
+            setTimeout(function () { tip.remove(); }, 2600);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(wechatNo).then(done, function () { window.prompt('请复制微信号:', wechatNo); });
+          } else {
+            window.prompt('请复制微信号:', wechatNo);
+          }
+        });
+      });
+    }
 
     // 移动端底部固定 CTA 栏（CSS 仅移动端显示）
     if (!$('#mobileCtaBar')) {
@@ -461,6 +500,43 @@
     });
   }
 
+  // ============ 免费核名/查重意向表单(留资钩子) ============
+  function bindNameCheck() {
+    var form = $('#nameCheckForm');
+    if (!form) return;
+    var success = $('#nameCheckSuccess');
+    var btn = $('#nameCheckBtn');
+    var submit = function (e) {
+      e.preventDefault();
+      var company = $('#ncCompany').value.trim();
+      var country = $('#ncCountry').value;
+      var contact = $('#ncContact').value.trim();
+      if (!company) { alert('请填写拟注册的公司名称'); return; }
+      if (!contact) { alert('请留下您的电话或微信,顾问才能反馈查重结果'); return; }
+      var subject = encodeURIComponent('免费核名申请-' + country + '-' + company);
+      var body = encodeURIComponent(
+        '公司名称:' + company + '\n' +
+        '目标国家:' + country + '\n' +
+        '联系电话/微信:' + contact + '\n\n' +
+        '请顾问协助查询名称是否可用并反馈注册建议,谢谢。'
+      );
+      window.location.href = 'mailto:' + (D.company && D.company.email ? D.company.email : 'contact@hq10000.com') +
+        '?subject=' + subject + '&body=' + body;
+      if (success) {
+        success.style.display = 'block';
+        btn && btn.setAttribute('disabled', 'disabled');
+      }
+    };
+    form.addEventListener('submit', submit);
+    var trigger = $('#nameCheckGo');
+    if (trigger) {
+      trigger.addEventListener('click', function () {
+        var target = $('#nameCheckSection');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  }
+
   // ============ 滚动淡入 ============
   function bindScrollAnim() {
     if (!('IntersectionObserver' in window)) return;
@@ -784,6 +860,7 @@
     bindConfigurator();
     bindFAQ();
     bindContactForm();
+    bindNameCheck();
     bindScrollAnim();
     highlightNav();
   }
