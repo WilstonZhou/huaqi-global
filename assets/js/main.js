@@ -29,6 +29,12 @@
   }
   function fmtPrice(p) { return '¥' + (p || 0).toLocaleString('zh-CN'); }
 
+  // 统一 SVG 图标:emoji/图标名 -> 内联 SVG(依赖 assets/js/icons.js)
+  function iconHtml(iconOrEmoji, cls, size) {
+    if (window.HQ_ICON_FROM) return window.HQ_ICON_FROM(iconOrEmoji, cls || '', size || 24);
+    return iconOrEmoji;
+  }
+
   // ============ 公共头部 ============
   function renderHeader() {
     var header = $('#site-header');
@@ -117,16 +123,16 @@
     var c = D.company || {};
     var f = el('div', { class: 'float-service', id: 'floatService' });
     f.innerHTML =
-      '<a class="float-btn" href="' + relLink('ai-match.html') + '" title="AI 匹配"><span class="float-icon">🤖</span><span>AI</span></a>' +
-      '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">📞</span><span>电话</span></a>' +
-      '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">💬</span><span>留言</span></a>';
+      '<a class="float-btn" href="' + relLink('ai-match.html') + '" title="AI 匹配"><span class="float-icon">' + iconHtml('🤖', '', 20) + '</span><span>AI</span></a>' +
+      '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">' + iconHtml('📞', '', 20) + '</span><span>电话</span></a>' +
+      '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>留言</span></a>';
     document.body.appendChild(f);
 
     // 移动端底部固定 CTA 栏（CSS 仅移动端显示）
     if (!$('#mobileCtaBar')) {
       var bar = el('div', { class: 'mobile-cta-bar', id: 'mobileCtaBar' });
       bar.innerHTML =
-        '<a class="btn btn-gold" href="' + relLink('ai-match.html') + '">🤖 AI 匹配</a>' +
+        '<a class="btn btn-gold" href="' + relLink('ai-match.html') + '">' + iconHtml('🤖', 'inline-icon', 18) + ' AI 匹配</a>' +
         '<a class="btn btn-primary" href="tel:' + (c.phone || '').replace(/-/g, '') + '">📞 电话咨询</a>';
       document.body.appendChild(bar);
     }
@@ -176,15 +182,23 @@
 
   // ============ 国家 tab 切换 ============
   function bindCountryTabs() {
+    $all('.country-panel').forEach(function (p) { p.setAttribute('aria-hidden', String(!p.classList.contains('active'))); });
     $all('.country-tab').forEach(function (tab) {
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('tabindex', '0');
+      tab.setAttribute('aria-selected', String(tab.classList.contains('active')));
       tab.addEventListener('click', function () {
         var group = tab.getAttribute('data-group');
         var target = tab.getAttribute('data-target');
-        $all('.country-tab[data-group="' + group + '"]').forEach(function (t) { t.classList.remove('active'); });
+        $all('.country-tab[data-group="' + group + '"]').forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
         tab.classList.add('active');
-        $all('.country-panel[data-group="' + group + '"]').forEach(function (p) { p.classList.remove('active'); });
+        tab.setAttribute('aria-selected', 'true');
+        $all('.country-panel[data-group="' + group + '"]').forEach(function (p) { p.classList.remove('active'); p.setAttribute('aria-hidden', 'true'); });
         var panel = $('[data-panel="' + target + '"]');
-        if (panel) panel.classList.add('active');
+        if (panel) { panel.classList.add('active'); panel.setAttribute('aria-hidden', 'false'); }
+      });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); }
       });
     });
   }
@@ -402,7 +416,15 @@
   function bindFAQ() {
     $all('.faq-item').forEach(function (item) {
       var q = $('.faq-q', item);
-      if (q) q.addEventListener('click', function () { item.classList.toggle('open'); });
+      if (!q) return;
+      function toggle() {
+        var open = item.classList.toggle('open');
+        q.setAttribute('aria-expanded', String(open));
+      }
+      q.addEventListener('click', toggle);
+      q.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
     });
   }
 
@@ -445,16 +467,13 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) {
-          en.target.style.opacity = '1';
-          en.target.style.transform = 'translateY(0)';
+          en.target.classList.add('in-view');
           io.unobserve(en.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     $all('.feature-card, .service-card, .knowledge-card, .case-card, .region-card, .value-card').forEach(function (el) {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      el.classList.add('reveal');
       io.observe(el);
     });
   }
@@ -476,7 +495,7 @@
     if (featHost && D.features) {
       featHost.innerHTML = D.features.map(function (f) {
         return '<div class="feature-card' + (f.highlight ? ' highlight' : '') + '">' +
-          '<div class="feature-icon">' + f.icon + '</div>' +
+          '<div class="feature-icon">' + iconHtml(f.icon, '', 26) + '</div>' +
           '<div class="feature-title">' + f.title + '</div>' +
           '<div class="feature-tagline">' + f.tagline + '</div>' +
           '<div class="feature-desc">' + f.desc + '</div>' +
@@ -490,7 +509,7 @@
     if (hlHost && D.highlights) {
       hlHost.innerHTML = D.highlights.map(function (h) {
         return '<div class="feature-card">' +
-          '<div class="feature-icon">' + h.icon + '</div>' +
+          '<div class="feature-icon">' + iconHtml(h.icon, '', 26) + '</div>' +
           '<div class="feature-title">' + h.title + '</div>' +
           '<div class="feature-desc" style="margin-top:10px;">' + h.desc + '</div>' +
         '</div>';
@@ -502,7 +521,7 @@
     if (svcHost && D.services) {
       svcHost.innerHTML = D.services.map(function (s) {
         return '<a class="service-card" href="' + relLink(s.link) + '">' +
-          '<div class="service-icon">' + s.icon + '</div>' +
+          '<div class="service-icon">' + iconHtml(s.icon, '', 26) + '</div>' +
           '<div class="service-name">' + s.name + '</div>' +
           '<div class="service-tagline">' + s.tagline + '</div>' +
           '<div class="service-desc">' + s.desc + '</div>' +
@@ -527,7 +546,7 @@
     if (heroCard && D.aiMatch && D.aiMatch.sampleDialog) {
       var d = D.aiMatch.sampleDialog;
       heroCard.innerHTML =
-        '<h3>🤖 AI 企服顾问实时演示</h3>' +
+        '<h3>' + iconHtml('🤖', '', 20) + ' AI 企服顾问实时演示</h3>' +
         (d[0] ? '<div class="ai-bubble">' + d[0].text + '</div>' : '') +
         (d[1] ? '<div class="ai-bubble user">' + d[1].text + '</div>' : '') +
         (d[2] ? '<div class="ai-bubble">' + d[2].text + '</div>' : '') +
@@ -542,7 +561,7 @@
     if (kbHost && D.knowledge) {
       kbHost.innerHTML = D.knowledge.map(function (k) {
         return '<a class="knowledge-card" href="' + relLink(k.link) + '">' +
-          '<div class="knowledge-cover">📄</div>' +
+          '<div class="knowledge-cover">' + iconHtml('📄', '', 46) + '</div>' +
           '<div class="knowledge-body">' +
             '<span class="knowledge-tag">' + k.category + ' · ' + k.tag + '</span>' +
             '<div class="knowledge-title">' + k.title + '</div>' +
@@ -557,7 +576,7 @@
     var faqHost = $('#faqList');
     if (faqHost && D.faq) {
       faqHost.innerHTML = D.faq.map(function (f) {
-        return '<div class="faq-item"><div class="faq-q">' + f.q + '</div><div class="faq-a"><p>' + f.a + '</p></div></div>';
+        return '<div class="faq-item"><div class="faq-q" role="button" tabindex="0" aria-expanded="false">' + f.q + '</div><div class="faq-a"><p>' + f.a + '</p></div></div>';
       }).join('');
     }
 
@@ -616,7 +635,7 @@
     if (typesHost && D.serviceTypes) {
       typesHost.innerHTML = D.serviceTypes.map(function (t) {
         return '<div class="info-card" style="padding:24px;text-align:left;">' +
-          '<div style="font-size:36px;margin-bottom:12px;">' + t.icon + '</div>' +
+          '<div class="type-icon">' + iconHtml(t.icon, '', 34) + '</div>' +
           '<h3 style="font-size:18px;color:var(--c-primary);margin:0 0 16px 0;">' + t.name + '</h3>' +
           '<div style="display:flex;flex-direction:column;gap:10px;">' +
             t.items.map(function (it) { return '<div style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--c-text-light);"><span style="color:var(--c-gold);">✓</span>' + it + '</div>'; }).join('') +
@@ -631,13 +650,13 @@
       compHost.innerHTML = D.complianceSystems.map(function (c) {
         return '<div class="info-card" style="padding:24px;text-align:left;">' +
           '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">' +
-            '<div style="font-size:32px;">' + c.icon + '</div>' +
+            '<div class="comp-icon">' + iconHtml(c.icon, '', 30) + '</div>' +
             '<h3 style="font-size:20px;color:var(--c-primary);margin:0;">' + c.category + '</h3>' +
           '</div>' +
           '<div style="display:flex;flex-direction:column;gap:14px;">' +
             c.points.map(function (p) {
               return '<div style="background:var(--c-bg-soft);padding:14px;border-radius:var(--radius-md);border-left:3px solid var(--c-gold);">' +
-                '<div style="font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:6px;">📌 ' + p.title + '</div>' +
+                '<div style="font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:6px;">' + iconHtml('📌', 'inline-icon', 14) + ' ' + p.title + '</div>' +
                 '<div style="font-size:13px;color:var(--c-text-light);line-height:1.7;">' + p.desc + '</div>' +
               '</div>';
             }).join('') +
@@ -655,7 +674,7 @@
           (isLast ? '' : '<div style="position:absolute;top:50%;right:-12px;width:24px;height:2px;background:var(--c-primary-light);display:none;" class="process-line"></div>') +
           '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">' +
             '<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c-primary) 0%,var(--c-primary-light) 100%);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;">' + s.step + '</div>' +
-            '<div style="font-size:28px;">' + s.icon + '</div>' +
+            '<div class="process-icon">' + iconHtml(s.icon, '', 26) + '</div>' +
           '</div>' +
           '<h3 style="font-size:16px;color:var(--c-primary);margin:0 0 8px 0;">' + s.title + '</h3>' +
           '<div style="font-size:13px;color:var(--c-text-light);line-height:1.7;">' + s.desc + '</div>' +
@@ -686,7 +705,7 @@
         return '<div class="info-card" style="padding:20px;text-align:left;">' +
           '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">' +
             '<div style="font-size:24px;">' + v.country + '</div>' +
-            '<span style="font-size:12px;padding:4px 10px;background:rgba(59,130,246,0.08);color:#3b82f6;border-radius:20px;">' + v.timeline + '</span>' +
+            '<span style="font-size:12px;padding:4px 10px;background:var(--c-accent-soft);color:var(--c-accent);border-radius:20px;">' + v.timeline + '</span>' +
           '</div>' +
           '<div style="font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:8px;">' + v.name + '</div>' +
           '<div style="font-size:13px;color:var(--c-primary);font-weight:600;">咨询报价</div>' +
@@ -728,7 +747,7 @@
         return '<div class="info-card" style="padding:14px;text-align:left;">' +
           '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">' +
             '<span style="font-size:18px;">' + t.country + '</span>' +
-            '<span style="font-size:11px;padding:1px 6px;background:rgba(250,204,21,0.15);color:#ca8a04;border-radius:10px;">' + t.type + '</span>' +
+            '<span style="font-size:11px;padding:1px 6px;background:var(--c-gold-soft);color:var(--c-gold-deep);border-radius:10px;">' + t.type + '</span>' +
           '</div>' +
           '<div style="font-size:13px;font-weight:500;color:var(--c-text);margin-bottom:4px;">' + t.area + ' ' + t.type + '</div>' +
           '<div style="font-size:11px;color:var(--c-primary);font-weight:600;">咨询报价</div>' +
