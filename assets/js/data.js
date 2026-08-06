@@ -205,7 +205,7 @@ window.HQ_DATA = {
   globalCountriesByRegion: [
     {
       region: '亚洲 ASIA',
-      count: 17,
+      count: 19,
       countries: [
         '新加坡', '马来西亚', '泰国', '越南', '香港', '日本', '韩国', '印度', '印度尼西亚',
         '菲律宾', '柬埔寨', '老挝', '缅甸', '文莱', '阿联酋', '土耳其', '巴基斯坦',
@@ -232,7 +232,7 @@ window.HQ_DATA = {
     },
     {
       region: '离岸群岛 OFFSHORE',
-      count: 4,
+      count: 5,
       countries: ['BVI(英属维尔京)', '开曼群岛', '塞舌尔', '马绍尔', '萨摩亚']
     },
     {
