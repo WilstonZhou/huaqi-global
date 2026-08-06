@@ -40,7 +40,7 @@ window.HQ_DATA = {
       title: 'AI 智能企服匹配引擎',
       tagline: '3 分钟出方案',
       desc: '对话式交互引导需求,AI 自动识别服务组合,生成个性化方案(含服务清单、办理周期、材料明细)。',
-      link: 'ai-match.html',
+      link: 'ai-match',
       highlight: true
     },
     {
@@ -49,7 +49,7 @@ window.HQ_DATA = {
       title: '定制化方案配置器',
       tagline: '专属方案 无隐形消费',
       desc: '勾选服务需求,AI 自动生成个性化方案书(含服务清单、办理周期、材料明细),顾问精准报价,承诺全流程无隐形消费。',
-      link: 'ai-match.html',
+      link: 'ai-match',
       highlight: false
     },
     {
@@ -58,7 +58,7 @@ window.HQ_DATA = {
       title: '实时交付追踪系统',
       tagline: '全流程可视 进度秒达',
       desc: '下单即获专属订单追踪页,时间线视图展示办理节点,关键步骤推送通知,文件归档随时下载。',
-      link: 'delivery-tracking.html',
+      link: 'delivery-tracking',
       highlight: false
     },
     {
@@ -67,7 +67,7 @@ window.HQ_DATA = {
       title: '专业知识中心',
       tagline: '专业但不装 透明且有用',
       desc: '系统化国家指南、政策解读、行业方案与常见问题,以 SEO 为核心驱动有机流量。',
-      link: 'knowledge/singapore-registration-guide.html',
+      link: 'knowledge/singapore-registration-guide',
       highlight: false
     }
   ],
@@ -80,7 +80,7 @@ window.HQ_DATA = {
       icon: '🌍',
       tagline: '126 国一站式注册,无需本人到场',
       desc: '深耕全球 126 个国家及地区企业注册法规,提供公司设立、EIN 税号、注册证书等全链条服务。',
-      link: 'services/company-registration.html',
+      link: 'services/company-registration',
       countries: [
         { code: 'SG', name: '新加坡', regulator: 'ACRA', entity: 'Pte Ltd', timeline: '5-7 工作日', priceFrom: 8800 },
         { code: 'US', name: '美国', regulator: '州务卿办公室', entity: 'LLC / INC', timeline: '1-3 工作日', priceFrom: 6800 },
@@ -94,7 +94,7 @@ window.HQ_DATA = {
       icon: '🏦',
       tagline: '银行绿色通道,合规审核无忧',
       desc: '与全球主流银行建立绿色通道合作,本地/离岸账户开立,严守 AML/KYC 合规底线。',
-      link: 'services/bank-account.html',
+      link: 'services/bank-account',
       countries: [
         { code: 'SG', name: '新加坡', regulator: 'MAS', entity: 'DBS/OCBC/UOB', timeline: '4-6 周', priceFrom: 5800 },
         { code: 'US', name: '美国', regulator: 'FinCEN', entity: 'Mercury/BoA', timeline: '2-4 周', priceFrom: 4800 },
@@ -107,7 +107,7 @@ window.HQ_DATA = {
       icon: '📅',
       tagline: '按时申报,规避除名风险',
       desc: '各国法定年审代办,向注册机关提交年报、续期资质,保障企业合法存续。',
-      link: 'services/annual-review.html',
+      link: 'services/annual-review',
       countries: [
         { code: 'SG', name: '新加坡', regulator: 'ACRA', entity: 'Annual Return', timeline: '5 工作日', priceFrom: 2800 },
         { code: 'MY', name: '马来西亚', regulator: 'SSM', entity: 'Annual Return', timeline: '7 工作日', priceFrom: 2600 },
@@ -121,7 +121,7 @@ window.HQ_DATA = {
       icon: '📊',
       tagline: 'GAAP/IFRS 合规审计报告',
       desc: '由注册会计师出具法定审计报告,符合当地会计准则,满足税务申报与商业拓展需求。',
-      link: 'services/audit.html',
+      link: 'services/audit',
       countries: [
         { code: 'ID', name: '印尼', regulator: 'OJK', entity: 'IFRS', timeline: '15-30 工作日', priceFrom: 8500 },
         { code: 'US', name: '美国', regulator: 'AICPA', entity: 'GAAP', timeline: '20-30 工作日', priceFrom: 9800 }
@@ -133,7 +133,7 @@ window.HQ_DATA = {
       icon: '🔄',
       tagline: '合法有序退出,产权平稳交接',
       desc: '注销与股权转让法定流程代办,规避税务、债务及法律风险,保障股东与相关方权益。',
-      link: 'services/company-deregistration.html',
+      link: 'services/company-deregistration',
       countries: [
         { code: 'TH', name: '泰国', regulator: 'DBD', entity: '注销/转让', timeline: '60-90 工作日', priceFrom: 12000 },
         { code: 'SG', name: '新加坡', regulator: 'ACRA', entity: '注销/转让', timeline: '30-45 工作日', priceFrom: 9800 },
@@ -146,7 +146,7 @@ window.HQ_DATA = {
       icon: '⚖️',
       tagline: '跨境合规,降本增效',
       desc: 'VAT/EPR、ODI 备案、跨境税务架构、转让定价合规,覆盖中企出海全周期税务需求。',
-      link: 'services/tax-planning.html',
+      link: 'services/tax-planning',
       countries: [
         { code: 'EU', name: '欧盟 VAT', regulator: '各国税局', entity: 'VAT/EPR', timeline: '15-30 工作日', priceFrom: 3800 },
         { code: 'CN', name: 'ODI 备案', regulator: '商务部', entity: '境外投资备案', timeline: '45-60 工作日', priceFrom: 18000 },
@@ -159,7 +159,7 @@ window.HQ_DATA = {
       icon: '💹',
       tagline: 'VIE 架构 / 跨境结算 / 海外资产配置',
       desc: '顶层股权架构设计、VIE 搭建、跨境资金通道、海外资产配置,合规前提下优化资金效率。',
-      link: 'services/fund-planning.html',
+      link: 'services/fund-planning',
       countries: [
         { code: 'VIE', name: 'VIE 架构', regulator: '证监会', entity: '红筹/VIE', timeline: '60-90 工作日', priceFrom: 38000 },
         { code: 'CAY', name: '开曼/BVI', regulator: 'CIMA', entity: '离岸公司', timeline: '7-10 工作日', priceFrom: 12800 },
@@ -172,7 +172,7 @@ window.HQ_DATA = {
       icon: '🎯',
       tagline: '海牙认证 / 香港公证 / 商标专利',
       desc: '海牙认证、香港公证、国际商标专利、海外身份规划等一站式出海衍生服务。',
-      link: 'services/other-services.html',
+      link: 'services/other-services',
       countries: [
         { code: 'APOSTILLE', name: '海牙认证', regulator: '外交部', entity: 'Apostille', timeline: '5-10 工作日', priceFrom: 1500 },
         { code: 'HK-NOTARY', name: '香港公证', regulator: '高等法院', entity: 'CPA公证', timeline: '3-5 工作日', priceFrom: 2200 },
@@ -205,7 +205,7 @@ window.HQ_DATA = {
       excerpt: '从公司类型、注册条件、办理流程到费用明细,一文讲清新加坡公司注册全部要点。涵盖 ACRA 最新政策、UEN 申请、私人有限公司(Pte Ltd)全流程。',
       readTime: '8 分钟',
       publishDate: '2026-07-25',
-      link: 'knowledge/singapore-registration-guide.html',
+      link: 'knowledge/singapore-registration-guide',
       keywords: ['新加坡公司注册', 'ACRA', 'UEN', 'Pte Ltd']
     },
     {
@@ -216,7 +216,7 @@ window.HQ_DATA = {
       excerpt: 'LLC 与 INC 的税务差异、特拉华州为何成首选、EIN 申请流程、州税与联邦税计算,以及跨境电商最关心的 1099-K 新规。',
       readTime: '10 分钟',
       publishDate: '2026-07-18',
-      link: 'knowledge/us-company-tax-policy.html',
+      link: 'knowledge/us-company-tax-policy',
       keywords: ['美国公司注册', 'LLC', 'INC', 'EIN', '特拉华']
     },
     {
@@ -227,7 +227,7 @@ window.HQ_DATA = {
       excerpt: '从亚马逊、Shopify 到独立站,梳理欧洲 VAT、EPR 包装法、海外商标布局、收款账户搭建全链路合规要点,附 2026 最新政策更新。',
       readTime: '12 分钟',
       publishDate: '2026-07-10',
-      link: 'knowledge/cross-border-compliance.html',
+      link: 'knowledge/cross-border-compliance',
       keywords: ['跨境电商', 'VAT', 'EPR', '商标注册', '银行开户']
     }
   ],
@@ -309,33 +309,33 @@ window.HQ_DATA = {
     { q: '办理周期一般多久?', a: '美国公司注册最快 1-3 工作日下证;新加坡 5-7 工作日;马来西亚 7-10 工作日;泰国 15-20 工作日。年审通常 3-10 工作日。复杂架构如 VIE/ODI 需 60-90 天。' },
     { q: '费用如何?有无隐形消费?', a: '华企环球采用定制报价模式,根据国家、业务类型、架构复杂度精准定价,不做一刀切标价。所有费用在合同中明确列出,办理过程中绝不加价,承诺全流程无隐形消费。' },
     { q: '下单后如何查看办理进度?', a: '下单即获专属订单追踪页面,实时查看每个服务项办理节点、当前状态、预计完成时间。关键步骤(如需签字、提交材料)会通过微信/短信/邮件主动推送提醒。' },
-    { q: 'AI 智能匹配是否准确?出错怎么办?', a: 'AI 匹配基于规则引擎 + LLM 理解,覆盖 200+ 服务场景。若 AI 不确定您的需求,会一键转人工顾问,30 秒内响应,保证方案专业度。' },
+    { q: 'AI 智能匹配是否准确?出错怎么办?', a: 'AI 匹配基于本地规则引擎,自动识别目标国家、服务板块与业务场景,为您生成服务组合参考。若未识别到匹配项,会引导您补充信息或转人工顾问,30 秒内响应,保证方案专业度。' },
     { q: '是否提供后续维护服务?', a: '是的。我们提供年审、做账报税、银行账户维护、商标续展、合规咨询等全生命周期服务,客户可自主在追踪页面查看续期提醒。' }
   ],
 
   // ============ 一级导航 ============
   nav: [
-    { name: '首页', link: 'index.html' },
-    { name: '服务', link: 'services/company-registration.html', dropdown: [
-      { name: '海外公司注册', link: 'services/company-registration.html' },
-      { name: '公司开户', link: 'services/bank-account.html' },
-      { name: '公司年审', link: 'services/annual-review.html' },
-      { name: '公司审计', link: 'services/audit.html' },
-      { name: '公司注销/转让', link: 'services/company-deregistration.html' },
-      { name: '税务规划', link: 'services/tax-planning.html' },
-      { name: '资金规划', link: 'services/fund-planning.html' },
-      { name: '其他业务', link: 'services/other-services.html' }
+    { name: '首页', link: '/' },
+    { name: '服务', link: 'services/company-registration', dropdown: [
+      { name: '海外公司注册', link: 'services/company-registration' },
+      { name: '公司开户', link: 'services/bank-account' },
+      { name: '公司年审', link: 'services/annual-review' },
+      { name: '公司审计', link: 'services/audit' },
+      { name: '公司注销/转让', link: 'services/company-deregistration' },
+      { name: '税务规划', link: 'services/tax-planning' },
+      { name: '资金规划', link: 'services/fund-planning' },
+      { name: '其他业务', link: 'services/other-services' }
     ]},
-    { name: '全球网络', link: 'global-network.html' },
-    { name: 'AI 智能匹配', link: 'ai-match.html', badge: 'NEW' },
-    { name: '交付追踪', link: 'delivery-tracking.html' },
-    { name: '知识中心', link: 'knowledge/singapore-registration-guide.html', dropdown: [
-      { name: '新加坡注册指南', link: 'knowledge/singapore-registration-guide.html' },
-      { name: '美国税收政策', link: 'knowledge/us-company-tax-policy.html' },
-      { name: '跨境电商合规', link: 'knowledge/cross-border-compliance.html' }
+    { name: '全球网络', link: 'global-network' },
+    { name: 'AI 智能匹配', link: 'ai-match', badge: 'NEW' },
+    { name: '交付追踪', link: 'delivery-tracking' },
+    { name: '知识中心', link: 'knowledge/singapore-registration-guide', dropdown: [
+      { name: '新加坡注册指南', link: 'knowledge/singapore-registration-guide' },
+      { name: '美国税收政策', link: 'knowledge/us-company-tax-policy' },
+      { name: '跨境电商合规', link: 'knowledge/cross-border-compliance' }
     ]},
-    { name: '关于我们', link: 'about.html' },
-    { name: '联系我们', link: 'contact.html' }
+    { name: '关于我们', link: 'about' },
+    { name: '联系我们', link: 'contact' }
   ]
 };
 

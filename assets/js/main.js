@@ -32,7 +32,8 @@
   // ============ 公共头部 ============
   function renderHeader() {
     var header = $('#site-header');
-    if (!header) return;
+    // 渐进增强:初始 HTML 已含静态导航时,不再重复渲染
+    if (!header || header.querySelector('.nav-menu')) return;
     var c = D.company || {};
     var nav = (D.nav || []).map(function (item) {
       var dropdown = item.dropdown ? '<div class="nav-dropdown">' + item.dropdown.map(function (d) {
@@ -59,19 +60,22 @@
   // 链接相对路径处理(支持子目录页面)
   function relLink(link) {
     if (!link) return '#';
+    // 兼容历史 .html 写法,统一输出 cleanUrls 无扩展名链接
+    var l = String(link).replace(/\.html$/, '');
+    if (l === 'index') l = '/';
     // 检测当前页深度
-    var path = location.pathname.split('/').pop();
     var inSub = location.pathname.indexOf('/services/') > -1 || location.pathname.indexOf('/knowledge/') > -1;
-    if (inSub && link.indexOf('http') !== 0 && link.indexOf('/') !== 0) {
-      return '../' + link;
+    if (inSub && l.indexOf('http') !== 0 && l.indexOf('/') !== 0) {
+      return '../' + l;
     }
-    return link;
+    return l;
   }
 
   // ============ 公共页脚 ============
   function renderFooter() {
     var footer = $('#site-footer');
-    if (!footer) return;
+    // 渐进增强:初始 HTML 已含静态页脚时,不再重复渲染
+    if (!footer || footer.querySelector('.footer-grid')) return;
     var c = D.company || {};
     var services = (D.services || []).map(function (s) {
       return '<a href="' + relLink(s.link) + '">' + s.name + '</a>';
@@ -408,10 +412,30 @@
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var email = (D.company && D.company.email) || '';
       var success = $('#formSuccess', form);
-      if (success) success.classList.add('show');
+      var d = new FormData(form);
+      function val(k) { var v = d.get(k); return v ? String(v).trim() : ''; }
+      var lines = [
+        '姓名: ' + val('name'),
+        '电话: ' + val('phone'),
+        '邮箱: ' + val('email'),
+        '公司名称: ' + val('company'),
+        '咨询业务: ' + val('service'),
+        'AI 匹配需求: ' + val('aiNeed'),
+        '留言: ' + val('message')
+      ];
+      var subject = encodeURIComponent('网站咨询-' + (val('service') || '综合需求') + '-' + (val('name') || '未留名'));
+      var body = encodeURIComponent(lines.join('\n'));
       form.reset();
-      setTimeout(function () { if (success) success.classList.remove('show'); }, 5000);
+      if (email) {
+        // 静态站无后端:调起用户邮件客户端发送,邮件内容即表单字段
+        window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+      }
+      if (success) {
+        success.classList.add('show');
+        setTimeout(function () { success.classList.remove('show'); }, 8000);
+      }
     });
   }
 
@@ -437,10 +461,10 @@
 
   // ============ 当前导航高亮 ============
   function highlightNav() {
-    var path = location.pathname.split('/').pop() || 'index.html';
+    var path = (location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
     $all('.nav-link').forEach(function (link) {
       var href = link.getAttribute('href') || '';
-      var last = href.split('/').pop();
+      var last = (href.split('/').pop() || 'index').replace(/\.html$/, '');
       if (last === path) link.parentElement.classList.add('active');
     });
   }
