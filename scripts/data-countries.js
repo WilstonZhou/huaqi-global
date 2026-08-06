@@ -166,7 +166,7 @@ module.exports = [
   {
     slug: 'uk', flag: '🇬🇧', name: '英国', en: 'United Kingdom',
     title: '英国公司注册', regulator: 'Companies House', type: 'Ltd(私人有限公司)', period: '1-3 工作日', mode: '定制报价',
-    metaTitle: '英国公司注册 | Companies House Ltd · 1-3工作日 | 华企环球',
+    metaTitle: '英国公司注册 | Companies House 1-3天 | 华企环球',
     metaDesc: '华企环球英国公司注册服务,Companies House 官方流程 1-3 个工作日下证。£1 起注册、100% 外资、UKCA/CE 合规,配套 UTR/VAT 与银行开户。',
     intro: '英国是欧洲最大金融中心,公司法体系成熟、国际声誉高、税务协定网络广(130+ 双重征税协定),是进入欧洲市场、品牌国际化、跨境电商欧洲站的优选注册地。脱欧后英国保持独立司法体系,可同步申请 UKCA 标志与 CE 标志。',
     conditions: [

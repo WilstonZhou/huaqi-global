@@ -17,7 +17,7 @@ var solutions = [
     slug: 'ecommerce',
     title: '跨境电商出海解决方案',
     eyebrow: 'E-COMMERCE',
-    metaTitle: '跨境电商出海解决方案 | 公司注册/VAT/EPR/商标/收款 | 华企环球',
+    metaTitle: '跨境电商出海方案 | 公司注册/VAT/EPR/商标 | 华企环球',
     metaDesc: '华企环球跨境电商出海方案:海外公司注册、13 国 VAT、22 项 EPR、商标布局、收款账户与税务合规一站式落地,覆盖亚马逊、Shopify、独立站全场景。',
     heroSub: '从主体搭建、税务合规到收款与品牌保护,为跨境电商卖家提供"注册 + 合规 + 运营"一站式方案,避免因合规问题被平台封店或税局罚款。',
     pains: [
@@ -200,6 +200,7 @@ solutions.forEach(function (s) {
   body += '\n\n' + lib.ctaBanner('聊聊您的具体场景', 'AI 匹配 + 顾问解读,把需求变成可执行的出海方案', p);
   write('solutions/' + s.slug + '.html', lib.buildPage({
     prefix: p,
+    canonical: 'https://hq10000.com/solutions/' + s.slug,
     title: s.metaTitle,
     desc: s.metaDesc,
     keywords: s.title + ',出海方案,华企环球',

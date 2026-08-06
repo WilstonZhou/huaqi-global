@@ -98,6 +98,36 @@ function footerHtml(p) {
     '</div></footer>';
 }
 
+// 相关推荐模块(SEO内链策略): kind = 'services' | 'knowledge' | 'both'
+function relatedSection(kind, p) {
+  var html = '';
+  if (kind === 'services' || kind === 'both') {
+    html += '<!-- 相关推荐 -->\n' +
+      '<section class="section section-soft" style="padding:48px 0;background:var(--c-bg-soft);">\n' +
+      '  <div class="container">\n' +
+      '    <div class="section-header text-center" style="margin-bottom:32px;">\n' +
+      '      <span class="section-eyebrow" style="display:inline-block;padding:6px 16px;font-size:12px;letter-spacing:1.5px;color:var(--c-primary);background:rgba(59,130,246,0.08);border-radius:20px;margin-bottom:12px;">RELATED SERVICES · 相关推荐</span>\n' +
+      '      <h2 class="section-title" style="font-size:32px;font-weight:700;color:var(--c-text);margin:0;">延伸服务 · 构建完整出海链路</h2>\n' +
+      '    </div>\n' +
+      '    <div class="info-grid" id="relatedServicesGrid"></div>\n' +
+      '  </div>\n' +
+      '</section>\n';
+  }
+  if (kind === 'knowledge' || kind === 'both') {
+    html += '<!-- 相关阅读 -->\n' +
+      '<section class="section section-soft" style="padding:48px 0;background:var(--c-bg-soft);">\n' +
+      '  <div class="container">\n' +
+      '    <div class="section-header text-center" style="margin-bottom:32px;">\n' +
+      '      <span class="section-eyebrow" style="display:inline-block;padding:6px 16px;font-size:12px;letter-spacing:1.5px;color:var(--c-primary);background:rgba(59,130,246,0.08);border-radius:20px;margin-bottom:12px;">RELATED ARTICLES · 相关阅读</span>\n' +
+      '      <h2 class="section-title" style="font-size:32px;font-weight:700;color:var(--c-text);margin:0;">延伸阅读 · 更多出海知识</h2>\n' +
+      '    </div>\n' +
+      '    <div class="info-grid" id="relatedArticlesGrid"></div>\n' +
+      '  </div>\n' +
+      '</section>\n';
+  }
+  return html;
+}
+
 function buildPage(opt) {
   var p = opt.prefix || '';
   var schemas = [ORG].concat(opt.schemas || []);
@@ -106,6 +136,7 @@ function buildPage(opt) {
     '<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">\n' +
     '<title>' + opt.title + '</title>\n' +
     '<meta name="description" content="' + opt.desc + '">\n' +
+    (opt.canonical ? '<link rel="canonical" href="' + opt.canonical + '">\n' : '') +
     (opt.keywords ? '<meta name="keywords" content="' + opt.keywords + '">\n' : '') +
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n' +
     '<link rel="stylesheet" href="' + p + 'assets/css/main.css">\n\n' +
@@ -113,7 +144,8 @@ function buildPage(opt) {
     '</head>\n<body>\n\n' +
     headerHtml(p) + '\n\n' +
     opt.body +
-    '\n\n' + footerHtml(p) + '\n\n' +
+    '\n\n' + (opt.relatedModules ? relatedSection(opt.relatedModules, p) : '') +
+    footerHtml(p) + '\n\n' +
     '<script src="' + p + 'assets/js/data.js"></script>\n' +
     '<script src="' + p + 'assets/js/icons.js"></script>\n' +
     '<script src="' + p + 'assets/js/main.js"></script>\n' +

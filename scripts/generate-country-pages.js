@@ -56,6 +56,7 @@ countries.forEach(function (c) {
   body += '\n\n' + lib.ctaBanner('3 分钟生成您的' + c.name + '出海方案', 'AI 智能匹配 + 定制报价 + 交付追踪,全流程透明可控', p);
   write('country/' + c.slug + '.html', lib.buildPage({
     prefix: p,
+    canonical: 'https://hq10000.com/country/' + c.slug,
     title: c.metaTitle,
     desc: c.metaDesc,
     keywords: c.name + '公司注册,' + c.name + '公司注册流程,' + c.name + '公司注册费用,华企环球',
@@ -80,7 +81,8 @@ countries.forEach(function (c) {
   body += '\n\n' + lib.ctaBanner('不确定选哪个国家?', 'AI 智能匹配引擎,3 分钟根据您的业务推荐最优注册方案', p);
   write('country/index.html', lib.buildPage({
     prefix: p,
-    title: '热门国家公司注册 | 新加坡/美国/香港/马来西亚/泰国 | 华企环球',
+    canonical: 'https://hq10000.com/country',
+    title: '热门国家公司注册 | 新加坡/美国/香港/马来西亚 | 华企环球',
     desc: '华企环球热门国家公司注册指南:新加坡、美国、香港、马来西亚、泰国、英国、日本、韩国八大市场,监管机构、注册条件、流程与费用参考一页直达,全程代办。',
     keywords: '海外公司注册,新加坡公司注册,美国公司注册,香港公司注册,马来西亚公司注册,泰国公司注册',
     schemas: [lib.breadcrumbSchema([

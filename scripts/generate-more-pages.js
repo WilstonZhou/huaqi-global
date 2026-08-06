@@ -66,6 +66,7 @@ function write(file, content) {
   body += '\n\n' + lib.ctaBanner('想了解同类客户怎么做的?', '联系顾问获取与您行业相近的案例参考与出海方案', p);
   write('cases.html', lib.buildPage({
     prefix: p,
+    canonical: 'https://hq10000.com/cases',
     title: '客户案例 | 跨境电商/高科技/制造业出海 | 华企环球',
     desc: '华企环球客户案例:跨境电商新加坡架构、AI 企业 VIE 红筹、制造业泰国建厂等典型出海项目,展示痛点、方案与交付成果(已脱敏)。',
     keywords: '华企环球案例,出海案例,海外公司注册案例,VIE架构案例',
@@ -101,6 +102,7 @@ function write(file, content) {
   body += '\n\n' + lib.ctaBanner('政策看不懂?让顾问帮您判断影响', 'AI 匹配 + 顾问解读,把政策变化翻译成您的行动清单', p);
   write('news/index.html', lib.buildPage({
     prefix: p,
+    canonical: 'https://hq10000.com/news',
     title: '政策动态 | 各国注册税务合规速览 | 华企环球',
     desc: '华企环球政策动态:新加坡 SUTE、美国 BOI、泰国 BOI、马来西亚 SSM 年申报、日本 JCT、欧盟 VAT/EPR 等出海政策要点速览。',
     keywords: '出海政策,海外公司注册政策,VAT,EPR,BOI,ODI',
@@ -137,6 +139,8 @@ function write(file, content) {
   body += '\n\n' + lib.ctaBanner('没找到您关心的问题?', '告诉 AI 您的出海需求,3 分钟生成方案参考', p);
   write('knowledge/index.html', lib.buildPage({
     prefix: p,
+    canonical: 'https://hq10000.com/knowledge',
+    relatedModules: 'knowledge',
     title: '知识中心 | 海外公司注册指南与政策解读 | 华企环球',
     desc: '华企环球知识中心:新加坡注册指南、美国税收政策、香港新加坡对比、开曼BVI对比、注册费用对比、海外开户指南、ODI/VIE 架构等专业内容。',
     keywords: '海外公司注册指南,新加坡公司注册,美国公司注册,ODI备案,VIE架构',
@@ -198,8 +202,10 @@ function write(file, content) {
   body += '\n\n' + lib.ctaBanner('获取您的专属报价方案', 'AI 匹配 + 顾问报价,费用周期一目了然', p);
   write('services/fees.html', lib.buildPage({
     prefix: p,
+    canonical: 'https://hq10000.com/services/fees',
+    relatedModules: 'services',
     title: '费用与周期说明 | 定制报价 · 无隐形消费 | 华企环球',
-    desc: '华企环球费用与周期说明:定制报价模式、费用构成透明、合同锁定不加价。附热门国家注册周期与公开政府规费参考表。',
+    desc: '华企环球费用与周期说明:定制报价模式、费用构成透明、合同锁定不加价。附热门国家注册周期与公开政府规费参考表,费用结构一目了然。',
     keywords: '海外公司注册费用,公司注册周期,海外公司注册多少钱,定制报价',
     schemas: [lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
