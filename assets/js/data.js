@@ -14,22 +14,22 @@ window.HQ_DATA = {
     fullName: '华企环球（深圳）国际咨询有限公司',
     domain: 'hq10000.com',
     formerName: '鑫荣昇集团', // 历史品牌
-    origin: '前身为会计事务所', // PDF第9页明确
+    origin: '前身为会计事务所',
     foundedYear: 2012, // 鑫荣昇创始年
-    hqFoundedYear: 2018, // 华企环球独立品牌年(PDF明确)
+    hqFoundedYear: 2018, // 华企环球独立品牌年
     globalBusinessYear: 2013,
     headquarters: ['香港', '深圳'],
     domesticBranches: ['北京', '上海', '广州', '武汉', '东莞', '佛山', '中山', '海南'],
     overseasBranchesCount: 6, // 全球海外分支机构
     countriesCovered: 126,
-    coreCountries: '60+', // 核心可办理国家(PDF明确60+)
+    coreCountries: '60+', // 核心可办理国家
     clientsServed: '数万家',
-    casesCount: '300,000+', // 累计成功案例(PDF公司简介明确)
+    casesCount: '300,000+', // 累计成功案例
     experienceYears: 10, // 鑫荣昇品牌时期总经验
-    coreFocusYears: 8, // PDF第1页:8年出海落地合规服务精研(2018-2026)
+    coreFocusYears: 8, // 8 年出海落地合规服务精研(2018-2026)
     // 团队规模
     team: {
-      totalSize: '300+', // PDF第9页:300多人专业团队
+      totalSize: '300+',
       partners: '20+',      // 合伙人
       accountManagers: '100+', // 客户经理
       researchers: '30+',   // 研究员
@@ -37,16 +37,16 @@ window.HQ_DATA = {
     },
     // 核心资质
     license: {
-      malaysiaGovernmentSecretary: true, // PDF明确:马来西亚政府持牌秘书机构
+      malaysiaGovernmentSecretary: true, // 马来西亚政府持牌秘书机构
       description: '马来西亚政府SSM持牌商务秘书机构,非中间商转包'
     },
     phone: '186-1090-2181',
     email: 'contact@hq10000.com',
     address: '深圳市龙华区龙胜路融创智汇大厦A座14层21',
     workday: '周一至周日 9:00-21:00',
-    vision: '7年内成为全球领先的企业服务集团', // PDF公司简介明确
+    vision: '7年内成为全球领先的企业服务集团',
     // 双版本使命并存
-    mission1: '让企业无难事,让创业更简单', // PDF第9页集团版使命
+    mission1: '让企业无难事,让创业更简单',
     mission2: '让出海生意更简单,让身份规划无难事', // 鑫荣昇/出海版使命
     mission: '让出海生意更简单,让身份规划无难事 · 让企业无难事,让创业更简单',
     values: '成就客户,共创共赢',
@@ -93,7 +93,7 @@ window.HQ_DATA = {
     }
   ],
 
-  // ============ 6 大服务亮点(完全对齐 PDF 原文措辞) ============
+  // ============ 6 大服务亮点 ============
   highlights: [
     {
       icon: '🌍',
@@ -127,7 +127,7 @@ window.HQ_DATA = {
     }
   ],
 
-  // ============ 4 大出海服务类型(PDF 第 2 页) ============
+  // ============ 4 大出海服务类型 ============
   serviceTypes: [
     {
       icon: '🌐',
@@ -151,7 +151,7 @@ window.HQ_DATA = {
     }
   ],
 
-  // ============ 4 大合规体系 × 3 子要点(PDF 第 3 页) ============
+  // ============ 4 大合规体系 × 3 子要点 ============
   complianceSystems: [
     {
       icon: '🧾',
@@ -191,7 +191,7 @@ window.HQ_DATA = {
     }
   ],
 
-  // ============ 6 步服务流程(PDF 第 8 页原版) ============
+  // ============ 6 步服务流程 ============
   serviceProcess: [
     { step: '01', icon: '🔍', title: '需求阶段', desc: '了解客户出海目的,理解客户业务模式,明确客户业务发展所需的相关服务' },
     { step: '02', icon: '📝', title: '方案制作', desc: '撰写详细服务方案,和客户讲解服务方案,按客户意见修改方案' },
@@ -201,7 +201,7 @@ window.HQ_DATA = {
     { step: '06', icon: '🛠️', title: '售后陪跑', desc: '后续年审审计提醒,合规政策更新通知,持续赋能陪跑企业长期经营' }
   ],
 
-  // ============ 全球国家覆盖详细分布(PDF 第 4 页,分 7 大区 50+ 国) ============
+  // ============ 全球国家覆盖详细分布(7 大区 50+ 国) ============
   globalCountriesByRegion: [
     {
       region: '亚洲 ASIA',
@@ -247,7 +247,7 @@ window.HQ_DATA = {
     }
   ],
 
-  // ============ VAT / EPR / 产品认证 全矩阵(PDF 第 10 页,大幅补全) ============
+  // ============ VAT / EPR / 产品认证 全矩阵 ============
   vatEprCertification: {
     vat: [
       { name: '英国 VAT', country: '🇬🇧', timeline: '2-4 周', priceFrom: 3800 },
@@ -592,7 +592,7 @@ window.HQ_DATA = {
     ]
   },
 
-  // ============ 客户案例与数据(PDF 数据口径) ============
+  // ============ 客户案例与数据 ============
   stats: [
     { value: '60+', unit: '核心国家', label: '均可办理' },
     { value: '30万+', unit: '成功案例', label: '累计服务' },

@@ -609,9 +609,9 @@
       }).join('');
     }
 
-    // ============ 新增模块:基于两个PDF新资料 ============
+    // ============ 新增模块 ============
 
-    // 4 大出海服务类型(PDF第2页)
+    // 4 大出海服务类型
     var typesHost = $('#serviceTypesGrid');
     if (typesHost && D.serviceTypes) {
       typesHost.innerHTML = D.serviceTypes.map(function (t) {
@@ -625,7 +625,7 @@
       }).join('');
     }
 
-    // 4 大合规体系 × 3子要点(PDF第3页)
+    // 4 大合规体系 × 3子要点
     var compHost = $('#complianceSystemsGrid');
     if (compHost && D.complianceSystems) {
       compHost.innerHTML = D.complianceSystems.map(function (c) {
@@ -646,7 +646,7 @@
       }).join('');
     }
 
-    // 6 步服务流程(PDF第8页原版)
+    // 6 步服务流程
     var processHost = $('#serviceProcessGrid');
     if (processHost && D.serviceProcess) {
       processHost.innerHTML = D.serviceProcess.map(function (s, i) {
@@ -663,7 +663,7 @@
       }).join('');
     }
 
-    // 全球国家覆盖详细分布(PDF第4页)
+    // 全球国家覆盖详细分布
     var countriesMapHost = $('#globalCountriesGrid');
     if (countriesMapHost && D.globalCountriesByRegion) {
       countriesMapHost.innerHTML = D.globalCountriesByRegion.map(function (r) {
@@ -679,7 +679,7 @@
       }).join('');
     }
 
-    // VAT 注册(PDF第10页:13国)
+    // VAT 注册(13国)
     var vatHost = $('#vatGrid');
     if (vatHost && D.vatEprCertification && D.vatEprCertification.vat) {
       vatHost.innerHTML = D.vatEprCertification.vat.map(function (v) {
@@ -694,7 +694,7 @@
       }).join('');
     }
 
-    // EPR 合规(PDF第10页:包装法/电池法/WEEE/欧代英代等)
+    // EPR 合规(包装法/电池法/WEEE/欧代英代等)
     var eprHost = $('#eprGrid');
     if (eprHost && D.vatEprCertification && D.vatEprCertification.epr) {
       eprHost.innerHTML = D.vatEprCertification.epr.map(function (e) {
@@ -709,7 +709,7 @@
       }).join('');
     }
 
-    // 产品认证(PDF第10页:CE/FDA/FCC/ROHS/CPC等)
+    // 产品认证(CE/FDA/FCC/ROHS/CPC等)
     var certHost = $('#certificationGrid');
     if (certHost && D.vatEprCertification && D.vatEprCertification.certification) {
       certHost.innerHTML = D.vatEprCertification.certification.map(function (c) {
@@ -721,7 +721,7 @@
       }).join('');
     }
 
-    // 商标版权(PDF第10页:22国商标+4国版权)
+    // 商标版权(22国商标+4国版权)
     var tmHost = $('#trademarkGrid');
     if (tmHost && D.vatEprCertification && D.vatEprCertification.trademarkCopyright) {
       tmHost.innerHTML = D.vatEprCertification.trademarkCopyright.map(function (t) {
