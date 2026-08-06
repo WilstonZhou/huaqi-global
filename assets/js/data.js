@@ -707,76 +707,132 @@ window.HQ_DATA = {
   // ============ 相关推荐服务映射(SEO内链策略) ============
   relatedServices: {
     'default': [
-      { icon: '🏢', title: '海外公司注册', desc: '19国注册代办,SSM持牌直连官方', url: 'services/company-registration.html' },
-      { icon: '💳', title: '海外银行开户', desc: '汇丰/星展/DBS等远程开户', url: 'services/bank-account.html' },
-      { icon: '📋', title: '公司年审审计', desc: '新加坡/马来西亚/泰国年审', url: 'services/annual-review.html' },
-      { icon: '💰', title: '跨境税务规划', desc: 'VAT/EPR/ODI全链路', url: 'services/tax-planning.html' }
+      { icon: '🏢', title: '海外公司注册', desc: '19国注册代办,SSM持牌直连官方', url: 'services/company-registration' },
+      { icon: '💳', title: '海外银行开户', desc: '汇丰/星展/DBS等远程开户', url: 'services/bank-account' },
+      { icon: '📋', title: '公司年审审计', desc: '新加坡/马来西亚/泰国年审', url: 'services/annual-review' },
+      { icon: '💰', title: '跨境税务规划', desc: 'VAT/EPR/ODI全链路', url: 'services/tax-planning' }
     ],
-    'services/company-registration.html': [
-      { icon: '💳', title: '海外银行开户', desc: '开户+签约一站式', url: 'services/bank-account.html' },
-      { icon: '📋', title: '公司年审', desc: '注册后第二年必做', url: 'services/annual-review.html' },
-      { icon: '💰', title: '税务规划', desc: 'VAT/GST合规', url: 'services/tax-planning.html' },
-      { icon: '🛡️', title: '跨境合规', desc: 'VAT/EPR/认证全矩阵', url: 'services/other-services.html' }
+    'services/company-registration': [
+      { icon: '💳', title: '海外银行开户', desc: '开户+签约一站式', url: 'services/bank-account' },
+      { icon: '📋', title: '公司年审', desc: '注册后第二年必做', url: 'services/annual-review' },
+      { icon: '💰', title: '税务规划', desc: 'VAT/GST合规', url: 'services/tax-planning' },
+      { icon: '🛡️', title: '跨境合规', desc: 'VAT/EPR/认证全矩阵', url: 'services/other-services' }
     ],
-    'services/other-services.html': [
-      { icon: '🏢', title: '海外公司注册', desc: '合规主体先行', url: 'services/company-registration.html' },
-      { icon: '💰', title: '税务规划', desc: 'VAT申报+架构优化', url: 'services/tax-planning.html' },
-      { icon: '💳', title: '银行开户', desc: '合规收付款', url: 'services/bank-account.html' },
-      { icon: '📝', title: '商标注册', desc: '22国商标+版权', url: 'services/other-services.html' }
+    'services/other-services': [
+      { icon: '🏢', title: '海外公司注册', desc: '合规主体先行', url: 'services/company-registration' },
+      { icon: '💰', title: '税务规划', desc: 'VAT申报+架构优化', url: 'services/tax-planning' },
+      { icon: '💳', title: '银行开户', desc: '合规收付款', url: 'services/bank-account' },
+      { icon: '📝', title: '商标注册', desc: '22国商标+版权', url: 'services/other-services' }
     ],
-    'services/bank-account.html': [
-      { icon: '🏢', title: '海外公司注册', desc: '先注册再开户', url: 'services/company-registration.html' },
-      { icon: '💰', title: '资金规划', desc: 'VIE/ODI通道', url: 'services/fund-planning.html' },
-      { icon: '📋', title: '公司年审', desc: '维持公司合规', url: 'services/annual-review.html' },
-      { icon: '📊', title: '公司审计', desc: '银行可能要求', url: 'services/audit.html' }
+    'services/bank-account': [
+      { icon: '🏢', title: '海外公司注册', desc: '先注册再开户', url: 'services/company-registration' },
+      { icon: '💰', title: '资金规划', desc: 'VIE/ODI通道', url: 'services/fund-planning' },
+      { icon: '📋', title: '公司年审', desc: '维持公司合规', url: 'services/annual-review' },
+      { icon: '📊', title: '公司审计', desc: '银行可能要求', url: 'services/audit' }
     ],
-    'services/tax-planning.html': [
-      { icon: '🛡️', title: '跨境合规', desc: 'VAT/EPR/认证', url: 'services/other-services.html' },
-      { icon: '🏢', title: '海外公司注册', desc: '合规主体设立', url: 'services/company-registration.html' },
-      { icon: '📋', title: '公司年审', desc: '年度申报', url: 'services/annual-review.html' },
-      { icon: '💳', title: '银行开户', desc: '税务合规账户', url: 'services/bank-account.html' }
+    'services/tax-planning': [
+      { icon: '🛡️', title: '跨境合规', desc: 'VAT/EPR/认证', url: 'services/other-services' },
+      { icon: '🏢', title: '海外公司注册', desc: '合规主体设立', url: 'services/company-registration' },
+      { icon: '📋', title: '公司年审', desc: '年度申报', url: 'services/annual-review' },
+      { icon: '💳', title: '银行开户', desc: '税务合规账户', url: 'services/bank-account' }
     ],
-    'services/fund-planning.html': [
-      { icon: '🏢', title: '海外公司注册', desc: '架构主体设立', url: 'services/company-registration.html' },
-      { icon: '💰', title: '税务规划', desc: '跨境税务优化', url: 'services/tax-planning.html' },
-      { icon: '💳', title: '银行开户', desc: '资金回流通道', url: 'services/bank-account.html' },
-      { icon: '📋', title: '公司年审', desc: '维持架构合规', url: 'services/annual-review.html' }
+    'services/fund-planning': [
+      { icon: '🏢', title: '海外公司注册', desc: '架构主体设立', url: 'services/company-registration' },
+      { icon: '💰', title: '税务规划', desc: '跨境税务优化', url: 'services/tax-planning' },
+      { icon: '💳', title: '银行开户', desc: '资金回流通道', url: 'services/bank-account' },
+      { icon: '📋', title: '公司年审', desc: '维持架构合规', url: 'services/annual-review' }
     ],
-    'knowledge/singapore-registration-guide.html': [
-      { icon: '🏢', title: '新加坡公司注册服务', desc: '5-7工作日下证', url: 'services/company-registration.html' },
-      { icon: '💳', title: 'DBS/OCBC银行开户', desc: '新加坡本地银行', url: 'services/bank-account.html' },
-      { icon: '📋', title: '新加坡公司年审', desc: '年度申报服务', url: 'services/annual-review.html' },
-      { icon: '💰', title: '新加坡GST注册', desc: '税务合规', url: 'services/tax-planning.html' }
+    'knowledge/singapore-registration-guide': [
+      { icon: '🏢', title: '新加坡公司注册服务', desc: '5-7工作日下证', url: 'services/company-registration' },
+      { icon: '💳', title: 'DBS/OCBC银行开户', desc: '新加坡本地银行', url: 'services/bank-account' },
+      { icon: '📋', title: '新加坡公司年审', desc: '年度申报服务', url: 'services/annual-review' },
+      { icon: '💰', title: '新加坡GST注册', desc: '税务合规', url: 'services/tax-planning' }
     ],
-    'knowledge/cross-border-compliance.html': [
-      { icon: '🏢', title: '海外公司注册', desc: '合规主体搭建', url: 'services/company-registration.html' },
-      { icon: '🛡️', title: 'VAT/EPR合规', desc: '22项环保合规', url: 'services/other-services.html' },
-      { icon: '📝', title: '国际商标注册', desc: '22国商标', url: 'services/other-services.html' },
-      { icon: '💰', title: '税务规划', desc: 'VAT申报', url: 'services/tax-planning.html' }
+    'knowledge/cross-border-compliance': [
+      { icon: '🏢', title: '海外公司注册', desc: '合规主体搭建', url: 'services/company-registration' },
+      { icon: '🛡️', title: 'VAT/EPR合规', desc: '22项环保合规', url: 'services/other-services' },
+      { icon: '📝', title: '国际商标注册', desc: '22国商标', url: 'services/other-services' },
+      { icon: '💰', title: '税务规划', desc: 'VAT申报', url: 'services/tax-planning' }
     ],
-    'knowledge/us-company-tax-policy.html': [
-      { icon: '🏢', title: '美国公司注册', desc: '1-3工作日下证', url: 'services/company-registration.html' },
-      { icon: '🛡️', title: 'VAT/EPR合规', desc: '跨境电商合规', url: 'services/other-services.html' },
-      { icon: '💳', title: '美国银行开户', desc: 'Mercury/BoA', url: 'services/bank-account.html' },
-      { icon: '📋', title: '美国公司年审', desc: '年度申报', url: 'services/annual-review.html' }
+    'knowledge/us-company-tax-policy': [
+      { icon: '🏢', title: '美国公司注册', desc: '1-3工作日下证', url: 'services/company-registration' },
+      { icon: '🛡️', title: 'VAT/EPR合规', desc: '跨境电商合规', url: 'services/other-services' },
+      { icon: '💳', title: '美国银行开户', desc: 'Mercury/BoA', url: 'services/bank-account' },
+      { icon: '📋', title: '美国公司年审', desc: '年度申报', url: 'services/annual-review' }
     ],
-    'services/annual-review.html': [
-      { icon: '🏢', title: '海外公司注册', desc: '初始设立', url: 'services/company-registration.html' },
-      { icon: '📊', title: '公司审计', desc: '审计报告服务', url: 'services/audit.html' },
-      { icon: '💰', title: '税务规划', desc: '年度税务合规', url: 'services/tax-planning.html' },
-      { icon: '🗂️', title: '公司注销/转让', desc: '不再运营时', url: 'services/company-deregistration.html' }
+    'services/annual-review': [
+      { icon: '🏢', title: '海外公司注册', desc: '初始设立', url: 'services/company-registration' },
+      { icon: '📊', title: '公司审计', desc: '审计报告服务', url: 'services/audit' },
+      { icon: '💰', title: '税务规划', desc: '年度税务合规', url: 'services/tax-planning' },
+      { icon: '🗂️', title: '公司注销/转让', desc: '不再运营时', url: 'services/company-deregistration' }
     ],
-    'services/audit.html': [
-      { icon: '📋', title: '公司年审', desc: '年审需要审计', url: 'services/annual-review.html' },
-      { icon: '💰', title: '税务规划', desc: '税务审计配合', url: 'services/tax-planning.html' },
-      { icon: '🏢', title: '海外公司注册', desc: '新设立公司', url: 'services/company-registration.html' },
-      { icon: '💳', title: '银行开户', desc: '银行可能需要', url: 'services/bank-account.html' }
+    'services/audit': [
+      { icon: '📋', title: '公司年审', desc: '年审需要审计', url: 'services/annual-review' },
+      { icon: '💰', title: '税务规划', desc: '税务审计配合', url: 'services/tax-planning' },
+      { icon: '🏢', title: '海外公司注册', desc: '新设立公司', url: 'services/company-registration' },
+      { icon: '💳', title: '银行开户', desc: '银行可能需要', url: 'services/bank-account' }
     ],
-    'services/company-deregistration.html': [
-      { icon: '🏢', title: '海外公司注册', desc: '重新注册', url: 'services/company-registration.html' },
-      { icon: '📋', title: '公司年审', desc: '注销前需完成年审', url: 'services/annual-review.html' },
-      { icon: '📊', title: '公司审计', desc: '注销需审计报告', url: 'services/audit.html' },
-      { icon: '💰', title: '税务规划', desc: '税务清算', url: 'services/tax-planning.html' }
+    'services/company-deregistration': [
+      { icon: '🏢', title: '海外公司注册', desc: '重新注册', url: 'services/company-registration' },
+      { icon: '📋', title: '公司年审', desc: '注销前需完成年审', url: 'services/annual-review' },
+      { icon: '📊', title: '公司审计', desc: '注销需审计报告', url: 'services/audit' },
+      { icon: '💰', title: '税务规划', desc: '税务清算', url: 'services/tax-planning' }
+    ],
+    'services/fees': [
+      { icon: '🏢', title: '海外公司注册', desc: '各国费用与周期详解', url: 'services/company-registration' },
+      { icon: '💳', title: '海外银行开户', desc: '开户费用与流程', url: 'services/bank-account' },
+      { icon: '📋', title: '公司年审审计', desc: '年审审计服务', url: 'services/annual-review' },
+      { icon: '💰', title: '税务规划', desc: 'VAT/ODI费用构成', url: 'services/tax-planning' }
+    ]
+  },
+
+  // ============ 相关文章推荐映射(知识中心内容集群) ============
+  relatedArticles: {
+    'default': [
+      { title: '2026新加坡公司注册完全指南', desc: '流程·费用·材料·避坑', url: 'knowledge/singapore-registration-guide' },
+      { title: '香港公司 vs 新加坡公司:怎么选?', desc: '税制/开户/融资能力对比', url: 'knowledge/hk-vs-sg-company' },
+      { title: '各国公司注册周期与费用对比', desc: '八大热门市场一表看懂', url: 'knowledge/registration-cost-comparison' },
+      { title: '海外银行开户指南', desc: '材料清单·周期·银行怎么选', url: 'knowledge/overseas-bank-account-guide' }
+    ],
+    'knowledge/singapore-registration-guide': [
+      { title: '香港公司 vs 新加坡公司:怎么选?', desc: '税制/开户/融资能力/合规成本对比', url: 'knowledge/hk-vs-sg-company' },
+      { title: '各国公司注册周期与费用对比', desc: '八大热门市场费用周期一表看懂', url: 'knowledge/registration-cost-comparison' },
+      { title: '海外银行开户指南', desc: '新加坡/香港/美国开户材料与要点', url: 'knowledge/overseas-bank-account-guide' }
+    ],
+    'knowledge/us-company-tax-policy': [
+      { title: '2026新加坡公司注册完全指南', desc: '新加坡税制与注册要点', url: 'knowledge/singapore-registration-guide' },
+      { title: '各国公司注册周期与费用对比', desc: '美国与其他市场成本对比', url: 'knowledge/registration-cost-comparison' },
+      { title: '跨境电商出海合规全方案', desc: 'VAT/EPR/认证合规要点', url: 'knowledge/cross-border-compliance' }
+    ],
+    'knowledge/cross-border-compliance': [
+      { title: '海外银行开户指南', desc: '合规收款账户怎么开', url: 'knowledge/overseas-bank-account-guide' },
+      { title: '美国公司税收政策解读', desc: 'LLC/INC/EIN/BOI申报', url: 'knowledge/us-company-tax-policy' },
+      { title: '各国公司注册周期与费用对比', desc: '合规主体设立成本', url: 'knowledge/registration-cost-comparison' }
+    ],
+    'knowledge/hk-vs-sg-company': [
+      { title: '2026新加坡公司注册完全指南', desc: '新加坡注册流程详解', url: 'knowledge/singapore-registration-guide' },
+      { title: '开曼 vs BVI:离岸公司怎么选?', desc: '上市/经济实质/成本对比', url: 'knowledge/cayman-vs-bvi' },
+      { title: '各国公司注册周期与费用对比', desc: '香港与新加坡费用对比', url: 'knowledge/registration-cost-comparison' }
+    ],
+    'knowledge/cayman-vs-bvi': [
+      { title: '香港公司 vs 新加坡公司:怎么选?', desc: '在岸注册地横向对比', url: 'knowledge/hk-vs-sg-company' },
+      { title: 'ODI备案与VIE架构:跨境融资必读', desc: '离岸架构与37号文要点', url: 'knowledge/odi-vie-guide' },
+      { title: '各国公司注册周期与费用对比', desc: '离岸 vs 在岸成本对比', url: 'knowledge/registration-cost-comparison' }
+    ],
+    'knowledge/registration-cost-comparison': [
+      { title: '2026新加坡公司注册完全指南', desc: '新加坡注册流程与费用', url: 'knowledge/singapore-registration-guide' },
+      { title: '香港公司 vs 新加坡公司:怎么选?', desc: '两大市场费用与税制对比', url: 'knowledge/hk-vs-sg-company' },
+      { title: '开曼 vs BVI:离岸公司怎么选?', desc: '离岸公司费用与维护成本', url: 'knowledge/cayman-vs-bvi' }
+    ],
+    'knowledge/overseas-bank-account-guide': [
+      { title: '2026新加坡公司注册完全指南', desc: '注册后开户流程', url: 'knowledge/singapore-registration-guide' },
+      { title: '美国公司税收政策解读', desc: '美国开户与EIN税号', url: 'knowledge/us-company-tax-policy' },
+      { title: '跨境电商出海合规全方案', desc: '收款与VAT合规联动', url: 'knowledge/cross-border-compliance' }
+    ],
+    'knowledge/odi-vie-guide': [
+      { title: '开曼 vs BVI:离岸公司怎么选?', desc: '离岸主体选择', url: 'knowledge/cayman-vs-bvi' },
+      { title: '香港公司 vs 新加坡公司:怎么选?', desc: '融资架构中的在岸主体', url: 'knowledge/hk-vs-sg-company' },
+      { title: '美国公司税收政策解读', desc: 'VIE架构税务要点', url: 'knowledge/us-company-tax-policy' }
     ]
   }
 };

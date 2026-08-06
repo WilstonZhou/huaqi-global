@@ -854,7 +854,10 @@
       // 规范化路径:去除开头的斜杠
       var normalizedPath = currentPath.replace(/^\//, '');
       // 尝试精确匹配,如果没有则使用 default
-      var related = D.relatedServices[normalizedPath] || D.relatedServices['default'];
+      var related = D.relatedServices[normalizedPath] ||
+        D.relatedServices[normalizedPath.replace(/\.html$/, '')] ||
+        D.relatedServices[normalizedPath + '.html'] ||
+        D.relatedServices['default'];
       if (related) {
         relatedHost.innerHTML = related.map(function (r) {
           return '<a href="' + r.url + '" class="info-card" style="padding:24px;text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;display:block;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.08)\'" onmouseout="this.style.transform=\'translateY(0)\';this.style.boxShadow=\'none\'">' +
@@ -862,6 +865,26 @@
             '<h3 style="font-size:18px;color:var(--c-primary);margin:0 0 12px 0;">' + r.title + '</h3>' +
             '<p style="font-size:14px;color:var(--c-text-light);margin:0;line-height:1.6;">' + r.desc + '</p>' +
             '<div style="margin-top:16px;font-size:13px;color:var(--c-gold);font-weight:600;">查看详情 →</div>' +
+          '</a>';
+        }).join('');
+      }
+    }
+
+    // 相关文章模块(知识中心内容集群)
+    var articleHost = $('#relatedArticlesGrid');
+    if (articleHost && D.relatedArticles) {
+      var currentPath2 = window.location.pathname;
+      var normalizedPath2 = currentPath2.replace(/^\//, '');
+      var articles = D.relatedArticles[normalizedPath2] ||
+        D.relatedArticles[normalizedPath2.replace(/\.html$/, '')] ||
+        D.relatedArticles[normalizedPath2 + '.html'] ||
+        D.relatedArticles['default'];
+      if (articles) {
+        articleHost.innerHTML = articles.map(function (r) {
+          return '<a href="' + r.url + '" class="info-card" style="padding:24px;text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;display:block;" onmouseover="this.style.transform=\'translateY(-4px)\';this.style.boxShadow=\'0 8px 24px rgba(0,0,0,0.08)\'" onmouseout="this.style.transform=\'translateY(0)\';this.style.boxShadow=\'none\'">' +
+            '<div style="font-size:18px;color:var(--c-primary);margin:0 0 12px 0;font-weight:600;">' + r.title + '</div>' +
+            '<p style="font-size:14px;color:var(--c-text-light);margin:0;line-height:1.6;">' + r.desc + '</p>' +
+            '<div style="margin-top:16px;font-size:13px;color:var(--c-gold);font-weight:600;">阅读全文 →</div>' +
           '</a>';
         }).join('');
       }
