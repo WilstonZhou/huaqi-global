@@ -281,6 +281,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .content-block p { color: var(--c-text); line-height: 1.8; margin-bottom: 12px; }
 .content-block ul { padding-left: 20px; margin-bottom: 12px; }
 .content-block ul li { list-style: disc; color: var(--c-text); line-height: 1.8; margin-bottom: 6px; }
+.content-block.content-block--dark { color: white; }
+.content-block.content-block--dark h3 { color: white; border-left-color: rgba(255,255,255,0.5); }
+.content-block.content-block--dark p { color: rgba(255,255,255,0.92); }
+.content-block.content-block--dark ul { color: rgba(255,255,255,0.92); }
+.content-block.content-block--dark ul li { color: rgba(255,255,255,0.92); }
+.content-block.content-block--dark ul li strong { color: white; }
 
 /* ---------- 透明定价表 ---------- */
 .pricing-table { width: 100%; background: white; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--c-border); }
