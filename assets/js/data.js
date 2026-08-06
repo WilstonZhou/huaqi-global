@@ -14,22 +14,323 @@ window.HQ_DATA = {
     fullName: '华企环球（深圳）国际咨询有限公司',
     domain: 'hq10000.com',
     formerName: '鑫荣昇集团', // 历史品牌
-    foundedYear: 2012,
+    origin: '前身为会计事务所', // PDF第9页明确
+    foundedYear: 2012, // 鑫荣昇创始年
+    hqFoundedYear: 2018, // 华企环球独立品牌年(PDF明确)
     globalBusinessYear: 2013,
     headquarters: ['香港', '深圳'],
     domesticBranches: ['北京', '上海', '广州', '武汉', '东莞', '佛山', '中山', '海南'],
+    overseasBranchesCount: 6, // 全球海外分支机构
     countriesCovered: 126,
+    coreCountries: '60+', // 核心可办理国家(PDF明确60+)
     clientsServed: '数万家',
-    experienceYears: 10,
+    casesCount: '300,000+', // 累计成功案例(PDF公司简介明确)
+    experienceYears: 10, // 鑫荣昇品牌时期总经验
+    coreFocusYears: 8, // PDF第1页:8年出海落地合规服务精研(2018-2026)
+    // 团队规模
+    team: {
+      totalSize: '300+', // PDF第9页:300多人专业团队
+      partners: '20+',      // 合伙人
+      accountManagers: '100+', // 客户经理
+      researchers: '30+',   // 研究员
+      lawyersAccountants: '100+' // 联动专业律师与会计师
+    },
+    // 核心资质
+    license: {
+      malaysiaGovernmentSecretary: true, // PDF明确:马来西亚政府持牌秘书机构
+      description: '马来西亚政府SSM持牌商务秘书机构,非中间商转包'
+    },
     phone: '186-1090-2181',
     email: 'contact@hq10000.com',
-    address: '深圳市龙华区龙胜路融创智汇大厦14层1421',
+    address: '深圳市龙华区龙胜路融创智汇大厦A座14层21',
     workday: '周一至周日 9:00-21:00',
-    vision: '成为中国企业走向全球的首选品牌',
-    mission: '让出海生意更简单,让身份规划无难事',
+    vision: '7年内成为全球领先的企业服务集团', // PDF公司简介明确
+    // 双版本使命并存
+    mission1: '让企业无难事,让创业更简单', // PDF第9页集团版使命
+    mission2: '让出海生意更简单,让身份规划无难事', // 鑫荣昇/出海版使命
+    mission: '让出海生意更简单,让身份规划无难事 · 让企业无难事,让创业更简单',
     values: '成就客户,共创共赢',
     slogan: '连接全球机遇,成就商业新高度',
     copyright: 'Copyright © 2023-2026 华企环球（深圳）国际咨询有限公司 All Rights Reserved'
+  },
+
+  // ============ 全球海外分支机构(含深圳总部) ============
+  overseasOffices: [
+    {
+      city: '深圳',
+      country: '中国',
+      flag: '🇨🇳',
+      address: '深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座14层21',
+      note: '中国总部 · 港深双总部之一'
+    },
+    {
+      city: '马来西亚',
+      country: '马来西亚',
+      flag: '🇲🇾',
+      address: 'SOHO SUITES KLCC, 20 JALAN PERAK, 50450 KUALA LUMPUR W.P. KUALA LUMPUR MALAYSIA',
+      note: '马来西亚政府持牌秘书机构 · 下证快时效保障'
+    },
+    {
+      city: '新加坡',
+      country: '新加坡',
+      flag: '🇸🇬',
+      address: '60 Paya Lebar Road #04 Paya Lebar Square, Singapore 409051',
+      note: '东南亚金融与控股中心'
+    },
+    {
+      city: '泰国',
+      country: '泰国',
+      flag: '🇹🇭',
+      address: '泰国曼谷邦卡皮区华马县兰甘亨76巷50号79单元',
+      note: '承接泰国注册、BOI、工厂许可业务'
+    },
+    {
+      city: '越南',
+      country: '越南',
+      flag: '🇻🇳',
+      address: '越南胡志明市Go Vap区Cityland12号街7号',
+      note: '覆盖越南投资、工厂出海、贸易公司注册'
+    }
+  ],
+
+  // ============ 6 大服务亮点(完全对齐 PDF 原文措辞) ============
+  highlights: [
+    {
+      icon: '🌍',
+      title: '业务范围广、全球 60 多个国家或地区均可办理',
+      desc: '热门国家自有团队,冷门国家合作覆盖,全球 60 多个核心国家或地区均可办理,实际网络延伸超 126 国。以马来西亚为核心,辐射欧美日、东南亚、南美等区域。'
+    },
+    {
+      icon: '🤵',
+      title: '专属资深顾问一对一服务,全程指导',
+      desc: '每位客户配备专属资深客户经理,全程指导,避免信息断层。从咨询到交付,同一个人跟进到底,服务体验不打折扣。300 多人专业团队为后盾,确保项目质量。'
+    },
+    {
+      icon: '📜',
+      title: '自有海外公司持牌秘书机构,下证快,时效保障',
+      desc: '马来西亚政府 SSM 持牌商务秘书机构,自有团队直连官方,非中间商转包,下证快、时效有保障。公司注册、年审、审计全流程直连,价格更优、进度可控。'
+    },
+    {
+      icon: '🎯',
+      title: '企业定制化方案赋能陪跑',
+      desc: '不做一刀切的标准化套餐,根据企业行业、目标国家、预算出具定制化方案,并提供后续合规陪跑,真正助力全球化落地。懂中国企业出海的需要——不仅要实在的价格和专业落地的交付,更需要贴合企业的方案。'
+    },
+    {
+      icon: '🛡️',
+      title: '诚信服务、专业高效、价格透明、退款承诺、售后无忧',
+      desc: '诚信服务、专业高效、价格透明、退款承诺、售后无忧,五重保障。合同明确所有费用与周期,办理过程绝不加价,未服务项目可退,让每一位客户安心。'
+    },
+    {
+      icon: '🏆',
+      title: '累计服务客户成功案例超 300000+',
+      desc: '前身为会计事务所,2018 年华企环球品牌独立发展至今,鑫荣昇 + 华企环球双品牌时期累计服务客户成功案例超 300,000+,涵盖传统行业、跨境电商、服务行业、高科技、金融等多个领域。'
+    }
+  ],
+
+  // ============ 4 大出海服务类型(PDF 第 2 页) ============
+  serviceTypes: [
+    {
+      icon: '🌐',
+      name: '国际贸易',
+      items: ['市场调研与定位', '贸易政策与法规', '物流与供应链', '支付与结算', '品牌与营销']
+    },
+    {
+      icon: '🛒',
+      name: '跨境电商',
+      items: ['平台选择与入驻', '商品选品与定价', '跨境支付与结算', '物流与配送', '营销与推广']
+    },
+    {
+      icon: '🏭',
+      name: '实体投资',
+      items: ['投资环境评估', '项目选址与规划', '法规与外资政策', '融资与资本运作', '运营与人力资源']
+    },
+    {
+      icon: '💡',
+      name: '出海咨询',
+      items: ['战略规划咨询', '市场准入咨询', '品牌国际化咨询', '风险评估与应对', '本地化运营咨询']
+    }
+  ],
+
+  // ============ 4 大合规体系 × 3 子要点(PDF 第 3 页) ============
+  complianceSystems: [
+    {
+      icon: '🧾',
+      category: '税务合规',
+      points: [
+        { title: '明晰法规', desc: '深入了解境内外税收法规差异与动态(如各国税率),关注国际税收政策走向' },
+        { title: '准确申报', desc: '掌握申报流程期限,依业务确定应税行为,精准计算并按时申报缴税' },
+        { title: '管理体系', desc: '借助技术建税务数据管理系统,构建风险评估机制,自查自纠防风险' }
+      ]
+    },
+    {
+      icon: '™️',
+      category: '品牌合规',
+      points: [
+        { title: '产权保护', desc: '全面检索避免侵权,及时注册自有知识产权,多地区布局保护品牌' },
+        { title: '规范使用', desc: '依法正确使用品牌标识,宣传推广遵守法规,杜绝不正当竞争' },
+        { title: '监控维权', desc: '建立监测机制,定期搜索侵权行为,发现后及时通过法律措施维权' }
+      ]
+    },
+    {
+      icon: '✅',
+      category: '产品合规',
+      points: [
+        { title: '遵循法规标准', desc: '严格遵守目标市场产品相关法规与标准(如欧盟 CE、美国 FDA)' },
+        { title: '认证标识合规', desc: '完成所需认证流程,保证产品资质合法,标签标识信息准确清晰' },
+        { title: '管控供应链与应急', desc: '确保产品质量,制定召回与应急预案,保障企业与消费者利益' }
+      ]
+    },
+    {
+      icon: '⚙️',
+      category: '运营合规',
+      points: [
+        { title: '遵守规则', desc: '严格遵循跨境电商平台规则,确保信息真实、竞争公平,不绕过平台交易' },
+        { title: '诚信交易', desc: '杜绝虚假交易,保证商品服务质量,符合平台发货要求,避免违规处罚' },
+        { title: '适应变化', desc: '关注目标市场政策法规变动(如消保、隐私法规),调整运营策略合规运营' }
+      ]
+    }
+  ],
+
+  // ============ 6 步服务流程(PDF 第 8 页原版) ============
+  serviceProcess: [
+    { step: '01', icon: '🔍', title: '需求阶段', desc: '了解客户出海目的,理解客户业务模式,明确客户业务发展所需的相关服务' },
+    { step: '02', icon: '📝', title: '方案制作', desc: '撰写详细服务方案,和客户讲解服务方案,按客户意见修改方案' },
+    { step: '03', icon: '🤝', title: '确认方案', desc: '确认服务项目,确认报价,确认服务交付标准' },
+    { step: '04', icon: '📋', title: '签订合同', desc: '拟制服务合同,签订服务合同,启动服务项目' },
+    { step: '05', icon: '🚀', title: '方案交付', desc: '办理资料收集,办理进度及时反馈,办结资料讲解、交付' },
+    { step: '06', icon: '🛠️', title: '售后陪跑', desc: '后续年审审计提醒,合规政策更新通知,持续赋能陪跑企业长期经营' }
+  ],
+
+  // ============ 全球国家覆盖详细分布(PDF 第 4 页,分 7 大区 50+ 国) ============
+  globalCountriesByRegion: [
+    {
+      region: '亚洲 ASIA',
+      count: 17,
+      countries: [
+        '新加坡', '马来西亚', '泰国', '越南', '香港', '日本', '韩国', '印度', '印度尼西亚',
+        '菲律宾', '柬埔寨', '老挝', '缅甸', '文莱', '阿联酋', '土耳其', '巴基斯坦',
+        '尼泊尔', '哈萨克斯坦'
+      ]
+    },
+    {
+      region: '美洲 AMERICA',
+      count: 20,
+      countries: [
+        '美国', '加拿大', '巴西', '墨西哥', '阿根廷', '巴拿马', '智利', '秘鲁', '哥伦比亚',
+        '厄瓜多尔', '乌拉圭', '巴哈马', '牙买加', '巴巴多斯', '圣卢西亚', '巴拉圭', '圭亚那',
+        '苏里南', '萨尔瓦多', '尼加拉瓜'
+      ]
+    },
+    {
+      region: '欧洲 EUROPE',
+      count: 20,
+      countries: [
+        '英国', '法国', '德国', '瑞士', '荷兰', '爱尔兰', '西班牙', '意大利', '葡萄牙',
+        '比利时', '卢森堡', '瑞典', '芬兰', '波兰', '捷克', '匈牙利', '立陶宛', '希腊',
+        '俄罗斯', '塞浦路斯'
+      ]
+    },
+    {
+      region: '离岸群岛 OFFSHORE',
+      count: 4,
+      countries: ['BVI(英属维尔京)', '开曼群岛', '塞舌尔', '马绍尔', '萨摩亚']
+    },
+    {
+      region: '大洋洲 OCEANIA',
+      count: 7,
+      countries: ['澳大利亚', '新西兰', '瓦努阿图', '基里巴斯', '帕劳', '瑙鲁', '图瓦卢']
+    },
+    {
+      region: '非洲 AFRICA',
+      count: 8,
+      countries: ['肯尼亚', '尼日利亚', '毛里求斯', '埃及', '南非', '赞比亚', '刚果(金)', '摩洛哥']
+    }
+  ],
+
+  // ============ VAT / EPR / 产品认证 全矩阵(PDF 第 10 页,大幅补全) ============
+  vatEprCertification: {
+    vat: [
+      { name: '英国 VAT', country: '🇬🇧', timeline: '2-4 周', priceFrom: 3800 },
+      { name: '德国 VAT', country: '🇩🇪', timeline: '4-8 周', priceFrom: 4200 },
+      { name: '法国 VAT', country: '🇫🇷', timeline: '3-6 周', priceFrom: 3900 },
+      { name: '意大利 VAT', country: '🇮🇹', timeline: '2-4 周', priceFrom: 3600 },
+      { name: '西班牙 VAT', country: '🇪🇸', timeline: '3-5 周', priceFrom: 3700 },
+      { name: '波兰 VAT', country: '🇵🇱', timeline: '2-4 周', priceFrom: 3400 },
+      { name: '捷克 VAT', country: '🇨🇿', timeline: '3-5 周', priceFrom: 3500 },
+      { name: '奥地利 VAT', country: '🇦🇹', timeline: '2-4 周', priceFrom: 3500 },
+      { name: '瑞典 VAT', country: '🇸🇪', timeline: '2-4 周', priceFrom: 3600 },
+      { name: '荷兰 VAT', country: '🇳🇱', timeline: '2-4 周', priceFrom: 3600 },
+      { name: '阿联酋 VAT', country: '🇦🇪', timeline: '2-3 周', priceFrom: 4500 },
+      { name: '日本 JCT', country: '🇯🇵', timeline: '2-4 周', priceFrom: 4200 },
+      { name: '墨西哥 RFC', country: '🇲🇽', timeline: '3-5 周', priceFrom: 4800 }
+    ],
+    epr: [
+      // 德国 EPR
+      { area: '德国', category: '包装法', country: '🇩🇪', priceFrom: 680 },
+      { area: '德国', category: '电池法(BattG)', country: '🇩🇪', priceFrom: 880 },
+      { area: '德国', category: 'WEEE(电子废弃物)', country: '🇩🇪', priceFrom: 1280 },
+      // 法国 EPR
+      { area: '法国', category: '包装法', country: '🇫🇷', priceFrom: 780 },
+      { area: '法国', category: '电池法', country: '🇫🇷', priceFrom: 980 },
+      { area: '法国', category: 'WEEE', country: '🇫🇷', priceFrom: 1380 },
+      { area: '法国', category: '纺织法(AGEC)', country: '🇫🇷', priceFrom: 1080 },
+      { area: '法国', category: '家具法', country: '🇫🇷', priceFrom: 1080 },
+      { area: '法国', category: '轮胎法', country: '🇫🇷', priceFrom: 1280 },
+      { area: '法国', category: '纸品法(图形印刷)', country: '🇫🇷', priceFrom: 980 },
+      { area: '法国', category: '玩具法', country: '🇫🇷', priceFrom: 1180 },
+      // 意西奥 EPR
+      { area: '意大利', category: '包装法', country: '🇮🇹', priceFrom: 680 },
+      { area: '意大利', category: '电池法', country: '🇮🇹', priceFrom: 880 },
+      { area: '意大利', category: 'WEEE', country: '🇮🇹', priceFrom: 1280 },
+      { area: '西班牙', category: '包装法', country: '🇪🇸', priceFrom: 720 },
+      { area: '西班牙', category: '电池法', country: '🇪🇸', priceFrom: 920 },
+      { area: '西班牙', category: 'WEEE', country: '🇪🇸', priceFrom: 1320 },
+      { area: '奥地利', category: '包装法', country: '🇦🇹', priceFrom: 750 },
+      { area: '奥地利', category: '电池法', country: '🇦🇹', priceFrom: 950 },
+      { area: '奥地利', category: 'WEEE', country: '🇦🇹', priceFrom: 1350 },
+      // 合规代表
+      { area: '欧盟合规代表', category: '欧代(EC REP)', country: '🇪🇺', priceFrom: 1500 },
+      { area: '英国合规代表', category: '英代(UK REP)', country: '🇬🇧', priceFrom: 1500 }
+    ],
+    certification: [
+      { name: 'CE 认证', scope: '欧盟产品安全合规', priceFrom: 3500 },
+      { name: 'FDA 认证', scope: '美国食品药品接触材料/医疗', priceFrom: 4500 },
+      { name: 'FCC 认证', scope: '美国电子电磁兼容', priceFrom: 3200 },
+      { name: 'ROHS 认证', scope: '欧盟电子有害物质限制', priceFrom: 2800 },
+      { name: 'CPC 认证', scope: '美国儿童产品安全证书', priceFrom: 3800 },
+      { name: '气候友好承诺认证', scope: '亚马逊 Climate Pledge Friendly', priceFrom: 2800 },
+      { name: '欧盟能效 ERP', scope: '欧盟能效标签注册', priceFrom: 2500 },
+      { name: '海外仓售后服务', scope: '退换货/贴标/质检/一件代发', priceFrom: '按项目报价' }
+    ],
+    trademarkCopyright: [
+      // 商标
+      { type: '商标', area: '美国', country: '🇺🇸', priceFrom: 5800 },
+      { type: '商标', area: '欧盟', country: '🇪🇺', priceFrom: 6800 },
+      { type: '商标', area: '英国', country: '🇬🇧', priceFrom: 4800 },
+      { type: '商标', area: '德国', country: '🇩🇪', priceFrom: 4500 },
+      { type: '商标', area: '法国', country: '🇫🇷', priceFrom: 4500 },
+      { type: '商标', area: '日本', country: '🇯🇵', priceFrom: 5200 },
+      { type: '商标', area: '韩国', country: '🇰🇷', priceFrom: 4800 },
+      { type: '商标', area: '俄罗斯', country: '🇷🇺', priceFrom: 5000 },
+      { type: '商标', area: '加拿大', country: '🇨🇦', priceFrom: 5200 },
+      { type: '商标', area: '墨西哥', country: '🇲🇽', priceFrom: 4800 },
+      { type: '商标', area: '越南', country: '🇻🇳', priceFrom: 4200 },
+      { type: '商标', area: '泰国', country: '🇹🇭', priceFrom: 4200 },
+      { type: '商标', area: '马来西亚', country: '🇲🇾', priceFrom: 4000 },
+      { type: '商标', area: '新加坡', country: '🇸🇬', priceFrom: 4200 },
+      { type: '商标', area: '菲律宾', country: '🇵🇭', priceFrom: 4500 },
+      { type: '商标', area: '印度', country: '🇮🇳', priceFrom: 4500 },
+      { type: '商标', area: '瑞士', country: '🇨🇭', priceFrom: 5500 },
+      { type: '商标', area: '西班牙', country: '🇪🇸', priceFrom: 4500 },
+      { type: '商标', area: '阿联酋', country: '🇦🇪', priceFrom: 5500 },
+      { type: '商标', area: '沙特', country: '🇸🇦', priceFrom: 5800 },
+      { type: '商标', area: '中国', country: '🇨🇳', priceFrom: 1200 },
+      // 版权
+      { type: '版权', area: '美国', country: '🇺🇸', priceFrom: 2800 },
+      { type: '版权', area: '加拿大', country: '🇨🇦', priceFrom: 2800 },
+      { type: '版权', area: '日本', country: '🇯🇵', priceFrom: 2500 },
+      { type: '版权', area: '韩国', country: '🇰🇷', priceFrom: 2200 }
+    ]
   },
 
   // ============ 4 大差异化功能 ============
@@ -170,10 +471,13 @@ window.HQ_DATA = {
       id: 'other-services',
       name: '其他业务',
       icon: '🎯',
-      tagline: '海牙认证 / 香港公证 / 商标专利',
-      desc: '海牙认证、香港公证、国际商标专利、海外身份规划等一站式出海衍生服务。',
+      tagline: '海牙认证 / 商标专利 / 马来第二家园 / 留学移民 / 资产配置',
+      desc: '海牙认证、香港公证、国际商标专利、马来西亚第二家园与永居、ODI备案、留学移民、海外资产配置等一站式出海衍生服务。',
       link: 'services/other-services',
       countries: [
+        { code: 'MM2H', name: '马来西亚第二家园', regulator: '旅游部', entity: 'MM2H签证', timeline: '3-6 月', priceFrom: 38000 },
+        { code: 'MY-PR', name: '马来西亚永居(PR)', regulator: '移民局', entity: 'Red Identity Card', timeline: '6-12 月', priceFrom: 180000 },
+        { code: 'ODI', name: 'ODI境外投资备案', regulator: '商务部/发改委', entity: '境外投资证书', timeline: '45-60 工作日', priceFrom: 18000 },
         { code: 'APOSTILLE', name: '海牙认证', regulator: '外交部', entity: 'Apostille', timeline: '5-10 工作日', priceFrom: 1500 },
         { code: 'HK-NOTARY', name: '香港公证', regulator: '高等法院', entity: 'CPA公证', timeline: '3-5 工作日', priceFrom: 2200 },
         { code: 'TM', name: '商标专利', regulator: 'WIPO', entity: '马德里体系', timeline: '12-18 月', priceFrom: 5800 }
@@ -288,12 +592,16 @@ window.HQ_DATA = {
     ]
   },
 
-  // ============ 客户案例与数据 ============
+  // ============ 客户案例与数据(PDF 数据口径) ============
   stats: [
-    { value: '126', unit: '个国家', label: '业务覆盖' },
-    { value: '数万', unit: '家', label: '企业客户' },
-    { value: '10', unit: '年+', label: '出海服务经验' },
-    { value: '8', unit: '城', label: '国内分公司' }
+    { value: '60+', unit: '核心国家', label: '均可办理' },
+    { value: '30万+', unit: '成功案例', label: '累计服务' },
+    { value: '8', unit: '年+', label: '合规服务精研' },
+    { value: '6', unit: '家', label: '全球分支机构' },
+    { value: '300+', unit: '人', label: '专业团队规模' },
+    { value: '20+', unit: '位', label: '资深合伙人' },
+    { value: '100+', unit: '名', label: '客户经理' },
+    { value: '30+', unit: '名', label: '资深研究员' }
   ],
 
   // ============ 客户案例 ============

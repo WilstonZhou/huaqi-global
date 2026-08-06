@@ -485,6 +485,18 @@
       }).join('');
     }
 
+    // 6 大服务亮点(融合新资料)
+    var hlHost = $('#highlightsGrid');
+    if (hlHost && D.highlights) {
+      hlHost.innerHTML = D.highlights.map(function (h) {
+        return '<div class="feature-card">' +
+          '<div class="feature-icon">' + h.icon + '</div>' +
+          '<div class="feature-title">' + h.title + '</div>' +
+          '<div class="feature-desc" style="margin-top:10px;">' + h.desc + '</div>' +
+        '</div>';
+      }).join('');
+    }
+
     // 首页 8 大服务
     var svcHost = $('#servicesGrid');
     if (svcHost && D.services) {
@@ -580,6 +592,148 @@
       var hq = '<div class="office-card" style="border-color:var(--c-gold);"><div class="office-city">香港</div><div class="office-type">双总部</div></div>' +
                '<div class="office-card" style="border-color:var(--c-gold);"><div class="office-city">深圳</div><div class="office-type">双总部</div></div>';
       officeHost.innerHTML = hq + officeHost.innerHTML;
+    }
+
+    // 全球海外分支机构(融合品牌资料)
+    var overseasHost = $('#overseasOfficesGrid');
+    if (overseasHost && D.overseasOffices) {
+      overseasHost.innerHTML = D.overseasOffices.map(function (o) {
+        return '<div class="info-card" style="padding:24px;text-align:left;">' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">' +
+            '<div style="font-size:28px;">' + o.flag + '</div>' +
+            '<span style="font-size:12px;padding:4px 10px;background:linear-gradient(135deg,var(--c-primary) 0%,var(--c-primary-light) 100%);color:white;border-radius:20px;">' + o.note + '</span>' +
+          '</div>' +
+          '<div style="font-size:18px;font-weight:700;color:var(--c-primary);margin-bottom:6px;">' + o.city + ' · ' + o.country + '</div>' +
+          '<div style="font-size:13px;color:var(--c-text-light);line-height:1.7;">' + o.address + '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // ============ 新增模块:基于两个PDF新资料 ============
+
+    // 4 大出海服务类型(PDF第2页)
+    var typesHost = $('#serviceTypesGrid');
+    if (typesHost && D.serviceTypes) {
+      typesHost.innerHTML = D.serviceTypes.map(function (t) {
+        return '<div class="info-card" style="padding:24px;text-align:left;">' +
+          '<div style="font-size:36px;margin-bottom:12px;">' + t.icon + '</div>' +
+          '<h3 style="font-size:18px;color:var(--c-primary);margin:0 0 16px 0;">' + t.name + '</h3>' +
+          '<div style="display:flex;flex-direction:column;gap:10px;">' +
+            t.items.map(function (it) { return '<div style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--c-text-light);"><span style="color:var(--c-gold);">✓</span>' + it + '</div>'; }).join('') +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // 4 大合规体系 × 3子要点(PDF第3页)
+    var compHost = $('#complianceSystemsGrid');
+    if (compHost && D.complianceSystems) {
+      compHost.innerHTML = D.complianceSystems.map(function (c) {
+        return '<div class="info-card" style="padding:24px;text-align:left;">' +
+          '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">' +
+            '<div style="font-size:32px;">' + c.icon + '</div>' +
+            '<h3 style="font-size:20px;color:var(--c-primary);margin:0;">' + c.category + '</h3>' +
+          '</div>' +
+          '<div style="display:flex;flex-direction:column;gap:14px;">' +
+            c.points.map(function (p) {
+              return '<div style="background:var(--c-bg-soft);padding:14px;border-radius:var(--radius-md);border-left:3px solid var(--c-gold);">' +
+                '<div style="font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:6px;">📌 ' + p.title + '</div>' +
+                '<div style="font-size:13px;color:var(--c-text-light);line-height:1.7;">' + p.desc + '</div>' +
+              '</div>';
+            }).join('') +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // 6 步服务流程(PDF第8页原版)
+    var processHost = $('#serviceProcessGrid');
+    if (processHost && D.serviceProcess) {
+      processHost.innerHTML = D.serviceProcess.map(function (s, i) {
+        var isLast = i === D.serviceProcess.length - 1;
+        return '<div class="feature-card" style="position:relative;padding:20px;">' +
+          (isLast ? '' : '<div style="position:absolute;top:50%;right:-12px;width:24px;height:2px;background:var(--c-primary-light);display:none;" class="process-line"></div>') +
+          '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">' +
+            '<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c-primary) 0%,var(--c-primary-light) 100%);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;">' + s.step + '</div>' +
+            '<div style="font-size:28px;">' + s.icon + '</div>' +
+          '</div>' +
+          '<h3 style="font-size:16px;color:var(--c-primary);margin:0 0 8px 0;">' + s.title + '</h3>' +
+          '<div style="font-size:13px;color:var(--c-text-light);line-height:1.7;">' + s.desc + '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // 全球国家覆盖详细分布(PDF第4页)
+    var countriesMapHost = $('#globalCountriesGrid');
+    if (countriesMapHost && D.globalCountriesByRegion) {
+      countriesMapHost.innerHTML = D.globalCountriesByRegion.map(function (r) {
+        return '<div class="info-card" style="padding:24px;text-align:left;">' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">' +
+            '<h3 style="font-size:18px;color:var(--c-primary);margin:0;">' + r.region + '</h3>' +
+            '<span style="font-size:12px;padding:4px 12px;background:var(--c-bg-soft);color:var(--c-primary);border-radius:20px;font-weight:600;">' + r.countries.length + ' 国</span>' +
+          '</div>' +
+          '<div class="country-tags">' +
+            r.countries.map(function (c) { return '<span class="country-tag">' + c + '</span>'; }).join('') +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // VAT 注册(PDF第10页:13国)
+    var vatHost = $('#vatGrid');
+    if (vatHost && D.vatEprCertification && D.vatEprCertification.vat) {
+      vatHost.innerHTML = D.vatEprCertification.vat.map(function (v) {
+        return '<div class="info-card" style="padding:20px;text-align:left;">' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">' +
+            '<div style="font-size:24px;">' + v.country + '</div>' +
+            '<span style="font-size:12px;padding:4px 10px;background:rgba(59,130,246,0.08);color:#3b82f6;border-radius:20px;">' + v.timeline + '</span>' +
+          '</div>' +
+          '<div style="font-size:15px;font-weight:600;color:var(--c-text);margin-bottom:8px;">' + v.name + '</div>' +
+          '<div style="font-size:13px;color:var(--c-primary);font-weight:600;">￥' + (typeof v.priceFrom === 'number' ? v.priceFrom.toLocaleString() : v.priceFrom) + ' 起</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // EPR 合规(PDF第10页:包装法/电池法/WEEE/欧代英代等)
+    var eprHost = $('#eprGrid');
+    if (eprHost && D.vatEprCertification && D.vatEprCertification.epr) {
+      eprHost.innerHTML = D.vatEprCertification.epr.map(function (e) {
+        return '<div class="info-card" style="padding:16px;text-align:left;">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">' +
+            '<span style="font-size:20px;">' + e.country + '</span>' +
+            '<span style="font-size:12px;padding:2px 8px;background:var(--c-bg-soft);color:var(--c-primary);border-radius:12px;">' + e.area + '</span>' +
+          '</div>' +
+          '<div style="font-size:14px;font-weight:600;color:var(--c-text);margin-bottom:6px;">' + e.category + '</div>' +
+          '<div style="font-size:12px;color:var(--c-primary);font-weight:600;">￥' + e.priceFrom.toLocaleString() + ' 起/年</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // 产品认证(PDF第10页:CE/FDA/FCC/ROHS/CPC等)
+    var certHost = $('#certificationGrid');
+    if (certHost && D.vatEprCertification && D.vatEprCertification.certification) {
+      certHost.innerHTML = D.vatEprCertification.certification.map(function (c) {
+        return '<div class="info-card" style="padding:20px;text-align:left;">' +
+          '<div style="font-size:16px;font-weight:700;color:var(--c-primary);margin-bottom:8px;">✅ ' + c.name + '</div>' +
+          '<div style="font-size:13px;color:var(--c-text-light);margin-bottom:10px;">' + c.scope + '</div>' +
+          '<div style="font-size:13px;color:var(--c-gold);font-weight:600;">￥' + (typeof c.priceFrom === 'number' ? c.priceFrom.toLocaleString() : c.priceFrom) + ' 起</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // 商标版权(PDF第10页:22国商标+4国版权)
+    var tmHost = $('#trademarkGrid');
+    if (tmHost && D.vatEprCertification && D.vatEprCertification.trademarkCopyright) {
+      tmHost.innerHTML = D.vatEprCertification.trademarkCopyright.map(function (t) {
+        return '<div class="info-card" style="padding:14px;text-align:left;">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">' +
+            '<span style="font-size:18px;">' + t.country + '</span>' +
+            '<span style="font-size:11px;padding:1px 6px;background:rgba(250,204,21,0.15);color:#ca8a04;border-radius:10px;">' + t.type + '</span>' +
+          '</div>' +
+          '<div style="font-size:13px;font-weight:500;color:var(--c-text);margin-bottom:4px;">' + t.area + ' ' + t.type + '</div>' +
+          '<div style="font-size:11px;color:var(--c-primary);font-weight:600;">￥' + t.priceFrom.toLocaleString() + ' 起</div>' +
+        '</div>';
+      }).join('');
     }
 
     // 交付追踪页时间线
