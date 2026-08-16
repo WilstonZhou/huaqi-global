@@ -2,6 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/hk", "destination": "/country/hk", "permanent": true },
+    { "source": "/us", "destination": "/country/us", "permanent": true },
+    { "source": "/cross-border-compliance", "destination": "/knowledge/cross-border-compliance", "permanent": true },
+    { "source": "/overseas-bank-account-guide", "destination": "/knowledge/overseas-bank-account-guide", "permanent": true },
+    { "source": "/cayman-vs-bvi", "destination": "/knowledge/cayman-vs-bvi", "permanent": true },
+    { "source": "/hk-vs-sg-company", "destination": "/knowledge/hk-vs-sg-company", "permanent": true },
+    { "source": "/registration-cost-comparison", "destination": "/knowledge/registration-cost-comparison", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/images/(.*)",
