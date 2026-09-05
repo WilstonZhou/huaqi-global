@@ -143,8 +143,10 @@ function buildPage(opt) {
     '<!-- schema:start -->\n' + schemas.map(schemaScript).join('\n') + '\n<!-- schema:end -->\n' +
     '</head>\n<body>\n\n' +
     headerHtml(p) + '\n\n' +
+    '<main id="main-content">\n' +
     opt.body +
     '\n\n' + (opt.relatedModules ? relatedSection(opt.relatedModules, p) : '') +
+    '\n</main>\n\n' +
     footerHtml(p) + '\n\n' +
     '<script src="' + p + 'assets/js/data.js"></script>\n' +
     '<script src="' + p + 'assets/js/icons.js"></script>\n' +
