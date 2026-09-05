@@ -175,6 +175,21 @@ var solutions = [
   }
 ];
 
+// 相关方案互链(SEO:方案页互相推荐,消除孤儿页)
+var solShort = {
+  ecommerce: { t: '跨境电商出海方案', l: '../solutions/ecommerce' },
+  manufacturing: { t: '制造业出海建厂方案', l: '../solutions/manufacturing' },
+  'vie-red-chip': { t: 'VIE/红筹架构方案', l: '../solutions/vie-red-chip' },
+  'identity-planning': { t: '身份与资产规划方案', l: '../solutions/identity-planning' }
+};
+// 每个方案页推荐 2 个内容相关的其他方案页(identity↔vie 互链,ecommerce↔manufacturing 互链)
+var solLinks = {
+  ecommerce: ['manufacturing', 'vie-red-chip'],
+  manufacturing: ['ecommerce', 'identity-planning'],
+  'vie-red-chip': ['identity-planning', 'ecommerce'],
+  'identity-planning': ['vie-red-chip', 'manufacturing']
+};
+
 solutions.forEach(function (s) {
   var p = '../';
   var body = lib.hero({
@@ -195,6 +210,9 @@ solutions.forEach(function (s) {
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 关联 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">RELATED</span><h2 class="section-title">关联服务</h2></div>\n    <div class="features-grid">' + s.related.map(function (r) {
       return '<a class="feature-card" href="' + r.l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + r.t + '</div></a>';
+    }).join('\n') + '</div>\n  </div>\n</section>';
+  body += '\n\n<!-- 相关方案 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">MORE SOLUTIONS</span><h2 class="section-title">相关行业方案</h2></div>\n    <div class="features-grid">' + solLinks[s.slug].map(function (k) {
+      return '<a class="feature-card" href="' + solShort[k].l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + solShort[k].t + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">常见问题</h2></div>\n    <div>' + lib.faqItems(s.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('聊聊您的具体场景', 'AI 匹配 + 顾问解读,把需求变成可执行的出海方案', p);

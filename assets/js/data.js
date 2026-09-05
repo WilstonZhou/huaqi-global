@@ -700,6 +700,12 @@ window.HQ_DATA = {
       { name: '跨境电商合规', link: 'knowledge/cross-border-compliance' }
       ,{ name: '政策动态', link: 'news/index' }
     ]},
+    { name: '行业方案', link: 'solutions/ecommerce', dropdown: [
+      { name: '跨境电商出海方案', link: 'solutions/ecommerce' },
+      { name: '制造业出海建厂', link: 'solutions/manufacturing' },
+      { name: 'VIE/红筹架构', link: 'solutions/vie-red-chip' },
+      { name: '身份与资产规划', link: 'solutions/identity-planning' }
+    ]},
     { name: '关于我们', link: 'about' },
     { name: '联系我们', link: 'contact' }
   ],
