@@ -81,13 +81,13 @@ function footerHtml(p) {
     '        </div>\n' +
     '      </div>\n' +
     '    </div>\n' +
-    '    <div class="footer-col"><h4>服务范围</h4>\n' +
+    '    <div class="footer-col"><h3>服务范围</h3>\n' +
     '      <a href="' + p + 'services/company-registration">海外公司注册</a><a href="' + p + 'country">热门国家注册</a><a href="' + p + 'services/bank-account">公司开户</a><a href="' + p + 'services/annual-review">公司年审</a><a href="' + p + 'services/audit">公司审计</a><a href="' + p + 'services/company-deregistration">公司注销/转让</a><a href="' + p + 'services/tax-planning">税务规划</a><a href="' + p + 'services/fund-planning">资金规划</a><a href="' + p + 'services/other-services">其他业务</a>\n' +
     '    </div>\n' +
-    '    <div class="footer-col"><h4>知识中心</h4>\n' +
+    '    <div class="footer-col"><h3>知识中心</h3>\n' +
     '      <a href="' + p + 'knowledge/singapore-registration-guide">2026 新加坡公司注册完全指南</a><a href="' + p + 'knowledge/us-company-tax-policy">美国公司税收政策解读</a><a href="' + p + 'knowledge/cross-border-compliance">跨境电商出海合规全方案</a><a href="' + p + 'knowledge/registration-cost-comparison">各国注册周期与费用对比</a><a href="' + p + 'news/index">政策动态</a>\n' +
     '    </div>\n' +
-    '    <div class="footer-col"><h4>关于</h4>\n' +
+    '    <div class="footer-col"><h3>关于</h3>\n' +
     '      <a href="' + p + 'about">公司简介</a><a href="' + p + 'global-network">全球网络</a><a href="' + p + 'ai-match">AI 智能匹配</a><a href="' + p + 'delivery-tracking">交付追踪</a><a href="' + p + 'cases">客户案例</a><a href="' + p + 'contact">联系我们</a>\n' +
     '    </div>\n' +
     '  </div>\n' +

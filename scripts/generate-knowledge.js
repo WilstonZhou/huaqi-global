@@ -41,14 +41,14 @@ function articlePage(opt) {
     opt.sections.map(sectionHtml).join('\n') +
     '\n        <h2 id="faq">常见问题</h2>\n        <div>' + lib.faqItems(opt.faqs) + '</div>\n' +
     '\n      </article>\n\n      <aside class="article-sidebar">\n' +
-    '        <div class="sidebar-card article-toc">\n          <h4>📖 本文目录</h4>\n' +
+    '        <div class="sidebar-card article-toc">\n          <h3>📖 本文目录</h3>\n' +
     opt.toc.map(function (t) { return '<a href="#' + t.id + '">' + t.name + '</a>'; }).join('\n') +
     '          <a href="#faq">常见问题</a>\n        </div>\n' +
-    '        <div class="sidebar-card">\n          <h4>📚 相关文章</h4>\n' +
+    '        <div class="sidebar-card">\n          <h3>📚 相关文章</h3>\n' +
     opt.related.map(function (r) { return '<a href="' + r.l + '">' + r.t + '</a>'; }).join('\n') +
     '        </div>\n' +
-    '        <div class="sidebar-card">\n          <h4>🤖 AI 智能匹配</h4>\n          <p class="fs-14 c-text-light mb-12 lh-16">不确定哪种方案适合您?AI 3 分钟根据业务推荐最优方案。</p>\n          <a class="btn btn-gold btn-sm" href="../ai-match">立即匹配</a>\n        </div>\n' +
-    '        <div class="sidebar-card">\n          <h4>📞 咨询顾问</h4>\n          <p class="fs-14 c-text-light mb-12 lh-16">电话/微信 186-1090-2181,顾问将在 1 个工作日内回复。</p>\n          <a class="btn btn-outline btn-sm" href="../contact">联系顾问</a>\n        </div>\n' +
+    '        <div class="sidebar-card">\n          <h3>🤖 AI 智能匹配</h3>\n          <p class="fs-14 c-text-light mb-12 lh-16">不确定哪种方案适合您?AI 3 分钟根据业务推荐最优方案。</p>\n          <a class="btn btn-gold btn-sm" href="../ai-match">立即匹配</a>\n        </div>\n' +
+    '        <div class="sidebar-card">\n          <h3>📞 咨询顾问</h3>\n          <p class="fs-14 c-text-light mb-12 lh-16">电话/微信 186-1090-2181,顾问将在 1 个工作日内回复。</p>\n          <a class="btn btn-outline btn-sm" href="../contact">联系顾问</a>\n        </div>\n' +
     '      </aside>\n    </div>\n  </div>\n</section>\n\n' +
     lib.ctaBanner('看完还有疑问?', '把您的具体情况告诉 AI,3 分钟生成定制方案参考', p);
   write('knowledge/' + opt.slug + '.html', lib.buildPage({

@@ -648,7 +648,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .article-sidebar { position: sticky; top: 96px; }
 .sidebar-card { background: white; border: 1px solid var(--c-border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 20px; }
-.sidebar-card h4 { font-size: 15px; color: var(--c-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--c-gold); }
+.sidebar-card h3 { font-size: 15px; color: var(--c-primary); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--c-gold); }
 .sidebar-card a { display: block; padding: 8px 0; font-size: 14px; border-bottom: 1px dashed var(--c-border); }
 .sidebar-card a:last-child { border-bottom: none; }
 .article-toc a { color: var(--c-text); }
@@ -789,7 +789,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
 .footer-brand .brand { color: white; margin-bottom: 16px; }
 .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
-.footer-col h4 { font-size: 14px; color: white; margin-bottom: 16px; font-weight: 600; }
+.footer-col h3 { font-size: 14px; color: white; margin-bottom: 16px; font-weight: 600; }
 .footer-col a { display: block; padding: 6px 0; font-size: 13px; color: rgba(255,255,255,0.7); }
 .footer-col a:hover { color: var(--c-gold); }
 .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; text-align: center; }
