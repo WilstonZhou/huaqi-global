@@ -62,7 +62,7 @@ function write(file, content) {
     { label: '成功案例累计交付', value: '30 万+' }
   ].map(function (s) {
     return '<div class="info-card"><div class="info-label">' + s.label + '</div><div class="info-value">' + s.value + '</div></div>';
-  }).join('\n') + '\n  </div>\n</section>';
+  }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('想了解同类客户怎么做的?', '联系顾问获取与您行业相近的案例参考与出海方案', p);
   write('cases.html', lib.buildPage({
     prefix: p,
