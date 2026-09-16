@@ -337,14 +337,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 2px; }
 
 /* ---------- Hero 区 ---------- */
-/* 品牌 Banner 已接入:首层为 hero-banner.png,
-   下层保留纯代码版网络层与渐变兜底(图片缺失时自动回退,不影响效果)。 */
+/* 品牌 Banner:单层位图 + 渐变兜底。
+   原实现把 hero-banner.png(1.5MB)与 global-network.svg 叠在不透明的
+   hero-banner.jpg 之下。CSS 多重背景不是回退机制——四层全会下载,
+   而 jpg 不透明且画在最上层,后两层被完全遮挡、视觉上不可见,
+   等于每页白下 1.5MB。现只保留可见的 jpg,以及真正起作用的渐变兜底。 */
 .hero {
   position: relative; padding: 88px 0 104px; overflow: hidden;
   background:
     url('../images/hero-banner.jpg') no-repeat center / cover,
-    url('../images/hero-banner.png') no-repeat center / cover,
-    url('../images/global-network.svg') no-repeat center / cover,
     var(--grad-hero);
   color: white;
 }
@@ -786,7 +787,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- 页脚 ---------- */
 .site-footer { background: var(--c-bg-dark); color: rgba(255,255,255,0.7); padding: 72px 0 28px; position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad-gold); opacity: 0.7; }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 44px; }
 .footer-brand .brand { color: white; margin-bottom: 16px; }
 .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
 .footer-col h3 { font-size: 14px; color: white; margin-bottom: 16px; font-weight: 600; }
