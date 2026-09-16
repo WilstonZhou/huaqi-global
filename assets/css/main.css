@@ -783,6 +783,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .float-btn:hover { background: var(--grad-gold); transform: scale(1.06); box-shadow: var(--shadow-gold); }
 .float-btn .float-icon { font-size: 20px; }
+/* 企微客服:用企业微信的品牌绿,与其余蓝色按钮区分 */
+.float-btn-wecom { background: linear-gradient(135deg, #07C160, #05974a); }
+.float-btn-wecom:hover { background: linear-gradient(135deg, #05974a, #047a3c); box-shadow: 0 8px 24px rgba(7,193,96,.35); }
 
 /* ---------- 页脚 ---------- */
 .site-footer { background: var(--c-bg-dark); color: rgba(255,255,255,0.7); padding: 72px 0 28px; position: relative; }

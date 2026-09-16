@@ -123,6 +123,7 @@
     var c = D.company || {};
     var f = el('div', { class: 'float-service', id: 'floatService' });
     f.innerHTML =
+      '<a class="float-btn float-btn-wecom" href="https://work.weixin.qq.com/kfid/kfcccf23b17172fd661" target="_blank" rel="noopener" title="企微咨询(秒回)"><span class="float-icon">' + iconHtml('🎧', '', 20) + '</span><span>企微</span></a>' +
       '<a class="float-btn" href="' + relLink('ai-match.html') + '" title="AI 匹配"><span class="float-icon">' + iconHtml('🤖', '', 20) + '</span><span>AI</span></a>' +
       '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">' + iconHtml('📞', '', 20) + '</span><span>电话</span></a>' +
       '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>留言</span></a>' +
