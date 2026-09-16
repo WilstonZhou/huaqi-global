@@ -71,7 +71,8 @@ function articlePage(opt) {
         "author": { "@id": "https://hq10000.com/#organization" },
         "publisher": { "@id": "https://hq10000.com/#organization" },
         "inLanguage": "zh-CN",
-        "datePublished": opt.publishDate
+        "datePublished": opt.publishDate,
+        "dateModified": opt.updateDate || opt.publishDate
       }
     ],
     body: body
@@ -88,6 +89,7 @@ articlePage({
   metaDesc: '香港公司与新加坡公司四维对比:税制、银行开户、融资能力、合规成本,结合业务场景给出2026选择建议,帮企业选对出海注册地。华企环球两地均可代办。',
   keywords: '香港公司注册,新加坡公司注册,香港新加坡公司对比,出海注册地选择',
   publishDate: '2026-08-05',
+  updateDate: '2026-09-16',
   toc: [
     { id: 'cmp-tax', name: '税制对比' },
     { id: 'cmp-bank', name: '银行开户' },
@@ -190,6 +192,7 @@ articlePage({
   metaDesc: '开曼群岛与BVI离岸公司怎么选?对比上市认可度、经济实质要求、年费成本、隐私与董事要求,讲清VIE/红筹架构中的取舍。华企环球提供开曼/BVI注册代办。',
   keywords: '开曼公司注册,BVI公司注册,离岸公司对比,VIE架构,红筹架构',
   publishDate: '2026-08-04',
+  updateDate: '2026-09-16',
   toc: [
     { id: 'off-role', name: '两者在架构中的角色' },
     { id: 'off-tax', name: '税务与合规' },
@@ -284,6 +287,7 @@ articlePage({
   metaDesc: '八大热门市场公司注册周期与费用对比表:监管机构、注册周期、是否到场、政府规费参考,附避坑建议与定制报价说明。华企环球提供全程代办服务。',
   keywords: '公司注册费用,注册周期对比,海外公司注册多少钱,新加坡美国香港注册对比',
   publishDate: '2026-08-03',
+  updateDate: '2026-09-16',
   toc: [
     { id: 'cost-table', name: '八大市场速览表' },
     { id: 'cost-read', name: '怎么读这张表' },
@@ -370,6 +374,7 @@ articlePage({
   metaDesc: '新加坡、香港、美国、马来西亚银行开户指南:材料清单、视频面签要点、银行选择与提高通过率技巧,避免有公司无账户。华企环球远程开户+陪同面签代办。',
   keywords: '银行开户材料,海外开户流程,银行开户条件,开户周期,银行开户怎么选',
   publishDate: '2026-08-02',
+  updateDate: '2026-09-16',
   toc: [
     { id: 'ba-why', name: '为什么开户越来越难' },
     { id: 'ba-sg', name: '新加坡开户' },
@@ -462,6 +467,7 @@ articlePage({
   metaDesc: 'ODI备案适用场景与流程、VIE与红筹架构区别、37号文登记要点、常见合规坑,为境外融资与上市企业准备的架构必读。华企环球提供ODI/VIE一站式服务。',
   keywords: 'ODI备案,VIE架构,红筹架构,37号文,境外投资备案',
   publishDate: '2026-08-01',
+  updateDate: '2026-09-16',
   toc: [
     { id: 'odi-what', name: 'ODI 备案是什么' },
     { id: 'odi-flow', name: '备案流程' },

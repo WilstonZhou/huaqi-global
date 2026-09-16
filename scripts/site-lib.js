@@ -338,10 +338,23 @@ function faqSchema(faqs) {
   };
 }
 
+function howToSchema(name, steps) {
+  if (!steps || !steps.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": plainText(name),
+    "step": steps.map(function (s, i) {
+      return { "@type": "HowToStep", "position": i + 1, "text": plainText(s) };
+    })
+  };
+}
+
 module.exports = {
   buildPage: buildPage,
   buildPageEn: buildPageEn,
   faqSchema: faqSchema,
+  howToSchema: howToSchema,
   plainText: plainText,
   hero: hero,
   statCards: statCards,

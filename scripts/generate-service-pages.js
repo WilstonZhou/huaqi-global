@@ -61,7 +61,7 @@ services.forEach(function (s) {
     title: s.metaTitle,
     desc: s.metaDesc,
     keywords: s.name + ',' + s.en + ',华企环球',
-    schemas: schemas.concat([lib.faqSchema(s.faqs)]),
+    schemas: schemas.concat([lib.faqSchema(s.faqs), lib.howToSchema(s.name, (s.blocks.filter(function (b) { return b.ordered; })[0] || {}).list)]),
     body: body
   }));
 });
