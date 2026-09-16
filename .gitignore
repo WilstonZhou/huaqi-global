@@ -24,3 +24,9 @@ tmp/
 *.tmp
 
 .vercel
+
+# Agent 工作区模板(非本仓库内容,勿提交)
+/AGENTS.md
+/IDENTITY.md
+/SOUL.md
+/USER.md
