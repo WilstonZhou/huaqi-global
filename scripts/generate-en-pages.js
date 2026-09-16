@@ -27,7 +27,7 @@ function alternates(enPath, zhPath) {
 }
 
 countries.forEach(function (c) {
-  var enPath = '/en' + c.slug;
+  var enPath = '/en/' + c.slug;
   var alts = alternates(enPath, c.zhPath);
 
   var schemas = [

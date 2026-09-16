@@ -231,8 +231,8 @@ function enHeader() {
     '  <a href="/en" class="brand"><div class="brand-logo">华</div><div class="brand-text">Huaqi Global<small>HUAQI GLOBAL</small></div></a>\n' +
     '  <nav class="nav-menu" id="navMenu">\n' +
     '    <div class="nav-item"><a class="nav-link" href="/en">Home</a></div>\n' +
-    '    <div class="nav-item"><a class="nav-link" href="/en/#countries">Countries</a></div>\n' +
-    '    <div class="nav-item"><a class="nav-link" href="/en/#services">Services</a></div>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/en#countries">Countries</a></div>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/en#services">Services</a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="/index">中文站</a></div>\n' +
     '  </nav>\n' +
     '  <div class="nav-cta">\n' +
