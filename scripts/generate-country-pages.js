@@ -5,6 +5,14 @@ var path = require('path');
 var lib = require('./site-lib');
 var countries = require('./data-countries');
 
+// 哪些国家页有对应的英文版(用于互挂 hreflang)
+var EN_MAP = {
+  sg: '/en/singapore-company-registration',
+  hk: '/en/hong-kong-company-registration',
+  us: '/en/us-company-registration',
+  ae: '/en/dubai-company-registration'
+};
+
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
   var full = path.join(ROOT, file);
@@ -37,6 +45,9 @@ countries.forEach(function (c) {
     title: c.flag + ' ' + c.name + '公司注册',
     subtitle: c.intro
   });
+  if (EN_MAP[c.slug]) {
+    body += '\n\n<div class="container" style="padding-top:18px;"><p style="font-size:13px;color:var(--c-text-light);">🌐 English version: <a href="' + EN_MAP[c.slug] + '">' + c.en + ' Company Registration</a></p></div>';
+  }
   body += '\n\n<!-- 核心数据 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">' + c.en.toUpperCase() + '</span><h2 class="section-title">' + c.name + '公司注册核心信息</h2></div>\n    ' + lib.statCards([
       { label: '监管机构', value: c.regulator },
       { label: '公司类型', value: c.type },
@@ -57,6 +68,11 @@ countries.forEach(function (c) {
   write('country/' + c.slug + '.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/country/' + c.slug,
+    alternates: EN_MAP[c.slug] ? [
+      { hreflang: 'zh-CN', href: 'https://hq10000.com/country/' + c.slug },
+      { hreflang: 'en', href: 'https://hq10000.com' + EN_MAP[c.slug] },
+      { hreflang: 'x-default', href: 'https://hq10000.com/country/' + c.slug }
+    ] : null,
     title: c.metaTitle,
     desc: c.metaDesc,
     keywords: c.name + '公司注册,' + c.name + '注册公司,' + c.name + '公司注册费用,' + c.name + '公司注册代办,华企环球',

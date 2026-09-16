@@ -94,7 +94,7 @@ function footerHtml(p) {
     '      <a href="' + p + 'knowledge/singapore-registration-guide">2026 新加坡公司注册完全指南</a><a href="' + p + 'knowledge/us-company-tax-policy">美国公司税收政策解读</a><a href="' + p + 'knowledge/cross-border-compliance">跨境电商出海合规全方案</a><a href="' + p + 'knowledge/registration-cost-comparison">各国注册周期与费用对比</a><a href="' + p + 'knowledge/odi-vie-guide">ODI 备案与 VIE 架构指南</a><a href="' + p + 'knowledge/hk-vs-sg-company">香港 vs 新加坡公司对比</a><a href="' + p + 'knowledge/cayman-vs-bvi">开曼 vs BVI 离岸对比</a><a href="' + p + 'knowledge/overseas-bank-account-guide">海外银行开户指南</a><a href="' + p + 'news">政策动态</a>\n' +
     '    </div>\n' +
     '    <div class="footer-col"><h3>关于</h3>\n' +
-    '      <a href="' + p + 'about">公司简介</a><a href="' + p + 'global-network">全球网络</a><a href="' + p + 'ai-match">AI 智能匹配</a><a href="' + p + 'delivery-tracking">交付追踪</a><a href="' + p + 'cases">客户案例</a><a href="' + p + 'contact">联系我们</a><a href="' + p + 'compare/vanzbon">对比万企帮</a><a href="' + p + 'compare/tenace">对比唐诚控股</a><a href="' + p + 'compare/xiaoniu">对比小牛国际</a><a href="' + p + 'compare/simengqifu">对比中港星</a>\n' +
+    '      <a href="' + p + 'about">公司简介</a><a href="' + p + 'global-network">全球网络</a><a href="' + p + 'ai-match">AI 智能匹配</a><a href="' + p + 'delivery-tracking">交付追踪</a><a href="' + p + 'cases">客户案例</a><a href="' + p + 'contact">联系我们</a><a href="' + p + 'compare/vanzbon">对比万企帮</a><a href="' + p + 'compare/tenace">对比唐诚控股</a><a href="' + p + 'compare/xiaoniu">对比小牛国际</a><a href="' + p + 'compare/simengqifu">对比中港星</a><a href="' + p + 'en">English</a>\n' +
     '    </div>\n' +
     '  </div>\n' +
     '  <div class="footer-bottom">\n' +
@@ -158,6 +158,9 @@ function buildPage(opt) {
     '<title>' + opt.title + '</title>\n' +
     '<meta name="description" content="' + opt.desc + '">\n' +
     (opt.canonical ? '<link rel="canonical" href="' + opt.canonical + '">\n' : '') +
+    (opt.alternates ? opt.alternates.map(function (a) {
+      return '<link rel="alternate" hreflang="' + a.hreflang + '" href="' + a.href + '">';
+    }).join('\n') + '\n' : '') +
     og +
     (opt.keywords ? '<meta name="keywords" content="' + opt.keywords + '">\n' : '') +
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n' +
@@ -219,8 +222,95 @@ function ctaBanner(title, sub, prefix) {
     '      </div>\n    </div>\n  </div>\n</section>';
 }
 
+/* ---------- English (EN) section layout ----------
+   英文国家页是独立区块:Lang=en、英文导航与页脚,并与中文对应页互挂 hreflang。
+   导航/页脚保持与中文站相同的 id 与 class,以复用 assets/js/main.js 的移动端菜单逻辑。 */
+function enHeader() {
+  return '<header class="site-header" id="site-header">\n' +
+    '<div class="container">\n' +
+    '  <a href="/en/" class="brand"><div class="brand-logo">华</div><div class="brand-text">Huaqi Global<small>HUAQI GLOBAL</small></div></a>\n' +
+    '  <nav class="nav-menu" id="navMenu">\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/en/">Home</a></div>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/en/#countries">Countries</a></div>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/en/#services">Services</a></div>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/index">中文站</a></div>\n' +
+    '  </nav>\n' +
+    '  <div class="nav-cta">\n' +
+    '    <div class="nav-phone">Talk to us<br><strong>+86 186-1090-2181</strong></div>\n' +
+    '    <a href="/contact" class="btn btn-gold btn-sm">Get a quote</a>\n' +
+    '  </div>\n' +
+    '</div></header>';
+}
+
+function enFooter() {
+  var cols = [
+    ['Countries', [
+      ['/en/singapore-company-registration', 'Singapore'],
+      ['/en/hong-kong-company-registration', 'Hong Kong'],
+      ['/en/us-company-registration', 'United States'],
+      ['/en/dubai-company-registration', 'Dubai / UAE']
+    ]],
+    ['Services', [
+      ['/services/company-registration', 'Company Registration'],
+      ['/services/bank-account', 'Bank Account'],
+      ['/services/annual-review', 'Annual Review'],
+      ['/services/vat', 'VAT / EPR']
+    ]],
+    ['Company', [
+      ['/about', 'About Us'],
+      ['/contact', 'Contact'],
+      ['/index', '中文站 (Chinese)']
+    ]]
+  ];
+  return '<footer class="site-footer" id="site-footer">\n<div class="container">\n  <div class="footer-grid">\n' +
+    '    <div class="footer-brand">\n' +
+    '      <a href="/en/" class="brand"><div class="brand-logo">华</div><div class="brand-text c-white">Huaqi Global<small class="c-white-50">HUAQI GLOBAL</small></div></a>\n' +
+    '      <p>Huaqi Global (Shenzhen) International Consulting Co., Ltd. MSME-registered corporate secretarial firm. Dual headquarters in Hong Kong and Shenzhen, serving clients in 126 countries and regions.</p>\n' +
+    '      <p>📞 +86 186-1090-2181<br>✉️ contact@hq10000.com</p>\n' +
+    '    </div>\n' +
+    cols.map(function (c) {
+      return '    <div class="footer-col"><h3>' + c[0] + '</h3>\n      ' +
+        c[1].map(function (l) { return '<a href="' + l[0] + '">' + l[1] + '</a>'; }).join('') + '\n    </div>\n';
+    }).join('') +
+    '  </div>\n  <div class="footer-bottom">\n    <div>Copyright © 2023-2026 Huaqi Global (Shenzhen) International Consulting Co., Ltd.</div>\n' +
+    '    <div class="footer-disclaimer">Information on this site is for general reference only. Registration timelines, government fees and requirements vary by jurisdiction and are subject to change — please confirm with our advisors before making decisions.</div>\n' +
+    '  </div>\n</div></footer>';
+}
+
+function buildPageEn(opt) {
+  var ogTitle = opt.title, ogDesc = opt.desc;
+  var og = ['<meta property="og:type" content="website">',
+    '<meta property="og:site_name" content="Huaqi Global">',
+    '<meta property="og:locale" content="en_US">',
+    '<meta property="og:title" content="' + ogTitle + '">',
+    '<meta property="og:description" content="' + ogDesc + '">',
+    '<meta property="og:url" content="' + opt.canonical + '">',
+    '<meta property="og:image" content="https://hq10000.com/assets/images/hero-banner.jpg">',
+    '<meta name="twitter:card" content="summary_large_image">'].join('\n') + '\n';
+  return '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
+    '<meta charset="UTF-8">\n' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">\n' +
+    '<title>' + opt.title + '</title>\n' +
+    '<meta name="description" content="' + opt.desc + '">\n' +
+    '<link rel="canonical" href="' + opt.canonical + '">\n' +
+    (opt.alternates ? opt.alternates.map(function (a) {
+      return '<link rel="alternate" hreflang="' + a.hreflang + '" href="' + a.href + '">';
+    }).join('\n') + '\n' : '') +
+    og +
+    '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n' +
+    '<link rel="stylesheet" href="/assets/css/main.css">\n\n' +
+    '<!-- schema:start -->\n' + (opt.schemas || [ORG]).map(schemaScript).join('\n') + '\n<!-- schema:end -->\n' +
+    '</head>\n<body>\n\n' + enHeader() + '\n\n<main id="main-content">\n' + opt.body + '\n</main>\n\n' +
+    enFooter() + '\n\n' +
+    '<script src="/assets/js/data.js" defer></script>\n' +
+    '<script src="/assets/js/icons.js" defer></script>\n' +
+    '<script src="/assets/js/main.js" defer></script>\n' +
+    '</body>\n</html>\n';
+}
+
 module.exports = {
   buildPage: buildPage,
+  buildPageEn: buildPageEn,
   hero: hero,
   statCards: statCards,
   contentBlock: contentBlock,
