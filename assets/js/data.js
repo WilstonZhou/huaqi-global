@@ -698,7 +698,7 @@ window.HQ_DATA = {
       { name: '新加坡注册指南', link: 'knowledge/singapore-registration-guide' },
       { name: '美国税收政策', link: 'knowledge/us-company-tax-policy' },
       { name: '跨境电商合规', link: 'knowledge/cross-border-compliance' }
-      ,{ name: '政策动态', link: 'news/index' }
+      ,{ name: '政策动态', link: 'news' }
     ]},
     { name: '行业方案', link: 'solutions/ecommerce', dropdown: [
       { name: '跨境电商出海方案', link: 'solutions/ecommerce' },
