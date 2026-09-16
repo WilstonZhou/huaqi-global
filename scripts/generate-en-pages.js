@@ -27,12 +27,12 @@ function alternates(enPath, zhPath) {
 }
 
 countries.forEach(function (c) {
-  var enPath = '/en/' + c.slug;
+  var enPath = '/en' + c.slug;
   var alts = alternates(enPath, c.zhPath);
 
   var schemas = [
     lib.breadcrumbSchema([
-      { name: 'Home', url: BASE + '/en/' },
+      { name: 'Home', url: BASE + '/en' },
       { name: c.country + ' Company Registration', url: BASE + enPath }
     ]),
     {
@@ -48,7 +48,7 @@ countries.forEach(function (c) {
 
   var body = lib.hero({
     prefix: '/',
-    breadcrumb: '<a href="/en/">Home</a> / ' + c.country,
+    breadcrumb: '<a href="/en">Home</a> / ' + c.country,
     title: c.flag + ' ' + c.title,
     subtitle: c.intro
   });
@@ -75,10 +75,10 @@ countries.forEach(function (c) {
 
 /* ---------- English hub ---------- */
 (function () {
-  var hubPath = '/en/';
+  var hubPath = '/en';
   var body = lib.hero({
     prefix: '/',
-    breadcrumb: '<a href="/en/">Home</a>',
+    breadcrumb: '<a href="/en">Home</a>',
     title: '🌏 Company Registration for Global Business',
     subtitle: 'Huaqi Global is a corporate services firm headquartered in Hong Kong and Shenzhen, with a licensed corporate secretarial presence in Malaysia. We help founders and cross-border businesses incorporate, bank and stay compliant across 126 countries and regions.'
   });
@@ -113,7 +113,7 @@ countries.forEach(function (c) {
     title: 'Company Registration & Corporate Services | Huaqi Global',
     desc: 'Incorporate and bank in Singapore, Hong Kong, the United States and Dubai. Huaqi Global provides company registration, corporate banking, annual compliance and trademark services across 126 countries.',
     schemas: [
-      lib.breadcrumbSchema([{ name: 'Home', url: BASE + '/en/' }])
+      lib.breadcrumbSchema([{ name: 'Home', url: BASE + '/en' }])
     ],
     body: body
   }));

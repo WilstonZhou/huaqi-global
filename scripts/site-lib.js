@@ -228,9 +228,9 @@ function ctaBanner(title, sub, prefix) {
 function enHeader() {
   return '<header class="site-header" id="site-header">\n' +
     '<div class="container">\n' +
-    '  <a href="/en/" class="brand"><div class="brand-logo">华</div><div class="brand-text">Huaqi Global<small>HUAQI GLOBAL</small></div></a>\n' +
+    '  <a href="/en" class="brand"><div class="brand-logo">华</div><div class="brand-text">Huaqi Global<small>HUAQI GLOBAL</small></div></a>\n' +
     '  <nav class="nav-menu" id="navMenu">\n' +
-    '    <div class="nav-item"><a class="nav-link" href="/en/">Home</a></div>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="/en">Home</a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="/en/#countries">Countries</a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="/en/#services">Services</a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="/index">中文站</a></div>\n' +
@@ -264,7 +264,7 @@ function enFooter() {
   ];
   return '<footer class="site-footer" id="site-footer">\n<div class="container">\n  <div class="footer-grid">\n' +
     '    <div class="footer-brand">\n' +
-    '      <a href="/en/" class="brand"><div class="brand-logo">华</div><div class="brand-text c-white">Huaqi Global<small class="c-white-50">HUAQI GLOBAL</small></div></a>\n' +
+    '      <a href="/en" class="brand"><div class="brand-logo">华</div><div class="brand-text c-white">Huaqi Global<small class="c-white-50">HUAQI GLOBAL</small></div></a>\n' +
     '      <p>Huaqi Global (Shenzhen) International Consulting Co., Ltd. MSME-registered corporate secretarial firm. Dual headquarters in Hong Kong and Shenzhen, serving clients in 126 countries and regions.</p>\n' +
     '      <p>📞 +86 186-1090-2181<br>✉️ contact@hq10000.com</p>\n' +
     '    </div>\n' +
