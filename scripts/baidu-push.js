@@ -17,6 +17,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://hq10000.com';
@@ -54,9 +55,27 @@ function collectUrls() {
 }
 
 (async function main() {
-  const token = process.env.BAIDU_PUSH_TOKEN;
+/* token 解析顺序:环境变量 → 仓库外的本地文件。
+   本地文件必须位于仓库之外(仓库公开且每次推送都触发部署),否则拒绝。 */
+const TOKEN_FILE = path.join(os.homedir(), '.config', 'huaqi', 'baidu-token');
+function resolveToken() {
+  const fromEnv = (process.env.BAIDU_PUSH_TOKEN || '').trim();
+  if (fromEnv) return { token: fromEnv, from: 'env' };
+  if (path.resolve(TOKEN_FILE).startsWith(path.resolve(ROOT) + path.sep)) {
+    console.error('✗ 拒绝:token 文件位于仓库内,会随 git 提交泄露');
+    process.exit(1);
+  }
+  try {
+    const v = fs.readFileSync(TOKEN_FILE, 'utf8').trim();
+    if (v) return { token: v, from: TOKEN_FILE };
+  } catch (_) { /* 文件不存在 */ }
+  return { token: '', from: null };
+}
+  const { token, from } = resolveToken();
   if (!token && !DRY) {
-    console.error('✗ 缺少 BAIDU_PUSH_TOKEN 环境变量(不要把它写进仓库,用 secrets 注入)');
+    console.error('✗ 未找到百度推送 token。两种方式任选:');
+    console.error('   1) 环境变量 BAIDU_PUSH_TOKEN=<token>');
+    console.error('   2) 写入 ' + TOKEN_FILE + ' (chmod 600,仓库之外)');
     process.exit(1);
   }
 
