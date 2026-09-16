@@ -41,6 +41,8 @@ services.forEach(function (s) {
     subtitle: s.intro
   });
 
+  body += lib.answerBlock(s.name + '关键参数：' + s.stats.slice(0, 3).map(function (x) { return x.label + ' ' + x.value; }).join('；') + '。具体适用范围与报价请咨询顾问确认。');
+
   body += '\n\n<!-- 核心信息 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">' + s.en + '</span><h2 class="section-title">' + s.name + '核心信息</h2></div>\n    ' + lib.statCards(s.stats) + '\n  </div>\n</section>';
 
   body += '\n\n<!-- 正文区块 -->\n<section class="section">\n  <div class="container">\n    ' + s.blocks.map(function (b) {

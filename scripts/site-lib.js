@@ -338,6 +338,12 @@ function faqSchema(faqs) {
   };
 }
 
+/* 「速答」区块 —— 放在页面顶部,给 AI 引擎与搜索摘要一段可直接摘录的事实型回答。
+   文案由各页的结构化字段自动组装,不引入未经核实的信息。 */
+function answerBlock(text) {
+  if (!text) return '';
+  return '<section class="section" style="padding-top:0;"><div class="container container-sm"><div class="info-card" style="text-align:left;padding:18px 22px;"><div class="info-label">速答</div><p style="margin:8px 0 0;font-size:15px;line-height:1.85;color:var(--c-text);">' + text + '</p></div></div></section>';
+}
 function howToSchema(name, steps) {
   if (!steps || !steps.length) return null;
   return {
@@ -355,6 +361,7 @@ module.exports = {
   buildPageEn: buildPageEn,
   faqSchema: faqSchema,
   howToSchema: howToSchema,
+  answerBlock: answerBlock,
   plainText: plainText,
   hero: hero,
   statCards: statCards,

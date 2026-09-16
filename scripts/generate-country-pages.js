@@ -45,6 +45,7 @@ countries.forEach(function (c) {
     title: c.flag + ' ' + c.name + '公司注册',
     subtitle: c.intro
   });
+  body += lib.answerBlock(c.name + '公司注册由 <strong>' + c.regulator + '</strong> 监管,常用主体类型为 ' + c.type + ',标准办理周期 ' + c.period + '。具体条件、材料与费用以顾问确认为准。');
   if (EN_MAP[c.slug]) {
     body += '\n\n<div class="container" style="padding-top:18px;"><p style="font-size:13px;color:var(--c-text-light);">🌐 English version: <a href="' + EN_MAP[c.slug] + '">' + c.en + ' Company Registration</a></p></div>';
   }

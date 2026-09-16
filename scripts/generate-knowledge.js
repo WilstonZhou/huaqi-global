@@ -72,7 +72,9 @@ function articlePage(opt) {
         "publisher": { "@id": "https://hq10000.com/#organization" },
         "inLanguage": "zh-CN",
         "datePublished": opt.publishDate,
-        "dateModified": opt.updateDate || opt.publishDate
+        "dateModified": opt.updateDate || opt.publishDate,
+        "author": { "@type": "Organization", "name": "华企环球", "url": "https://hq10000.com" },
+        "publisher": { "@id": "https://hq10000.com/#organization" }
       }
     ],
     body: body

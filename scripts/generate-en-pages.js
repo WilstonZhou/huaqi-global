@@ -53,6 +53,8 @@ countries.forEach(function (c) {
     subtitle: c.intro
   });
 
+  body += lib.answerBlock(c.country + ' company registration is administered by <strong>' + c.stats[0].value + '</strong>, the usual entity type is ' + c.stats[1].value + ', and the standard timeline is ' + c.stats[2].value + '. Please confirm requirements with our advisors before proceeding.');
+
   body += '\n\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">AT A GLANCE</span><h2 class="section-title">' + c.country + ' at a glance</h2></div>\n    ' + lib.statCards(c.stats) + '\n  </div>\n</section>';
 
   body += '\n\n<section class="section">\n  <div class="container">\n    ' + c.blocks.map(function (b) {
