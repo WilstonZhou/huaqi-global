@@ -787,7 +787,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- 页脚 ---------- */
 .site-footer { background: var(--c-bg-dark); color: rgba(255,255,255,0.7); padding: 72px 0 28px; position: relative; }
 .site-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad-gold); opacity: 0.7; }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 44px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr; gap: 28px; margin-bottom: 44px; }
 .footer-brand .brand { color: white; margin-bottom: 16px; }
 .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
 .footer-col h3 { font-size: 14px; color: white; margin-bottom: 16px; font-weight: 600; }
