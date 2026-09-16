@@ -76,7 +76,7 @@ countries.forEach(function (c) {
     title: c.metaTitle,
     desc: c.metaDesc,
     keywords: c.name + '公司注册,' + c.name + '注册公司,' + c.name + '公司注册费用,' + c.name + '公司注册代办,华企环球',
-    schemas: schemas,
+    schemas: schemas.concat([lib.faqSchema(c.faqs)]),
     body: body
   }));
 });

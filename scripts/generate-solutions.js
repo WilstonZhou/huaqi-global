@@ -222,7 +222,7 @@ solutions.forEach(function (s) {
     title: s.metaTitle,
     desc: s.metaDesc,
     keywords: s.title + ',出海方案,华企环球',
-    schemas: [lib.breadcrumbSchema([
+    schemas: [lib.faqSchema(s.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
       { name: s.title, url: 'https://hq10000.com/solutions/' + s.slug }
     ])],

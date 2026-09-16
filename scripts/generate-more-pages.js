@@ -153,6 +153,7 @@ function write(file, content) {
 })();
 
 // ---------------- services/fees.html(费用与周期说明) ----------------
+var FEES_FAQ;
 (function () {
   var p = '../';
   var body = lib.hero({
@@ -193,7 +194,7 @@ function write(file, content) {
     ].map(function (r) {
       return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>';
     }).join('\n') + '</tbody></table>\n    <p class="fs-12 c-text-light mt-16">注:以上仅为政府规费参考,完整方案(服务费 + 第三方费用)以顾问书面报价为准。华企环球不设"超低价引流再增收"套路,所有费用合同列明。</p>\n  </div>\n</section>';
-  body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">费用常见问题</h2></div>\n    <div>' + lib.faqItems([
+  body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">费用常见问题</h2></div>\n    <div>' + lib.faqItems(FEES_FAQ = [
     { q: '为什么不直接标价?', a: '注册费用受国家、公司类型、注册资本、挂名董事/地址/秘书配套等因素影响,标准化标价无法覆盖真实需求。华企环球采用定制报价,签约前即可获取书面费用明细,反而更透明。' },
     { q: '如何获取报价?', a: '通过 AI 智能匹配提交需求(3 分钟生成方案参考)或联系顾问,顾问将在 1 个工作日内出具书面报价单,列明政府规费、服务费与第三方费用。' },
     { q: '报价后还会不会加价?', a: '不会。所有费用与周期写入合同,办理过程中绝不加价;因我方原因未完成的服务按合同约定退款。' },
@@ -207,7 +208,7 @@ function write(file, content) {
     title: '费用与周期说明 | 定制报价 · 无隐形消费 | 华企环球',
     desc: '华企环球费用与周期说明:定制报价模式、费用构成透明、合同锁定不加价。附热门国家注册周期与公开政府规费参考表,费用结构一目了然。',
     keywords: '海外公司注册费用,公司注册周期,海外公司注册多少钱,定制报价',
-    schemas: [lib.breadcrumbSchema([
+    schemas: [lib.faqSchema(FEES_FAQ), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
       { name: '服务', url: 'https://hq10000.com/services/company-registration' },
       { name: '费用与周期说明', url: 'https://hq10000.com/services/fees' }

@@ -68,7 +68,7 @@ countries.forEach(function (c) {
     alternates: alts,
     title: c.metaTitle,
     desc: c.metaDesc,
-    schemas: schemas,
+    schemas: schemas.concat([lib.faqSchema(c.faqs)]),
     body: body
   }));
 });

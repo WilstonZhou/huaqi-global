@@ -58,7 +58,7 @@ function articlePage(opt) {
     title: opt.metaTitle,
     desc: opt.metaDesc,
     keywords: opt.keywords,
-    schemas: [
+    schemas: [lib.faqSchema(opt.faqs),
       lib.breadcrumbSchema([
         { name: '首页', url: 'https://hq10000.com' },
         { name: '知识中心', url: 'https://hq10000.com/knowledge' },

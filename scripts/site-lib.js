@@ -165,7 +165,7 @@ function buildPage(opt) {
     (opt.keywords ? '<meta name="keywords" content="' + opt.keywords + '">\n' : '') +
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n' +
     '<link rel="stylesheet" href="' + p + 'assets/css/main.css">\n\n' +
-    '<!-- schema:start -->\n' + schemas.map(schemaScript).join('\n') + '\n<!-- schema:end -->\n' +
+    '<!-- schema:start -->\n' + schemas.filter(Boolean).map(schemaScript).join('\n') + '\n<!-- schema:end -->\n' +
     '</head>\n<body>\n\n' +
     headerHtml(p) + '\n\n' +
     '<main id="main-content">\n' +
@@ -299,7 +299,7 @@ function buildPageEn(opt) {
     og +
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n' +
     '<link rel="stylesheet" href="/assets/css/main.css">\n\n' +
-    '<!-- schema:start -->\n' + (opt.schemas || [ORG]).map(schemaScript).join('\n') + '\n<!-- schema:end -->\n' +
+    '<!-- schema:start -->\n' + (opt.schemas || [ORG]).filter(Boolean).map(schemaScript).join('\n') + '\n<!-- schema:end -->\n' +
     '</head>\n<body>\n\n' + enHeader() + '\n\n<main id="main-content">\n' + opt.body + '\n</main>\n\n' +
     enFooter() + '\n\n' +
     '<script src="/assets/js/data.js" defer></script>\n' +
@@ -308,9 +308,41 @@ function buildPageEn(opt) {
     '</body>\n</html>\n';
 }
 
+/* ---------- FAQPage 结构化数据 ----------
+   让 AI 引擎与搜索摘要能直接解析问答对。
+   注意:回答里常含 <strong> 等内联标签,JSON-LD 里必须剥掉。 */
+function plainText(s) {
+  return String(s == null ? '' : s)
+    .replace(/<[^>]*>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&rsquo;/g, '\u2019').replace(/&lsquo;/g, '\u2018')
+    .replace(/&ldquo;/g, '\u201c').replace(/&rdquo;/g, '\u201d')
+    .replace(/&mdash;/g, '\u2014')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function faqSchema(faqs) {
+  if (!faqs || !faqs.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(function (f) {
+      return {
+        "@type": "Question",
+        "name": plainText(f.q),
+        "acceptedAnswer": { "@type": "Answer", "text": plainText(f.a) }
+      };
+    })
+  };
+}
+
 module.exports = {
   buildPage: buildPage,
   buildPageEn: buildPageEn,
+  faqSchema: faqSchema,
+  plainText: plainText,
   hero: hero,
   statCards: statCards,
   contentBlock: contentBlock,
