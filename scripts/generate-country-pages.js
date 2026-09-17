@@ -77,7 +77,7 @@ countries.forEach(function (c) {
     subtitle: '覆盖全球 60 多个国家/地区,均可办理。下方为 ' + countries.length + ' 大热门市场独立指南,包含监管机构、公司类型、注册条件、材料、流程与常见问题。'
   });
   body += '\n\n<!-- 国家卡片 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">POPULAR COUNTRIES</span><h2 class="section-title">' + countries.length + ' 大热门市场,一点直达</h2></div>\n    <div class="features-grid">' + countries.map(function (c) {
-      return '<a class="feature-card" href="' + c.slug + '" style="text-decoration:none;"><div class="feature-icon">' + c.flag + '</div><div class="feature-title">' + c.name + '公司注册</div><div class="feature-desc">' + c.regulator + ' · ' + c.period + '<br>' + c.type + '</div></a>';
+      return '<a class="feature-card" href="' + p + 'country/' + c.slug + '" style="text-decoration:none;"><div class="feature-icon">' + c.flag + '</div><div class="feature-title">' + c.name + '公司注册</div><div class="feature-desc">' + c.regulator + ' · ' + c.period + '<br>' + c.type + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 更多国家 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">MORE COUNTRIES</span><h2 class="section-title">更多国家与地区</h2><p class="section-desc">越南、柬埔寨、菲律宾、印尼、印度、阿联酋、沙特、迪拜自由区、澳大利亚、加拿大、德国、法国、荷兰、爱尔兰、卢森堡、塞浦路斯、马耳他、开曼群岛、BVI 等 60 多个国家/地区均可办理,具体方案请咨询顾问。</p></div>\n    <div class="text-center"><a href="' + p + 'global-network" class="btn btn-outline">查看全球 60+ 国家/地区网络 →</a></div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('不确定选哪个国家?', 'AI 智能匹配引擎,3 分钟根据您的业务推荐最优注册方案', p);
