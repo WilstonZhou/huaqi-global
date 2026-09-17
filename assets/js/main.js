@@ -97,7 +97,7 @@
               '<div class="brand-logo">华</div>' +
               '<div class="brand-text" style="color:white;">华企环球<small style="color:rgba(255,255,255,0.5);">HUAQI GLOBAL</small></div>' +
             '</a>' +
-            '<p>' + (c.fullName || '') + '<br>成立于 ' + (c.foundedYear || '') + ' 年,香港深圳双总部,业务覆盖全球 ' + (c.countriesCovered || '') + ' 个国家及地区。</p>' +
+            '<p>' + (c.fullName || '') + '<br>前身为会计事务所,2018 年发展至今,8 年出海落地合规服务精研。总部深圳,业务覆盖全球 ' + (c.countriesCovered || '') + ' 个国家/地区。</p>' +
             '<p>📞 ' + (c.phone || '') + '(微信同号)<br>✉️ ' + (c.email || '') + '<br>📍 ' + (c.address || '') + '</p>' +
           '</div>' +
           '<div class="footer-col"><h4>服务范围</h4>' + services + '</div>' +
@@ -684,9 +684,8 @@
       officeHost.innerHTML = D.company.domesticBranches.map(function (city) {
         return '<div class="office-card"><div class="office-city">' + city + '</div><div class="office-type">国内分公司</div></div>';
       }).join('');
-      // 加上双总部
-      var hq = '<div class="office-card" style="border-color:var(--c-gold);"><div class="office-city">香港</div><div class="office-type">双总部</div></div>' +
-               '<div class="office-card" style="border-color:var(--c-gold);"><div class="office-city">深圳</div><div class="office-type">双总部</div></div>';
+      // 加上总部
+      var hq = '<div class="office-card" style="border-color:var(--c-gold);"><div class="office-city">深圳</div><div class="office-type">总部</div></div>';
       officeHost.innerHTML = hq + officeHost.innerHTML;
     }
 

@@ -1,9 +1,10 @@
 /**
  * 华企环球国际咨询 — 全站数据配置
  * 统一数据源,所有页面共享
- * 数据口径统一决策(2026-08-04):
- *   - 国家覆盖:126 国(取鑫荣昇旧站实际数据)
- *   - 客户数:数万家(取品牌md保守值,避免虚高)
+ * 数据口径统一决策(2026-09-17,以《华企环球》宣传册为准):
+ *   - 沿革:前身为会计事务所,2018 年发展至今
+ *   - 国家覆盖:全球 60 多个国家/地区均可办理
+ *   - 客户数:超 10 万+ 企业用户;累计成功案例超 100000+
  *   - 愿景:"走向全球"(修正旧站"走向全国"笔误)
  */
 window.HQ_DATA = {
@@ -13,26 +14,23 @@ window.HQ_DATA = {
     shortName: '华企环球',
     fullName: '华企环球（深圳）国际咨询有限公司',
     domain: 'hq10000.com',
-    formerName: '鑫荣昇集团', // 历史品牌
+    formerName: '会计事务所', // 历史沿革(前身为会计事务所)
     origin: '前身为会计事务所',
-    foundedYear: 2012, // 鑫荣昇创始年
-    hqFoundedYear: 2018, // 华企环球独立品牌年
-    globalBusinessYear: 2013,
-    headquarters: ['香港', '深圳'],
+    foundedYear: 2018, // 2018 年发展至今
+    hqFoundedYear: 2018, // 华企环球品牌年
+    globalBusinessYear: 2018,
+    headquarters: ['深圳'],
     domesticBranches: ['北京', '上海', '广州', '武汉', '东莞', '佛山', '中山', '海南'],
-    overseasBranchesCount: 5, // 海外分支(不含深圳总部)
-    countriesCovered: 126,
-    coreCountries: '60+', // 核心可办理国家
-    clientsServed: '数万家',
-    casesCount: '300,000+', // 累计成功案例
-    experienceYears: 14, // 集团总经验(2012-2026)
+    overseasBranchesCount: 0, // 已并入「业务涉及城市/国家」口径
+    countriesCovered: '60+',
+    coreCountries: '60+', // 可办理国家/地区
+    clientsServed: '10万+',
+    casesCount: '100,000+', // 累计成功案例
+    experienceYears: 8, // 出海落地合规服务精研(2018-2026)
     coreFocusYears: 8, // 8 年出海落地合规服务精研(2018-2026)
     // 团队规模
     team: {
       totalSize: '300+',
-      partners: '20+',      // 合伙人
-      accountManagers: '100+', // 客户经理
-      researchers: '30+',   // 研究员
       lawyersAccountants: '100+' // 联动专业律师与会计师
     },
     // 核心资质
@@ -61,7 +59,7 @@ window.HQ_DATA = {
       country: '中国',
       flag: '🇨🇳',
       address: '深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座14层21',
-      note: '中国总部 · 港深双总部之一'
+      note: '中国总部'
     },
     {
       city: '马来西亚',
@@ -98,7 +96,7 @@ window.HQ_DATA = {
     {
       icon: '🌍',
       title: '业务范围广、全球 60 多个国家或地区均可办理',
-      desc: '热门国家自有团队,冷门国家合作覆盖,全球 60 多个核心国家或地区均可办理,实际网络延伸超 126 国。以马来西亚为核心,辐射欧美日、东南亚、南美等区域。'
+      desc: '热门国家自有团队,冷门国家合作覆盖,全球 60 多个国家/地区均可办理。以马来西亚为核心,辐射欧美日、东南亚、南美等区域。'
     },
     {
       icon: '🤵',
@@ -122,8 +120,8 @@ window.HQ_DATA = {
     },
     {
       icon: '🏆',
-      title: '累计服务客户成功案例超 300000+',
-      desc: '前身为会计事务所,2018 年华企环球品牌独立发展至今,鑫荣昇 + 华企环球双品牌时期累计服务客户成功案例超 300,000+,涵盖传统行业、跨境电商、服务行业、高科技、金融等多个领域。'
+      title: '累计服务客户成功案例超 100000+',
+      desc: '前身为会计事务所,2018 年发展至今,累计服务客户成功案例超 100,000+,涵盖传统行业、跨境电商、服务行业、高科技、金融等多个领域。'
     }
   ],
 
@@ -379,8 +377,8 @@ window.HQ_DATA = {
       id: 'company-registration',
       name: '海外公司注册',
       icon: '🌍',
-      tagline: '126 国一站式注册,无需本人到场',
-      desc: '深耕全球 126 个国家及地区企业注册法规,提供公司设立、EIN 税号、注册证书等全链条服务。',
+      tagline: '60+ 国家/地区一站式注册,无需本人到场',
+      desc: '深耕全球 60 多个国家/地区企业注册法规,提供公司设立、EIN 税号、注册证书等全链条服务。',
       link: 'services/company-registration',
       countries: [
         { code: 'SG', name: '新加坡', regulator: 'ACRA', entity: 'Pte Ltd', timeline: '5-7 工作日', priceFrom: 8800 },
@@ -485,9 +483,9 @@ window.HQ_DATA = {
     }
   ],
 
-  // ============ 全球网络(热门 20 国,总 126 国) ============
+  // ============ 全球网络(热门 20 国,覆盖 60+ 国家/地区) ============
   globalNetwork: {
-    totalCountries: 126,
+    totalCountries: 60,
     regions: [
       { region: '港澳', countries: ['香港', '澳门'] },
       { region: '东南亚', countries: ['新加坡', '马来西亚', '泰国', '印尼', '越南', '菲律宾', '柬埔寨'] },
@@ -649,15 +647,12 @@ window.HQ_DATA = {
 
   // ============ 客户案例与数据 ============
   stats: [
-    { value: '60+', unit: '核心国家', label: '均可办理' },
-    { value: '126', unit: '国', label: '服务网络覆盖' },
-    { value: '30万+', unit: '成功案例', label: '累计交付' },
-    { value: '14', unit: '年', label: '企业出海服务' },
-    { value: '5', unit: '处', label: '海外分支(港深双总部)' },
-    { value: '300+', unit: '人', label: '专业团队规模' },
-    { value: '20+', unit: '位', label: '资深合伙人' },
-    { value: '100+', unit: '名', label: '客户经理' },
-    { value: '30+', unit: '名', label: '研究员(联动100+律师会计师)' }
+    { value: '60+', label: '国家/地区', unit: '均可办理' },
+    { value: '8 年', label: '出海落地', unit: '合规服务精研' },
+    { value: '300+', label: '人 · 专业团队', unit: '' },
+    { value: '10万+', label: '企业用户', unit: '' },
+    { value: '100000+', label: '累计成功案例', unit: '' },
+    { value: '马来西亚', label: '持牌', unit: '政府秘书机构' }
   ],
 
   // ============ 客户案例 ============

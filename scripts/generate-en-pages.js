@@ -82,7 +82,7 @@ countries.forEach(function (c) {
     prefix: '/',
     breadcrumb: '<a href="/en">Home</a>',
     title: '🌏 Company Registration for Global Business',
-    subtitle: 'Huaqi Global is a corporate services firm headquartered in Hong Kong and Shenzhen, with a licensed corporate secretarial presence in Malaysia. We help founders and cross-border businesses incorporate, bank and stay compliant across 126 countries and regions.'
+    subtitle: 'Huaqi Global is a corporate services firm headquartered in Shenzhen, with a licensed corporate secretarial presence in Malaysia. We help founders and cross-border businesses incorporate, bank and stay compliant across 60+ countries and regions.'
   });
 
   body += '\n\n<section class="section section-soft" id="countries">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">JURISDICTIONS</span><h2 class="section-title">Where we incorporate</h2><p class="section-desc">Regulator, entity type, timeline and requirements for each market.</p></div>\n    <div class="features-grid">' +
@@ -113,7 +113,7 @@ countries.forEach(function (c) {
       { hreflang: 'x-default', href: BASE + '/' }
     ],
     title: 'Company Registration & Corporate Services | Huaqi Global',
-    desc: 'Incorporate and bank in Singapore, Hong Kong, the United States and Dubai. Huaqi Global provides company registration, corporate banking, annual compliance and trademark services across 126 countries.',
+    desc: 'Incorporate and bank in Singapore, Hong Kong, the United States and Dubai. Huaqi Global provides company registration, corporate banking, annual compliance and trademark services across 60+ countries.',
     schemas: [
       lib.breadcrumbSchema([{ name: 'Home', url: BASE + '/en' }])
     ],

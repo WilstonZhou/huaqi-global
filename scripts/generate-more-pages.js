@@ -56,10 +56,10 @@ function write(file, content) {
         '<div><strong class="c-primary">案例成果:</strong><div class="card-text">' + c.result + '</div></div></div>';
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 数据 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="info-grid">' + [
-    { label: '核心国家/地区直办', value: '60+' },
-    { label: '服务网络覆盖', value: '126 国' },
+    { label: '覆盖国家/地区', value: '60+ 国' },
+    { label: '企业用户', value: '10 万+' },
     { label: '专业团队', value: '300+' },
-    { label: '成功案例累计交付', value: '30 万+' }
+    { label: '成功案例累计交付', value: '100000+' }
   ].map(function (s) {
     return '<div class="info-card"><div class="info-label">' + s.label + '</div><div class="info-value">' + s.value + '</div></div>';
   }).join('\n') + '</div>\n  </div>\n</section>';
