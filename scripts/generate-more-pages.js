@@ -133,9 +133,12 @@ function write(file, content) {
     title: '知识中心',
     subtitle: '系统化的国家指南、政策解读与行业方案,每篇内容都围绕一个具体的出海问题展开,专业、可读、可落地。'
   });
+  body += '\n\n<!-- 导语 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">华企环球知识中心把出海最常被问到的问题拆成三层:先看清一个国家/地区的注册与税制规则,再对比不同市场的取舍,最后落到具体操作与费用预期。每篇围绕一个明确问题展开,给出监管机构、材料清单、时间预期与常见坑,不堆术语——既可用于内部评估,也可直接用于与客户沟通的口径。内容由 300+ 专业团队与超 10 万+ 企业用户的服务经验沉淀,并随政策变化持续更新。</p>\n  </div>\n</section>';
+  body += '\n\n<!-- 怎么用这个知识中心 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">HOW TO USE</span><h2 class="section-title">怎么用这个知识中心</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">\n      <div class="feature-card"><div class="feature-icon">1</div><div class="feature-title">建立判断框架</div><div class="feature-desc">从《各国公司注册周期与费用对比》入手,一页看清热门市场的周期与公开规费</div></div>\n      <div class="feature-card"><div class="feature-icon">2</div><div class="feature-title">做选择</div><div class="feature-desc">注册地、开户地、架构与税务往往要一起决定——《香港 vs 新加坡》《开曼 vs BVI》按维度逐项对比,给出取舍建议</div></div>\n      <div class="feature-card"><div class="feature-icon">3</div><div class="feature-title">落地执行</div><div class="feature-desc">操作指南与行业方案(VAT/EPR、海外开户、ODI/VIE、跨境电商合规)给出材料清单与时间节点</div></div>\n    </div>\n  </div>\n</section>';
   body += '\n\n<!-- 文章列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">KNOWLEDGE HUB</span><h2 class="section-title">全部文章</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">' + articles.map(function (a) {
       return '<a class="case-card" href="' + p + 'knowledge/' + a.l + '" style="text-decoration:none;"><div style="margin-bottom:8px;"><span class="case-tag">' + a.tag + '</span></div><div class="card-title">' + a.t + '</div><div class="card-text">' + a.d + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  body += '\n\n<!-- 内容范围说明 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">目前覆盖 11 个热门市场的独立指南,以及税务与合规、资本架构(ODI/VIE/红筹)、身份与资产规划(如马来西亚第二家园、留学移民等)等主题。没找到对应问题,可用 AI 智能匹配 3 分钟生成初步方案,或直接联系顾问。</p>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('没找到您关心的问题?', '告诉 AI 您的出海需求,3 分钟生成方案参考', p);
   write('knowledge/index.html', lib.buildPage({
     prefix: p,
