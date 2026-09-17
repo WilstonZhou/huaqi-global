@@ -33,7 +33,7 @@ countries.forEach(function (c) {
   ];
   var body = lib.hero({
     prefix: p,
-    breadcrumb: '<a href="/">首页</a> / <a href="index">热门国家注册</a> / ' + c.name + '公司注册',
+    breadcrumb: '<a href="/">首页</a> / <a href="/country">热门国家注册</a> / ' + c.name + '公司注册',
     title: c.flag + ' ' + c.name + '公司注册',
     subtitle: c.intro
   });

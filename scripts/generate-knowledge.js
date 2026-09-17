@@ -33,7 +33,7 @@ function articlePage(opt) {
   var p = '../';
   var body = lib.hero({
     prefix: p,
-    breadcrumb: '<a href="/">首页</a> / <a href="index">知识中心</a> / ' + opt.shortTitle,
+    breadcrumb: '<a href="/">首页</a> / <a href="/knowledge">知识中心</a> / ' + opt.shortTitle,
     title: opt.title,
     subtitle: opt.subtitle
   });
