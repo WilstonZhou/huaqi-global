@@ -134,7 +134,7 @@ function write(file, content) {
     subtitle: '系统化的国家指南、政策解读与行业方案,每篇内容都围绕一个具体的出海问题展开,专业、可读、可落地。'
   });
   body += '\n\n<!-- 文章列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">KNOWLEDGE HUB</span><h2 class="section-title">全部文章</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">' + articles.map(function (a) {
-      return '<a class="case-card" href="' + a.l + '" style="text-decoration:none;"><div style="margin-bottom:8px;"><span class="case-tag">' + a.tag + '</span></div><div class="card-title">' + a.t + '</div><div class="card-text">' + a.d + '</div></a>';
+      return '<a class="case-card" href="' + p + 'knowledge/' + a.l + '" style="text-decoration:none;"><div style="margin-bottom:8px;"><span class="case-tag">' + a.tag + '</span></div><div class="card-title">' + a.t + '</div><div class="card-text">' + a.d + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('没找到您关心的问题?', '告诉 AI 您的出海需求,3 分钟生成方案参考', p);
   write('knowledge/index.html', lib.buildPage({
