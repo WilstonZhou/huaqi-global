@@ -94,7 +94,7 @@ function footerHtml(p) {
     '      <a href="' + p + 'knowledge/singapore-registration-guide">2026 新加坡公司注册完全指南</a><a href="' + p + 'knowledge/us-company-tax-policy">美国公司税收政策解读</a><a href="' + p + 'knowledge/cross-border-compliance">跨境电商出海合规全方案</a><a href="' + p + 'knowledge/registration-cost-comparison">各国注册周期与费用对比</a><a href="' + p + 'knowledge/odi-vie-guide">ODI 备案与 VIE 架构指南</a><a href="' + p + 'knowledge/hk-vs-sg-company">香港 vs 新加坡公司对比</a><a href="' + p + 'knowledge/cayman-vs-bvi">开曼 vs BVI 离岸对比</a><a href="' + p + 'knowledge/overseas-bank-account-guide">海外银行开户指南</a><a href="' + p + 'news">政策动态</a>\n' +
     '    </div>\n' +
     '    <div class="footer-col"><h3>关于</h3>\n' +
-    '      <a href="' + p + 'about">公司简介</a><a href="' + p + 'global-network">全球网络</a><a href="' + p + 'ai-match">AI 智能匹配</a><a href="' + p + 'delivery-tracking">交付追踪</a><a href="' + p + 'cases">客户案例</a><a href="' + p + 'contact">联系我们</a><a href="' + p + 'compare/vanzbon">对比万企帮</a><a href="' + p + 'compare/tenace">对比唐诚控股</a><a href="' + p + 'compare/xiaoniu">对比小牛国际</a><a href="' + p + 'compare/simengqifu">对比中港星</a><a href="' + p + 'en">English</a><a href="' + p + 'tools/cost-calculator">成本速查</a>\n' +
+    '      <a href="' + p + 'about">公司简介</a><a href="' + p + 'global-network">全球网络</a><a href="' + p + 'ai-match">AI 智能匹配</a><a href="' + p + 'delivery-tracking">交付追踪</a><a href="' + p + 'cases">客户案例</a><a href="' + p + 'contact">联系我们</a><a href="' + p + 'compare/vanzbon">对比万企帮</a><a href="' + p + 'compare/tenace">对比唐诚控股</a><a href="' + p + 'compare/xiaoniu">对比小牛国际</a><a href="' + p + 'compare/simengqifu">对比中港星</a><a href="' + p + 'tools/cost-calculator">成本速查</a>\n' +
     '    </div>\n' +
     '  </div>\n' +
     '  <div class="footer-bottom">\n' +
