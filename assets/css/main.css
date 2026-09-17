@@ -549,7 +549,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .service-sub-block:last-child { margin-bottom: 0; }
 
 .content-block { background: white; border-radius: var(--radius-lg); padding: 32px; margin-bottom: 24px; border: 1px solid var(--c-border); box-shadow: var(--shadow-xs); }
-.content-block h3 { font-size: 20px; color: var(--c-primary); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--c-gold); }
+.content-block h3, .content-block h2 { font-size: 20px; color: var(--c-primary); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--c-gold); }
 .content-block h4 { font-size: 16px; color: var(--c-text); margin: 18px 0 10px; }
 .content-block p { color: var(--c-text); line-height: 1.8; margin-bottom: 12px; }
 .content-block ul { padding-left: 20px; margin-bottom: 12px; }
@@ -709,7 +709,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .contact-info-card { background: white; border: 1px solid var(--c-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 16px; display: flex; gap: 16px; align-items: flex-start; }
 .contact-info-icon { width: 48px; height: 48px; background: var(--c-bg-soft); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-.contact-info-card h4 { font-size: 16px; color: var(--c-primary); margin-bottom: 6px; }
+.contact-info-card h4, .contact-info-card h3 { font-size: 16px; color: var(--c-primary); margin-bottom: 6px; }
 .contact-info-card p { font-size: 14px; color: var(--c-text-light); line-height: 1.7; }
 
 .contact-form { background: white; border: 1px solid var(--c-border); border-radius: var(--radius-lg); padding: 32px; }

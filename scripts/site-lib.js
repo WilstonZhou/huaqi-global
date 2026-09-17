@@ -198,8 +198,9 @@ function statCards(items) {
   }).join('\n') + '</div>';
 }
 
-function contentBlock(h, paras, lists, ordered) {
-  var html = '<div class="content-block">\n<h3>' + h + '</h3>\n';
+function contentBlock(h, paras, lists, ordered, level) {
+  var tag = 'h' + (level || 3);
+  var html = '<div class="content-block">\n<' + tag + '>' + h + '</' + tag + '>\n';
   (paras || []).forEach(function (p) { html += '<p>' + p + '</p>\n'; });
   if (lists && lists.length) {
     html += '<' + (ordered ? 'ol' : 'ul') + '>\n' + lists.map(function (li) { return '<li>' + li + '</li>'; }).join('\n') + '\n</' + (ordered ? 'ol' : 'ul') + '>\n';

@@ -45,7 +45,7 @@ data.forEach(function (c) {
 
   body += '\n\n<!-- 免责说明 -->\n<section class="section section-soft">\n  <div class="container">\n    ' + DISCLAIMER + '\n  </div>\n</section>';
 
-  body += '\n\n<!-- 背景 -->\n<section class="section">\n  <div class="container container-sm">\n    ' + lib.contentBlock('关于本次对比', [c.intro]) + '\n  </div>\n</section>';
+  body += '\n\n<!-- 背景 -->\n<section class="section">\n  <div class="container container-sm">\n    ' + lib.contentBlock('关于本次对比', [c.intro], null, false, 2) + '\n  </div>\n</section>';
 
   body += '\n\n<!-- 对比表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">SIDE BY SIDE</span><h2 class="section-title">公开信息并列对比</h2><p class="section-desc">下表两侧信息分别来自华企环球官网与 ' + c.name + ' 官网自述,仅作事实罗列。</p></div>\n    ' + table + '\n  </div>\n</section>';
 
