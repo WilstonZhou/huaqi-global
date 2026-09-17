@@ -15,7 +15,8 @@
     { "source": "/en/hong-kong-company-registration", "destination": "/country/hk", "permanent": true },
     { "source": "/en/us-company-registration", "destination": "/country/us", "permanent": true },
     { "source": "/en/dubai-company-registration", "destination": "/country/ae", "permanent": true },
-    { "source": "/en/:path*", "destination": "/", "permanent": true }
+    { "source": "/en/:path*", "destination": "/", "permanent": true },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "www.hq10000.com" }], "destination": "https://hq10000.com/:path*", "permanent": true }
   ],
   "headers": [
     {
