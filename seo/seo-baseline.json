@@ -26,7 +26,7 @@
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2883,
+    "ms": 2847,
     "date": "2026-09-17",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
@@ -421,13 +421,6 @@
       "id": "og-no-dimensions",
       "title": "og:image has no declared width/height",
       "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge"
-    },
-    {
-      "level": "warn",
-      "id": "thin-content",
-      "title": "Thin page",
-      "detail": "209 words. Under ~250 rarely ranks for anything competitive.",
       "url": "https://hq10000.com/knowledge"
     },
     {
