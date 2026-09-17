@@ -25,8 +25,8 @@
     "origin": "https://hq10000.com",
     "pages": 65,
     "notIndexable": 0,
-    "requests": 91,
-    "ms": 2829,
+    "requests": 89,
+    "ms": 2717,
     "date": "2026-09-17",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
@@ -716,13 +716,6 @@
       "title": "No Content-Security-Policy",
       "detail": "The strongest defence against injected scripts.",
       "url": "https://hq10000.com/"
-    },
-    {
-      "level": "info",
-      "id": "link-redirects",
-      "title": "2 internal links point at a redirect",
-      "detail": "First: https://hq10000.com/country/index (308), https://hq10000.com/knowledge/index (308). Linking to the final URL saves the hop.",
-      "url": "https://hq10000.com"
     }
   ]
 }
