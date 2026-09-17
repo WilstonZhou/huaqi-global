@@ -2,7 +2,7 @@
 
 > 用途:SEO 修复 / 内容改动前,**先查本表判断页面来源**,再决定改哪里。
 > 依据:2026-09-17 对仓库实测(生成器 write 目标 + 目录差集),同日由 bootstrap 审计验证。
-> 全站规模:71 个 HTML 页面。
+> 全站规模:66 个 HTML 页面(原 71;2026-09-17 删除英文站 5 页)。
 
 ## 一、生成页(改生成器源码 → 重跑生成器,改 HTML 无效)
 
@@ -15,7 +15,8 @@
 | `scripts/generate-service-pages.js` | `services/` 18 页 | 数据源 `scripts/data-services.js`(apostille、company-liquidation、eu-trademark、hk-audit、hk-bank-account、hk-tax-filing、offshore、patent、patent-search、pct-patent、sg-bank-account、trademark、trademark-renewal、trademark-transfer、us-bank-account、us-inc、us-llc、vat) |
 | `scripts/generate-more-pages.js` | `cases.html`、`knowledge/index.html`、`news/index.html`、`services/fees.html` | |
 | `scripts/generate-tools.js` | `tools/cost-calculator.html` | |
-| `scripts/generate-en-pages.js` | `en/*.html`(5) | ⚠️ 入口已下线,sitemap 已移除;**审计时用 `--exclude "**/en/**"` 排除** |
+
+> ⚠️ **英文站已物理删除**(2026-09-17):`en/` 目录与生成器 `generate-en-pages.js` / 数据源 `data-en-countries.js` 已移除;`vercel.json` 已加 `/en`、`/en/*` 的 301 跳转(分别指向对应国家页或首页)。如将来要恢复英文站,可从 git 历史取回。
 
 ## 二、手写页(直接改 HTML)
 
@@ -26,7 +27,7 @@
 ## 三、共享 / 数据源(改动影响面最大 → 高风险)
 
 - `scripts/site-lib.js` — 布局:buildPage / header / footer / 面包屑 / FAQ / JSON-LD 辅助
-- 数据:`scripts/data-services.js`、`data-countries.js`、`data-en-countries.js`、`data-comparisons.js`
+- 数据:`scripts/data-services.js`、`data-countries.js`、`data-comparisons.js`
 - 前端:`assets/js/data.js`(**stats / nav / FAQ 由 JS 渲染**)、`assets/js/main.js`
 - 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`update-sitemap-lastmod.js`
 - ⚠️ `sitemap.xml` **手工维护**(仅 lastmod 由脚本更新);新增/删除页面必须手动同步
@@ -34,7 +35,7 @@
 ## 四、例外与陷阱
 
 1. `assets/js/data.js` 渲染出来的内容(stats/nav/FAQ)在静态 HTML 里看不到 → 静态审计"缺失/不一致"类 finding 先核实是否此原因,再动手。
-2. `en/` 目录文件仍在(200 可达),但入口/sitemap 已摘 → 审计排除;彻底处理需三选一(noindex / 301 / 删除)。
+2. 已删除的 `en/` 目录:URL 现由 `vercel.json` 的 301 接管(→ 对应 `/country/xx` 或首页),不再是 404;审计无需再排除。
 3. `knowledge/` 混装:5 篇生成 + 1 个 index(生成) + 3 篇旧静态快照(手写)。
 
 ## 五、标准作业流程(已固化)
