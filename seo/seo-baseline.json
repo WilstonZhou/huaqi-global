@@ -1,0 +1,2307 @@
+{
+  "version": 1,
+  "meta": {
+    "applicable": {
+      "images": true,
+      "hreflang": false,
+      "jsonld": true,
+      "ogImage": true,
+      "twitterImage": true,
+      "fingerprints": true,
+      "multipage": true,
+      "https": true,
+      "tls": true,
+      "sitemap": true,
+      "llmsTxt": false,
+      "expect": false,
+      "psi": false,
+      "psiField": false,
+      "redirects": false,
+      "external": false,
+      "compareAs": false,
+      "hosts": false
+    },
+    "ignored": 0,
+    "origin": "https://hq10000.com",
+    "pages": 65,
+    "notIndexable": 0,
+    "requests": 110,
+    "ms": 7552,
+    "date": "2026-09-17",
+    "sitemap": "https://hq10000.com/sitemap.xml"
+  },
+  "findings": [
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/company-registration",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/bank-account",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/annual-review",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/audit",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/company-deregistration",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/tax-planning",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/fund-planning",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/other-services",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "63 chars — room to say more.",
+      "url": "https://hq10000.com/services/fees",
+      "reach": {
+        "inlinks": 2,
+        "depth": 2
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/fees",
+      "reach": {
+        "inlinks": 2,
+        "depth": 2
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/apostille",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/trademark",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/vat",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/offshore",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/hk-bank-account",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/sg-bank-account",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "63 chars — room to say more.",
+      "url": "https://hq10000.com/services/us-bank-account",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/us-bank-account",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "65 chars — room to say more.",
+      "url": "https://hq10000.com/services/trademark-transfer",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/trademark-transfer",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "55 chars — room to say more.",
+      "url": "https://hq10000.com/services/trademark-renewal",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/trademark-renewal",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/eu-trademark",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/patent",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/pct-patent",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "62 chars — room to say more.",
+      "url": "https://hq10000.com/services/patent-search",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/patent-search",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/us-llc",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/us-inc",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "61 chars — room to say more.",
+      "url": "https://hq10000.com/services/hk-tax-filing",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/hk-tax-filing",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "58 chars — room to say more.",
+      "url": "https://hq10000.com/services/hk-audit",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/hk-audit",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "65 chars — room to say more.",
+      "url": "https://hq10000.com/services/company-liquidation",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/services/company-liquidation",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/sg",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/us",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/my",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/th",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/uk",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/hk",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/jp",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/kr",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/ae",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/vn",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/country/id",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/solutions/ecommerce",
+      "reach": {
+        "inlinks": 6,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "68 chars — room to say more.",
+      "url": "https://hq10000.com/solutions/manufacturing",
+      "reach": {
+        "inlinks": 7,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/solutions/manufacturing",
+      "reach": {
+        "inlinks": 7,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "63 chars — room to say more.",
+      "url": "https://hq10000.com/solutions/vie-red-chip",
+      "reach": {
+        "inlinks": 4,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/solutions/vie-red-chip",
+      "reach": {
+        "inlinks": 4,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "60 chars — room to say more.",
+      "url": "https://hq10000.com/solutions/identity-planning",
+      "reach": {
+        "inlinks": 3,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/solutions/identity-planning",
+      "reach": {
+        "inlinks": 3,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge",
+      "reach": {
+        "inlinks": 47,
+        "depth": 2
+      }
+    },
+    {
+      "level": "warn",
+      "id": "thin-content",
+      "title": "Thin page",
+      "detail": "209 words. Under ~250 rarely ranks for anything competitive.",
+      "url": "https://hq10000.com/knowledge",
+      "reach": {
+        "inlinks": 47,
+        "depth": 2
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/singapore-registration-guide",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/us-company-tax-policy",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/cross-border-compliance",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/hk-vs-sg-company",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/cayman-vs-bvi",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "67 chars — room to say more.",
+      "url": "https://hq10000.com/knowledge/registration-cost-comparison",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/registration-cost-comparison",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/overseas-bank-account-guide",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/knowledge/odi-vie-guide",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/news",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "65 chars — room to say more.",
+      "url": "https://hq10000.com/cases",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/cases",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/about",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "66 chars — room to say more.",
+      "url": "https://hq10000.com/compare/vanzbon",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/compare/vanzbon",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "warn",
+      "id": "heading-skip",
+      "title": "Heading level jumps from h1 to h3",
+      "detail": "Headings should descend one level at a time — the outline is a structure, not a size chart.",
+      "url": "https://hq10000.com/compare/vanzbon",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "69 chars — room to say more.",
+      "url": "https://hq10000.com/compare/tenace",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/compare/tenace",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "warn",
+      "id": "heading-skip",
+      "title": "Heading level jumps from h1 to h3",
+      "detail": "Headings should descend one level at a time — the outline is a structure, not a size chart.",
+      "url": "https://hq10000.com/compare/tenace",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "detail": "68 chars — room to say more.",
+      "url": "https://hq10000.com/compare/xiaoniu",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/compare/xiaoniu",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "warn",
+      "id": "heading-skip",
+      "title": "Heading level jumps from h1 to h3",
+      "detail": "Headings should descend one level at a time — the outline is a structure, not a size chart.",
+      "url": "https://hq10000.com/compare/xiaoniu",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/compare/simengqifu",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "warn",
+      "id": "heading-skip",
+      "title": "Heading level jumps from h1 to h3",
+      "detail": "Headings should descend one level at a time — the outline is a structure, not a size chart.",
+      "url": "https://hq10000.com/compare/simengqifu",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/ai-match",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/contact",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "img-srcset",
+      "title": "1 image served at one size",
+      "detail": "First: assets/images/wechat-qr.jpg. A phone downloads the desktop file.",
+      "url": "https://hq10000.com/contact",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "warn",
+      "id": "heading-skip",
+      "title": "Heading level jumps from h2 to h4",
+      "detail": "Headings should descend one level at a time — the outline is a structure, not a size chart.",
+      "url": "https://hq10000.com/contact",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/delivery-tracking",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/global-network",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "detail": "Scrapers guess, and some skip the preview rather than guess.",
+      "url": "https://hq10000.com/tools/cost-calculator",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "anchor-ambiguous",
+      "title": "\"知识中心\" links to 2 different pages",
+      "detail": "https://hq10000.com/knowledge/singapore-registration-guide, https://hq10000.com/knowledge. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
+      "url": "https://hq10000.com/",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    },
+    {
+      "level": "info",
+      "id": "anchor-ambiguous",
+      "title": "\"越南公司注册\" links to 2 different pages",
+      "detail": "https://hq10000.com/country/vn, https://hq10000.com/services/company-registration. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
+      "url": "https://hq10000.com/",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    },
+    {
+      "level": "info",
+      "id": "anchor-ambiguous",
+      "title": "\"阅读全文\" links to 3 different pages",
+      "detail": "https://hq10000.com/knowledge/singapore-registration-guide, https://hq10000.com/knowledge/us-company-tax-policy, https://hq10000.com/knowledge/hk-vs-sg-company. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
+      "url": "https://hq10000.com/country/sg",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "anchor-ambiguous",
+      "title": "\"查看详情\" links to 5 different pages",
+      "detail": "https://hq10000.com/knowledge/singapore-registration-guide, https://hq10000.com/knowledge/us-company-tax-policy, https://hq10000.com/solutions/manufacturing, and 2 more. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
+      "url": "https://hq10000.com/news",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "info",
+      "id": "sitemap-lastmod-identical",
+      "title": "Every page in the sitemap has the same lastmod",
+      "detail": "All 65 say 2026-09-16. That is a generator stamping build time rather than when each page last changed — which tells a crawler nothing, so it learns to ignore the field.",
+      "url": "https://hq10000.com/sitemap.xml"
+    },
+    {
+      "level": "info",
+      "id": "llms-missing",
+      "title": "No llms.txt",
+      "detail": "The emerging convention for telling AI assistants what a site is and which pages matter.",
+      "url": "https://hq10000.com/llms.txt"
+    },
+    {
+      "level": "warn",
+      "id": "redirect-chain",
+      "title": "http://www.hq10000.com/ takes 2 redirects",
+      "detail": "308 http://www.hq10000.com/ → 301 https://www.hq10000.com/ → 200 https://hq10000.com/",
+      "url": "http://www.hq10000.com/"
+    },
+    {
+      "level": "info",
+      "id": "header-x-content-type-options",
+      "title": "X-Content-Type-Options not set",
+      "detail": "nosniff stops MIME-type guessing.",
+      "url": "https://hq10000.com/",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    },
+    {
+      "level": "info",
+      "id": "header-referrer-policy",
+      "title": "Referrer-Policy not set",
+      "detail": "Full URLs leak to third parties by default.",
+      "url": "https://hq10000.com/",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    },
+    {
+      "level": "info",
+      "id": "header-content-security-policy",
+      "title": "No Content-Security-Policy",
+      "detail": "The strongest defence against injected scripts.",
+      "url": "https://hq10000.com/",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/sg — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/my — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/th — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/uk — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/jp — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/kr — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/ae — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/vn — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/id — linked from https://hq10000.com/country",
+      "url": "https://hq10000.com/country",
+      "reach": {
+        "inlinks": 64,
+        "depth": 1
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/singapore-registration-guide — linked from https://hq10000.com/knowledge",
+      "url": "https://hq10000.com/knowledge",
+      "reach": {
+        "inlinks": 47,
+        "depth": 2
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/us-company-tax-policy — linked from https://hq10000.com/knowledge",
+      "url": "https://hq10000.com/knowledge",
+      "reach": {
+        "inlinks": 47,
+        "depth": 2
+      }
+    },
+    {
+      "level": "error",
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "detail": "https://hq10000.com/odi-vie-guide — linked from https://hq10000.com/knowledge",
+      "url": "https://hq10000.com/knowledge",
+      "reach": {
+        "inlinks": 47,
+        "depth": 2
+      }
+    },
+    {
+      "level": "info",
+      "id": "link-redirects",
+      "title": "9 internal links point at a redirect",
+      "detail": "First: https://hq10000.com/us (308), https://hq10000.com/hk (308), https://hq10000.com/country/index (308). Linking to the final URL saves the hop.",
+      "url": "https://hq10000.com",
+      "reach": {
+        "inlinks": 64,
+        "depth": 0
+      }
+    }
+  ],
+  "causes": [
+    {
+      "id": "broken-link",
+      "title": "Link to a page that does not exist",
+      "level": "error",
+      "section": "/",
+      "count": 12,
+      "pages": [
+        "https://hq10000.com/country",
+        "https://hq10000.com/knowledge"
+      ],
+      "scope": "2 pages across the site, 111 links in, one click from home",
+      "area": "Links"
+    },
+    {
+      "id": "heading-skip",
+      "title": "Heading level jumps from h1 to h3",
+      "level": "warn",
+      "section": "/compare/",
+      "count": 4,
+      "pages": [
+        "https://hq10000.com/compare/vanzbon",
+        "https://hq10000.com/compare/tenace",
+        "https://hq10000.com/compare/xiaoniu",
+        "https://hq10000.com/compare/simengqifu"
+      ],
+      "scope": "4 pages under /compare/, 256 links in, one click from home",
+      "area": "Content"
+    },
+    {
+      "id": "heading-skip",
+      "title": "Heading level jumps from h2 to h4",
+      "level": "warn",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/contact"
+      ],
+      "scope": "once",
+      "area": "Content"
+    },
+    {
+      "id": "thin-content",
+      "title": "Thin page",
+      "level": "warn",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/knowledge"
+      ],
+      "scope": "once",
+      "area": "Content"
+    },
+    {
+      "id": "redirect-chain",
+      "title": "http://www.hq10000.com/ takes 2 redirects",
+      "level": "warn",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "http://www.hq10000.com/"
+      ],
+      "scope": "once",
+      "area": "Redirects"
+    },
+    {
+      "id": "og-no-dimensions",
+      "title": "og:image has no declared width/height",
+      "level": "info",
+      "section": "*",
+      "everywhere": true,
+      "count": 65,
+      "pages": [
+        "https://hq10000.com/",
+        "https://hq10000.com/services/company-registration",
+        "https://hq10000.com/services/bank-account",
+        "https://hq10000.com/services/annual-review",
+        "https://hq10000.com/services/audit",
+        "https://hq10000.com/services/company-deregistration",
+        "https://hq10000.com/services/tax-planning",
+        "https://hq10000.com/services/fund-planning",
+        "https://hq10000.com/services/other-services",
+        "https://hq10000.com/services/fees",
+        "https://hq10000.com/services/apostille",
+        "https://hq10000.com/services/trademark",
+        "https://hq10000.com/services/vat",
+        "https://hq10000.com/services/offshore",
+        "https://hq10000.com/services/hk-bank-account",
+        "https://hq10000.com/services/sg-bank-account",
+        "https://hq10000.com/services/us-bank-account",
+        "https://hq10000.com/services/trademark-transfer",
+        "https://hq10000.com/services/trademark-renewal",
+        "https://hq10000.com/services/eu-trademark",
+        "https://hq10000.com/services/patent",
+        "https://hq10000.com/services/pct-patent",
+        "https://hq10000.com/services/patent-search",
+        "https://hq10000.com/services/us-llc",
+        "https://hq10000.com/services/us-inc",
+        "https://hq10000.com/services/hk-tax-filing",
+        "https://hq10000.com/services/hk-audit",
+        "https://hq10000.com/services/company-liquidation",
+        "https://hq10000.com/country",
+        "https://hq10000.com/country/sg",
+        "https://hq10000.com/country/us",
+        "https://hq10000.com/country/my",
+        "https://hq10000.com/country/th",
+        "https://hq10000.com/country/uk",
+        "https://hq10000.com/country/hk",
+        "https://hq10000.com/country/jp",
+        "https://hq10000.com/country/kr",
+        "https://hq10000.com/country/ae",
+        "https://hq10000.com/country/vn",
+        "https://hq10000.com/country/id",
+        "https://hq10000.com/solutions/ecommerce",
+        "https://hq10000.com/solutions/manufacturing",
+        "https://hq10000.com/solutions/vie-red-chip",
+        "https://hq10000.com/solutions/identity-planning",
+        "https://hq10000.com/knowledge",
+        "https://hq10000.com/knowledge/singapore-registration-guide",
+        "https://hq10000.com/knowledge/us-company-tax-policy",
+        "https://hq10000.com/knowledge/cross-border-compliance",
+        "https://hq10000.com/knowledge/hk-vs-sg-company",
+        "https://hq10000.com/knowledge/cayman-vs-bvi",
+        "https://hq10000.com/knowledge/registration-cost-comparison",
+        "https://hq10000.com/knowledge/overseas-bank-account-guide",
+        "https://hq10000.com/knowledge/odi-vie-guide",
+        "https://hq10000.com/news",
+        "https://hq10000.com/cases",
+        "https://hq10000.com/about",
+        "https://hq10000.com/compare/vanzbon",
+        "https://hq10000.com/compare/tenace",
+        "https://hq10000.com/compare/xiaoniu",
+        "https://hq10000.com/compare/simengqifu",
+        "https://hq10000.com/ai-match",
+        "https://hq10000.com/contact",
+        "https://hq10000.com/delivery-tracking",
+        "https://hq10000.com/global-network",
+        "https://hq10000.com/tools/cost-calculator"
+      ],
+      "scope": "every page crawled (65), 3,845 links in, starting at the homepage",
+      "area": "Social"
+    },
+    {
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "level": "info",
+      "section": "/services/",
+      "count": 8,
+      "pages": [
+        "https://hq10000.com/services/fees",
+        "https://hq10000.com/services/us-bank-account",
+        "https://hq10000.com/services/trademark-transfer",
+        "https://hq10000.com/services/trademark-renewal",
+        "https://hq10000.com/services/patent-search",
+        "https://hq10000.com/services/hk-tax-filing",
+        "https://hq10000.com/services/hk-audit",
+        "https://hq10000.com/services/company-liquidation"
+      ],
+      "scope": "8 pages under /services/, 450 links in, one click from home",
+      "area": "Content"
+    },
+    {
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "level": "info",
+      "section": "/compare/",
+      "count": 3,
+      "pages": [
+        "https://hq10000.com/compare/vanzbon",
+        "https://hq10000.com/compare/tenace",
+        "https://hq10000.com/compare/xiaoniu"
+      ],
+      "scope": "3 pages under /compare/, 192 links in, one click from home",
+      "area": "Content"
+    },
+    {
+      "id": "anchor-ambiguous",
+      "title": "\"知识中心\" links to 2 different pages",
+      "level": "info",
+      "section": "/",
+      "count": 3,
+      "pages": [
+        "https://hq10000.com/",
+        "https://hq10000.com/news"
+      ],
+      "scope": "2 pages across the site, 128 links in, starting at the homepage",
+      "area": "Links"
+    },
+    {
+      "id": "anchor-ambiguous",
+      "title": "\"阅读全文\" links to 3 different pages",
+      "level": "info",
+      "section": "/country/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/country/sg"
+      ],
+      "scope": "on one page under /country/",
+      "area": "Links"
+    },
+    {
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/cases"
+      ],
+      "scope": "once",
+      "area": "Content"
+    },
+    {
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "level": "info",
+      "section": "/knowledge/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/knowledge/registration-cost-comparison"
+      ],
+      "scope": "on one page under /knowledge/",
+      "area": "Content"
+    },
+    {
+      "id": "header-content-security-policy",
+      "title": "No Content-Security-Policy",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/"
+      ],
+      "scope": "once",
+      "area": "Site & security"
+    },
+    {
+      "id": "header-referrer-policy",
+      "title": "Referrer-Policy not set",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/"
+      ],
+      "scope": "once",
+      "area": "Site & security"
+    },
+    {
+      "id": "header-x-content-type-options",
+      "title": "X-Content-Type-Options not set",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/"
+      ],
+      "scope": "once",
+      "area": "Site & security"
+    },
+    {
+      "id": "img-srcset",
+      "title": "1 image served at one size",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/contact"
+      ],
+      "scope": "once",
+      "area": "Images"
+    },
+    {
+      "id": "link-redirects",
+      "title": "9 internal links point at a redirect",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com"
+      ],
+      "scope": "once",
+      "area": "Links"
+    },
+    {
+      "id": "desc-short",
+      "title": "Meta description is short",
+      "level": "info",
+      "section": "/solutions/",
+      "count": 3,
+      "pages": [
+        "https://hq10000.com/solutions/manufacturing",
+        "https://hq10000.com/solutions/vie-red-chip",
+        "https://hq10000.com/solutions/identity-planning"
+      ],
+      "scope": "3 pages under /solutions/, 14 links in, one click from home",
+      "area": "Content"
+    },
+    {
+      "id": "llms-missing",
+      "title": "No llms.txt",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/llms.txt"
+      ],
+      "scope": "once",
+      "area": "AI & answer engines"
+    },
+    {
+      "id": "sitemap-lastmod-identical",
+      "title": "Every page in the sitemap has the same lastmod",
+      "level": "info",
+      "section": "/",
+      "count": 1,
+      "pages": [
+        "https://hq10000.com/sitemap.xml"
+      ],
+      "scope": "once",
+      "area": "Sitemap & robots"
+    }
+  ],
+  "score": {
+    "score": 99,
+    "grade": "A",
+    "ifErrorsFixed": 100,
+    "lost": 0.9,
+    "checks": {
+      "passed": 75,
+      "failed": 4,
+      "skipped": 26
+    },
+    "weights": {
+      "error": 12,
+      "warn": 4
+    },
+    "passed": [
+      {
+        "id": "page-status",
+        "area": "Indexability",
+        "pass": "Every page answers 200",
+        "worst": "error"
+      },
+      {
+        "id": "unreachable",
+        "area": "Indexability",
+        "pass": "The site answers",
+        "worst": "error"
+      },
+      {
+        "id": "nothing-crawlable",
+        "area": "Indexability",
+        "pass": "There is something to crawl",
+        "worst": "error"
+      },
+      {
+        "id": "noindex",
+        "area": "Indexability",
+        "pass": "No page in the sitemap says noindex",
+        "worst": "error"
+      },
+      {
+        "id": "x-robots-noindex",
+        "area": "Indexability",
+        "pass": "No X-Robots-Tag hides a page",
+        "worst": "error"
+      },
+      {
+        "id": "nofollow-page",
+        "area": "Indexability",
+        "pass": "No page tells Google to follow none of its links",
+        "worst": "warn"
+      },
+      {
+        "id": "robots-conflict",
+        "area": "Indexability",
+        "pass": "The robots meta and header agree",
+        "worst": "warn"
+      },
+      {
+        "id": "body-not-html",
+        "area": "Indexability",
+        "pass": "Every page served as HTML is HTML",
+        "worst": "warn"
+      },
+      {
+        "id": "soft-404",
+        "area": "Indexability",
+        "pass": "A URL that cannot exist returns 404",
+        "worst": "error"
+      },
+      {
+        "id": "canonical-missing",
+        "area": "Indexability",
+        "pass": "Every page declares a canonical",
+        "worst": "warn"
+      },
+      {
+        "id": "canonical-multiple",
+        "area": "Indexability",
+        "pass": "No page declares two canonicals",
+        "worst": "error"
+      },
+      {
+        "id": "canonical-dead",
+        "area": "Indexability",
+        "pass": "Every canonical target loads",
+        "worst": "error"
+      },
+      {
+        "id": "canonical-redirects",
+        "area": "Indexability",
+        "pass": "No canonical points at a redirect",
+        "worst": "error"
+      },
+      {
+        "id": "canonical-noindex",
+        "area": "Indexability",
+        "pass": "No canonical points at a noindexed page",
+        "worst": "error"
+      },
+      {
+        "id": "canonical-paginated",
+        "area": "Indexability",
+        "pass": "Paginated pages name themselves",
+        "worst": "error"
+      },
+      {
+        "id": "canonical-chain",
+        "area": "Indexability",
+        "pass": "No canonical target is canonicalised again",
+        "worst": "warn"
+      },
+      {
+        "id": "title-missing",
+        "area": "Content",
+        "pass": "Every page has a title",
+        "worst": "error"
+      },
+      {
+        "id": "title-long",
+        "area": "Content",
+        "pass": "No title is cut off in results",
+        "worst": "warn"
+      },
+      {
+        "id": "title-short",
+        "area": "Content",
+        "pass": "No title is too short to describe the page",
+        "worst": "warn"
+      },
+      {
+        "id": "desc-missing",
+        "area": "Content",
+        "pass": "Every page has a meta description",
+        "worst": "warn"
+      },
+      {
+        "id": "desc-long",
+        "area": "Content",
+        "pass": "No meta description is cut off",
+        "worst": "warn"
+      },
+      {
+        "id": "h1-missing",
+        "area": "Content",
+        "pass": "Every page has an h1",
+        "worst": "error"
+      },
+      {
+        "id": "h1-multiple",
+        "area": "Content",
+        "pass": "No page has two h1s",
+        "worst": "warn"
+      },
+      {
+        "id": "duplicate-title",
+        "area": "Content",
+        "pass": "No two pages share a title",
+        "worst": "warn"
+      },
+      {
+        "id": "duplicate-description",
+        "area": "Content",
+        "pass": "No two pages share a description",
+        "worst": "warn"
+      },
+      {
+        "id": "duplicate-content",
+        "area": "Content",
+        "pass": "No page is another page again",
+        "worst": "warn"
+      },
+      {
+        "id": "lang-missing",
+        "area": "Content",
+        "pass": "Every page declares its language",
+        "worst": "warn"
+      },
+      {
+        "id": "charset-missing",
+        "area": "Content",
+        "pass": "Every page declares its character set",
+        "worst": "warn"
+      },
+      {
+        "id": "viewport-missing",
+        "area": "Content",
+        "pass": "Every page declares a viewport",
+        "worst": "error"
+      },
+      {
+        "id": "viewport-locked",
+        "area": "Content",
+        "pass": "No viewport blocks zooming",
+        "worst": "warn"
+      },
+      {
+        "id": "viewport-fixed-width",
+        "area": "Content",
+        "pass": "No viewport is a fixed pixel width",
+        "worst": "warn"
+      },
+      {
+        "id": "orphan-page",
+        "area": "Links",
+        "pass": "No page is linked from nowhere",
+        "worst": "warn"
+      },
+      {
+        "id": "no-path-from-home",
+        "area": "Links",
+        "pass": "Every page is reachable from the homepage",
+        "worst": "warn"
+      },
+      {
+        "id": "link-no-text",
+        "area": "Links",
+        "pass": "Every destination has a link that names it",
+        "worst": "warn"
+      },
+      {
+        "id": "missing-from-sitemap",
+        "area": "Links",
+        "pass": "Every linked page is in the sitemap",
+        "worst": "warn"
+      },
+      {
+        "id": "meta-refresh",
+        "area": "Redirects",
+        "pass": "No page redirects with a meta refresh",
+        "worst": "warn"
+      },
+      {
+        "id": "sitemap-redirect",
+        "area": "Redirects",
+        "pass": "No sitemap URL redirects",
+        "worst": "error"
+      },
+      {
+        "id": "trailing-slash",
+        "area": "Redirects",
+        "pass": "Trailing slashes are consistent",
+        "worst": "warn"
+      },
+      {
+        "id": "host-variant-dead",
+        "area": "Redirects",
+        "pass": "Every host variant reaches the site",
+        "worst": "warn"
+      },
+      {
+        "id": "img-alt",
+        "area": "Images",
+        "pass": "Every image has an alt attribute",
+        "worst": "error"
+      },
+      {
+        "id": "img-alt-filename",
+        "area": "Images",
+        "pass": "No alt text is a filename",
+        "worst": "warn"
+      },
+      {
+        "id": "img-alt-placeholder",
+        "area": "Images",
+        "pass": "No alt text is a placeholder",
+        "worst": "warn"
+      },
+      {
+        "id": "img-dimensions",
+        "area": "Images",
+        "pass": "Every image declares width and height",
+        "worst": "warn"
+      },
+      {
+        "id": "broken-image",
+        "area": "Images",
+        "pass": "Every image loads",
+        "worst": "error"
+      },
+      {
+        "id": "og-title-missing",
+        "area": "Social",
+        "pass": "Every page has an og:title",
+        "worst": "warn"
+      },
+      {
+        "id": "og-description-missing",
+        "area": "Social",
+        "pass": "Every page has an og:description",
+        "worst": "warn"
+      },
+      {
+        "id": "og-image-missing",
+        "area": "Social",
+        "pass": "Every page has an og:image",
+        "worst": "warn"
+      },
+      {
+        "id": "og-image-relative",
+        "area": "Social",
+        "pass": "Every og:image is an absolute URL",
+        "worst": "error"
+      },
+      {
+        "id": "og-image-broken",
+        "area": "Social",
+        "pass": "Every og:image loads",
+        "worst": "error"
+      },
+      {
+        "id": "og-image-heavy",
+        "area": "Social",
+        "pass": "No og:image is too heavy to scrape",
+        "worst": "warn"
+      },
+      {
+        "id": "og-webp",
+        "area": "Social",
+        "pass": "No og:image is WebP",
+        "worst": "warn"
+      },
+      {
+        "id": "twitter-image-broken",
+        "area": "Social",
+        "pass": "Every twitter:image loads",
+        "worst": "error"
+      },
+      {
+        "id": "jsonld-invalid",
+        "area": "Structured data",
+        "pass": "All JSON-LD parses",
+        "worst": "error"
+      },
+      {
+        "id": "jsonld-no-type",
+        "area": "Structured data",
+        "pass": "All JSON-LD declares a @type",
+        "worst": "warn"
+      },
+      {
+        "id": "schema-incomplete",
+        "area": "Structured data",
+        "pass": "Structured data carries what Google requires",
+        "worst": "warn"
+      },
+      {
+        "id": "schema-date-order",
+        "area": "Structured data",
+        "pass": "Structured-data dates do not contradict each other",
+        "worst": "warn"
+      },
+      {
+        "id": "schema-date-future",
+        "area": "Structured data",
+        "pass": "No structured-data date is in the future",
+        "worst": "warn"
+      },
+      {
+        "id": "schema-image-broken",
+        "area": "Structured data",
+        "pass": "Images named in structured data load",
+        "worst": "warn"
+      },
+      {
+        "id": "content-language-mismatch",
+        "area": "Multilingual",
+        "pass": "html lang agrees with the Content-Language header",
+        "worst": "warn"
+      },
+      {
+        "id": "no-sitemap",
+        "area": "Sitemap & robots",
+        "pass": "The site has a sitemap",
+        "worst": "warn"
+      },
+      {
+        "id": "robots-missing",
+        "area": "Sitemap & robots",
+        "pass": "robots.txt is there",
+        "worst": "warn"
+      },
+      {
+        "id": "robots-blocks-all",
+        "area": "Sitemap & robots",
+        "pass": "robots.txt does not block the site",
+        "worst": "error"
+      },
+      {
+        "id": "robots-blocks-sitemap-url",
+        "area": "Sitemap & robots",
+        "pass": "robots.txt does not block its own sitemap URLs",
+        "worst": "error"
+      },
+      {
+        "id": "sitemap-not-indexable",
+        "area": "Sitemap & robots",
+        "pass": "Every sitemap URL is indexable",
+        "worst": "warn"
+      },
+      {
+        "id": "sitemap-lastmod-future",
+        "area": "Sitemap & robots",
+        "pass": "No lastmod is in the future",
+        "worst": "warn"
+      },
+      {
+        "id": "sitemap-too-many-urls",
+        "area": "Sitemap & robots",
+        "pass": "Every sitemap file is within 50,000 URLs",
+        "worst": "error"
+      },
+      {
+        "id": "sitemap-too-large",
+        "area": "Sitemap & robots",
+        "pass": "Every sitemap file is within 50MB",
+        "worst": "error"
+      },
+      {
+        "id": "favicon-broken",
+        "area": "Site & security",
+        "pass": "The favicon loads",
+        "worst": "warn"
+      },
+      {
+        "id": "mixed-content",
+        "area": "Site & security",
+        "pass": "No page loads an insecure subresource",
+        "worst": "error"
+      },
+      {
+        "id": "tls-expired",
+        "area": "Site & security",
+        "pass": "The TLS certificate is valid",
+        "worst": "error"
+      },
+      {
+        "id": "tls-expiring",
+        "area": "Site & security",
+        "pass": "The TLS certificate is not about to expire",
+        "worst": "warn"
+      },
+      {
+        "id": "header-strict-transport-security",
+        "area": "Site & security",
+        "pass": "HSTS is set",
+        "worst": "warn"
+      },
+      {
+        "id": "url-uppercase",
+        "area": "Site & security",
+        "pass": "No URL has uppercase in its path",
+        "worst": "warn"
+      },
+      {
+        "id": "url-space",
+        "area": "Site & security",
+        "pass": "No URL has a space in it",
+        "worst": "warn"
+      },
+      {
+        "id": "uncompressed",
+        "area": "Performance",
+        "pass": "HTML arrives compressed",
+        "worst": "warn"
+      }
+    ],
+    "failed": [
+      {
+        "id": "broken-link",
+        "area": "Links",
+        "level": "error",
+        "worst": "error",
+        "pages": 2,
+        "scope": "page",
+        "cost": 0.4
+      },
+      {
+        "id": "heading-skip",
+        "area": "Content",
+        "level": "warn",
+        "worst": "warn",
+        "pages": 5,
+        "scope": "page",
+        "cost": 0.3
+      },
+      {
+        "id": "redirect-chain",
+        "area": "Redirects",
+        "level": "warn",
+        "worst": "warn",
+        "pages": 1,
+        "scope": "page",
+        "cost": 0.1
+      },
+      {
+        "id": "thin-content",
+        "area": "Content",
+        "level": "warn",
+        "worst": "warn",
+        "pages": 1,
+        "scope": "page",
+        "cost": 0.1
+      }
+    ],
+    "skipped": [
+      {
+        "id": "serves-differently",
+        "area": "Indexability",
+        "pass": "Pages read the same to another visitor",
+        "why": "The pages were not fetched a second time — run with --compare-as."
+      },
+      {
+        "id": "external-broken",
+        "area": "Links",
+        "pass": "Every outbound link resolves",
+        "why": "Outbound links were not checked — run with --check-external.",
+        "enabledBy": "--check-external"
+      },
+      {
+        "id": "redirect-dead",
+        "area": "Redirects",
+        "pass": "Every URL in the redirect map still leads somewhere",
+        "why": "No redirect map was given — run with --redirects."
+      },
+      {
+        "id": "redirect-broken",
+        "area": "Redirects",
+        "pass": "Every redirect lands on a page that loads",
+        "why": "No redirect map was given — run with --redirects."
+      },
+      {
+        "id": "redirect-not-applied",
+        "area": "Redirects",
+        "pass": "Every rule in the map is in effect",
+        "why": "No redirect map was given — run with --redirects."
+      },
+      {
+        "id": "redirect-hops",
+        "area": "Redirects",
+        "pass": "No redirect takes more than one hop",
+        "why": "No redirect map was given — run with --redirects."
+      },
+      {
+        "id": "redirect-elsewhere",
+        "area": "Redirects",
+        "pass": "Every redirect lands where the map says",
+        "why": "No redirect map was given — run with --redirects."
+      },
+      {
+        "id": "redirect-temporary",
+        "area": "Redirects",
+        "pass": "Permanent redirects are served as 301",
+        "why": "No redirect map was given — run with --redirects."
+      },
+      {
+        "id": "schema-expected",
+        "area": "Structured data",
+        "pass": "Pages carry the schema types expected of them",
+        "why": "No schema expectations are configured."
+      },
+      {
+        "id": "hreflang-invalid",
+        "area": "Multilingual",
+        "pass": "Every hreflang code is well formed",
+        "why": "No page declares hreflang."
+      },
+      {
+        "id": "hreflang-one-way",
+        "area": "Multilingual",
+        "pass": "hreflang is reciprocal",
+        "why": "No page declares hreflang."
+      },
+      {
+        "id": "hreflang-dead",
+        "area": "Multilingual",
+        "pass": "Every hreflang alternate loads",
+        "why": "No page declares hreflang."
+      },
+      {
+        "id": "hreflang-no-self",
+        "area": "Multilingual",
+        "pass": "Every hreflang set lists its own page",
+        "why": "No page declares hreflang."
+      },
+      {
+        "id": "hreflang-lang-mismatch",
+        "area": "Multilingual",
+        "pass": "html lang agrees with hreflang",
+        "why": "No page declares hreflang."
+      },
+      {
+        "id": "ai-crawler-conflict",
+        "area": "AI & answer engines",
+        "pass": "robots.txt and llms.txt agree about AI assistants",
+        "why": "The site serves no llms.txt, so there is nothing for robots.txt to contradict."
+      },
+      {
+        "id": "subdomain-takeover",
+        "area": "Site & security",
+        "pass": "No subdomain points at a service that is gone",
+        "why": "The rest of the domain was not enumerated — run with --hosts.",
+        "enabledBy": "--hosts"
+      },
+      {
+        "id": "staging-indexable",
+        "area": "Site & security",
+        "pass": "No staging copy is open to the index",
+        "why": "The rest of the domain was not enumerated — run with --hosts.",
+        "enabledBy": "--hosts"
+      },
+      {
+        "id": "duplicate-host",
+        "area": "Site & security",
+        "pass": "No other host serves the same site again",
+        "why": "The rest of the domain was not enumerated — run with --hosts.",
+        "enabledBy": "--hosts"
+      },
+      {
+        "id": "psi-score",
+        "area": "Performance",
+        "pass": "PageSpeed scores the pages well",
+        "why": "PageSpeed was not asked — run with --psi.",
+        "enabledBy": "--psi"
+      },
+      {
+        "id": "psi-lcp",
+        "area": "Performance",
+        "pass": "Largest Contentful Paint is good in the lab",
+        "why": "PageSpeed was not asked — run with --psi.",
+        "enabledBy": "--psi"
+      },
+      {
+        "id": "psi-cls",
+        "area": "Performance",
+        "pass": "Cumulative Layout Shift is good in the lab",
+        "why": "PageSpeed was not asked — run with --psi.",
+        "enabledBy": "--psi"
+      },
+      {
+        "id": "psi-inp",
+        "area": "Performance",
+        "pass": "Interaction to Next Paint is good in the lab",
+        "why": "PageSpeed was not asked — run with --psi.",
+        "enabledBy": "--psi"
+      },
+      {
+        "id": "psi-field-lcp",
+        "area": "Performance",
+        "pass": "Real visitors get a good Largest Contentful Paint",
+        "why": "Google has no real-visitor data for these pages yet."
+      },
+      {
+        "id": "psi-field-cls",
+        "area": "Performance",
+        "pass": "Real visitors get a good Cumulative Layout Shift",
+        "why": "Google has no real-visitor data for these pages yet."
+      },
+      {
+        "id": "psi-field-inp",
+        "area": "Performance",
+        "pass": "Real visitors get a good Interaction to Next Paint",
+        "why": "Google has no real-visitor data for these pages yet."
+      },
+      {
+        "id": "psi-opportunity",
+        "area": "Performance",
+        "pass": "PageSpeed found nothing worth a second",
+        "why": "PageSpeed was not asked — run with --psi.",
+        "enabledBy": "--psi"
+      }
+    ],
+    "areas": [
+      {
+        "name": "Content",
+        "lost": 0.4,
+        "passed": 15,
+        "failed": 2
+      },
+      {
+        "name": "Links",
+        "lost": 0.4,
+        "passed": 4,
+        "failed": 1
+      },
+      {
+        "name": "Redirects",
+        "lost": 0.1,
+        "passed": 4,
+        "failed": 1
+      },
+      {
+        "name": "Images",
+        "lost": 0,
+        "passed": 5,
+        "failed": 0
+      },
+      {
+        "name": "Indexability",
+        "lost": 0,
+        "passed": 16,
+        "failed": 0
+      },
+      {
+        "name": "Multilingual",
+        "lost": 0,
+        "passed": 1,
+        "failed": 0
+      },
+      {
+        "name": "Performance",
+        "lost": 0,
+        "passed": 1,
+        "failed": 0
+      },
+      {
+        "name": "Site & security",
+        "lost": 0,
+        "passed": 7,
+        "failed": 0
+      },
+      {
+        "name": "Sitemap & robots",
+        "lost": 0,
+        "passed": 8,
+        "failed": 0
+      },
+      {
+        "name": "Social",
+        "lost": 0,
+        "passed": 8,
+        "failed": 0
+      },
+      {
+        "name": "Structured data",
+        "lost": 0,
+        "passed": 6,
+        "failed": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@nurkamol/seo-audit": "github:nurkamol/seo-audit#v1.40.1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "limit": 500,
+  "failOn": "new",
+  "limits": { "thinWords": 250 },
+  "sites": ["https://hq10000.com"],
+  "ignore": [
+    { "id": "thin-content", "urls": ["/contact/", "/thanks/"] }
+  ]
+}
