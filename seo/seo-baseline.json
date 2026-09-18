@@ -26,76 +26,13 @@
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2826,
+    "ms": 2920,
     "date": "2026-09-18",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
   "findings": [
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/company-registration"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/bank-account"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/annual-review"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/audit"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/company-deregistration"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/tax-planning"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/fund-planning"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/other-services"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "63 chars — room to say more.",
@@ -103,65 +40,9 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/fees"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/apostille"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/trademark"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/vat"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/offshore"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/hk-bank-account"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/sg-bank-account"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "63 chars — room to say more.",
-      "url": "https://hq10000.com/services/us-bank-account"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
       "url": "https://hq10000.com/services/us-bank-account"
     },
     {
@@ -169,13 +50,6 @@
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "65 chars — room to say more.",
-      "url": "https://hq10000.com/services/trademark-transfer"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
       "url": "https://hq10000.com/services/trademark-transfer"
     },
     {
@@ -187,34 +61,6 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/trademark-renewal"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/eu-trademark"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/patent"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/pct-patent"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "62 chars — room to say more.",
@@ -222,37 +68,9 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/patent-search"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/us-llc"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/us-inc"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "61 chars — room to say more.",
-      "url": "https://hq10000.com/services/hk-tax-filing"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
       "url": "https://hq10000.com/services/hk-tax-filing"
     },
     {
@@ -264,13 +82,6 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/hk-audit"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "65 chars — room to say more.",
@@ -278,114 +89,9 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/services/company-liquidation"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/sg"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/us"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/my"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/th"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/uk"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/hk"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/jp"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/kr"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/ae"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/vn"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/country/id"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/solutions/ecommerce"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "68 chars — room to say more.",
-      "url": "https://hq10000.com/solutions/manufacturing"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
       "url": "https://hq10000.com/solutions/manufacturing"
     },
     {
@@ -397,66 +103,10 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/solutions/vie-red-chip"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "60 chars — room to say more.",
       "url": "https://hq10000.com/solutions/identity-planning"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/solutions/identity-planning"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/singapore-registration-guide"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/us-company-tax-policy"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/cross-border-compliance"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/hk-vs-sg-company"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/cayman-vs-bvi"
     },
     {
       "level": "info",
@@ -467,34 +117,6 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/registration-cost-comparison"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/overseas-bank-account-guide"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/knowledge/odi-vie-guide"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/news"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "65 chars — room to say more.",
@@ -502,30 +124,9 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/cases"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/about"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "66 chars — room to say more.",
-      "url": "https://hq10000.com/compare/vanzbon"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
       "url": "https://hq10000.com/compare/vanzbon"
     },
     {
@@ -537,13 +138,6 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/compare/tenace"
-    },
-    {
-      "level": "info",
       "id": "desc-short",
       "title": "Meta description is short",
       "detail": "68 chars — room to say more.",
@@ -551,59 +145,10 @@
     },
     {
       "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/compare/xiaoniu"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/compare/simengqifu"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/ai-match"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/contact"
-    },
-    {
-      "level": "info",
       "id": "img-srcset",
       "title": "1 image served at one size",
       "detail": "First: assets/images/wechat-qr.jpg. A phone downloads the desktop file.",
       "url": "https://hq10000.com/contact"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/delivery-tracking"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/global-network"
-    },
-    {
-      "level": "info",
-      "id": "og-no-dimensions",
-      "title": "og:image has no declared width/height",
-      "detail": "Scrapers guess, and some skip the preview rather than guess.",
-      "url": "https://hq10000.com/tools/cost-calculator"
     },
     {
       "level": "info",
