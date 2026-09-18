@@ -15,7 +15,7 @@ var ORG = {
   "email": "contact@hq10000.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座14层21",
+    "streetAddress": "深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座1421",
     "addressLocality": "深圳",
     "addressRegion": "广东",
     "addressCountry": "CN"
@@ -69,11 +69,11 @@ function footerHtml(p) {
     '    <div class="footer-brand">\n' +
     '      <a href="/" class="brand"><div class="brand-logo">华</div><div class="brand-text c-white">华企环球<small class="c-white-50">HUAQI GLOBAL</small></div></a>\n' +
     '      <p>华企环球（深圳）国际咨询有限公司<br>前身为会计事务所,2018 年发展至今,8 年出海落地合规服务精研。总部深圳,业务涉及深圳、广州、北京、上海、香港、新加坡、马来西亚、美国、英国、越南、泰国等,<strong class="c-gold">300+ 专业团队</strong>,马来西亚 SSM 持牌公司秘书机构。全球 60 多个国家/地区均可办理,服务超 10 万+ 企业用户,累计成功案例超 100000+。</p>\n' +
-    '      <p>📞 186-1090-2181(微信同号)<br>✉️ contact@hq10000.com<br>📍 深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座14层21</p>\n' +
+    '      <p>📞 186-1090-2181(微信同号)<br>✉️ contact@hq10000.com<br>📍 深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座1421</p>\n' +
     '      <div class="footer-divider">\n' +
     '        <div class="footer-label">🌐 全球办公地址</div>\n' +
     '        <div class="footer-addresses">\n' +
-    '          🇨🇳 深圳:深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座14层21<br>\n' +
+    '          🇨🇳 深圳:深圳市龙华区龙胜路与景龙建设路交汇处融创智汇大厦A座1421<br>\n' +
     '          🇲🇾 马来西亚:SOHO Suites KLCC, 20 Jalan Perak, 50450 Kuala Lumpur, Malaysia<br>\n' +
     '          🇸🇬 新加坡:60 Paya Lebar Road #04 Paya Lebar Square, Singapore 409051<br>\n' +
     '          🇹🇭 泰国:泰国曼谷邦卡皮区华马县兰甘亨76巷50号79单元<br>\n' +
