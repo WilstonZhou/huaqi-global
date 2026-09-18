@@ -12,7 +12,7 @@
       "https": true,
       "tls": true,
       "sitemap": true,
-      "llmsTxt": false,
+      "llmsTxt": true,
       "expect": false,
       "psi": false,
       "psiField": false,
@@ -26,7 +26,7 @@
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2727,
+    "ms": 2619,
     "date": "2026-09-18",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
@@ -40,24 +40,10 @@
     },
     {
       "level": "info",
-      "id": "anchor-ambiguous",
-      "title": "\"知识中心\" links to 2 different pages",
-      "detail": "https://hq10000.com/knowledge, https://hq10000.com/knowledge/singapore-registration-guide. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
-      "url": "https://hq10000.com/"
-    },
-    {
-      "level": "info",
       "id": "sitemap-lastmod-identical",
       "title": "Every page in the sitemap has the same lastmod",
-      "detail": "All 65 say 2026-09-16. That is a generator stamping build time rather than when each page last changed — which tells a crawler nothing, so it learns to ignore the field.",
+      "detail": "All 65 say 2026-09-18. That is a generator stamping build time rather than when each page last changed — which tells a crawler nothing, so it learns to ignore the field.",
       "url": "https://hq10000.com/sitemap.xml"
-    },
-    {
-      "level": "info",
-      "id": "llms-missing",
-      "title": "No llms.txt",
-      "detail": "The emerging convention for telling AI assistants what a site is and which pages matter.",
-      "url": "https://hq10000.com/llms.txt"
     },
     {
       "level": "info",
