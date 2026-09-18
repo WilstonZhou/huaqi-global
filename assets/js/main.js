@@ -141,7 +141,7 @@
         pop.innerHTML =
           '<button type="button" class="wechat-pop-close" aria-label="关闭">×</button>' +
           '<div class="wechat-pop-title">企业微信</div>' +
-          '<img src="' + relLink('assets/images/wechat-qr.jpg') + '" alt="华企环球企业微信二维码" class="wechat-pop-qr">' +
+          '<img src="' + relLink('assets/images/wechat-kf-qr.png') + '" alt="企业微信客服二维码" class="wechat-pop-qr">' +
           '<div class="wechat-pop-tip">打开微信"扫一扫"添加专属顾问</div>' +
           '<div class="wechat-pop-no">微信号:' + wechatNo + '</div>' +
           '<button type="button" class="btn btn-outline btn-sm wechat-pop-copy">复制微信号</button>';
