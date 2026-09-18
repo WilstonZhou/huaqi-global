@@ -15,6 +15,7 @@
         "/thanks/"
       ]
     },
-    "redirect-chain"
+    "redirect-chain",
+    "sitemap-lastmod-identical"
   ]
 }
