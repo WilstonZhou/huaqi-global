@@ -89,6 +89,14 @@ function write(file, content) {
     { flag: '🇯🇵', title: '日本 JCT 发票制度:跨境电商合规关键', date: '政策信息更新于 2026 年', desc: '2023 年 10 月起日本实施 JCT 发票制度,面向 B 端客户的卖家须持有合规 JCT 注册号才能开具有效发票。日本仓发货商家建议尽快办理。', link: '../knowledge/cross-border-compliance' },
     { flag: '🇪🇺', title: '欧盟 VAT / EPR 合规:13 国 VAT + 22 项 EPR', date: '政策信息更新于 2026 年', desc: '跨境电商欧盟站需关注 13 国 VAT 注册与包装法、电池法、WEEE、欧代英代等 22 项 EPR 义务,合规前置成本远低于违规成本。', link: '../knowledge/cross-border-compliance' }
   ];
+  // 锚文本唯一化(seo-audit: anchor-ambiguous):同一按钮文字不再指向多个页面
+  var btnLabels = {
+    '../knowledge/singapore-registration-guide': '查看新加坡指南',
+    '../knowledge/us-company-tax-policy': '查看美国税务解读',
+    '../solutions/manufacturing': '查看制造方案',
+    '../services/annual-review': '查看年审服务',
+    '../knowledge/cross-border-compliance': '查看跨境合规'
+  };
   var body = lib.hero({
     prefix: p,
     breadcrumb: '<a href="/">首页</a> / 政策动态',
@@ -96,7 +104,7 @@ function write(file, content) {
     subtitle: '出海政策变化快,错过节点就是成本。我们定期整理各国注册、税务与合规政策要点,供出海企业参考。信息更新于 2026 年,具体以各官方机构最新公告为准。'
   });
   body += '\n\n<!-- 政策列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">POLICY UPDATES</span><h2 class="section-title">近期政策速览</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">' + items.map(function (it) {
-      return '<div class="case-card"><div style="font-size:26px;margin-bottom:8px;">' + it.flag + '</div><div class="card-title">' + it.title + '</div><div class="fs-12 c-text-light mb-8">' + it.date + '</div><div class="card-text mb-16">' + it.desc + '</div><a class="btn btn-outline btn-sm" href="' + it.link + '">查看详情 →</a></div>';
+      return '<div class="case-card"><div style="font-size:26px;margin-bottom:8px;">' + it.flag + '</div><div class="card-title">' + it.title + '</div><div class="fs-12 c-text-light mb-8">' + it.date + '</div><div class="card-text mb-16">' + it.desc + '</div><a class="btn btn-outline btn-sm" href="' + it.link + '">' + (btnLabels[it.link] || '查看详情') + ' →</a></div>';
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 订阅 -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="info-card p-24"><h3>想第一时间获取政策更新?</h3><p class="mb-12">添加企业微信 186-1090-2181(微信同号),顾问将为您推送与业务相关的政策变化提醒。</p><a class="btn btn-gold" href="' + p + 'contact">联系顾问</a></div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('政策看不懂?让顾问帮您判断影响', 'AI 匹配 + 顾问解读,把政策变化翻译成您的行动清单', p);

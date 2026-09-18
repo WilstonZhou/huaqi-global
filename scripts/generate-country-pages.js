@@ -51,7 +51,7 @@ countries.forEach(function (c) {
       return '<a class="feature-card" href="' + r.l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + r.t + '</div><div class="feature-desc">' + r.d + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
   if (c.article) {
-    body += '\n\n<!-- 深度指南 -->\n<section class="section">\n  <div class="container">\n    <div class="info-card p-24"><h3>深度阅读</h3><p class="mb-8">' + c.article.title + '</p><a class="btn btn-outline btn-sm" href="' + c.article.link + '">阅读全文 →</a></div>\n  </div>\n</section>';
+    body += '\n\n<!-- 深度指南 -->\n<section class="section">\n  <div class="container">\n    <div class="info-card p-24"><h3>深度阅读</h3><p class="mb-8">' + c.article.title + '</p><a class="btn btn-outline btn-sm" href="' + c.article.link + '">' + c.article.title + ' →</a></div>\n  </div>\n</section>';
   }
   body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">' + c.name + '公司注册常见问题</h2></div>\n    <div>' + lib.faqItems(c.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('3 分钟生成您的' + c.name + '出海方案', 'AI 智能匹配 + 定制报价 + 交付追踪,全流程透明可控', p);

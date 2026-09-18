@@ -88,7 +88,7 @@ var solutions = [
     ],
     related: [
       { t: '泰国公司注册', l: '../country/th' },
-      { t: '越南公司注册', l: '../services/company-registration' },
+      { t: '越南公司注册', l: '../country/vn' },
       { t: 'ODI 备案', l: '../knowledge/odi-vie-guide' },
       { t: '公司审计', l: '../services/audit' }
     ]
