@@ -26,7 +26,7 @@
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2826,
+    "ms": 2727,
     "date": "2026-09-18",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
@@ -42,29 +42,8 @@
       "level": "info",
       "id": "anchor-ambiguous",
       "title": "\"知识中心\" links to 2 different pages",
-      "detail": "https://hq10000.com/knowledge/singapore-registration-guide, https://hq10000.com/knowledge. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
+      "detail": "https://hq10000.com/knowledge, https://hq10000.com/knowledge/singapore-registration-guide. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
       "url": "https://hq10000.com/"
-    },
-    {
-      "level": "info",
-      "id": "anchor-ambiguous",
-      "title": "\"越南公司注册\" links to 2 different pages",
-      "detail": "https://hq10000.com/country/vn, https://hq10000.com/services/company-registration. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
-      "url": "https://hq10000.com/"
-    },
-    {
-      "level": "info",
-      "id": "anchor-ambiguous",
-      "title": "\"阅读全文\" links to 3 different pages",
-      "detail": "https://hq10000.com/knowledge/singapore-registration-guide, https://hq10000.com/knowledge/us-company-tax-policy, https://hq10000.com/knowledge/hk-vs-sg-company. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
-      "url": "https://hq10000.com/country/sg"
-    },
-    {
-      "level": "info",
-      "id": "anchor-ambiguous",
-      "title": "\"查看详情\" links to 5 different pages",
-      "detail": "https://hq10000.com/knowledge/singapore-registration-guide, https://hq10000.com/knowledge/us-company-tax-policy, https://hq10000.com/solutions/manufacturing, and 2 more. The words on a link are how Google is told what is on the other side, and these say the same thing about pages that are not the same — so the pages compete for it rather than one of them winning.",
-      "url": "https://hq10000.com/news"
     },
     {
       "level": "info",
@@ -79,20 +58,6 @@
       "title": "No llms.txt",
       "detail": "The emerging convention for telling AI assistants what a site is and which pages matter.",
       "url": "https://hq10000.com/llms.txt"
-    },
-    {
-      "level": "info",
-      "id": "header-x-content-type-options",
-      "title": "X-Content-Type-Options not set",
-      "detail": "nosniff stops MIME-type guessing.",
-      "url": "https://hq10000.com/"
-    },
-    {
-      "level": "info",
-      "id": "header-referrer-policy",
-      "title": "Referrer-Policy not set",
-      "detail": "Full URLs leak to third parties by default.",
-      "url": "https://hq10000.com/"
     },
     {
       "level": "info",
