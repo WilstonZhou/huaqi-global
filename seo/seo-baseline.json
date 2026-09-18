@@ -21,13 +21,13 @@
       "compareAs": false,
       "hosts": false
     },
-    "ignored": 0,
+    "ignored": 1,
     "origin": "https://hq10000.com",
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2847,
-    "date": "2026-09-17",
+    "ms": 2826,
+    "date": "2026-09-18",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
   "findings": [
@@ -646,13 +646,6 @@
       "title": "No llms.txt",
       "detail": "The emerging convention for telling AI assistants what a site is and which pages matter.",
       "url": "https://hq10000.com/llms.txt"
-    },
-    {
-      "level": "warn",
-      "id": "redirect-chain",
-      "title": "http://www.hq10000.com/ takes 2 redirects",
-      "detail": "308 http://www.hq10000.com/ → 301 https://www.hq10000.com/ → 200 https://hq10000.com/",
-      "url": "http://www.hq10000.com/"
     },
     {
       "level": "info",
