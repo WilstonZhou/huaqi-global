@@ -1053,9 +1053,14 @@ a:focus-visible, button:focus-visible,
 .wechat-pop-copy { width: 100%; }
 
 /* ---------- 联系页二维码卡片 ---------- */
-.contact-wechat-card .wechat-qr-img {
+.contact-wechat-card .wechat-qr {
   display: block; margin-top: 12px; border-radius: var(--radius-sm);
   border: 1px solid var(--c-border); padding: 6px; background: #fff;
+}
+.contact-wechat-card .wechat-cta { display: none; }
+@media (max-width: 768px) {
+  .contact-wechat-card .wechat-cta { display: inline-block; margin-top: 12px; }
+  .contact-wechat-card .wechat-qr { display: none; }
 }
 @media (max-width: 560px) {
   .wechat-pop { width: 260px; }
