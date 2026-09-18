@@ -21,30 +21,16 @@
       "compareAs": false,
       "hosts": false
     },
-    "ignored": 1,
+    "ignored": 2,
     "origin": "https://hq10000.com",
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2619,
+    "ms": 2978,
     "date": "2026-09-18",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
   "findings": [
-    {
-      "level": "info",
-      "id": "img-srcset",
-      "title": "1 image served at one size",
-      "detail": "First: assets/images/wechat-qr.jpg. A phone downloads the desktop file.",
-      "url": "https://hq10000.com/contact"
-    },
-    {
-      "level": "info",
-      "id": "sitemap-lastmod-identical",
-      "title": "Every page in the sitemap has the same lastmod",
-      "detail": "All 65 say 2026-09-18. That is a generator stamping build time rather than when each page last changed — which tells a crawler nothing, so it learns to ignore the field.",
-      "url": "https://hq10000.com/sitemap.xml"
-    },
     {
       "level": "info",
       "id": "header-content-security-policy",
