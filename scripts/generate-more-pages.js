@@ -68,7 +68,7 @@ function write(file, content) {
     prefix: p,
     canonical: 'https://hq10000.com/cases',
     title: '客户案例 | 跨境电商/高科技/制造业出海 | 华企环球',
-    desc: '华企环球客户案例:跨境电商新加坡架构、AI 企业 VIE 红筹、制造业泰国建厂等典型出海项目,展示痛点、方案与交付成果(已脱敏)。',
+    desc: '华企环球客户案例:跨境电商新加坡架构、AI 企业 VIE 红筹、制造业泰国建厂等典型出海项目,展示痛点、方案与交付成果(已脱敏)。可作为同类企业出海路径的参考。',
     keywords: '华企环球案例,出海案例,海外公司注册案例,VIE架构案例',
     schemas: [lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
@@ -209,7 +209,7 @@ var FEES_FAQ;
     canonical: 'https://hq10000.com/services/fees',
     relatedModules: 'services',
     title: '费用与周期说明 | 定制报价 · 无隐形消费 | 华企环球',
-    desc: '华企环球费用与周期说明:定制报价模式、费用构成透明、合同锁定不加价。附热门国家注册周期与公开政府规费参考表,费用结构一目了然。',
+    desc: '华企环球费用与周期说明:定制报价模式、费用构成透明、合同锁定不加价。附热门国家注册周期与公开政府规费参考表,费用结构一目了然。具体费用以顾问确认的方案为准。',
     keywords: '海外公司注册费用,公司注册周期,海外公司注册多少钱,定制报价',
     schemas: [lib.faqSchema(FEES_FAQ), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
