@@ -148,6 +148,8 @@ function buildPage(opt) {
     '<meta property="og:description" content="' + ogDesc + '">',
     '<meta property="og:url" content="' + ogUrl + '">',
     '<meta property="og:image" content="' + ogImage + '">',
+    '<meta property="og:image:width" content="1264">',
+    '<meta property="og:image:height" content="848">',
     '<meta name="twitter:card" content="summary_large_image">',
     '<meta name="twitter:title" content="' + ogTitle + '">',
     '<meta name="twitter:description" content="' + ogDesc + '">',
@@ -287,6 +289,8 @@ function buildPageEn(opt) {
     '<meta property="og:description" content="' + ogDesc + '">',
     '<meta property="og:url" content="' + opt.canonical + '">',
     '<meta property="og:image" content="https://hq10000.com/assets/images/hero-banner.jpg">',
+    '<meta property="og:image:width" content="1264">',
+    '<meta property="og:image:height" content="848">',
     '<meta name="twitter:card" content="summary_large_image">'].join('\n') + '\n';
   return '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
     '<meta charset="UTF-8">\n' +
