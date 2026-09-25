@@ -26,17 +26,9 @@
     "pages": 65,
     "notIndexable": 0,
     "requests": 89,
-    "ms": 2978,
-    "date": "2026-09-18",
+    "ms": 2619,
+    "date": "2026-09-25",
     "sitemap": "https://hq10000.com/sitemap.xml"
   },
-  "findings": [
-    {
-      "level": "info",
-      "id": "header-content-security-policy",
-      "title": "No Content-Security-Policy",
-      "detail": "The strongest defence against injected scripts.",
-      "url": "https://hq10000.com/"
-    }
-  ]
+  "findings": []
 }
