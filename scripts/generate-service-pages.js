@@ -26,7 +26,9 @@ services.forEach(function (s) {
     {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": s.name + "代办服务",
       "serviceType": s.name,
+      "description": s.metaDesc,
       "provider": { "@id": "https://hq10000.com/#organization" },
       "url": url,
       "areaServed": ["CN", "HK", "SG", "MY", "TH", "US", "GB", "AE", "VN", "ID"],

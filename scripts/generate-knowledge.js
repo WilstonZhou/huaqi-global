@@ -54,6 +54,7 @@ function articlePage(opt) {
   write('knowledge/' + opt.slug + '.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/knowledge/' + opt.slug,
+    ogType: 'article',
     relatedModules: opt.relatedModules || 'knowledge',
     title: opt.metaTitle,
     desc: opt.metaDesc,
@@ -68,13 +69,22 @@ function articlePage(opt) {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": opt.title,
-        "author": { "@id": "https://hq10000.com/#organization" },
-        "publisher": { "@id": "https://hq10000.com/#organization" },
+        "image": ["https://hq10000.com/assets/images/hero-banner.jpg"],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://hq10000.com/knowledge/" + opt.slug
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "华企环球",
+          "url": "https://hq10000.com"
+        },
+        "publisher": {
+          "@id": "https://hq10000.com/#organization"
+        },
         "inLanguage": "zh-CN",
         "datePublished": opt.publishDate,
-        "dateModified": opt.updateDate || opt.publishDate,
-        "author": { "@type": "Organization", "name": "华企环球", "url": "https://hq10000.com" },
-        "publisher": { "@id": "https://hq10000.com/#organization" }
+        "dateModified": opt.updateDate || opt.publishDate
       }
     ],
     body: body

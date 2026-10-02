@@ -10,6 +10,7 @@ var ORG = {
   "alternateName": "华企环球国际咨询",
   "url": "https://hq10000.com/",
   "logo": "https://hq10000.com/favicon.svg",
+  "image": "https://hq10000.com/assets/images/hero-banner.jpg",
   "foundingDate": "2018",
   "telephone": "+86-186-1090-2181",
   "email": "contact@hq10000.com",
@@ -19,6 +20,13 @@ var ORG = {
     "addressLocality": "深圳",
     "addressRegion": "广东",
     "addressCountry": "CN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+86-186-1090-2181",
+    "contactType": "customer service",
+    "availableLanguage": "zh-CN",
+    "hoursAvailable": "Mo-Su 09:00-21:00"
   }
 };
 
@@ -137,11 +145,12 @@ function relatedSection(kind, p) {
 function buildPage(opt) {
   var p = opt.prefix || '';
   var schemas = [ORG].concat(opt.schemas || []);
+  var ogType = opt.ogType || 'website';
   var ogTitle = opt.ogTitle || opt.title;
   var ogDesc = opt.ogDesc || opt.desc;
   var ogUrl = opt.canonical || 'https://hq10000.com/';
   var ogImage = opt.ogImage || 'https://hq10000.com/assets/images/hero-banner.jpg';
-  var og = ['<meta property="og:type" content="website">',
+  var og = ['<meta property="og:type" content="' + ogType + '">',
     '<meta property="og:site_name" content="华企环球">',
     '<meta property="og:locale" content="zh_CN">',
     '<meta property="og:title" content="' + ogTitle + '">',
@@ -159,6 +168,7 @@ function buildPage(opt) {
     '<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">\n' +
     '<title>' + opt.title + '</title>\n' +
     '<meta name="description" content="' + opt.desc + '">\n' +
+    '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">\n' +
     (opt.canonical ? '<link rel="canonical" href="' + opt.canonical + '">\n' : '') +
     (opt.alternates ? opt.alternates.map(function (a) {
       return '<link rel="alternate" hreflang="' + a.hreflang + '" href="' + a.href + '">';

@@ -24,7 +24,9 @@ countries.forEach(function (c) {
     {
       "@context": "https://schema.org",
       "@type": "Service",
+      "name": c.name + "公司注册代办服务",
       "serviceType": c.name + "公司注册",
+      "description": c.intro,
       "provider": { "@id": "https://hq10000.com/#organization" },
       "url": "https://hq10000.com/country/" + c.slug,
       "areaServed": [c.name],
