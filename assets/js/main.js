@@ -127,7 +127,7 @@
       '<a class="float-btn" href="' + relLink('ai-match.html') + '" title="AI 匹配"><span class="float-icon">' + iconHtml('🤖', '', 20) + '</span><span>AI</span></a>' +
       '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">' + iconHtml('📞', '', 20) + '</span><span>电话</span></a>' +
       '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>留言</span></a>' +
-      '<a class="float-btn float-btn-wechat" href="javascript:void(0)" title="复制微信号" id="floatWechat"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>微信</span></a>';
+      '<button type="button" class="float-btn float-btn-wechat" title="复制微信号" id="floatWechat"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>微信</span></button>';
     document.body.appendChild(f);
 
     // 微信按钮:展示企业微信二维码弹层(可复制微信号)

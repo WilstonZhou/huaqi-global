@@ -88,6 +88,15 @@
       ]
     },
     {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
       "source": "/assets/images/(.*)",
       "headers": [
         {
@@ -97,11 +106,11 @@
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/favicon.svg",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
+          "value": "public, max-age=2592000"
         }
       ]
     }
