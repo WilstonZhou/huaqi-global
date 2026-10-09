@@ -623,7 +623,7 @@
     if (heroCard && D.aiMatch && D.aiMatch.sampleDialog) {
       var d = D.aiMatch.sampleDialog;
       heroCard.innerHTML =
-        '<h3>' + iconHtml('🤖', '', 20) + ' AI 企服顾问实时演示</h3>' +
+        '<h2>' + iconHtml('🤖', '', 20) + ' AI 企服顾问实时演示</h2>' +
         (d[0] ? '<div class="ai-bubble">' + d[0].text + '</div>' : '') +
         (d[1] ? '<div class="ai-bubble user">' + d[1].text + '</div>' : '') +
         (d[2] ? '<div class="ai-bubble">' + d[2].text + '</div>' : '') +
