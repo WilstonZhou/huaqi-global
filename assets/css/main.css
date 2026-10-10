@@ -344,8 +344,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    等于每页白下 1.5MB。现只保留可见的 jpg,以及真正起作用的渐变兜底。 */
 .hero {
   position: relative; padding: 88px 0 104px; overflow: hidden;
+  /* 兜底:不理解 image-set() 的浏览器继续用 jpg */
   background:
     url('../images/hero-banner.jpg') no-repeat center / cover,
+    var(--grad-hero);
+  /* P0-3:优先 WebP(64 KB,jpg 116 KB 的 45%),同一张图另存新文件名,
+     jpg 原文件保留不动,作为 image-set() 的第二候选与老浏览器兜底。 */
+  background:
+    -webkit-image-set(
+      url('../images/hero-banner.webp') type('image/webp'),
+      url('../images/hero-banner.jpg') type('image/jpeg')
+    ) no-repeat center / cover,
+    var(--grad-hero);
+  background:
+    image-set(
+      url('../images/hero-banner.webp') type('image/webp'),
+      url('../images/hero-banner.jpg') type('image/jpeg')
+    ) no-repeat center / cover,
     var(--grad-hero);
   color: white;
 }
@@ -389,7 +404,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: 1px solid rgba(200,169,104,0.25);
   color: var(--c-text); backdrop-filter: blur(8px);
 }
-.hero-card h3 { font-size: 18px; margin-bottom: 16px; color: var(--c-primary); display: flex; align-items: center; gap: 8px; }
+.hero-card h2, .hero-card h3 { font-size: 18px; margin-bottom: 16px; color: var(--c-primary); display: flex; align-items: center; gap: 8px; }
 .hero-card .ai-bubble {
   background: var(--c-bg-soft); padding: 12px 16px; border-radius: 12px 12px 12px 4px;
   margin-bottom: 10px; font-size: 14px; line-height: 1.6; animation: fadeInUp .6s ease;
@@ -407,7 +422,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .section-dark { background: var(--c-bg-dark); color: white; }
 .section-header { text-align: center; max-width: 760px; margin: 0 auto 60px; }
 .section-eyebrow {
-  display: inline-block; padding: 5px 14px; background: rgba(37,99,235,0.08); color: var(--c-accent);
+  display: inline-block; padding: 5px 14px; background: rgba(37,99,235,0.08); color: #1D4ED8;
   border-radius: var(--radius-full); font-size: 12px; font-weight: 700; margin-bottom: 18px; letter-spacing: 2px;
   border: 1px solid rgba(37,99,235,0.14);
 }
@@ -437,7 +452,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .process-icon svg { width: 26px; height: 26px; color: var(--c-gold); }
 .inline-icon { display: inline-block; vertical-align: -3px; margin-right: 5px; flex-shrink: 0; }
 .ai-avatar svg { width: 18px; height: 18px; }
-.hero-card h3 svg { flex-shrink: 0; }
+.hero-card h2 svg, .hero-card h3 svg { flex-shrink: 0; }
 .contact-info-icon svg { width: 22px; height: 22px; color: var(--c-primary); }
 
 /* ---------- 4 大差异化功能卡片 ---------- */
@@ -1021,6 +1036,39 @@ a:focus-visible, button:focus-visible,
 }
 @media (max-width: 640px) {
   .trust-strip { grid-template-columns: repeat(2, 1fr); padding: 16px; }
+}
+
+/* ---------- P0-2 首屏 CLS 占位 ----------
+   #heroStats / #heroAICard 的内容由 main.js 注入,注入前高度为 0;
+   .trust-strip 紧贴 hero 下方,hero 高度变化会让它整体位移。
+   这里按站点既有断点(640 / 960 / 1024)分段预留高度,避免 JS 到达时的布局跳动。
+   数值 = 无头 Chrome(与 Lighthouse 同一视口)实测渲染高度:
+     移动端 412×915 → heroStats 180.73 / heroAICard 357.55 / trust-strip 162.34
+     桌面端 1366×900 → heroStats 155.97 / heroAICard 365.55 / trust-strip 80.78
+   占位取实测值向上取整,因此各分段内元素高度变化 ≤1px。 */
+.hero-stats  { min-height: 116px; }   /* 480–768 实测 115.16 */
+#heroAICard  { min-height: 336px; }   /* 480–768 实测 335.16 */
+.trust-strip { min-height: 81px; }    /* >960  实测 80.78 */
+@media (max-width: 960px) {
+  .trust-strip { min-height: 128px; } /* 641–960 实测 127.56 */
+}
+@media (max-width: 640px) {
+  .trust-strip { min-height: 163px; } /* ≤640 实测 162.34(移动端 412) */
+}
+@media (max-width: 479px) {
+  .hero-stats { min-height: 181px; }  /* 移动端 412 实测 180.73 */
+  #heroAICard { min-height: 358px; }  /* 移动端 412 实测 357.55 */
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-stats { min-height: 156px; }  /* 769–995 实测 155.97 */
+  #heroAICard { min-height: 321px; }  /* 769–1024 实测 320.77 */
+}
+@media (min-width: 996px) and (max-width: 1024px) {
+  .hero-stats { min-height: 60px; }   /* 996–1024 四个统计数字恰好单行,实测 59.98 */
+}
+@media (min-width: 1025px) {
+  .hero-stats { min-height: 156px; }  /* 桌面端 1366 实测 155.97 */
+  #heroAICard { min-height: 366px; }  /* 桌面端 1366 实测 365.55 */
 }
 
 /* ---------- 悬浮微信提示 ---------- */
