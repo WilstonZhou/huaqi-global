@@ -67,6 +67,31 @@
       "source": "/en/:path*",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/compare/vanzbon",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/compare/tenace",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/compare/xiaoniu",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/compare/simengqifu",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/compare/:path*",
+      "destination": "/about",
+      "permanent": true
     }
   ],
   "headers": [

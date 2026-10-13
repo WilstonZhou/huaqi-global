@@ -40,6 +40,7 @@
 ## 五、已删除模块
 
 - `compare/`(4 页,生成器 `generate-comparison-pages.js` + 数据源 `data-comparisons.js`)已于 2026-10-14 整套移除;footer 链接、`sitemap.xml`、`llms.txt` 同步清理。**如需恢复,从 git 历史取回生成器与数据源后重跑生成器。**
+- 旧 URL 由 `vercel.json` 的 301 接管:`/compare/{vanzbon,tenace,xiaoniu,simengqifu}` 与 `/compare/:path*` → `/about`(不再 404,保留已收录权重)。
 
 ## 六、标准作业流程(已固化)
 
