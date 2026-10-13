@@ -2,7 +2,7 @@
 
 > 用途:SEO 修复 / 内容改动前,**先查本表判断页面来源**,再决定改哪里。
 > 依据:2026-09-17 对仓库实测(生成器 write 目标 + 目录差集),同日由 bootstrap 审计验证。
-> 全站规模:66 个 HTML 页面(原 71;2026-09-17 删除英文站 5 页)。
+> 全站规模:62 个 HTML 页面(原 66;2026-10-14 删除竞对对比页 `compare/` 4 页)。
 
 ## 一、生成页(改生成器源码 → 重跑生成器,改 HTML 无效)
 
@@ -11,7 +11,6 @@
 | `scripts/generate-country-pages.js` | `country/*.html`(12,含 index) | 数据源 `scripts/data-countries.js` |
 | `scripts/generate-knowledge.js` | `knowledge/` 5 篇 | cayman-vs-bvi / hk-vs-sg-company / odi-vie-guide / overseas-bank-account-guide / registration-cost-comparison |
 | `scripts/generate-solutions.js` | `solutions/*.html`(4) | |
-| `scripts/generate-comparison-pages.js` | `compare/*.html`(4) | 数据源 `scripts/data-comparisons.js` |
 | `scripts/generate-service-pages.js` | `services/` 18 页 | 数据源 `scripts/data-services.js`(apostille、company-liquidation、eu-trademark、hk-audit、hk-bank-account、hk-tax-filing、offshore、patent、patent-search、pct-patent、sg-bank-account、trademark、trademark-renewal、trademark-transfer、us-bank-account、us-inc、us-llc、vat) |
 | `scripts/generate-more-pages.js` | `cases.html`、`knowledge/index.html`、`news/index.html`、`services/fees.html` | |
 | `scripts/generate-tools.js` | `tools/cost-calculator.html` | |
@@ -27,7 +26,7 @@
 ## 三、共享 / 数据源(改动影响面最大 → 高风险)
 
 - `scripts/site-lib.js` — 布局:buildPage / header / footer / 面包屑 / FAQ / JSON-LD 辅助
-- 数据:`scripts/data-services.js`、`data-countries.js`、`data-comparisons.js`
+- 数据:`scripts/data-services.js`、`data-countries.js`
 - 前端:`assets/js/data.js`(**stats / nav / FAQ 由 JS 渲染**)、`assets/js/main.js`
 - 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`update-sitemap-lastmod.js`
 - ⚠️ `sitemap.xml` **手工维护**(仅 lastmod 由脚本更新);新增/删除页面必须手动同步
@@ -38,7 +37,12 @@
 2. 已删除的 `en/` 目录:URL 现由 `vercel.json` 的 301 接管(→ 对应 `/country/xx` 或首页),不再是 404;审计无需再排除。
 3. `knowledge/` 混装:5 篇生成 + 1 个 index(生成) + 3 篇旧静态快照(手写)。
 
-## 五、标准作业流程(已固化)
+## 五、已删除模块
+
+- `compare/`(4 页,生成器 `generate-comparison-pages.js` + 数据源 `data-comparisons.js`)已于 2026-10-14 整套移除;footer 链接、`sitemap.xml`、`llms.txt` 同步清理。**如需恢复,从 git 历史取回生成器与数据源后重跑生成器。**
+- 旧 URL 由 `vercel.json` 的 301 接管:`/compare/{vanzbon,tenace,xiaoniu,simengqifu}` 与 `/compare/:path*` → `/about`(不再 404,保留已收录权重)。
+
+## 六、标准作业流程(已固化)
 
 1. **Canary**:干净树重跑全部 8 个生成器,`git diff` 必须为 0(确认生成器确定性)
 2. 按本表定位改哪里(生成器源码 vs 手写 HTML)
