@@ -21,6 +21,9 @@ const os = require('os');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://hq10000.com';
+/* 百度接口的 site 参数要求裸域名,且**不能 URL 编码** —— 传 encodeURIComponent('https://…')
+   会返回 {"error":400,"message":"site init fail"}(实测)。 */
+const SITE_DOMAIN = 'hq10000.com';
 const ENDPOINT = 'http://data.zz.baidu.com/urls';
 const MAX_PER_CALL = 2000;
 
@@ -95,7 +98,7 @@ function resolveToken() {
   }
 
   const body = urls.join('\n');
-  const url = `${ENDPOINT}?site=${encodeURIComponent(SITE)}&token=${encodeURIComponent(token)}`;
+  const url = `${ENDPOINT}?site=${SITE_DOMAIN}&token=${token}`;
 
   let res, text;
   try {
