@@ -1,0 +1,61 @@
+name: IndexNow 提交
+
+# 只在 sitemap.xml 变更时触发 —— 站点规范要求新增/删除页面必须同步 sitemap,
+# 所以这个文件变了就说明有页面增删/调整,正好是要通知 Bing/Yandex 的时机。
+# 也可在 Actions 页手动触发(mode=all 可重推 sitemap 全量)。
+on:
+  push:
+    branches: [master]
+    paths: ['sitemap.xml']
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'diff = 只提交与上一版 sitemap 的差异(默认); all = 提交 sitemap 全量'
+        type: choice
+        options: [diff, all]
+        default: diff
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2          # 需要上一版 sitemap 做差异对比
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 提交给 IndexNow(Bing / Yandex / Seznam / Naver)
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.mode }}" = "all" ]; then
+            echo "— 手动全量提交 sitemap"
+            node scripts/indexnow-submit.js
+            exit 0
+          fi
+
+          extract() { grep -o '<loc>[^<]*</loc>' "$1" | sed 's|</\?loc>||g' | sort -u; }
+          if git rev-parse HEAD^ >/dev/null 2>&1 && git cat-file -e HEAD^:sitemap.xml 2>/dev/null; then
+            extract <(git show HEAD^:sitemap.xml) > /tmp/old.txt
+          else
+            : > /tmp/old.txt
+          fi
+          extract sitemap.xml > /tmp/new.txt
+          comm -13 /tmp/old.txt /tmp/new.txt > added.txt || true     # 新增/新上线的页面
+          comm -23 /tmp/old.txt /tmp/new.txt > removed.txt || true   # 已下线的页面 → 通知引擎弃索引
+          echo "本次新增/更新 $(grep -c . added.txt || true) 条,下线 $(grep -c . removed.txt || true) 条"
+
+          if [ -s added.txt ]; then
+            echo "— 提交新增/更新的 URL"; node scripts/indexnow-submit.js --file added.txt
+          else
+            echo "— 无新增 URL,跳过"
+          fi
+          if [ -s removed.txt ]; then
+            echo "— 通知已下线的 URL"; node scripts/indexnow-submit.js --file removed.txt
+          else
+            echo "— 无下线 URL,跳过"
+          fi
