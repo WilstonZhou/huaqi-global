@@ -69,7 +69,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "服务",
-      "item": "https://hq10000.com/services/company-registration"
+      "item": "https://hq10000.com/services"
     },
     {
       "@type": "ListItem",
@@ -133,6 +133,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "不是。VAT 是税,EPR 是生产者责任延伸制度下的环保合规义务,通常按类目(包装、电子电器、电池等)在各成员国分别注册并申报。很多平台会同时校验这两类资质。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "平台已经代扣代缴,还需要自己注册 VAT 吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "需要。平台代扣通常只覆盖特定交易类型(多为 B2C),注册与申报义务仍在卖家身上;B2B 交易、平台未代扣的部分以及进项税抵扣都需要自行申报。使用本地仓储的情形还会直接触发注册义务。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "店铺停止运营后,税务号要注销吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "建议注销或转为合规的零申报状态,不要放着不管。持续不申报会产生罚金与欠缴记录,并可能影响法人后续在其他平台或国家的注册与开户。注销前需完成当期申报与欠税清零。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "EPR 和 VAT 是什么关系?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "两者是并行的合规义务:VAT 针对增值税的注册与申报,EPR 针对包装、电池、电子电器等废弃物的回收责任。跨境电商一般需要同时完成,EPR 缺失会影响部分平台的销售权限,两者不能相互替代。"
       }
     }
   ]
@@ -208,7 +232,7 @@
 <main id="main-content">
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">首页</a> / <a href="../services/company-registration">服务</a> / VAT / EPR 合规</div>
+    <div class="breadcrumb"><a href="/">首页</a> / <a href="../services">服务</a> / VAT / EPR 合规</div>
     <h1 class="page-title">🧾 VAT 注册与 EPR 合规</h1>
     <p class="page-subtitle">跨境电商进入欧洲与英国市场后,VAT(增值税)注册与申报通常是平台合规与正常放款的前置条件;欧盟的 EPR(生产者责任延伸)制度还要求卖家完成包装、电子电器、电池等类目的注册与定期申报。两者都不是一次性动作,而是持续性的合规义务。</p>
     <div class="page-actions">
@@ -264,6 +288,36 @@
 <li>年度汇算与资质更新</li>
 </ol>
 </div>
+<div class="content-block">
+<h3>什么时候必须注册 VAT</h3>
+<ul>
+<li><strong>本地仓储触发</strong>:在欧盟/英国使用 FBA 或第三方海外仓,通常自商品入库起就需要注册当地 VAT,与销售额大小无关</li>
+<li><strong>远程销售阈值</strong>:从境外直邮 B2C,超过各国远程销售阈值后需要在买方所在国注册或在 OSS 一站式申报</li>
+<li><strong>平台代扣与自行申报的边界</strong>:多数平台对 B2C 交易代扣代缴 VAT,但卖家仍需完成注册与申报义务;B2B 交易、平台未代扣的交易以及进项抵扣,仍由卖家自行申报</li>
+<li><strong>英国脱欧后的变化</strong>:英国与欧盟各自独立计算,英国仓储与欧盟仓储需分别处理,不能共用一套税号</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>注册与申报节奏</h3>
+<p>VAT 注册的关键不是递交动作,而是<strong>申报期的持续一致</strong>:注册后按当地周期(通常月度或季度)申报,申报数据需与平台销售数据、支付通道流水形成可核对的链条。</p>
+<p>注册前需要先确定三个口径:注册国、申报周期、以及谁承担申报责任(自行申报或由税务代表代报)。口径定错会导致重复注册或漏报,后续修正成本远高于前期确认。</p>
+<ul>
+<li>准备材料:营业执照、法人身份证明、店铺链接、仓储合同或入库证明</li>
+<li>递交注册:向当地税务机关或经由税务代表提交申请</li>
+<li>获取税号:取得 VAT 号并同步至平台后台与清关资料</li>
+<li>按期申报:按当地周期提交申报表,有销售无销售均需申报</li>
+<li>年度核对:汇总年度数据,确认 OSS/IOSS 与本地申报的口径一致</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>合规要点与常见风险</h3>
+<ul>
+<li><strong>平台数据与申报不一致</strong>:常见于换过支付通道、退货冲销未处理或跨期确认收入,税务机关比对后容易触发问询与补税</li>
+<li><strong>逾期与欠缴</strong>:多数国家按逾期时间叠加罚金与利息,逾期未注册还可能被追溯补缴前期税额</li>
+<li><strong>EPR 与 VAT 配套</strong>:包装法、电池法、WEEE 等 EPR 注册与 VAT 是两条独立义务,做跨境电商合规通常要同时处理,缺少 EPR 会影响部分平台的销售权限</li>
+<li><strong>税务代表责任</strong>:部分国家要求非居民指定税务代表,代表承担连带责任,选择时需确认责任边界与授权范围</li>
+</ul>
+</div>
   </div>
 </section>
 
@@ -277,13 +331,27 @@
   </div>
 </section>
 
+<!-- 同链路服务 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header"><span class="section-eyebrow">SAME WORKFLOW</span><h2 class="section-title">同一链路上的相关服务</h2><p class="section-desc">这些服务通常与VAT / EPR 合规在同一阶段一起决定,提前对齐可以少走弯路。</p></div>
+    <div class="features-grid"><a class="feature-card" href="../services/tax-planning" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">税务规划</div><div class="feature-desc">跨境税务与合规架构</div></a>
+<a class="feature-card" href="../services/trademark" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">海外商标注册</div><div class="feature-desc">跨境电商品牌与商标布局</div></a>
+<a class="feature-card" href="../services/bank-account" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">公司开户(全地区)</div><div class="feature-desc">跨境收款账户与资金通道</div></a>
+<a class="feature-card" href="../services/other-services" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">跨境合规矩阵</div><div class="feature-desc">VAT / EPR / 认证 一站式合规</div></a></div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="section">
   <div class="container container-sm">
     <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">VAT / EPR 合规常见问题</h2></div>
     <div><div class="faq-item"><div class="faq-q">VAT 税率是多少?</div><div class="faq-a"><p>各国标准税率不同,欧盟成员国大致在 17%-27% 区间(如德国 19%、法国 20%、意大利 22%),英国标准税率为 20%,并存在部分商品适用的低税率。实际适用税率与可抵扣项需按商品类目与交易结构判定。</p></div></div>
 <div class="faq-item"><div class="faq-q">不注册 VAT 会有什么后果?</div><div class="faq-a"><p>常见后果包括:平台限制销售权限或冻结资金、货物清关受阻、被税务机关追缴税款并加收罚金与滞纳金。建议在备货入仓前就完成 VAT 规划,而不是等平台提示后再补。</p></div></div>
-<div class="faq-item"><div class="faq-q">EPR 和 VAT 是同一件事吗?</div><div class="faq-a"><p>不是。VAT 是税,EPR 是生产者责任延伸制度下的环保合规义务,通常按类目(包装、电子电器、电池等)在各成员国分别注册并申报。很多平台会同时校验这两类资质。</p></div></div></div>
+<div class="faq-item"><div class="faq-q">EPR 和 VAT 是同一件事吗?</div><div class="faq-a"><p>不是。VAT 是税,EPR 是生产者责任延伸制度下的环保合规义务,通常按类目(包装、电子电器、电池等)在各成员国分别注册并申报。很多平台会同时校验这两类资质。</p></div></div>
+<div class="faq-item"><div class="faq-q">平台已经代扣代缴,还需要自己注册 VAT 吗?</div><div class="faq-a"><p>需要。平台代扣通常只覆盖特定交易类型(多为 B2C),注册与申报义务仍在卖家身上;B2B 交易、平台未代扣的部分以及进项税抵扣都需要自行申报。使用本地仓储的情形还会直接触发注册义务。</p></div></div>
+<div class="faq-item"><div class="faq-q">店铺停止运营后,税务号要注销吗?</div><div class="faq-a"><p>建议注销或转为合规的零申报状态,不要放着不管。持续不申报会产生罚金与欠缴记录,并可能影响法人后续在其他平台或国家的注册与开户。注销前需完成当期申报与欠税清零。</p></div></div>
+<div class="faq-item"><div class="faq-q">EPR 和 VAT 是什么关系?</div><div class="faq-a"><p>两者是并行的合规义务:VAT 针对增值税的注册与申报,EPR 针对包装、电池、电子电器等废弃物的回收责任。跨境电商一般需要同时完成,EPR 缺失会影响部分平台的销售权限,两者不能相互替代。</p></div></div></div>
   </div>
 </section>
 
