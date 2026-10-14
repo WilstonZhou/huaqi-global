@@ -117,18 +117,26 @@
       '</div>';
   }
 
-  // ============ 漂浮客服 + 移动端底部 CTA 栏 ============
+  // ============ 右侧贴边联系工具栏 + 移动端底部 CTA 栏 ============
   function renderFloat() {
     if ($('#floatService')) return;
     var c = D.company || {};
-    var f = el('div', { class: 'float-service', id: 'floatService' });
-    f.innerHTML =
-      '<a class="float-btn float-btn-wecom" href="https://work.weixin.qq.com/kfid/kfcccf23b17172fd661" target="_blank" rel="noopener" title="企微咨询(秒回)"><span class="float-icon">' + iconHtml('🎧', '', 20) + '</span><span>企微</span></a>' +
-      '<a class="float-btn" href="' + relLink('ai-match.html') + '" title="AI 匹配"><span class="float-icon">' + iconHtml('🤖', '', 20) + '</span><span>AI</span></a>' +
-      '<a class="float-btn" href="tel:' + (c.phone || '').replace(/-/g, '') + '" title="电话"><span class="float-icon">' + iconHtml('📞', '', 20) + '</span><span>电话</span></a>' +
-      '<a class="float-btn" href="' + relLink('contact.html') + '" title="留言"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>留言</span></a>' +
-      '<button type="button" class="float-btn float-btn-wechat" title="复制微信号" id="floatWechat"><span class="float-icon">' + iconHtml('💬', '', 20) + '</span><span>微信</span></button>';
-    document.body.appendChild(f);
+    var tel = (c.phone || '').replace(/[^0-9+]/g, '');
+    var WECOM = 'https://work.weixin.qq.com/kfid/kfcccf23b17172fd661';
+
+    // 桌面端（≥1025px，由 CSS 控制显示）：右侧贴边竖栏。
+    // 收起仅占 48px 宽、不遮挡正文；鼠标悬停或键盘聚焦时向左展开文字标签；
+    // 企微排在第一位且一键直达（无需二次点击），保证转化路径最短。
+    var rail = el('div', { class: 'hq-rail', id: 'floatService' });
+    rail.setAttribute('aria-label', '联系华企环球');
+    rail.innerHTML =
+      '<a class="hq-rail-item is-wecom" href="' + WECOM + '" target="_blank" rel="noopener" title="企业微信咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微咨询 <span class="sub">· 秒回</span></span></a>' +
+      '<a class="hq-rail-item" href="' + relLink('ai-match.html') + '" title="AI 智能匹配"><span class="ic">' + iconHtml('robot', '', 21) + '</span><span class="lb">AI 智能匹配</span></a>' +
+      '<a class="hq-rail-item" href="tel:' + tel + '" title="电话咨询"><span class="ic">' + iconHtml('phone', '', 21) + '</span><span class="lb">' + (c.phone || '电话咨询') + '</span></a>' +
+      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="在线留言"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">在线留言</span></a>' +
+      '<div class="hq-rail-sep"></div>' +
+      '<button type="button" class="hq-rail-item is-minor" title="微信二维码" id="floatWechat"><span class="ic">' + iconHtml('send', '', 19) + '</span><span class="lb">微信二维码</span></button>';
+    document.body.appendChild(rail);
 
     // 微信按钮:展示企业微信二维码弹层(可复制微信号)
     var wechat = $('#floatWechat');
@@ -168,12 +176,14 @@
       });
     }
 
-    // 移动端底部固定 CTA 栏（CSS 仅移动端显示）
+    // 移动端 / 平板底部固定 CTA 栏（CSS 仅在 ≤1024px 显示，替代旧版悬浮圆钮列）
     if (!$('#mobileCtaBar')) {
       var bar = el('div', { class: 'mobile-cta-bar', id: 'mobileCtaBar' });
       bar.innerHTML =
-        '<a class="btn btn-gold" href="' + relLink('ai-match.html') + '">' + iconHtml('🤖', 'inline-icon', 18) + ' AI 匹配</a>' +
-        '<a class="btn btn-primary" href="tel:' + (c.phone || '').replace(/-/g, '') + '">📞 电话咨询</a>';
+        '<a class="btn btn-wecom" href="' + WECOM + '" target="_blank" rel="noopener">' + iconHtml('headphones', 'inline-icon', 18) + ' 企微</a>' +
+        '<a class="btn btn-primary" href="tel:' + tel + '">' + iconHtml('phone', 'inline-icon', 18) + ' 电话</a>' +
+        '<a class="btn btn-outline" href="' + relLink('contact.html') + '">' + iconHtml('chat', 'inline-icon', 18) + ' 留言</a>' +
+        '<a class="btn btn-outline" href="' + relLink('ai-match.html') + '">' + iconHtml('robot', 'inline-icon', 18) + ' AI</a>';
       document.body.appendChild(bar);
     }
   }

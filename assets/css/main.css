@@ -785,22 +785,45 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .case-tag { font-size: 11px; padding: 3px 8px; background: var(--c-bg-soft); color: var(--c-text); border-radius: var(--radius-sm); }
 
-/* ---------- 漂浮客服 ---------- */
-.float-service {
-  position: fixed; right: 24px; bottom: 24px; z-index: 90;
-  display: flex; flex-direction: column; gap: 10px;
+/* ---------- 右侧贴边联系工具栏（桌面端） ----------
+   设计要点：贴边零遮挡、图标统一（Lucide 线性图标，不用 emoji）、
+   收起仅占 48px 宽，鼠标悬停/键盘聚焦向左展开文字标签；
+   企微为第一入口（一键直达，不需要二次点击）。 */
+.hq-rail {
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 90;
+  display: none; flex-direction: column; padding: 10px 0;
+  background: rgba(255,255,255,0.94); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border: 1px solid var(--c-border); border-right: none;
+  border-radius: 18px 0 0 18px;
+  box-shadow: -10px 0 36px rgba(15, 23, 42, 0.10);
 }
-.float-btn {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--grad-primary); color: white; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; font-size: 11px; gap: 2px;
-  box-shadow: var(--shadow-lg); cursor: pointer; transition: all .2s;
+.hq-rail-item {
+  display: flex; align-items: center; height: 52px; padding: 0 13px;
+  border: none; background: none; font: inherit; font-size: 13.5px; cursor: pointer;
+  color: var(--c-primary); white-space: nowrap; text-decoration: none;
+  transition: background .2s, color .2s;
 }
-.float-btn:hover { background: var(--grad-gold); transform: scale(1.06); box-shadow: var(--shadow-gold); }
-.float-btn .float-icon { font-size: 20px; }
-/* 企微客服:用企业微信的品牌绿,与其余蓝色按钮区分 */
-.float-btn-wecom { background: linear-gradient(135deg, #07C160, #05974a); }
-.float-btn-wecom:hover { background: linear-gradient(135deg, #05974a, #047a3c); box-shadow: 0 8px 24px rgba(7,193,96,.35); }
+.hq-rail-item:hover { background: var(--c-bg-tint); color: var(--c-accent); }
+.hq-rail-item .ic { position: relative; width: 24px; height: 24px; flex: 0 0 24px; display: flex; align-items: center; justify-content: center; }
+.hq-rail-item .lb {
+  max-width: 0; opacity: 0; overflow: hidden; font-weight: 600;
+  transition: max-width .3s cubic-bezier(.2,.7,.3,1), opacity .2s, margin-left .3s;
+}
+.hq-rail-item .lb .sub { font-weight: 500; color: var(--c-text-light); }
+.hq-rail:hover .hq-rail-item .lb,
+.hq-rail:focus-within .hq-rail-item .lb { max-width: 140px; opacity: 1; margin-left: 11px; }
+/* 企微：品牌绿 + 未读红点，作为第一入口 */
+.hq-rail-item.is-wecom .ic { color: #07C160; }
+.hq-rail-item.is-wecom:hover { background: rgba(7,193,96,0.08); color: #05974A; }
+.hq-rail-dot { position: absolute; top: -1px; right: -1px; width: 8px; height: 8px; border-radius: 50%; background: #F97316; border: 2px solid #fff; }
+.hq-rail-sep { height: 1px; margin: 8px 13px; background: var(--c-border); }
+/* 二维码为次要动作：低对比、更矮 */
+.hq-rail-item.is-minor { height: 44px; color: var(--c-text-light); }
+.hq-rail-item.is-minor:hover { color: var(--c-accent); }
+
+/* 移动端底部 CTA 中的应用宝/企微主按钮 */
+.btn-wecom { background: linear-gradient(135deg, #07C160, #05974A); color: #fff; box-shadow: 0 6px 18px rgba(7,193,96,.28); }
+.btn-wecom:hover { background: linear-gradient(135deg, #05974A, #047A3C); color: #fff; }
 
 /* ---------- 页脚 ---------- */
 .site-footer { background: var(--c-bg-dark); color: rgba(255,255,255,0.7); padding: 72px 0 28px; position: relative; }
@@ -928,10 +951,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .cta-banner p { font-size: 14px; }
   .cta-banner .hero-actions { flex-direction: column; }
 
-  /* 漂浮客服上移，避开底部 CTA 栏 */
-  .float-service { right: 12px; bottom: 76px; }
-  .float-btn { width: 48px; height: 48px; }
-
   /* 页脚安全区 */
   .site-footer { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
 
@@ -956,10 +975,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
   border-top: 1px solid var(--c-border); box-shadow: 0 -2px 12px rgba(10,43,92,0.08);
 }
-.mobile-cta-bar .btn { flex: 1; min-height: 44px; padding: 10px 8px; font-size: 14px; }
-@media (max-width: 768px) {
+.mobile-cta-bar .btn { flex: 1; min-height: 44px; padding: 10px 6px; font-size: 14px; white-space: nowrap; }
+@media (max-width: 1024px) {
   .mobile-cta-bar { display: flex; }
   body { padding-bottom: 64px; }
+}
+/* 桌面端：显示右侧贴边工具栏（1024px 及以下走底部 CTA 栏） */
+@media (min-width: 1025px) {
+  .hq-rail { display: flex; }
 }
 
 /* ---------- 菜单遮罩 ---------- */
@@ -991,7 +1014,7 @@ a:focus-visible, button:focus-visible,
 
 /* 打印优化 */
 @media print {
-  .site-header, .site-footer, .float-service, .nav-cta, .mobile-cta-bar, .nav-overlay { display: none !important; }
+  .site-header, .site-footer, .hq-rail, .nav-cta, .mobile-cta-bar, .nav-overlay { display: none !important; }
 }
 
 /* ---------- 免费核名 / 留资表单 ---------- */
