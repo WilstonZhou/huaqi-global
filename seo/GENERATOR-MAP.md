@@ -29,6 +29,12 @@
 - 数据:`scripts/data-services.js`、`data-countries.js`
 - 前端:`assets/js/data.js`(**stats / nav / FAQ 由 JS 渲染**)、`assets/js/main.js`
 - 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`update-sitemap-lastmod.js`
+- 大陆市场适配层(2026-10-17 新增,均为幂等后处理,**改完页面必须重跑**):
+  - `scripts/inject-cn-seo.js` — 百度/国产浏览器适配 meta、Organization 实体增强、速答块补齐
+  - `scripts/inject-country-qa.js` — 国家页问句化问答(条件/材料/流程),数据源 `data-countries.js`
+  - `scripts/inject-llms-facts.js` — llms.txt 事实层(实体事实卡/周期表/高频问答)
+  - `scripts/seo-cn-coverage.js` — 关键词覆盖率分析(只读,产出 CSV)
+  - 执行顺序与背景见 `seo/CONTENT-PLAN-CN.md`
 - ⚠️ `sitemap.xml` **手工维护**(仅 lastmod 由脚本更新);新增/删除页面必须手动同步
 
 ## 四、例外与陷阱
