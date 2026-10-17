@@ -196,12 +196,14 @@ let html = fs.readFileSync(FILE, 'utf8');
 const before = html;
 let filled = 0, missing = [];
 
+const rendered = {};
+Object.keys(R).forEach((id) => { rendered[id] = R[id](); });
+
 Object.keys(R).forEach((id) => {
   const re = new RegExp('(<[a-zA-Z0-9]+[^>]*\\bid="' + id + '"[^>]*>)([\\s\\S]*?)(</[a-zA-Z0-9]+>)');
   const m = re.exec(html);
   if (!m) { missing.push(id); return; }
-  const rendered = R[id]();
-  html = html.slice(0, m.index) + m[1] + rendered + m[3] + html.slice(m.index + m[0].length);
+  html = html.slice(0, m.index) + m[1] + rendered[id] + m[3] + html.slice(m.index + m[0].length);
   filled++;
 });
 
@@ -226,10 +228,14 @@ if (/<!-- prerender:faq-schema:start -->[\s\S]*?<!-- prerender:faq-schema:end --
 }
 
 if (CHECK) {
-  const same = html === before;
-  console.log('containers filled: ' + filled + ' | missing: ' + (missing.join(',') || 'none'));
-  console.log('index.html ' + (same ? '与 data.js 渲染结果一致 ✓' : '与 data.js 渲染结果不一致 ✗(请重跑 node scripts/prerender-home.js)'));
-  process.exit(same ? 0 : 1);
+  // 只比对「渲染结果是否已原样存在」—— 页面还有其它注入块(速答等),
+  // 整文件比对会把它们误判为不一致。
+  const stale = Object.keys(R).filter((id) => !before.includes(rendered[id]));
+  const faqOk = before.includes(faqBlock);
+  console.log('容器已是最新: ' + (Object.keys(R).length - stale.length) + '/' + Object.keys(R).length +
+    (stale.length ? ' | 需重跑: ' + stale.join(',') : '') +
+    ' | FAQ schema: ' + (faqOk ? '一致' : '需更新'));
+  process.exit(stale.length === 0 && faqOk ? 0 : 1);
 }
 fs.writeFileSync(FILE, html, 'utf8');
 console.log('prerender: ' + filled + ' containers in index.html (' +

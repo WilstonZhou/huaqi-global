@@ -151,7 +151,10 @@ function stripInjectedAnswer(html) {
   if (i < 0) return { html, removed: 0 };
   const j = html.indexOf(ANSWER_END);
   if (j < 0) return { html, removed: 0 };
-  return { html: html.slice(0, i) + html.slice(j + ANSWER_END.length), removed: 1 };
+  // 连带吃掉注入时补在块前的换行,否则每跑一次就多一行空行(幂等性)
+  let start = i;
+  if (html[start - 1] === '\n') start -= 1;
+  return { html: html.slice(0, start) + html.slice(j + ANSWER_END.length), removed: 1 };
 }
 
 const STOP = new Set(['怎么', '如何', '什么', '哪些', '多少', '需要', '可以', '是否', '指南', '全攻', '攻略', '对比', '区别', '一个', '我们', '华企', '环球']);
@@ -168,7 +171,9 @@ function bigrams(s) {
 }
 
 function faqList(html) {
-  const re = /<div class="faq-item">\s*<div class="faq-q">([\s\S]*?)<\/div>\s*<div class="faq-a">([\s\S]*?)<\/div>/g;
+  // 允许 faq-q / faq-a 带属性(main.js 渲染时会加 role/tabindex/aria-expanded,
+  // 预渲染进静态 HTML 后同样带属性,早期的严格匹配会因此漏读整页 FAQ)
+  const re = /<div class="faq-item">\s*<div class="faq-q"[^>]*>([\s\S]*?)<\/div>\s*<div class="faq-a">([\s\S]*?)<\/div>/g;
   const clean = (s) =>
     String(s)
       .replace(/<[^>]*>/g, '')
