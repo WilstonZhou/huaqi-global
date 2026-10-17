@@ -69,7 +69,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "服务",
-      "item": "https://hq10000.com/services/company-registration"
+      "item": "https://hq10000.com/services"
     },
     {
       "@type": "ListItem",
@@ -133,6 +133,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "常见做法是将美国公司账户绑定平台店铺用于收款。建议同步准备平台要求的税务表格与主体信息,保证金与税务信息一致,避免因信息不匹配触发风控。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "必须本人到美国才能开户吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多数数字银行支持全程远程开户,董事/股东在线提交材料并完成视频核身即可;部分传统银行仍要求到场面签。选择哪一类取决于你的收付需求与业务背景,我们会在开户前给出可投递银行的判断。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "没有 SSN 或 ITIN 能开美国银行账户吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。非居民在没有 SSN 的情况下通常仍可申请 EIN 并开立公司账户,银行会以护照、公司文件与业务材料完成尽调。个人账户的要求会更严格,一般建议以公司账户承接经营收付。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "美国公司开户后有哪些持续义务?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主要包括州层面的年度报告与特许经营税(按州规定)、受益所有人信息(BOI)相关申报与更新、税务申报义务,以及银行的 KYC 复核。这些义务分散在州、联邦与银行三个层面,建议建立年度台账按期处理。"
       }
     }
   ]
@@ -208,7 +232,7 @@
 <main id="main-content">
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">首页</a> / <a href="../services/company-registration">服务</a> / 美国银行开户</div>
+    <div class="breadcrumb"><a href="/">首页</a> / <a href="../services">服务</a> / 美国银行开户</div>
     <h1 class="page-title">🇺🇸 美国银行开户(公司账户)</h1>
     <p class="page-subtitle">美国公司账户是跨境电商在美收款、付供应商与报税的基础设施。近年数字银行(以线上开户为主)门槛相对友好,但普遍要求主体为美国公司并持有 EIN;传统实体银行的风控更严,通常需要更强的在美业务证据。</p>
     <div class="page-actions">
@@ -260,6 +284,37 @@
 <li>后续:年度报税、保持账户活跃、及时更新公司信息变更</li>
 </ol>
 </div>
+<div class="content-block">
+<h3>传统银行 vs 数字银行怎么选</h3>
+<ul>
+<li><strong>数字银行(如 Mercury 等)</strong>:远程开户、流程线上化、对非居民与无 SSN 的接受度相对好,适合跨境电商与初创主体,支持 ACH/Wire 与多币种</li>
+<li><strong>传统银行(华美、国泰等)</strong>:可提供实体网点、现金与本地化服务,适合需要本地收付、取现或办理贸易融资的企业,但通常要求更多业务证明</li>
+<li><strong>关键选择维度</strong>:是否要接 Amazon 等平台回款、是否需要美元以外的币种、是否要求实体卡与线下服务</li>
+<li><strong>注意</strong>:银行政策与可开户范围会调整,且每家银行对行业与股权结构的风控口径不同,需要按当期政策逐案确认</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>EIN、公司与账户的先后关系</h3>
+<p>美国公司开户的前置条件是 <strong>EIN(雇主识别号)</strong>,而 EIN 的申请前提是公司已完成注册。没有 SSN 或 ITIN 的非居民也可以申请 EIN,通常通过表格提交并等待核发,时长视税务局的受理节奏而定。</p>
+<p>因此合理的顺序是:<strong>公司注册 → EIN → 银行账户</strong>。顺序颠倒会导致开户材料无法闭环;此外,受益所有人信息(BOI)申报等合规义务也需要在注册后按期完成,开户时银行通常会一并核查。</p>
+<ul>
+<li><strong>第一步</strong>:确定主体类型(LLC 或 INC)并完成州注册</li>
+<li><strong>第二步</strong>:申请 EIN,取得税号文件</li>
+<li><strong>第三步</strong>:选择银行与账户类型,准备 KYC 与业务材料</li>
+<li><strong>第四步</strong>:提交开户申请,完成视频核身或面签</li>
+<li><strong>持续义务</strong>:按期完成州年报、BOI 信息更新与银行 KYC 复核</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>常见被拒原因与账户维护</h3>
+<ul>
+<li><strong>行业敏感</strong>:加密、代收代付、成人内容等被多数银行列为高风险,需要提前筛选可投递银行</li>
+<li><strong>业务无法说明</strong>:没有网站、平台后台或上下游合同,银行无法判断资金流向</li>
+<li><strong>股权结构复杂</strong>:多层离岸持股但无法穿透到最终受益人,尽调无法完成</li>
+<li><strong>账户闲置</strong>:开户后长期无流水或余额为零,容易被关闭;建议保持正常收付并留存业务凭证备查</li>
+<li><strong>合规更新</strong>:公司信息变更后未同步银行,或未按期更新 BOI 信息,都可能触发账户限制</li>
+</ul>
+</div>
   </div>
 </section>
 
@@ -273,13 +328,27 @@
   </div>
 </section>
 
+<!-- 同链路服务 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header"><span class="section-eyebrow">SAME WORKFLOW</span><h2 class="section-title">同一链路上的相关服务</h2><p class="section-desc">这些服务通常与美国银行开户在同一阶段一起决定,提前对齐可以少走弯路。</p></div>
+    <div class="features-grid"><a class="feature-card" href="../services/bank-account" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">公司开户(全地区)</div><div class="feature-desc">多地区账户方案对比与选择路径</div></a>
+<a class="feature-card" href="../services/us-llc" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">美国 LLC 注册</div><div class="feature-desc">有限责任公司设立与维护</div></a>
+<a class="feature-card" href="../services/us-inc" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">美国 INC 注册</div><div class="feature-desc">股份公司与融资上市架构</div></a>
+<a class="feature-card" href="../services/annual-review" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">公司年审</div><div class="feature-desc">州年报与特许经营税</div></a></div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="section">
   <div class="container container-sm">
     <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">美国银行开户常见问题</h2></div>
     <div><div class="faq-item"><div class="faq-q">没有美国身份或 SSN 能开美国公司账户吗?</div><div class="faq-a"><p>可以。以美国公司名义开户时,通常以公司文件 + EIN + 董事护照申请,不强制要求 SSN。但各银行政策差异较大,部分银行会要求补充在美地址或业务证明。</p></div></div>
 <div class="faq-item"><div class="faq-q">必须先有 EIN 吗?</div><div class="faq-a"><p>绝大多数银行要求开户主体具备 EIN,这是美国税务体系下识别企业主体的编号。建议把“注册公司 + 申请 EIN + 开户”作为一个整体来规划时间。</p></div></div>
-<div class="faq-item"><div class="faq-q">可以用来收亚马逊货款吗?</div><div class="faq-a"><p>常见做法是将美国公司账户绑定平台店铺用于收款。建议同步准备平台要求的税务表格与主体信息,保证金与税务信息一致,避免因信息不匹配触发风控。</p></div></div></div>
+<div class="faq-item"><div class="faq-q">可以用来收亚马逊货款吗?</div><div class="faq-a"><p>常见做法是将美国公司账户绑定平台店铺用于收款。建议同步准备平台要求的税务表格与主体信息,保证金与税务信息一致,避免因信息不匹配触发风控。</p></div></div>
+<div class="faq-item"><div class="faq-q">必须本人到美国才能开户吗?</div><div class="faq-a"><p>多数数字银行支持全程远程开户,董事/股东在线提交材料并完成视频核身即可;部分传统银行仍要求到场面签。选择哪一类取决于你的收付需求与业务背景,我们会在开户前给出可投递银行的判断。</p></div></div>
+<div class="faq-item"><div class="faq-q">没有 SSN 或 ITIN 能开美国银行账户吗?</div><div class="faq-a"><p>可以。非居民在没有 SSN 的情况下通常仍可申请 EIN 并开立公司账户,银行会以护照、公司文件与业务材料完成尽调。个人账户的要求会更严格,一般建议以公司账户承接经营收付。</p></div></div>
+<div class="faq-item"><div class="faq-q">美国公司开户后有哪些持续义务?</div><div class="faq-a"><p>主要包括州层面的年度报告与特许经营税(按州规定)、受益所有人信息(BOI)相关申报与更新、税务申报义务,以及银行的 KYC 复核。这些义务分散在州、联邦与银行三个层面,建议建立年度台账按期处理。</p></div></div></div>
   </div>
 </section>
 
