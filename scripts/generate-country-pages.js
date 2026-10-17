@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var lib = require('./site-lib');
 var countries = require('./data-countries');
+var compliance = require('./data-country-compliance');
 
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
@@ -52,6 +53,19 @@ countries.forEach(function (c) {
   body += '\n\n<!-- 关联服务 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">RELATED SERVICES</span><h2 class="section-title">' + c.name + '公司相关服务</h2><p class="section-desc">注册只是开始,开户、年审、审计与税务规划配套完成,出海才能顺利落地。</p></div>\n    <div class="features-grid">' + c.related.map(function (r) {
       return '<a class="feature-card" href="' + r.l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + r.t + '</div><div class="feature-desc">' + r.d + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  // 本地年审 / 审计 / 税务 / 开户矩阵(大陆「地域 × 服务」词的正文本体)
+  var comp = compliance[c.slug];
+  if (comp) {
+    body += '\n\n<!-- 本地合规与开户 -->\n<section class="section">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">LOCAL COMPLIANCE</span>' +
+      '<h2 class="section-title">' + c.name + '公司年审、审计、税务与开户</h2>' +
+      '<p class="section-desc">' + comp.lead + '</p></div>\n' +
+      comp.items.map(function (it) {
+        return '<div class="content-block"><h3>' + it.title + '</h3><p>' + it.body + '</p>' +
+          '<p><a class="feature-link" href="' + it.link + '">' + it.title + '服务详情 →</a></p></div>';
+      }).join('\n') + '\n  </div>\n</section>';
+  }
+
   if (c.article) {
     body += '\n\n<!-- 深度指南 -->\n<section class="section">\n  <div class="container">\n    <div class="info-card p-24"><h3>深度阅读</h3><p class="mb-8">' + c.article.title + '</p><a class="btn btn-outline btn-sm" href="' + c.article.link + '">' + c.article.title + ' →</a></div>\n  </div>\n</section>';
   }
