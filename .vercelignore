@@ -1,0 +1,23 @@
+# 不对外托管的仓库内容
+# 未排除时 Vercel 会把任意文件当静态资源公开(GET /scripts/site-lib.js → 200),
+# 既是源码泄露,也会被搜索引擎当作薄内容页面收录、稀释站点质量。
+
+# 页面生成器与数据源(含全部页面模板、业务数据)
+scripts/
+
+# SEO 审计配置与基线(内部指标)
+seo/
+
+# CI 配置
+.github/
+
+.gitignore
+.vercelignore
+
+# Agent / 编辑器杂项
+AGENTS.md
+IDENTITY.md
+SOUL.md
+USER.md
+.vscode/
+.idea/
