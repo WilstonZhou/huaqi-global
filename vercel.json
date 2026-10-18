@@ -4,6 +4,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/404",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/hk",
       "destination": "/country/hk",
       "permanent": true
