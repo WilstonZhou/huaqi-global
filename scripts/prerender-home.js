@@ -36,6 +36,7 @@ const relLink = (link) => {
   return l;
 };
 const T = (s) => String(s == null ? '' : s);
+const norm = (s) => String(s).replace(/\s+/g, ' ').replace(/>\s+</g, '><').trim();
 
 /* ---------------- 渲染器:逐字对应 main.js renderDataDriven() ---------------- */
 const R = {
@@ -199,11 +200,35 @@ let filled = 0, missing = [];
 const rendered = {};
 Object.keys(R).forEach((id) => { rendered[id] = R[id](); });
 
+// 按 id 精确替换容器内容。
+// 注意:不能用 /(<div id="x">)([\s\S]*?)(<\/div>)/ —— 内层还有 </div> 时
+// 非贪婪匹配会停在第一个内层闭合标签上,第二次运行时就会把内容插进去、旧内容留在后面,
+// 造成内容翻倍(index.html 一度从 130KB 涨到 214KB)。
+function innerById(source, id) {
+  const m = new RegExp('<([a-zA-Z0-9]+)([^>]*\\bid="' + id + '"[^>]*)>').exec(source);
+  if (!m) return null;
+  const tag = m[1];
+  const start = m.index + m[0].length;
+  const re = new RegExp('<' + tag + '\\b[^>]*>|</' + tag + '>', 'gi');
+  re.lastIndex = start;
+  let depth = 1, mm;
+  while ((mm = re.exec(source))) {
+    if (mm[0][0] === '<' && mm[0][1] === '/') {
+      depth--;
+      if (depth === 0) {
+        return { tag, start, end: mm.index, inner: source.slice(start, mm.index) };
+      }
+    } else if (!/\/>\s*$/.test(mm[0])) {
+      depth++;
+    }
+  }
+  return null;
+}
+
 Object.keys(R).forEach((id) => {
-  const re = new RegExp('(<[a-zA-Z0-9]+[^>]*\\bid="' + id + '"[^>]*>)([\\s\\S]*?)(</[a-zA-Z0-9]+>)');
-  const m = re.exec(html);
-  if (!m) { missing.push(id); return; }
-  html = html.slice(0, m.index) + m[1] + rendered[id] + m[3] + html.slice(m.index + m[0].length);
+  const box = innerById(html, id);
+  if (!box) { missing.push(id); return; }
+  html = html.slice(0, box.start) + rendered[id] + html.slice(box.end);
   filled++;
 });
 
@@ -228,9 +253,11 @@ if (/<!-- prerender:faq-schema:start -->[\s\S]*?<!-- prerender:faq-schema:end --
 }
 
 if (CHECK) {
-  // 只比对「渲染结果是否已原样存在」—— 页面还有其它注入块(速答等),
-  // 整文件比对会把它们误判为不一致。
-  const stale = Object.keys(R).filter((id) => !before.includes(rendered[id]));
+  // 逐容器比对「静态内容 == data.js 渲染结果」;整文件比对会被速答等其它注入块误判
+  const stale = Object.keys(R).filter((id) => {
+    const box = innerById(before, id);
+    return !box || norm(box.inner) !== norm(rendered[id]);
+  });
   const faqOk = before.includes(faqBlock);
   console.log('容器已是最新: ' + (Object.keys(R).length - stale.length) + '/' + Object.keys(R).length +
     (stale.length ? ' | 需重跑: ' + stale.join(',') : '') +
