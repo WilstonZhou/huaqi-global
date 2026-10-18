@@ -5,6 +5,7 @@ var path = require('path');
 var lib = require('./site-lib');
 var countries = require('./data-countries');
 var compliance = require('./data-country-compliance');
+var hubs = require('./data-hubs');
 
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
@@ -95,15 +96,17 @@ countries.forEach(function (c) {
   body += '\n\n<!-- 国家卡片 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">POPULAR COUNTRIES</span><h2 class="section-title">' + countries.length + ' 大热门市场,一点直达</h2></div>\n    <div class="features-grid">' + countries.map(function (c) {
       return '<a class="feature-card" href="' + p + 'country/' + c.slug + '" style="text-decoration:none;"><div class="feature-icon">' + c.flag + '</div><div class="feature-title">' + c.name + '公司注册</div><div class="feature-desc">' + c.regulator + ' · ' + c.period + '<br>' + c.type + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  body += lib.hubSections(hubs.country.sections);
+  body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">选择注册地常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.country.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 更多国家 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">MORE COUNTRIES</span><h2 class="section-title">更多国家与地区</h2><p class="section-desc">越南、柬埔寨、菲律宾、印尼、印度、阿联酋、沙特、迪拜自由区、澳大利亚、加拿大、德国、法国、荷兰、爱尔兰、卢森堡、塞浦路斯、马耳他、开曼群岛、BVI 等 60 多个国家/地区均可办理,具体方案请咨询顾问。</p></div>\n    <div class="text-center"><a href="' + p + 'global-network" class="btn btn-outline">查看全球 60+ 国家/地区网络 →</a></div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('不确定选哪个国家?', 'AI 智能匹配引擎,3 分钟根据您的业务推荐最优注册方案', p);
   write('country/index.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/country',
     title: '热门国家公司注册 | 新加坡/美国/香港/马来西亚 | 华企环球',
-    desc: '华企环球热门国家公司注册指南:新加坡、美国、香港、马来西亚、泰国、英国、日本、韩国、迪拜、越南、印尼等热门市场,监管机构、注册条件、流程与费用参考一页直达,全程代办。',
+    desc: '华企环球热门国家公司注册指南:新加坡、美国、香港、马来西亚、泰国、英国、日本、韩国、迪拜、越南、印尼等 11 个市场,含税率、年审窗口、开户难度对照表与选注册地的三个判断问题,注册全程代办。',
     keywords: '海外公司注册,新加坡公司注册,美国公司注册,香港公司注册,马来西亚公司注册,泰国公司注册',
-    schemas: [lib.breadcrumbSchema([
+    schemas: [lib.faqSchema(hubs.country.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
       { name: '热门国家注册', url: 'https://hq10000.com/country' }
     ])],

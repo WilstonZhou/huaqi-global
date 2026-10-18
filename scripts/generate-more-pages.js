@@ -3,6 +3,7 @@
 var fs = require('fs');
 var path = require('path');
 var lib = require('./site-lib');
+var hubs = require('./data-hubs');
 
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
@@ -57,20 +58,22 @@ function write(file, content) {
     }).join('\n') + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 数据 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="info-grid">' + [
     { label: '覆盖国家/地区', value: '60+ 国' },
-    { label: '企业用户', value: '10 万+' },
+    { label: '服务客户企业', value: '数万家' },
     { label: '专业团队', value: '300+' },
-    { label: '成功案例累计交付', value: '100000+' }
+    { label: '累计交付案例', value: '30 万+' }
   ].map(function (s) {
     return '<div class="info-card"><div class="info-label">' + s.label + '</div><div class="info-value">' + s.value + '</div></div>';
   }).join('\n') + '</div>\n  </div>\n</section>';
+  body += lib.hubSections(hubs.cases.sections);
+  body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">关于案例的常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.cases.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('想了解同类客户怎么做的?', '联系顾问获取与您行业相近的案例参考与出海方案', p);
   write('cases.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/cases',
     title: '客户案例 | 跨境电商/高科技/制造业出海 | 华企环球',
-    desc: '华企环球客户案例:跨境电商新加坡架构、AI 企业 VIE 红筹、制造业泰国建厂等典型出海项目,展示痛点、方案与交付成果(已脱敏)。可作为同类企业出海路径的参考。',
+    desc: '华企环球客户案例:跨境电商新加坡架构、AI 企业 VIE 红筹、制造业泰国建厂等典型出海项目,附八大行业出海路径表、五阶段服务流程与阶段化方案参考(案例已脱敏)。',
     keywords: '华企环球案例,出海案例,海外公司注册案例,VIE架构案例',
-    schemas: [lib.breadcrumbSchema([
+    schemas: [lib.faqSchema(hubs.cases.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
       { name: '客户案例', url: 'https://hq10000.com/cases' }
     ])],
@@ -106,15 +109,17 @@ function write(file, content) {
   body += '\n\n<!-- 政策列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">POLICY UPDATES</span><h2 class="section-title">近期政策速览</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">' + items.map(function (it) {
       return '<div class="case-card"><div style="font-size:26px;margin-bottom:8px;">' + it.flag + '</div><div class="card-title">' + it.title + '</div><div class="fs-12 c-text-light mb-8">' + it.date + '</div><div class="card-text mb-16">' + it.desc + '</div><a class="btn btn-outline btn-sm" href="' + it.link + '">' + (btnLabels[it.link] || '查看详情') + ' →</a></div>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  body += lib.hubSections(hubs.news.sections);
+  body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">政策与合规常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.news.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 订阅 -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="info-card p-24"><h3>想第一时间获取政策更新?</h3><p class="mb-12">添加企业微信 186-1090-2181(微信同号),顾问将为您推送与业务相关的政策变化提醒。</p><a class="btn btn-gold" href="' + p + 'contact">联系顾问</a></div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('政策看不懂?让顾问帮您判断影响', 'AI 匹配 + 顾问解读,把政策变化翻译成您的行动清单', p);
   write('news/index.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/news',
     title: '政策动态 | 各国注册税务合规速览 | 华企环球',
-    desc: '华企环球政策动态:新加坡 SUTE、美国 BOI、泰国 BOI、马来西亚 SSM 年申报、日本 JCT、欧盟 VAT/EPR 等出海政策要点速览。',
+    desc: '华企环球政策动态:新加坡 SUTE、美国 BOI、泰国 BOI、马来西亚 SSM 年申报、日本 JCT、欧盟 VAT/EPR 等政策要点,附 11 国年审与申报窗口对照表、政策变化四步判断法与常见误读。',
     keywords: '出海政策,海外公司注册政策,VAT,EPR,BOI,ODI',
-    schemas: [lib.breadcrumbSchema([
+    schemas: [lib.faqSchema(hubs.news.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
       { name: '政策动态', url: 'https://hq10000.com/news' }
     ])],
@@ -141,11 +146,16 @@ function write(file, content) {
     title: '知识中心',
     subtitle: '系统化的国家指南、政策解读与行业方案,每篇内容都围绕一个具体的出海问题展开,专业、可读、可落地。'
   });
-  body += '\n\n<!-- 导语 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">华企环球知识中心把出海最常被问到的问题拆成三层:先看清一个国家/地区的注册与税制规则,再对比不同市场的取舍,最后落到具体操作与费用预期。每篇围绕一个明确问题展开,给出监管机构、材料清单、时间预期与常见坑,不堆术语——既可用于内部评估,也可直接用于与客户沟通的口径。内容由 300+ 专业团队与超 10 万+ 企业用户的服务经验沉淀,并随政策变化持续更新。</p>\n  </div>\n</section>';
+  body += '\n\n<!-- 导语 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">华企环球知识中心把出海最常被问到的问题拆成三层:先看清一个国家/地区的注册与税制规则,再对比不同市场的取舍,最后落到具体操作与费用预期。每篇围绕一个明确问题展开,给出监管机构、材料清单、时间预期与常见坑,不堆术语——既可用于内部评估,也可直接用于与客户沟通的口径。内容沉淀自 300+ 专业团队与数万家客户企业的服务经验,并随政策变化持续更新。</p>\n  </div>\n</section>';
   body += '\n\n<!-- 怎么用这个知识中心 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">HOW TO USE</span><h2 class="section-title">怎么用这个知识中心</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">\n      <div class="feature-card"><div class="feature-icon">1</div><div class="feature-title">建立判断框架</div><div class="feature-desc">从《各国公司注册周期与费用对比》入手,一页看清热门市场的周期与公开规费</div></div>\n      <div class="feature-card"><div class="feature-icon">2</div><div class="feature-title">做选择</div><div class="feature-desc">注册地、开户地、架构与税务往往要一起决定——《香港 vs 新加坡》《开曼 vs BVI》按维度逐项对比,给出取舍建议</div></div>\n      <div class="feature-card"><div class="feature-icon">3</div><div class="feature-title">落地执行</div><div class="feature-desc">操作指南与行业方案(VAT/EPR、海外开户、ODI/VIE、跨境电商合规)给出材料清单与时间节点</div></div>\n    </div>\n  </div>\n</section>';
   body += '\n\n<!-- 文章列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">KNOWLEDGE HUB</span><h2 class="section-title">全部文章</h2></div>\n    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">' + articles.map(function (a) {
       return '<a class="case-card" href="' + p + 'knowledge/' + a.l + '" style="text-decoration:none;"><div style="margin-bottom:8px;"><span class="case-tag">' + a.tag + '</span></div><div class="card-title">' + a.t + '</div><div class="card-text">' + a.d + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  body += lib.hubSections(hubs.knowledge.sections);
+  body += '\n\n<!-- 按市场查 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">BY MARKET</span><h2 class="section-title">按市场查:11 个国家独立指南</h2><p class="section-desc">每个市场一页,含监管机构、注册条件、材料、流程、年审审计与开户要点。</p></div>\n    <div class="features-grid">' + require('./data-countries').map(function (c) {
+      return '<a class="feature-card" href="' + p + 'country/' + c.slug + '" style="text-decoration:none;"><div class="feature-icon">' + c.flag + '</div><div class="feature-title">' + c.name + '公司注册指南</div><div class="feature-desc">' + c.regulator + ' · ' + c.type + '</div></a>';
+    }).join('\n') + '</div>\n  </div>\n</section>';
+  body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">知识中心常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.knowledge.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 内容范围说明 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">目前覆盖 11 个热门市场的独立指南,以及税务与合规、资本架构(ODI/VIE/红筹)、身份与资产规划(如马来西亚第二家园、留学移民等)等主题。没找到对应问题,可用 AI 智能匹配 3 分钟生成初步方案,或直接联系顾问。</p>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('没找到您关心的问题?', '告诉 AI 您的出海需求,3 分钟生成方案参考', p);
   write('knowledge/index.html', lib.buildPage({
@@ -153,9 +163,9 @@ function write(file, content) {
     canonical: 'https://hq10000.com/knowledge',
     relatedModules: 'knowledge',
     title: '知识中心 | 海外公司注册指南与政策解读 | 华企环球',
-    desc: '华企环球知识中心:新加坡注册指南、美国税收政策、香港新加坡对比、开曼BVI对比、注册费用对比、海外开户指南、ODI/VIE 架构等专业内容。',
+    desc: '华企环球知识中心:新加坡注册指南、美国税收政策、香港新加坡对比、开曼BVI对比、注册费用对比、海外开户指南、ODI/VIE 架构等专业内容,并提供四条按问题划分的阅读路径与 11 国市场索引。',
     keywords: '海外公司注册指南,新加坡公司注册,美国公司注册,ODI备案,VIE架构',
-    schemas: [lib.breadcrumbSchema([
+    schemas: [lib.faqSchema(hubs.knowledge.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
       { name: '知识中心', url: 'https://hq10000.com/knowledge' }
     ])],

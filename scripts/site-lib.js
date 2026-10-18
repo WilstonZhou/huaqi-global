@@ -371,6 +371,36 @@ function howToSchema(name, steps) {
   };
 }
 
+function hubSections(sections) {
+  return (sections || []).map(function (s, i) {
+    var html = '\n\n<!-- ' + s.title + ' -->\n<section class="section' + (i % 2 ? ' section-soft' : '') + '">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">' + s.eyebrow + '</span><h2 class="section-title">' + s.title + '</h2>' +
+      (s.desc ? '<p class="section-desc">' + s.desc + '</p>' : '') + '</div>\n';
+    if (s.paras && s.paras.length) {
+      html += '<div class="content-block">' + s.paras.map(function (p) { return '<p>' + p + '</p>'; }).join('\n') + '</div>\n';
+    }
+    if (s.list && s.list.length) {
+      var t = s.ordered ? 'ol' : 'ul';
+      html += '<div class="content-block"><' + t + '>\n' + s.list.map(function (li) { return '<li>' + li + '</li>'; }).join('\n') + '\n</' + t + '></div>\n';
+    }
+    if (s.table) {
+      html += '<div style="overflow-x:auto;"><table class="pricing-table">\n<thead><tr>' +
+        s.table.head.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead>\n<tbody>\n' +
+        s.table.rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('\n') +
+        '\n</tbody></table></div>\n' +
+        (s.table.note ? '<p class="fs-12 c-text-light mt-16">' + s.table.note + '</p>\n' : '');
+    }
+    if (s.cards) {
+      html += '<div class="features-grid">' + s.cards.map(function (c) {
+        var inner = '<div class="feature-icon">↗</div><div class="feature-title">' + c.t + '</div><div class="feature-desc">' + c.d + '</div>';
+        return c.href ? '<a class="feature-card" href="' + c.href + '" style="text-decoration:none;">' + inner + '</a>'
+                      : '<div class="feature-card">' + inner + '</div>';
+      }).join('\n') + '</div>\n';
+    }
+    return html + '  </div>\n</section>';
+  }).join('');
+}
+
 module.exports = {
   buildPage: buildPage,
   buildPageEn: buildPageEn,
@@ -381,6 +411,7 @@ module.exports = {
   hero: hero,
   statCards: statCards,
   contentBlock: contentBlock,
+  hubSections: hubSections,
   faqItems: faqItems,
   ctaBanner: ctaBanner,
   breadcrumbSchema: breadcrumbSchema,
