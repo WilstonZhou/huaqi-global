@@ -127,7 +127,7 @@ function buildHub() {
       '  <div class="container">\n' +
       '    <div class="section-header"><span class="section-eyebrow">' + g.en + '</span>' +
       '<h2 class="section-title">' + g.title + '</h2><p class="section-desc">' + g.desc + '</p></div>\n' +
-      '    <div class="features-grid" style="grid-template-columns:repeat(3,1fr);">' +
+      '    <div class="features-grid grid-3">' +
       g.items.map(function (it) {
         return '<a class="case-card" href="' + url(it.slug) + '" style="text-decoration:none;display:block;">' +
           '<div class="card-title">' + it.name + '</div>' +

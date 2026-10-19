@@ -384,9 +384,13 @@ function hubSections(sections) {
       html += '<div class="content-block"><' + t + '>\n' + s.list.map(function (li) { return '<li>' + li + '</li>'; }).join('\n') + '\n</' + t + '></div>\n';
     }
     if (s.table) {
-      html += '<div style="overflow-x:auto;"><table class="pricing-table">\n<thead><tr>' +
+      html += '<div class="hub-table-wrap"><table class="pricing-table">\n<thead><tr>' +
         s.table.head.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead>\n<tbody>\n' +
-        s.table.rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('\n') +
+        s.table.rows.map(function (r) {
+          return '<tr>' + r.map(function (c, ci) {
+            return '<td data-label="' + (s.table.head[ci] || '') + '">' + c + '</td>';
+          }).join('') + '</tr>';
+        }).join('\n') +
         '\n</tbody></table></div>\n' +
         (s.table.note ? '<p class="fs-12 c-text-light mt-16">' + s.table.note + '</p>\n' : '');
     }

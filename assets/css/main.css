@@ -1151,3 +1151,40 @@ a:focus-visible, button:focus-visible,
 .case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
 .case-tag { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 10px;
   background: var(--c-gold-soft); color: var(--c-gold-deep); margin-right: 6px; }
+
+/* 聚合页表格:窄屏允许单元格换行,避免整页横向滚动(表格自身可横向滚) */
+.hub-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.hub-table-wrap .pricing-table { display: table; }
+@media (max-width: 768px) {
+  .hub-table-wrap .pricing-table { display: table; white-space: normal; }
+  .hub-table-wrap .pricing-table th,
+  .hub-table-wrap .pricing-table td { white-space: normal; padding: 10px 12px; font-size: 13px; }
+}
+
+/* 三列栅格(桌面三列,平板两列,手机单列)—— 替代内联 grid-template-columns */
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1024px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .grid-3 { grid-template-columns: 1fr; } }
+
+/* 聚合页表格在手机上改为「卡片式」:隐藏表头,每个单元格前显示字段名 */
+@media (max-width: 640px) {
+  .hub-table-wrap { overflow-x: visible; }
+  .hub-table-wrap .pricing-table { display: block; border: none; box-shadow: none; background: transparent; }
+  .hub-table-wrap .pricing-table thead { display: none; }
+  .hub-table-wrap .pricing-table tbody { display: block; }
+  .hub-table-wrap .pricing-table tr {
+    display: block; background: white; border: 1px solid var(--c-border);
+    border-radius: var(--radius-md); box-shadow: var(--shadow-xs);
+    margin-bottom: 12px; padding: 6px 0;
+  }
+  .hub-table-wrap .pricing-table td {
+    display: flex; gap: 12px; border: none; padding: 7px 14px;
+    font-size: 13.5px; line-height: 1.7;
+  }
+  .hub-table-wrap .pricing-table td::before {
+    content: attr(data-label); flex: 0 0 76px; color: var(--c-text-light);
+    font-size: 12px; line-height: 1.9;
+  }
+  .hub-table-wrap .pricing-table td:first-child { font-weight: 700; color: var(--c-primary); }
+  .hub-table-wrap .pricing-table td:first-child::before { display: none; }
+}
