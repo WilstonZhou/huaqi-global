@@ -405,6 +405,51 @@ function hubSections(sections) {
   }).join('');
 }
 
+
+function caseLibrary(data) {
+  var groups = data.groups || [];
+  var nav = '<div class="text-center" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px;">' +
+    groups.map(function (g, i) {
+      return '<a class="btn btn-outline btn-sm" href="#case-' + (i + 1) + '">' + g.key + '(' + g.items.length + ')</a>';
+    }).join('\n') + '</div>';
+
+  var html = '\n\n<!-- 案例库 -->\n<section class="section">\n  <div class="container">\n' +
+    '    <div class="section-header"><span class="section-eyebrow">CASE LIBRARY</span><h2 class="section-title">案例库:' + groups.length + ' 类场景、' +
+    groups.reduce(function (a, g) { return a + g.items.length; }, 0) + ' 个脱敏案例</h2>' +
+    '<p class="section-desc">' + data.intro + '</p></div>\n' + nav;
+
+  groups.forEach(function (g, i) {
+    html += '<div id="case-' + (i + 1) + '" style="margin-top:36px;">' +
+      '<h3 style="font-size:20px;color:var(--c-primary);margin-bottom:6px;">' + g.key + ' · ' + g.title + '</h3>' +
+      '<p class="fs-14 c-text-light" style="margin-bottom:16px;">' + g.desc + '</p>' +
+      '<div class="features-grid grid-2">' +
+      g.items.map(function (c) {
+        return '<div class="case-card">' +
+          '<div style="margin-bottom:8px;"><span class="case-tag">' + c.tag + '</span></div>' +
+          '<div class="card-title">' + c.title + '</div>' +
+          '<div class="card-text mb-8"><strong class="c-primary">情形:</strong>' + c.pain + '</div>' +
+          '<div class="card-text mb-8"><strong class="c-primary">处理:</strong>' + c.action + '</div>' +
+          '<div class="card-text mb-8"><strong class="c-primary">结果:</strong>' + c.result + '</div>' +
+          '<div class="fs-13" style="border-top:1px dashed var(--c-border);padding-top:10px;color:var(--c-text-light);"><strong>提示:</strong>' + c.tip + '</div>' +
+          '</div>';
+      }).join('\n') + '</div></div>';
+  });
+  html += '\n  </div>\n</section>';
+
+  var res = data.resources;
+  if (res) {
+    html += '\n\n<!-- 资源表 -->\n<section class="section section-soft">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">QUICK REFERENCE</span><h2 class="section-title">' + res.title + '</h2>' +
+      '<p class="section-desc">' + res.desc + '</p></div>\n' +
+      '<div class="hub-table-wrap"><table class="pricing-table"><thead><tr><th>服务类型</th><th>最容易出问题的一步</th><th>站内页面</th></tr></thead><tbody>' +
+      res.rows.map(function (r) {
+        return '<tr><td data-label="服务类型">' + r[0] + '</td><td data-label="最容易出问题的一步">' + r[1] +
+          '</td><td data-label="站内页面"><a href="' + r[2] + '">' + r[3] + ' →</a></td></tr>';
+      }).join('\n') + '</tbody></table></div>\n  </div>\n</section>';
+  }
+  return html;
+}
+
 module.exports = {
   buildPage: buildPage,
   buildPageEn: buildPageEn,
@@ -416,6 +461,7 @@ module.exports = {
   statCards: statCards,
   contentBlock: contentBlock,
   hubSections: hubSections,
+  caseLibrary: caseLibrary,
   faqItems: faqItems,
   ctaBanner: ctaBanner,
   breadcrumbSchema: breadcrumbSchema,

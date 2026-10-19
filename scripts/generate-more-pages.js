@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var lib = require('./site-lib');
 var hubs = require('./data-hubs');
+var casesData = require('./data-cases');
 
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
@@ -21,14 +22,14 @@ function write(file, content) {
       industry: '跨境电商', title: '某亚马逊头部卖家新加坡架构搭建',
       pain: '业务覆盖欧/美/亚三大市场,收款分散、税负偏高,需要合规收款主体与统一税务架构。',
       solution: '新加坡 Pte Ltd 注册 + DBS 账户 + VAT 注册,完成三大市场合规收款闭环。',
-      result: '税务成本下降 23%,收款周期缩短,后续年审审计由同一团队持续服务。',
+      result: '完成三大市场合规收款闭环,后续年审审计由同一团队持续服务。',
       tags: ['新加坡注册', '银行开户', 'VAT']
     },
     {
       industry: '高科技', title: '某 AI 企业 VIE 红筹架构',
       pain: '计划赴美上市,需要搭建跨境股权架构并完成境内合规登记。',
       solution: '开曼-香港-境内 VIE 架构搭建,同步完成 ODI 备案与 37 号文登记。',
-      result: '架构周期 90 天,顺利衔接后续 Pre-A 融资与上市筹备。',
+      result: '按计划完成架构搭建与境内登记,顺利衔接后续融资与上市筹备。',
       tags: ['VIE', 'ODI', '开曼']
     },
     {
@@ -64,14 +65,17 @@ function write(file, content) {
   ].map(function (s) {
     return '<div class="info-card"><div class="info-label">' + s.label + '</div><div class="info-value">' + s.value + '</div></div>';
   }).join('\n') + '</div>\n  </div>\n</section>';
-  body += lib.hubSections(hubs.cases.sections);
+  // 先讲方法论(为什么脱敏),再上案例库,最后是行业路径与流程
+  body += lib.hubSections(hubs.cases.sections.slice(0, 1));
+  body += lib.caseLibrary(casesData);
+  body += lib.hubSections(hubs.cases.sections.slice(1));
   body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">关于案例的常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.cases.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('想了解同类客户怎么做的?', '联系顾问获取与您行业相近的案例参考与出海方案', p);
   write('cases.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/cases',
-    title: '客户案例 | 跨境电商/高科技/制造业出海 | 华企环球',
-    desc: '华企环球客户案例:跨境电商新加坡架构、AI 企业 VIE 红筹、制造业泰国建厂等典型出海项目,附八大行业出海路径表、五阶段服务流程与阶段化方案参考(案例已脱敏)。',
+    title: '客户案例 | 32 个脱敏案例:开户/年审/审计/商标/架构 | 华企环球',
+    desc: '华企环球客户案例库:开户被拒、年审逾期、零申报补税、商标驳回、架构登记等 8 类场景 32 个脱敏案例,每条写明情形、处理、结果与提示,并附行业路径表与服务流程。',
     keywords: '华企环球案例,出海案例,海外公司注册案例,VIE架构案例',
     schemas: [lib.faqSchema(hubs.cases.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },

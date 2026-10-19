@@ -1188,3 +1188,10 @@ a:focus-visible, button:focus-visible,
   .hub-table-wrap .pricing-table td:first-child { font-weight: 700; color: var(--c-primary); }
   .hub-table-wrap .pricing-table td:first-child::before { display: none; }
 }
+
+/* 两列栅格(桌面两列,手机单列) */
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* 案例库锚点:避开固定头部 */
+[id^="case-"] { scroll-margin-top: 96px; }
