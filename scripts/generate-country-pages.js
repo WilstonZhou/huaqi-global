@@ -47,7 +47,9 @@ countries.forEach(function (c) {
       { label: '公司类型', value: c.type },
       { label: '办理周期', value: c.period },
       { label: '服务模式', value: c.mode }
-    ]) + '\n  </div>\n</section>';
+    ]) + (c.facts && c.facts.length ? '\n    <div class="hub-table-wrap mt-24"><table class="pricing-table facts-table">\n      <thead><tr><th>项目</th><th>' + c.name + '市场口径</th></tr></thead>\n      <tbody>\n' + c.facts.map(function (f) {
+      return '        <tr><td data-label="项目">' + f.k + '</td><td>' + f.v + '</td></tr>';
+    }).join('\n') + '\n      </tbody>\n    </table></div>\n    <p class="fs-12 c-text-light mt-16">注册资本、税率、时限与豁免标准均以当地监管机构最新公布为准;华企环球按季度复核上述口径,具体适用请联系顾问确认。</p>' : '') + '\n  </div>\n</section>';
   body += '\n\n<!-- 条件/材料/流程 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">REGISTRATION GUIDE</span><h2 class="section-title">' + c.name + '公司注册指南</h2></div>\n    ' + lib.contentBlock(c.name + '注册核心条件', null, c.conditions) +
     lib.contentBlock('所需材料清单', null, c.materials) +
     lib.contentBlock(c.name + '注册办理流程', null, c.flow, true) + '\n  </div>\n</section>';
