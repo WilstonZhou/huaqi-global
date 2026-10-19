@@ -121,7 +121,7 @@ for (const c of countries) {
           acceptedAnswer: { '@type': 'Answer', text: x.a },
         });
       }
-      html = html.replace(hit[0], '<script type="application/ld+json">' + JSON.stringify(obj) + '</script>');
+      html = html.replace(hit[0], '<script type="application/ld+json">\n' + JSON.stringify(obj, null, 2) + '\n</script>');
     } catch (e) {
       console.log('  ✗ FAQPage 解析失败,跳过 schema 同步: ' + rel + ' — ' + e.message);
     }

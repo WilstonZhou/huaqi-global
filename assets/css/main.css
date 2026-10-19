@@ -1187,6 +1187,9 @@ a:focus-visible, button:focus-visible,
   }
   .hub-table-wrap .pricing-table td:first-child { font-weight: 700; color: var(--c-primary); }
   .hub-table-wrap .pricing-table td:first-child::before { display: none; }
+  /* 两列「项目 / 口径」事实表:手机上第二列不再重复字段名,值直接换行跟在项目下 */
+  .hub-table-wrap .pricing-table.facts-table td:nth-child(2)::before { display: none; }
+  .hub-table-wrap .pricing-table.facts-table td:nth-child(2) { padding-top: 0; }
 }
 
 /* 两列栅格(桌面两列,手机单列) */
