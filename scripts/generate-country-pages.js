@@ -106,7 +106,7 @@ countries.forEach(function (c) {
     prefix: p,
     canonical: 'https://hq10000.com/country',
     title: '热门国家公司注册 | 新加坡/美国/香港/马来西亚 | 华企环球',
-    desc: '华企环球热门国家公司注册指南:新加坡、美国、香港、马来西亚、泰国、英国、日本、韩国、迪拜、越南、印尼等 11 个市场,含税率、年审窗口、开户难度对照表与选注册地的三个判断问题,注册全程代办。',
+    desc: '华企环球热门国家公司注册指南:新加坡、美国、香港、马来西亚、泰国、英国、日本、韩国、迪拜、越南、印尼、开曼、BVI 等 13 个市场,含税率、年审窗口、开户难度对照表与选注册地的三个判断问题,注册全程代办。',
     keywords: '海外公司注册,新加坡公司注册,美国公司注册,香港公司注册,马来西亚公司注册,泰国公司注册',
     schemas: [lib.faqSchema(hubs.country.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
