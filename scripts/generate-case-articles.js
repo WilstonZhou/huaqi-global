@@ -13,8 +13,10 @@ function write(file, content) {
   console.log('generated: ' + file);
 }
 
-function sectionHtml(s) {
-  var html = '<h2 id="' + s.id + '">' + s.h2 + '</h2>\n';
+var CN_NUM = ['一','二','三','四','五','六','七','八','九'];
+function cleanH2(s) { return String(s).replace(/^[一二三四五六七八九]、/, ''); }
+function sectionHtml(s, i) {
+  var html = '<h2 id="' + s.id + '">' + (CN_NUM[i] || (i + 1)) + '、' + cleanH2(s.h2) + '</h2>\n';
   (s.blocks || []).forEach(function (b) {
     if (b.type === 'p') html += '<p>' + b.html + '</p>\n';
     else if (b.type === 'h3') html += '<h3>' + b.text + '</h3>\n';
@@ -47,11 +49,11 @@ function articlePage(opt) {
   });
   body += '\n\n<section class="section">\n  <div class="container">\n    <div class="article-layout">\n      <article class="article-body">\n' +
     lib.answerBlock(opt.answer) +
-    opt.sections.map(sectionHtml).join('\n') +
+    opt.sections.map(function (s, i) { return sectionHtml(s, i); }).join('\n') +
     '\n        <h2 id="faq">常见问题</h2>\n        <div>' + lib.faqItems(opt.faqs) + '</div>\n' +
     '\n      </article>\n\n      <aside class="article-sidebar">\n' +
     '        <div class="sidebar-card article-toc">\n          <h3>📖 本文目录</h3>\n' +
-    opt.toc.map(function (t) { return '<a href="#' + t.id + '">' + t.name + '</a>'; }).join('\n') +
+    opt.sections.map(function (s) { return '<a href="#' + s.id + '">' + cleanH2(s.h2) + '</a>'; }).join('\n') +
     '          <a href="#faq">常见问题</a>\n        </div>\n' +
     '        <div class="sidebar-card">\n          <h3>📚 相关文章</h3>\n' +
     opt.related.map(function (r) { return '<a href="' + r.l + '">' + r.t + '</a>'; }).join('\n') +
