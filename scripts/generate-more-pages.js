@@ -121,7 +121,7 @@ function write(file, content) {
     prefix: p,
     canonical: 'https://hq10000.com/news',
     title: '政策动态 | 各国注册税务合规速览 | 华企环球',
-    desc: '华企环球政策动态:新加坡 SUTE、美国 BOI、泰国 BOI、马来西亚 SSM 年申报、日本 JCT、欧盟 VAT/EPR 等政策要点,附 11 国年审与申报窗口对照表、政策变化四步判断法与常见误读。',
+    desc: '华企环球政策动态:新加坡 SUTE、美国 BOI、泰国 BOI、马来西亚 SSM 年申报、日本 JCT、欧盟 VAT/EPR 等要点,附 11 国年审与申报窗口对照表。',
     keywords: '出海政策,海外公司注册政策,VAT,EPR,BOI,ODI',
     schemas: [lib.faqSchema(hubs.news.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
@@ -167,7 +167,7 @@ function write(file, content) {
     canonical: 'https://hq10000.com/knowledge',
     relatedModules: 'knowledge',
     title: '知识中心 | 海外公司注册指南与政策解读 | 华企环球',
-    desc: '华企环球知识中心:新加坡注册指南、美国税收政策、香港新加坡对比、开曼BVI对比、注册费用对比、海外开户指南、ODI/VIE 架构等专业内容,并提供四条按问题划分的阅读路径与 11 国市场索引。',
+    desc: '华企环球知识中心:新加坡注册、美国税收、港新对比、开曼BVI、注册费用、海外开户、ODI/VIE 等专业内容,附四条阅读路径与 11 国市场索引。',
     keywords: '海外公司注册指南,新加坡公司注册,美国公司注册,ODI备案,VIE架构',
     schemas: [lib.faqSchema(hubs.knowledge.faqs), lib.breadcrumbSchema([
       { name: '首页', url: 'https://hq10000.com' },
