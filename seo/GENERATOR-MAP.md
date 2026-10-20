@@ -2,7 +2,7 @@
 
 > 用途:SEO 修复 / 内容改动前,**先查本表判断页面来源**,再决定改哪里。
 > 依据:2026-09-17 对仓库实测(生成器 write 目标 + 目录差集),同日由 bootstrap 审计验证。
-> 全站规模:62 个 HTML 页面(原 66;2026-10-14 删除竞对对比页 `compare/` 4 页)。
+> 全站规模:70 个 HTML 页面(2026-10-20 新增开曼/BVI 2 个国家页 + 5 个国家×服务子页;此前 63,原 66,2026-10-14 删除竞对对比页 `compare/` 4 页)。
 
 ## 一、生成页(改生成器源码 → 重跑生成器,改 HTML 无效)
 
@@ -14,6 +14,7 @@
 | `scripts/generate-service-pages.js` | `services/` 18 页 | 数据源 `scripts/data-services.js`(apostille、company-liquidation、eu-trademark、hk-audit、hk-bank-account、hk-tax-filing、offshore、patent、patent-search、pct-patent、sg-bank-account、trademark、trademark-renewal、trademark-transfer、us-bank-account、us-inc、us-llc、vat) |
 | `scripts/generate-more-pages.js` | `cases.html`、`knowledge/index.html`、`news/index.html`、`services/fees.html` | |
 | `scripts/generate-tools.js` | `tools/cost-calculator.html` | |
+| `scripts/generate-country-service-pages.js` | `country/{cc}/{service}.html`(5:us/tax、us/annual-review、us/audit、sg/audit、hk/annual-review) | 数据源 `scripts/data-country-services.js`;按「关键词需求 × 情报存量 × 硬事实数量」门槛开页,不铺量 |
 
 > ⚠️ **英文站已物理删除**(2026-09-17):`en/` 目录与生成器 `generate-en-pages.js` / 数据源 `data-en-countries.js` 已移除;`vercel.json` 已加 `/en`、`/en/*` 的 301 跳转(分别指向对应国家页或首页)。如将来要恢复英文站,可从 git 历史取回。
 
@@ -26,7 +27,7 @@
 ## 三、共享 / 数据源(改动影响面最大 → 高风险)
 
 - `scripts/site-lib.js` — 布局:buildPage / header / footer / 面包屑 / FAQ / JSON-LD 辅助
-- 数据:`scripts/data-services.js`、`data-countries.js`
+- 数据:`scripts/data-services.js`、`data-countries.js`、`data-country-services.js`(国家×服务子页)
 - 前端:`assets/js/data.js`(**stats / nav / FAQ 由 JS 渲染**)、`assets/js/main.js`
 - 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`update-sitemap-lastmod.js`
 - 大陆市场适配层(2026-10-17 新增,均为幂等后处理,**改完页面必须重跑**):
