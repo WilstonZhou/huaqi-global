@@ -142,7 +142,13 @@ function write(file, content) {
     { t: '开曼 vs BVI:离岸公司怎么选?', d: '税务、上市、经济实质与年费成本对比', l: 'cayman-vs-bvi', tag: '对比指南' },
     { t: '各国公司注册周期与费用对比(2026)', d: '八大热门市场注册周期与公开规费对照', l: 'registration-cost-comparison', tag: '费用参考' },
     { t: '海外银行开户指南:材料、周期与银行怎么选', d: '新加坡/香港/美国/马来开户材料与面签要点', l: 'overseas-bank-account-guide', tag: '操作指南' },
-    { t: 'ODI 备案与 VIE 架构:跨境融资必读', d: 'ODI 流程、VIE/红筹区别、37 号文要点', l: 'odi-vie-guide', tag: '资本架构' }
+    { t: 'ODI 备案与 VIE 架构:跨境融资必读', d: 'ODI 流程、VIE/红筹区别、37 号文要点', l: 'odi-vie-guide', tag: '资本架构' },
+    { t: '香港公司开户被拒:六个原因与补救顺序', d: '判断被拒在哪一步、单据链怎么补、何时该换银行', l: 'hk-bank-account-rejected', tag: '操作指南' },
+    { t: '香港公司零申报被查:补账、补税与罚款处理顺序', d: '什么算有经营、补做六步、离岸豁免与零申报的区别', l: 'hk-zero-declaration-fix', tag: '政策解读' },
+    { t: '香港公司年审逾期:罚款档次、补救与被除名恢复', d: '四档罚款时间轴、两项义务、恢复流程', l: 'hk-annual-review-overdue', tag: '合规日历' },
+    { t: '新加坡年审与审计豁免:三项指标怎么算', d: '7 个月期限、豁免三项满足两项、逐年复核', l: 'sg-annual-return-audit-exemption', tag: '国家指南' },
+    { t: '美国公司年审:州年报、税表与信息申报', d: '三套义务、选州逻辑、漏报罚则与年度日历', l: 'us-company-annual-filing', tag: '政策解读' },
+    { t: '商标被驳回、被抢注:复审、异议与备用方案', d: '绝对/相对理由、复审流程、抢注两条线', l: 'trademark-rejection-response', tag: '操作指南' }
   ];
   var body = lib.hero({
     prefix: p,
