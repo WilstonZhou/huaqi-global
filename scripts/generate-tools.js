@@ -116,7 +116,7 @@ write('tools/cost-calculator.html', lib.buildPage({
   prefix: p,
   canonical: 'https://hq10000.com/tools/cost-calculator',
   title: '出海成本与周期速查工具 | 各国注册规费参考 | 华企环球',
-  desc: '选择注册地即可查看监管机构、公司类型、参考周期与政府规费参考。覆盖新加坡、香港、美国、英国、日本、韩国、马来西亚、泰国、迪拜、越南、印尼等市场。服务费采用定制报价。',
+  desc: '选择注册地即可查看监管机构、公司类型、参考周期与政府规费。覆盖新加坡、香港、美国、英国、日本、马来西亚、泰国、迪拜等市场,服务费定制报价。',
   keywords: '海外公司注册费用,公司注册周期,注册规费,出海成本,华企环球',
   schemas: [
     lib.breadcrumbSchema([
