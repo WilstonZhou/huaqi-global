@@ -99,7 +99,9 @@ services.forEach(function (s) {
 
   body += lib.answerBlock(s.name + '关键参数：' + s.stats.slice(0, 3).map(function (x) { return x.label + ' ' + x.value; }).join('；') + '。具体适用范围与报价请咨询顾问确认。');
 
-  body += '\n\n<!-- 核心信息 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">' + s.en + '</span><h2 class="section-title">' + s.name + '核心信息</h2></div>\n    ' + lib.statCards(s.stats) + '\n  </div>\n</section>';
+  body += '\n\n<!-- 核心信息 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">' + s.en + '</span><h2 class="section-title">' + s.name + '核心信息</h2></div>\n    ' + lib.statCards(s.stats) + (s.facts && s.facts.length ? '\n    <div class="hub-table-wrap mt-24"><table class="pricing-table facts-table">\n      <thead><tr><th>项目</th><th>口径</th></tr></thead>\n      <tbody>\n' + s.facts.map(function (f) {
+      return '        <tr><td data-label="项目">' + f.k + '</td><td>' + f.v + '</td></tr>';
+    }).join('\n') + '\n      </tbody>\n    </table></div>\n    <p class="fs-12 c-text-light mt-16">时限、门槛与审核口径以银行及监管机构最新要求为准;华企环球按季度复核,个案以顾问确认为准。</p>' : '') + '\n  </div>\n</section>';
 
   body += '\n\n<!-- 正文区块 -->\n<section class="section">\n  <div class="container">\n    ' + s.blocks.map(function (b) {
     return lib.contentBlock(b.h, b.paras || null, b.list || null, !!b.ordered);
