@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var lib = require('./site-lib');
 var hubs = require('./data-hubs');
-var casesData = require('./data-cases');
+var casesData = require('./case-data');
 
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
@@ -67,6 +67,7 @@ function write(file, content) {
   }).join('\n') + '</div>\n  </div>\n</section>';
   // 先讲方法论(为什么脱敏),再上案例库,最后是行业路径与流程
   body += lib.hubSections(hubs.cases.sections.slice(0, 1));
+  casesData.prefix = p;
   body += lib.caseLibrary(casesData);
   body += lib.hubSections(hubs.cases.sections.slice(1));
   body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">关于案例的常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.cases.faqs) + '</div>\n  </div>\n</section>';
