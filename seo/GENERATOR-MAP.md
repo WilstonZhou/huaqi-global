@@ -2,7 +2,7 @@
 
 > 用途:SEO 修复 / 内容改动前,**先查本表判断页面来源**,再决定改哪里。
 > 依据:2026-09-17 对仓库实测(生成器 write 目标 + 目录差集),同日由 bootstrap 审计验证。
-> 全站规模:70 个 HTML 页面(2026-10-20 新增开曼/BVI 2 个国家页 + 5 个国家×服务子页;此前 63,原 66,2026-10-14 删除竞对对比页 `compare/` 4 页)。
+> 全站规模:73 个 HTML 页面(2026-10-20 新增开曼/BVI 2 个国家页、5 个国家×服务子页、3 个身份规划子页;此前 63,原 66,2026-10-14 删除竞对对比页 `compare/` 4 页)。
 
 ## 一、生成页(改生成器源码 → 重跑生成器,改 HTML 无效)
 
@@ -15,6 +15,7 @@
 | `scripts/generate-more-pages.js` | `cases.html`、`knowledge/index.html`、`news/index.html`、`services/fees.html` | |
 | `scripts/generate-tools.js` | `tools/cost-calculator.html` | |
 | `scripts/generate-country-service-pages.js` | `country/{cc}/{service}.html`(5:us/tax、us/annual-review、us/audit、sg/audit、hk/annual-review) | 数据源 `scripts/data-country-services.js`;按「关键词需求 × 情报存量 × 硬事实数量」门槛开页,不铺量 |
+| `scripts/generate-identity-pages.js` | `solutions/identity-planning/{hk,sg,ae}.html`(3) | 数据源 `scripts/data-identity-pages.js`;Hub 仍由 `generate-solutions.js` 产出 |
 
 > ⚠️ **英文站已物理删除**(2026-09-17):`en/` 目录与生成器 `generate-en-pages.js` / 数据源 `data-en-countries.js` 已移除;`vercel.json` 已加 `/en`、`/en/*` 的 301 跳转(分别指向对应国家页或首页)。如将来要恢复英文站,可从 git 历史取回。
 

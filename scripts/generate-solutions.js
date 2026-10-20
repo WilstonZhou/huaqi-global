@@ -140,6 +140,20 @@ var solutions = [
     metaTitle: '身份与资产规划 | 马来西亚第二家园/留学移民 | 华企环球',
     metaDesc: '华企环球身份与资产规划方案:马来西亚第二家园、留学移民、海外资产配置与身份税务联动,为企业主与高净值家庭提供一站式规划。可按家庭情况定制方案,并衔接公司架构与税务安排。',
     heroSub: '身份规划不是"买护照",而是家庭未来与资产配置的底层设计。从马来西亚第二家园到留学移民与海外资产配置,提供一站式规划与落地陪跑。',
+    quick: '企业主常见的身份路径有四条:香港(高才通/优才/专才/投资移民)、新加坡(EP 就业准证)、迪拜(黄金签证或公司居留)、马来西亚(MM2H)。门槛分别看年收入、薪资与评分、投资额或存款,选择取决于家庭安排、税务居民身份与业务落地地。',
+    facts: [
+      { k: '香港', v: '高才通 A 类年收入 ≥250 万港元;B/C 类面向百强大学毕业生;投资移民投资 ≥3,000 万港元' },
+      { k: '新加坡', v: '以 EP 为主:一般行业月薪 ≥S$5,600、金融业 ≥S$6,200,并通过 COMPASS 评分' },
+      { k: '迪拜', v: '购房 ≥200 万迪拉姆可申请 10 年黄金签证;注册公司可办 2 年投资人居留' },
+      { k: '马来西亚', v: 'MM2H 长期居留,按存款与收入条件分档,适合养老、国际教育与东南亚布局' },
+      { k: '共同前提', v: '身份与公司架构、税务居民身份、子女教育时间线需要一起设计,不能单点办理' },
+      { k: '办理周期', v: '从数月到一年以上不等,取决于路径、材料与官方审核节奏' }
+    ],
+    paths: [
+      { t: '香港身份规划', d: '高才通 / 优才 / 专才 / 投资移民', l: '../solutions/identity-planning/hk' },
+      { t: '新加坡身份规划', d: 'EP 就业准证与自雇路径', l: '../solutions/identity-planning/sg' },
+      { t: '迪拜身份规划', d: '黄金签证与公司居留', l: '../solutions/identity-planning/ae' }
+    ],
     pains: [
       { t: '身份与税务脱节', d: '移民决策没考虑 CRS 与税务居民身份,海外资产反而成为负担。' },
       { t: '政策信息滞后', d: '各国移民政策频繁调整,信息滞后容易错过窗口期。' },
@@ -164,7 +178,10 @@ var solutions = [
     faqs: [
       { q: '马来西亚第二家园适合什么人?', a: '适合追求低门槛长期居留、子女国际教育、退休养老与东南亚资产布局的家庭。MM2H 对收入与存款有要求,具体以马来西亚移民局最新政策为准。' },
       { q: '身份规划什么时候开始最合适?', a: '越早越好。身份办理周期(数月到数年)与税务身份切换、子女升学时间线需要提前对齐,建议至少提前 1-2 年启动规划。' },
-      { q: '移民会影响国内公司吗?', a: '税务居民身份变化可能影响个人全球收入申报,但企业架构、ODI 与上市安排可以提前设计,避免身份变化带来的合规冲击。华企环球提供身份与商务一体规划。' }
+      { q: '移民会影响国内公司吗?', a: '税务居民身份变化可能影响个人全球收入申报,但企业架构、ODI 与上市安排可以提前设计,避免身份变化带来的合规冲击。华企环球提供身份与商务一体规划。' },
+      { q: '香港身份和香港永居有什么区别?', a: '通过高才通、优才等计划先拿到的是居留身份(签证),通常需在香港连续通常居住满 7 年才可申请永久居民;期间要按路径要求续签,断签会影响居住连续性。' },
+      { q: '拿到新加坡 EP 就是新加坡 PR 吗?', a: '不是。EP 是工作准证,PR 需另行向 ICA 申请,审批会综合评估薪资、学历、行业、居住时间与家庭情况。EP 是常见的前置路径,但不等于自动获得 PR。' },
+      { q: '迪拜黄金签证需要一直持有房产吗?', a: '10 年黄金签证以持有 200 万迪拉姆及以上房产为申请基础,续签时需维持该投资;若出售房产,可能影响续签资格。各酋长国执行口径可能不同,以当地土地局与移民局最新规定为准。' }
     ],
     related: [
       { t: '其他业务(第二家园/移民)', l: '../services/other-services' },
@@ -198,6 +215,29 @@ solutions.forEach(function (s) {
     title: s.title,
     subtitle: s.heroSub
   });
+  if (s.quick) body += lib.answerBlock(s.quick);
+
+  if (s.facts && s.facts.length) {
+    body += '\n\n<!-- 关键口径 -->\n<section class="section section-soft">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">AT A GLANCE</span><h2 class="section-title">主要路径对照</h2></div>\n' +
+      '    <div class="hub-table-wrap"><table class="pricing-table facts-table">\n' +
+      '      <thead><tr><th>路径</th><th>门槛与要点</th></tr></thead>\n      <tbody>\n' +
+      s.facts.map(function (f) {
+        return '        <tr><td data-label="路径">' + f.k + '</td><td>' + f.v + '</td></tr>';
+      }).join('\n') +
+      '\n      </tbody>\n    </table></div>\n' +
+      '    <p class="fs-12 c-text-light mt-16">门槛、期限与政策以各国官方最新公布为准;政策会调整,办理前请与顾问确认当期口径。</p>\n' +
+      '  </div>\n</section>';
+  }
+
+  if (s.paths && s.paths.length) {
+    body += '\n\n<!-- 国别路径 -->\n<section class="section">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">PATHS</span><h2 class="section-title">按目的地看具体路径</h2></div>\n' +
+      '    <div class="features-grid">' + s.paths.map(function (x) {
+        return '<a class="feature-card" href="' + x.l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + x.t + '</div><div class="feature-desc">' + x.d + '</div></a>';
+      }).join('\n') + '</div>\n  </div>\n</section>';
+  }
+
   body += '\n\n<!-- 痛点 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">PAIN POINTS</span><h2 class="section-title">这些场景,您是否正在经历?</h2></div>\n    <div class="features-grid">' + s.pains.map(function (f) {
       return '<div class="feature-card"><div class="feature-icon">!</div><div class="feature-title">' + f.t + '</div><div class="feature-desc">' + f.d + '</div></div>';
     }).join('\n') + '</div>\n  </div>\n</section>';
