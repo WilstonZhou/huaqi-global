@@ -50,7 +50,7 @@ function write(file, content) {
     ['跨境电商', '制造业', '高科技与互联网', '金融服务', '国际贸易', '文旅与文化创意', '能源与基建', '身份规划'].map(function (i) {
       return '<span class="industry-pill">' + i + '</span>';
     }).join('\n') + '</div>\n  </div>\n</section>';
-  body += '\n\n<!-- 案例卡 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">CLIENT STORIES</span><h2 class="section-title">典型服务案例</h2><p class="section-desc">以下案例信息已脱敏处理,仅展示服务类型与交付成果。</p></div>\n    <div class="features-grid">' + cases.map(function (c) {
+  body += '\n\n<!-- 案例卡 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">CLIENT STORIES</span><h2 class="section-title">典型服务案例</h2><p class="section-desc">以下案例信息已脱敏处理,仅展示服务类型与交付成果。<a href="' + p + 'credentials" style="font-weight:700;">查看各国下证样本 →</a></p></div>\n    <div class="features-grid">' + cases.map(function (c) {
       return '<div class="case-card"><div style="margin-bottom:10px;">' + c.tags.map(function (t) { return '<span class="case-tag">' + t + '</span>'; }).join('') + '</div>' +
         '<div class="card-title-lg">' + c.title + '</div>' +
         '<div class="mb-10"><strong class="c-primary">客户痛点:</strong><div class="card-text">' + c.pain + '</div></div>' +
