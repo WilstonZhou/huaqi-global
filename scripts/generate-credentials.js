@@ -21,6 +21,7 @@ const GROUP_DESC = {
 
 const count = ITEMS.length;
 const markets = new Set(ITEMS.map(i => i.country.replace(/ · .*/, ''))).size;
+const types = new Set(ITEMS.map(i => i.type)).size;
 
 function card(it) {
   const cap = `${it.country} · ${it.type} · ${it.year}`;
@@ -57,7 +58,7 @@ const body = `
 ${lib.hero({
     breadcrumb: '<a href="/">首页</a> / 下证样本',
     title: '下证样本:各国公司注册证书实拍',
-    subtitle: `23 份 2026 年办结文件,覆盖 11 个市场。全部已脱敏,只展示签发机构、文件版式与签发时间。`,
+    subtitle: `${count} 份 2026 年办结文件,覆盖 ${markets} 个市场。全部已脱敏,只展示签发机构、文件版式与签发时间。`,
     prefix: P
   })}
 
@@ -67,7 +68,7 @@ ${lib.hero({
         { label: '样本数量', value: count + ' 份' },
         { label: '覆盖市场', value: markets + ' 个' },
         { label: '下证年份', value: '2026' },
-        { label: '文件类型', value: '5 类' }
+        { label: '文件类型', value: types + ' 类' }
       ])}
       <div class="content-block">
         <h2>为什么公开下证样本</h2>
@@ -100,7 +101,7 @@ const schemas = [
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: '下证样本:各国公司注册证书实拍',
-    description: '23 份 2026 年办结的海外公司注册证书与资质文件样本,覆盖 11 个市场,全部已脱敏。',
+    description: `${count} 份 2026 年办结的海外公司注册证书与资质文件样本,覆盖 ${markets} 个市场,全部已脱敏。`,
     url: 'https://hq10000.com/credentials',
     isPartOf: { '@type': 'WebSite', name: '华企环球', url: 'https://hq10000.com/' }
   },
@@ -120,8 +121,8 @@ const schemas = [
 
 const html = lib.buildPage({
   prefix: P,
-  title: '下证样本 | 海外公司注册证书实拍 · 11 个市场 23 份 · 华企环球',
-  desc: '23 份 2026 年办结的海外公司注册证书与资质样本,覆盖香港、新加坡、美国、日本、韩国、马来西亚、泰国、印尼、开曼、BVI、塞舌尔等 11 个市场,均已脱敏。',
+  title: `下证样本 | 各国公司注册证书 · ${markets} 个市场 ${count} 份 | 华企环球`,
+  desc: `${count} 份 2026 年办结的公司注册证书与资质样本,覆盖香港、新加坡、美国、英国、日本、韩国、马来西亚、泰国、越南、阿联酋、开曼、BVI、塞舌尔等 ${markets} 个市场,均已脱敏。`,
   keywords: '下证样本,公司注册证书,香港公司注册证书,新加坡ACRA证书,美国注册证书,开曼注册证书,BVI注册证书,营业执照样本',
   canonical: 'https://hq10000.com/credentials',
   body,
