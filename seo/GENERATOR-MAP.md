@@ -35,6 +35,7 @@
   - `scripts/inject-cn-seo.js` — 百度/国产浏览器适配 meta、Organization 实体增强、速答块补齐
   - `scripts/inject-country-qa.js` — 国家页问句化问答(条件/材料/流程),数据源 `data-countries.js`
   - `scripts/inject-llms-facts.js` — llms.txt 事实层(实体事实卡/周期表/高频问答)
+  - `scripts/inject-datemodified.js` — 全页补 `WebPage` 节点的 `datePublished`/`dateModified`(日期取自该文件 git 提交日期)。**顺序敏感:必须在 `prerender-home.js` 之后、`update-sitemap-lastmod.js` 之前运行**,否则 `prerender-home` 会覆盖首页的注入结果。
   - `scripts/seo-cn-coverage.js` — 关键词覆盖率分析(只读,产出 CSV)
   - 执行顺序与背景见 `seo/CONTENT-PLAN-CN.md`
 - ⚠️ `sitemap.xml` **手工维护**(仅 lastmod 由脚本更新);新增/删除页面必须手动同步
