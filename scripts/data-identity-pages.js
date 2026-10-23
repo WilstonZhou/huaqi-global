@@ -73,7 +73,9 @@ module.exports = [
       { t: '身份规划总览', d: '港/新/迪拜/马来路径对比', l: '/solutions/identity-planning' },
       { t: '香港公司注册', d: 'CR 有限公司 3-7 个工作日', l: '/country/hk' },
       { t: '香港公司年审', d: '周年申报与商业登记续期', l: '/country/hk/annual-review' },
-      { t: '香港银行开户', d: '业务实质与面签准备', l: '/services/hk-bank-account' }
+      { t: '香港银行开户', d: '业务实质与面签准备', l: '/services/hk-bank-account' },
+      { t: '新加坡身份规划', d: 'EP 就业准证 · COMPASS 评分', l: '/solutions/identity-planning/sg' },
+      { t: '迪拜身份规划', d: '黄金签证 · 公司居留', l: '/solutions/identity-planning/ae' }
     ]
   },
   {
@@ -139,7 +141,9 @@ module.exports = [
       { t: '身份规划总览', d: '港/新/迪拜/马来路径对比', l: '/solutions/identity-planning' },
       { t: '新加坡公司注册', d: 'ACRA Pte Ltd 5-7 个工作日', l: '/country/sg' },
       { t: '新加坡公司审计', d: '小型公司豁免判定', l: '/country/sg/audit' },
-      { t: '新加坡银行开户', d: 'DBS / OCBC / UOB 视频面签', l: '/services/sg-bank-account' }
+      { t: '新加坡银行开户', d: 'DBS / OCBC / UOB 视频面签', l: '/services/sg-bank-account' },
+      { t: '香港身份规划', d: '高才通 · 优才 · 专才 · 投资移民', l: '/solutions/identity-planning/hk' },
+      { t: '迪拜身份规划', d: '黄金签证 · 公司居留', l: '/solutions/identity-planning/ae' }
     ]
   },
   {
@@ -205,7 +209,9 @@ module.exports = [
       { t: '身份规划总览', d: '港/新/迪拜/马来路径对比', l: '/solutions/identity-planning' },
       { t: '迪拜公司注册', d: '自贸区与大陆公司 5-10 个工作日', l: '/country/ae' },
       { t: '迪拜银行开户', d: '业务实质与面签准备', l: '/services/bank-account' },
-      { t: '税务规划', d: '公司税与 VAT 安排', l: '/services/tax-planning' }
+      { t: '税务规划', d: '公司税与 VAT 安排', l: '/services/tax-planning' },
+      { t: '香港身份规划', d: '高才通 · 优才 · 专才 · 投资移民', l: '/solutions/identity-planning/hk' },
+      { t: '新加坡身份规划', d: 'EP 就业准证 · COMPASS 评分', l: '/solutions/identity-planning/sg' }
     ]
   }
 ];
