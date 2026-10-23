@@ -237,6 +237,46 @@ const ITEMS = [
     "w": 256,
     "h": 360,
     "alt": "马来西亚CIDB 建筑承包资质样本(已脱敏)"
+  },
+  {
+    "slug": "ae-dubai-1",
+    "country": "阿联酋 · 迪拜",
+    "type": "自由贸易区营业执照",
+    "year": "2025",
+    "group": "asia",
+    "w": 257,
+    "h": 360,
+    "alt": "阿联酋 · 迪拜自由贸易区营业执照样本(已脱敏)"
+  },
+  {
+    "slug": "uk-1",
+    "country": "英国",
+    "type": "Companies House 注册证书",
+    "year": "2026",
+    "group": "west",
+    "w": 281,
+    "h": 360,
+    "alt": "英国Companies House 注册证书样本(已脱敏)"
+  },
+  {
+    "slug": "vn-1",
+    "country": "越南",
+    "type": "投资登记证(IRC)",
+    "year": "2026",
+    "group": "asia",
+    "w": 245,
+    "h": 360,
+    "alt": "越南投资登记证(IRC)样本(已脱敏)"
+  },
+  {
+    "slug": "mh-1",
+    "country": "马绍尔群岛",
+    "type": "公司注册证书",
+    "year": "2026",
+    "group": "offshore",
+    "w": 277,
+    "h": 360,
+    "alt": "马绍尔群岛公司注册证书样本(已脱敏)"
   }
 ];
 
