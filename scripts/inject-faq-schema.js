@@ -9,6 +9,7 @@ const path = require('path');
 const ROOT = '/home/hq10000/projects/huaqi-global';
 
 const FILES = [
+  'services/company-registration.html',
   'knowledge/cross-border-compliance.html',
   'knowledge/singapore-registration-guide.html',
   'knowledge/us-company-tax-policy.html',
