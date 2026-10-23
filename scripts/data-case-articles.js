@@ -129,7 +129,9 @@ module.exports = [
       { t: '香港银行开户服务', l: '../services/hk-bank-account' },
       { t: '海外银行开户指南', l: '../knowledge/overseas-bank-account-guide' },
       { t: '香港公司年审与审计', l: '../services/annual-review' },
-      { t: '新加坡公司开户', l: '../services/sg-bank-account' }
+      { t: '新加坡公司开户', l: '../services/sg-bank-account' },
+      { t: '香港公司零申报被查怎么办', l: '../knowledge/hk-zero-declaration-fix' },
+      { t: '香港公司年审逾期怎么办', l: '../knowledge/hk-annual-review-overdue' }
     ],
     faqs: [
       { q: '被一家银行拒绝后,还能再申请同一家吗?', a: '可以,但要间隔一段时间并明确补充了什么。同一套材料重复提交,结果通常一样;如果被拒原因是业务真实性,换银行也未必能过,先把业务口径和单据链解决掉。' },
@@ -263,7 +265,9 @@ module.exports = [
       { t: '香港公司审计服务', l: '../services/hk-audit' },
       { t: '香港利得税申报', l: '../services/hk-tax-filing' },
       { t: '香港公司年审', l: '../services/annual-review' },
-      { t: '香港 vs 新加坡:怎么选', l: '../knowledge/hk-vs-sg-company' }
+      { t: '香港 vs 新加坡:怎么选', l: '../knowledge/hk-vs-sg-company' },
+      { t: '香港公司开户被拒怎么办', l: '../knowledge/hk-bank-account-rejected' },
+      { t: '香港公司年审逾期怎么办', l: '../knowledge/hk-annual-review-overdue' }
     ],
     faqs: [
       { q: '零申报被查会被罚多少?', a: '罚款取决于少征税款金额与情节,通常包括补税、罚款及可能的附加费;主动补报与配合调查是争取减免的关键。具体金额以税局评税与处理结果为准。' },
@@ -390,7 +394,11 @@ module.exports = [
       { t: '香港公司年审服务', l: '../services/annual-review' },
       { t: '香港公司审计', l: '../services/hk-audit' },
       { t: '香港公司注销', l: '../services/company-deregistration' },
-      { t: '香港公司注册指南', l: '../country/hk' }
+      { t: '香港公司注册指南', l: '../country/hk' },
+      { t: '香港公司开户被拒怎么办', l: '../knowledge/hk-bank-account-rejected' },
+      { t: '香港公司零申报被查怎么办', l: '../knowledge/hk-zero-declaration-fix' },
+      { t: '新加坡年审与审计豁免', l: '../knowledge/sg-annual-return-audit-exemption' },
+      { t: '美国公司年审与申报', l: '../knowledge/us-company-annual-filing' }
     ],
     faqs: [
       { q: '年审和报税是一回事吗?', a: '不是。年审是向公司注册处提交周年申报表并向税务局续期商业登记证;报税是按年度申报利得税。两者时间与主管机构都不同,但都逾期会叠加后果。' },
@@ -518,7 +526,9 @@ module.exports = [
       { t: '新加坡公司年审服务', l: '../services/annual-review' },
       { t: '新加坡公司审计', l: '../services/audit' },
       { t: '新加坡公司注册指南', l: '../country/sg' },
-      { t: '新加坡银行开户', l: '../services/sg-bank-account' }
+      { t: '新加坡银行开户', l: '../services/sg-bank-account' },
+      { t: '香港公司年审逾期怎么办', l: '../knowledge/hk-annual-review-overdue' },
+      { t: '美国公司年审与申报', l: '../knowledge/us-company-annual-filing' }
     ],
     faqs: [
       { q: '新加坡公司一定要审计吗?', a: '不一定。符合小型公司标准(三项指标满足两项)且不属于上市公司或金融机构的,可豁免审计;不符合的须由执业会计师审计。' },
@@ -647,7 +657,9 @@ module.exports = [
       { t: '美国公司注册指南', l: '../country/us' },
       { t: '美国银行开户', l: '../services/us-bank-account' },
       { t: '美国公司税收政策解读', l: '../knowledge/us-company-tax-policy' },
-      { t: '年审与合规服务', l: '../services/annual-review' }
+      { t: '年审与合规服务', l: '../services/annual-review' },
+      { t: '香港公司年审逾期怎么办', l: '../knowledge/hk-annual-review-overdue' },
+      { t: '新加坡年审与审计豁免', l: '../knowledge/sg-annual-return-audit-exemption' }
     ],
     faqs: [
       { q: '美国公司没有经营,还要年报吗?', a: '多数州仍要求提交年报并缴纳最低特许经营税,即使没有经营。"没有经营"影响的是税表,不影响州层面的存续义务。' },

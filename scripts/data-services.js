@@ -182,7 +182,8 @@ module.exports = [
     related: [
       { t: '跨境合规全矩阵', d: 'VAT / EPR / 认证 / 商标', l: '../services/other-services' },
       { t: '跨境电商出海方案', d: '注册 · 合规 · 收款全链路', l: '../solutions/ecommerce' },
-      { t: '海外公司注册', d: '商标申请人主体搭建', l: '../services/company-registration' }
+      { t: '海外公司注册', d: '商标申请人主体搭建', l: '../services/company-registration' },
+      { t: '商标被驳回怎么办', d: '驳回复审与抢注应对', l: '../knowledge/trademark-rejection-response' }
     ]
   },
 
@@ -495,7 +496,8 @@ module.exports = [
     related: [
       { t: '海外银行开户', d: '新加坡 / 美国等地区开户', l: '../services/bank-account' },
       { t: '香港公司注册', d: 'CR 有限公司 · 3-7 工作日', l: '../country/hk' },
-      { t: '海外银行开户指南', d: '材料、周期与银行怎么选', l: '../knowledge/overseas-bank-account-guide' }
+      { t: '海外银行开户指南', d: '材料、周期与银行怎么选', l: '../knowledge/overseas-bank-account-guide' },
+      { t: '香港开户被拒怎么办', d: '六个原因与补救顺序', l: '../knowledge/hk-bank-account-rejected' }
     ]
   },
 
@@ -867,7 +869,8 @@ module.exports = [
     related: [
       { t: '海外商标注册', d: '马德里 / 单一国家申请', l: '../services/trademark' },
       { t: 'VAT / EPR 合规', d: '欧盟 27 国 + 英国', l: '../services/vat' },
-      { t: '跨境电商出海方案', d: '注册 · 合规 · 收款全链路', l: '../solutions/ecommerce' }
+      { t: '跨境电商出海方案', d: '注册 · 合规 · 收款全链路', l: '../solutions/ecommerce' },
+      { t: '商标被驳回怎么办', d: '驳回复审与抢注应对', l: '../knowledge/trademark-rejection-response' }
     ]
   },
 
@@ -1091,7 +1094,8 @@ module.exports = [
     related: [
       { t: '美国 INC 注册', d: '股份公司 · 适合融资与上市', l: '../services/us-inc' },
       { t: '美国公司注册', d: 'US 国家页 · 全州可选', l: '../country/us' },
-      { t: '美国公司税收政策', d: 'LLC/INC 对比 · EIN · BOI', l: '../knowledge/us-company-tax-policy' }
+      { t: '美国公司税收政策', d: 'LLC/INC 对比 · EIN · BOI', l: '../knowledge/us-company-tax-policy' },
+      { t: '美国公司年审与申报', d: '州年报 · 联邦税表 · BOI', l: '../knowledge/us-company-annual-filing' }
     ]
   },
 
@@ -1147,7 +1151,8 @@ module.exports = [
     related: [
       { t: '美国 LLC 注册', d: '有限责任公司 · 穿透征税', l: '../services/us-llc' },
       { t: '美国公司注册', d: 'US 国家页 · 全州可选', l: '../country/us' },
-      { t: '资金规划', d: 'VIE 架构 · 37号文 · ODI', l: '../services/fund-planning' }
+      { t: '资金规划', d: 'VIE 架构 · 37号文 · ODI', l: '../services/fund-planning' },
+      { t: '美国公司年审与申报', d: '州年报 · 联邦税表 · BOI', l: '../knowledge/us-company-annual-filing' }
     ]
   },
 
@@ -1250,7 +1255,8 @@ module.exports = [
     related: [
       { t: '香港公司审计', d: '法定审计报告', l: '../services/hk-audit' },
       { t: '香港公司注册', d: 'CR 有限公司 · 3-7 工作日', l: '../country/hk' },
-      { t: '跨境税务规划', d: 'VAT / ODI / 跨境架构', l: '../services/tax-planning' }
+      { t: '跨境税务规划', d: 'VAT / ODI / 跨境架构', l: '../services/tax-planning' },
+      { t: '香港零申报被查怎么办', d: '补账补税与罚款处理顺序', l: '../knowledge/hk-zero-declaration-fix' }
     ]
   },
 
@@ -1321,7 +1327,8 @@ module.exports = [
     related: [
       { t: '香港公司报税', d: '利得税申报 · 离岸豁免', l: '../services/hk-tax-filing' },
       { t: '公司审计', d: '其他国家/地区审计服务', l: '../services/audit' },
-      { t: '香港公司注册', d: 'CR 有限公司 · 3-7 工作日', l: '../country/hk' }
+      { t: '香港公司注册', d: 'CR 有限公司 · 3-7 工作日', l: '../country/hk' },
+      { t: '香港公司年审逾期怎么办', d: '罚款档次与补救流程', l: '../knowledge/hk-annual-review-overdue' }
     ]
   },
 

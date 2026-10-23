@@ -157,7 +157,7 @@ function write(file, content) {
     title: '知识中心',
     subtitle: '系统化的国家指南、政策解读与行业方案,每篇内容都围绕一个具体的出海问题展开,专业、可读、可落地。'
   });
-  body += '\n\n<!-- 导语 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">华企环球知识中心把出海最常被问到的问题拆成三层:先看清一个国家/地区的注册与税制规则,再对比不同市场的取舍,最后落到具体操作与费用预期。每篇围绕一个明确问题展开,给出监管机构、材料清单、时间预期与常见坑,不堆术语——既可用于内部评估,也可直接用于与客户沟通的口径。内容沉淀自 300+ 专业团队与数万家客户企业的服务经验,并随政策变化持续更新。</p>\n  </div>\n</section>';
+  body += '\n\n<!-- 导语 -->\n<section class="section">\n  <div class="container container-sm">\n    <p class="section-desc" style="text-align:left;">华企环球知识中心把出海最常被问到的问题拆成三层:先看清一个国家/地区的注册与税制规则,再对比不同市场的取舍,最后落到具体操作与费用预期。每篇围绕一个明确问题展开,给出监管机构、材料清单、时间预期与常见坑,不堆术语——既可用于内部评估,也可直接用于与客户沟通的口径。内容沉淀自 300+ 专业团队与数万家客户企业的服务经验,并随政策变化持续更新;各国政策变动会同步整理到<a href="../news">政策动态</a>。</p>\n  </div>\n</section>';
   body += '\n\n<!-- 怎么用这个知识中心 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">HOW TO USE</span><h2 class="section-title">怎么用这个知识中心</h2></div>\n    <div class="features-grid grid-3">\n      <div class="feature-card"><div class="feature-icon">1</div><div class="feature-title">建立判断框架</div><div class="feature-desc">从《各国公司注册周期与费用对比》入手,一页看清热门市场的周期与公开规费</div></div>\n      <div class="feature-card"><div class="feature-icon">2</div><div class="feature-title">做选择</div><div class="feature-desc">注册地、开户地、架构与税务往往要一起决定——《香港 vs 新加坡》《开曼 vs BVI》按维度逐项对比,给出取舍建议</div></div>\n      <div class="feature-card"><div class="feature-icon">3</div><div class="feature-title">落地执行</div><div class="feature-desc">操作指南与行业方案(VAT/EPR、海外开户、ODI/VIE、跨境电商合规)给出材料清单与时间节点</div></div>\n    </div>\n  </div>\n</section>';
   body += '\n\n<!-- 文章列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">KNOWLEDGE HUB</span><h2 class="section-title">全部文章</h2></div>\n    <div class="features-grid grid-3">' + articles.map(function (a) {
       return '<a class="case-card" href="' + p + 'knowledge/' + a.l + '" style="text-decoration:none;"><div style="margin-bottom:8px;"><span class="case-tag">' + a.tag + '</span></div><div class="card-title">' + a.t + '</div><div class="card-text">' + a.d + '</div></a>';
@@ -225,7 +225,7 @@ var FEES_FAQ;
       ['美国', '各州州务卿申请费不同', '特拉华/加州/怀俄明等按州计']
     ].map(function (r) {
       return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td></tr>';
-    }).join('\n') + '</tbody></table>\n    <p class="fs-12 c-text-light mt-16">注:以上仅为政府规费参考,完整方案(服务费 + 第三方费用)以顾问书面报价为准。华企环球不设"超低价引流再增收"套路,所有费用合同列明。</p>\n  </div>\n</section>';
+    }).join('\n') + '</tbody></table>\n    <p class="fs-12 c-text-light mt-16">注:以上仅为政府规费参考,完整方案(服务费 + 第三方费用)以顾问书面报价为准。华企环球不设"超低价引流再增收"套路,所有费用合同列明。按注册地逐项查参考规费与周期,可用<a href="../tools/cost-calculator">出海成本与周期速查工具</a>。</p>\n  </div>\n</section>';
   body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">费用常见问题</h2></div>\n    <div>' + lib.faqItems(FEES_FAQ = [
     { q: '为什么不直接标价?', a: '注册费用受国家、公司类型、注册资本、挂名董事/地址/秘书配套等因素影响,标准化标价无法覆盖真实需求。华企环球采用定制报价,签约前即可获取书面费用明细,反而更透明。' },
     { q: '如何获取报价?', a: '通过 AI 智能匹配提交需求(3 分钟生成方案参考)或联系顾问,顾问将在 1 个工作日内出具书面报价单,列明政府规费、服务费与第三方费用。' },
