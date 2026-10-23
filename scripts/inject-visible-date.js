@@ -12,6 +12,7 @@
  * schema 层严格一致,绝不出现两处日期打架。
  *
  * 位置:页脚 footer-bottom 内、版权行之上。不进首屏,不影响 LCP 与 CLS。
+ * 日期用 <time datetime="YYYY-MM-DD"> 承载,而不是纯文本。
  *
  * 执行位置(顺序敏感):必须在 inject-datemodified.js 之后(要读它写的值)、
  * prerender-home.js 之后(否则首页预渲染片段会覆盖改动)。
@@ -67,8 +68,14 @@ function readDateModified(html) {
   return found.content || found.page || '';
 }
 
+/* 日期用 <time datetime> 承载:纯文本日期机器可读性弱,抽取器要靠正则猜格式;
+   <time datetime> 是 HTML 标准的时间语义载体,也是新鲜度的显式信号 */
+function inner(date) {
+  return '<div class="page-updated">本页面更新于 <time datetime="' + date + '">' + date + '</time></div>';
+}
+
 function build(date) {
-  return '\n    ' + MARK_START + '<div class="page-updated">本页面更新于 ' + date + '</div>' + MARK_END;
+  return '\n    ' + MARK_START + inner(date) + MARK_END;
 }
 
 const files = walk(ROOT).sort();
@@ -87,8 +94,10 @@ for (const file of files) {
 
   if (hasMark) {
     const re = new RegExp(MARK_START + '[\\s\\S]*?' + MARK_END);
-    if (re.test(html) && html.indexOf('本页面更新于 ' + date) !== -1) continue; // 已是最新
-    out = html.replace(re, MARK_START + '<div class="page-updated">本页面更新于 ' + date + '</div>' + MARK_END);
+    const cur = html.match(re);
+    // 比对整段标记块,格式升级(纯文本 → <time>)时才能被识别为「需要更新」
+    if (cur && cur[0] === MARK_START + inner(date) + MARK_END) continue; // 已是最新
+    out = html.replace(re, MARK_START + inner(date) + MARK_END);
     updated++;
   } else {
     const at = html.indexOf(ANCHOR);
