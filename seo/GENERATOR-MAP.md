@@ -37,6 +37,7 @@
   - `scripts/inject-llms-facts.js` — llms.txt 事实层(实体事实卡/周期表/高频问答)
   - `scripts/inject-datemodified.js` — 全页补 `WebPage` 节点的 `datePublished`/`dateModified`(日期取自该文件 git 提交日期)。**顺序敏感:必须在 `prerender-home.js` 之后、`update-sitemap-lastmod.js` 之前运行**,否则 `prerender-home` 会覆盖首页的注入结果。
   - `scripts/inject-sameas.js` — 全页 `Organization` 补 `sameAs`(外部权威档案地址)。地址清单写死在脚本 `SAME_AS` 数组,**必须人工核实后填入,禁止猜测**;与生成器解耦,不触发 dateModified 刷新。
+  - `scripts/inject-visible-date.js` — 页脚可见「本页面更新于 YYYY-MM-DD」。日期**不另发明**,取该页 JSON-LD 的内容级节点(`Article` 等)`dateModified`,无则回退 `WebPage`,保证可见层与 schema 完全一致;跳过 404 页。**顺序敏感:必须在 `inject-datemodified.js` 与 `prerender-home.js` 之后运行**(要先读到 dateModified,且不能被首页预渲染覆盖)。
   - `scripts/seo-cn-coverage.js` — 关键词覆盖率分析(只读,产出 CSV)
   - 执行顺序与背景见 `seo/CONTENT-PLAN-CN.md`
 - ⚠️ `sitemap.xml` **手工维护**(仅 lastmod 由脚本更新);新增/删除页面必须手动同步
