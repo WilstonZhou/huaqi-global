@@ -114,6 +114,18 @@ function write(file, content) {
   body += '\n\n<!-- 政策列表 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">POLICY UPDATES</span><h2 class="section-title">近期政策速览</h2></div>\n    <div class="features-grid grid-3">' + items.map(function (it) {
       return '<div class="case-card"><div style="font-size:26px;margin-bottom:8px;">' + it.flag + '</div><div class="card-title">' + it.title + '</div><div class="fs-12 c-text-light mb-8">' + it.date + '</div><div class="card-text mb-16">' + it.desc + '</div><a class="btn btn-outline btn-sm" href="' + it.link + '">' + (btnLabels[it.link] || '查看详情') + ' →</a></div>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  // 政策深度解读(由 data-news.js 驱动,单篇在 news/<slug>)
+  var newsArticles = require('./data-news');
+  if (newsArticles.length) {
+    body += '\n\n<!-- 深度解读 -->\n<section class="section">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">IN-DEPTH</span><h2 class="section-title">政策深度解读</h2>' +
+      '<p class="section-desc">每篇只回答三问:变了什么、影响谁、现在该做什么。核验日期与官方来源随文标注。</p></div>\n' +
+      '    <div class="features-grid">' + newsArticles.map(function (a) {
+        return '<a class="feature-card" href="' + p + 'news/' + a.slug + '" style="text-decoration:none;">' +
+          '<div class="feature-icon">📄</div><div class="feature-title">' + a.title + '</div>' +
+          '<div class="feature-desc">' + a.section + ' · 更新 ' + a.modified + '<br>' + a.facts[0].v + '</div></a>';
+      }).join('\n') + '</div>\n  </div>\n</section>';
+  }
   body += lib.hubSections(hubs.news.sections);
   body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">政策与合规常见问题</h2></div>\n    <div>' + lib.faqItems(hubs.news.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n<!-- 订阅 -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="info-card p-24"><h3>想第一时间获取政策更新?</h3><p class="mb-12">添加企业微信 186-1090-2181(微信同号),顾问将为您推送与业务相关的政策变化提醒。</p><a class="btn btn-gold" href="' + p + 'contact">联系顾问</a></div>\n  </div>\n</section>';
