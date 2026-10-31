@@ -15,6 +15,14 @@ function write(file, content) {
 }
 
 pages.forEach(function (pg) {
+  // 内容加深层:按 slug 追加章节与 FAQ(未配置则输出不变)
+  var deep = (require('./data-identity-deepen')[pg.slug]) || null;
+  if (deep) {
+    pg = Object.assign({}, pg, {
+      sections: (pg.sections || []).concat(deep.sections || []),
+      faqs: (pg.faqs || []).concat(deep.faqs || [])
+    });
+  }
   var p = '../../';
   var url = 'https://hq10000.com/solutions/identity-planning/' + pg.slug;
   var hubUrl = 'https://hq10000.com/solutions/identity-planning';
