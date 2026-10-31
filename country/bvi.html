@@ -273,6 +273,38 @@
     },
     {
       "@type": "Question",
+      "name": "BVI 公司需要做账报税吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BVI 对离岸商业公司不征当地所得税,通常也不要求提交年度财务报表;但这不等于没有义务:年度续牌费、注册代理续任、经济实质申报都是强制项。同时公司在实际管理机构所在辖区(例如内地)可能产生纳税义务,是否需要在当地申报取决于实际管理与控制地,不能以「BVI 免税」为由忽略。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "BVI 公司的股东信息会被公开吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "股东与董事名册由注册代理保管,不进入公开查询系统;但受益所有权信息需按要求向代理备案,执法与税务机关可依程序获取。因此「不公开」不等于「不披露」,做架构时应假设关键信息在合规场景下可被穿透。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "BVI 公司可以开银行账户吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以,但难度与银行政策有关:离岸主体开户通常要求更充分的业务证明、资金来源说明与架构图,部分银行还会问为何选择 BVI 而非在岸主体。实务中常见组合是「BVI 持股 + 香港/新加坡运营主体」,由在岸主体承担收付,以降低开户难度。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "BVI 和开曼在上市架构里怎么分工?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "常见分工是开曼作为上市主体(交易所与投资人熟悉、股份回购与激励安排成熟),BVI 作为中间持股层或员工持股平台(设立与维护轻、股权转让灵活)。两层之间的关联交易、股权变更与经济实质申报要同步维护,否则尽调与审计时会出现链条断点。"
+      }
+    },
+    {
+      "@type": "Question",
       "name": "BVI公司注册需要什么条件?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -333,6 +365,36 @@
       "@type": "HowToStep",
       "position": 6,
       "text": "年度:缴纳年度许可费 + 经济实质申报 + 维持注册代理"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 7,
+      "text": "确定用途与架构层级(控股 / 结算 / 资产持有)"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 8,
+      "text": "名称查重与公司类型确认"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 9,
+      "text": "KYC 与受益人尽调"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 10,
+      "text": "持牌注册代理提交设立申请,领取注册证书与章程"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 11,
+      "text": "制作首次董事决议、股东名册与股票册"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 12,
+      "text": "后续:年度续牌与政府费用、经济实质申报、代理续任"
     }
   ]
 }
@@ -354,7 +416,7 @@
     "@id": "https://hq10000.com/#organization"
   },
   "datePublished": "2026-10-20",
-  "dateModified": "2026-10-20"
+  "dateModified": "2026-10-31"
 }
 </script>
 <!-- datemodified:end -->
@@ -418,6 +480,12 @@
         <tr><td data-label="项目">年度义务</td><td>年度许可费 + 经济实质申报,由注册代理代办</td></tr>
         <tr><td data-label="项目">审计要求</td><td>一般无需审计,受监管业务除外;账簿须保存</td></tr>
         <tr><td data-label="项目">信息保密</td><td>股东与受益所有人信息不对外公开,仅向注册代理与主管部门备案</td></tr>
+        <tr><td data-label="项目">注册方式</td><td>须经 BVI 持牌注册代理办理</td></tr>
+        <tr><td data-label="项目">常见主体</td><td>商业公司(BC),常用于控股与资产持有</td></tr>
+        <tr><td data-label="项目">治理要求</td><td>至少 1 名股东 + 1 名董事,无国籍与居住限制</td></tr>
+        <tr><td data-label="项目">名册保管</td><td>股东/董事名册由注册代理保管,不对外公示</td></tr>
+        <tr><td data-label="项目">经济实质</td><td>相关活动须满足实质要求并年度申报</td></tr>
+        <tr><td data-label="项目">年度维护</td><td>续牌费 + 代理续任 + 经济实质申报 + 受益所有权更新</td></tr>
       </tbody>
     </table></div>
     <p class="fs-12 c-text-light mt-16">注册资本、税率、时限与豁免标准均以当地监管机构最新公布为准;华企环球按季度复核上述口径,具体适用请联系顾问确认。</p>
@@ -437,6 +505,12 @@
 <li><strong>注册代理</strong>:必须通过 BVI 持牌注册代理设立并常年维持</li>
 <li><strong>注册地址</strong>:由注册代理提供当地注册地址</li>
 <li><strong>经济实质</strong>:从事相关经济活动的实体须满足经济实质要求并履行申报义务</li>
+<li><strong>主体类型</strong>:最常用 BVI 商业公司(Business Company,BC),适用于控股、贸易结算、资产持有与基金架构中的持股层</li>
+<li><strong>注册代理与地址</strong>:必须由 BVI 持牌注册代理办理,并由代理提供注册办事处;代理同时保管股东与董事名册</li>
+<li><strong>股东与董事</strong>:至少 1 名股东、1 名董事,个人或公司均可,无国籍与居住地限制,可由同一人兼任</li>
+<li><strong>经济实质</strong>:从事相关活动的 BC 须满足经济实质要求并年度申报;纯股权持有型适用简化要求,但申报不能省</li>
+<li><strong>名称限制</strong>:含 Bank、Insurance、Trust、Fund 等字样的名称需额外牌照或批准</li>
+<li><strong>年度维护</strong>:年度续牌费、注册代理续任、经济实质申报,以及受益所有权信息及时更新</li>
 </ul>
 </div><div class="content-block">
 <h3>所需材料清单</h3>
@@ -445,6 +519,12 @@
 <li>公司名称(2-3 个备选,需查重)</li>
 <li>股权结构与最终受益所有人信息(用于尽职调查)</li>
 <li>业务说明与资金来源说明(银行开户与尽调使用)</li>
+<li>股东与董事护照、近三个月住址证明</li>
+<li>公司名称(通常英文)与备选名称</li>
+<li>授权股本与股份结构安排</li>
+<li>业务说明(用于经济实质相关活动判断)</li>
+<li>最终受益人与股权结构说明</li>
+<li>注册代理与注册办事处由持牌代理提供</li>
 </ul>
 </div><div class="content-block">
 <h3>BVI注册办理流程</h3>
@@ -455,6 +535,12 @@
 <li>FSC 出具注册证书(3-5 个工作日,加急可 24 小时核准名称)</li>
 <li>领取公司文件册与印章,银行开户(并行)</li>
 <li>年度:缴纳年度许可费 + 经济实质申报 + 维持注册代理</li>
+<li>确定用途与架构层级(控股 / 结算 / 资产持有)</li>
+<li>名称查重与公司类型确认</li>
+<li>KYC 与受益人尽调</li>
+<li>持牌注册代理提交设立申请,领取注册证书与章程</li>
+<li>制作首次董事决议、股东名册与股票册</li>
+<li>后续:年度续牌与政府费用、经济实质申报、代理续任</li>
 </ol>
 </div>
   </div>
@@ -487,7 +573,11 @@
 <div class="faq-item"><div class="faq-q">BVI 公司多久能注册好?</div><div class="faq-a"><p>材料齐备时通常 3-5 个工作日可取得注册证书;名称核准最快 1 个工作日,加急服务可进一步压缩时间。</p></div></div>
 <div class="faq-item"><div class="faq-q">BVI 公司每年要做什么?</div><div class="faq-a"><p>主要包括缴纳年度许可费、完成经济实质申报、维持注册代理与注册地址。逾期会产生罚金,长期不处理可能导致公司被除名。</p></div></div>
 <div class="faq-item"><div class="faq-q">BVI 公司需要审计吗?</div><div class="faq-a"><p>一般不需要。BVI BC 通常无需向主管部门提交审计报告,但须保存账簿与凭证;若用于融资、上市或银行授信,交易对方可能另行要求审计。</p></div></div>
-<div class="faq-item"><div class="faq-q">开曼和 BVI 怎么选?</div><div class="faq-a"><p>开曼的上市与基金架构更成熟、国际投资方认可度高;BVI 设立更快、维护成本通常更低。做境外持股与交易架构多用 BVI,做上市主体或基金多用开曼。</p></div></div><!-- cn-qa -->
+<div class="faq-item"><div class="faq-q">开曼和 BVI 怎么选?</div><div class="faq-a"><p>开曼的上市与基金架构更成熟、国际投资方认可度高;BVI 设立更快、维护成本通常更低。做境外持股与交易架构多用 BVI,做上市主体或基金多用开曼。</p></div></div>
+<div class="faq-item"><div class="faq-q">BVI 公司需要做账报税吗?</div><div class="faq-a"><p>BVI 对离岸商业公司不征当地所得税,通常也不要求提交年度财务报表;但这不等于没有义务:年度续牌费、注册代理续任、经济实质申报都是强制项。同时公司在实际管理机构所在辖区(例如内地)可能产生纳税义务,是否需要在当地申报取决于实际管理与控制地,不能以「BVI 免税」为由忽略。</p></div></div>
+<div class="faq-item"><div class="faq-q">BVI 公司的股东信息会被公开吗?</div><div class="faq-a"><p>股东与董事名册由注册代理保管,不进入公开查询系统;但受益所有权信息需按要求向代理备案,执法与税务机关可依程序获取。因此「不公开」不等于「不披露」,做架构时应假设关键信息在合规场景下可被穿透。</p></div></div>
+<div class="faq-item"><div class="faq-q">BVI 公司可以开银行账户吗?</div><div class="faq-a"><p>可以,但难度与银行政策有关:离岸主体开户通常要求更充分的业务证明、资金来源说明与架构图,部分银行还会问为何选择 BVI 而非在岸主体。实务中常见组合是「BVI 持股 + 香港/新加坡运营主体」,由在岸主体承担收付,以降低开户难度。</p></div></div>
+<div class="faq-item"><div class="faq-q">BVI 和开曼在上市架构里怎么分工?</div><div class="faq-a"><p>常见分工是开曼作为上市主体(交易所与投资人熟悉、股份回购与激励安排成熟),BVI 作为中间持股层或员工持股平台(设立与维护轻、股权转让灵活)。两层之间的关联交易、股权变更与经济实质申报要同步维护,否则尽调与审计时会出现链条断点。</p></div></div><!-- cn-qa -->
 <div class="faq-item"><div class="faq-q">BVI公司注册需要什么条件?</div><div class="faq-a"><p>BVI公司注册的主要条件：主体类型:Business Company(BC)是最常用的离岸公司形式；董事与股东:至少 1 名董事、1 名股东,可为自然人或法人,无国籍限制；注册资本:无最低门槛,常见 US$50,000 授权资本,无需实缴与验资；注册代理:必须通过 BVI 持牌注册代理设立并常年维持；注册地址:由注册代理提供当地注册地址；经济实质:从事相关经济活动的实体须满足经济实质要求并履行申报义务。监管机构为 BVI 金融服务委员会(FSC)，常用主体类型为 BC(Business Company)。以上为通用要求，具体以顾问按业务场景确认的结果为准。</p></div></div>
 <div class="faq-item"><div class="faq-q">BVI公司注册需要什么材料?</div><div class="faq-a"><p>通常需要：董事/股东护照与地址证明(需公证或认证)；公司名称(2-3 个备选,需查重)；股权结构与最终受益所有人信息(用于尽职调查)；业务说明与资金来源说明(银行开户与尽调使用)。材料齐备后即可提交，BVI标准办理周期为 3-5 个工作日。</p></div></div>
 <div class="faq-item"><div class="faq-q">BVI公司注册流程是怎样的?</div><div class="faq-a"><p>标准流程：名称查重与预核准(1 个工作日)— 通过注册代理提交 → 签署委托协议并完成尽职调查(1-2 个工作日) → 提交注册文件与公司章程(当日递交) → FSC 出具注册证书(3-5 个工作日,加急可 24 小时核准名称) → 领取公司文件册与印章,银行开户(并行)。官方流程耗时 3-5 个工作日，不含材料准备与银行开户时间。全程代办，无需本人到场（个别情形除外，顾问会提前说明）。</p></div></div></div>
@@ -545,7 +635,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <!-- page-updated:start --><div class="page-updated">本页面更新于 <time datetime="2026-10-20">2026-10-20</time></div><!-- page-updated:end -->
+    <!-- page-updated:start --><div class="page-updated">本页面更新于 <time datetime="2026-10-31">2026-10-31</time></div><!-- page-updated:end -->
     <div>Copyright © 2023-2026 华企环球（深圳）国际咨询有限公司 All Rights Reserved</div>
     <div class="footer-disclaimer">免责声明:本网站内容仅供参考,各国政策、办理周期与费用以最新官方信息及双方合同约定为准。如需专业意见,请联系我们的顾问团队。</div>
   </div>
