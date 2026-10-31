@@ -208,6 +208,15 @@ var solLinks = {
 };
 
 solutions.forEach(function (s) {
+  // 内容加深层(批次②):按 slug 叠加正文区块与 FAQ,不配置则输出不变
+  var solDeepen = require('./data-solutions-deepen');
+  var extra = solDeepen[s.slug];
+  if (extra) {
+    s = Object.assign({}, s, {
+      blocks: (s.blocks || []).concat(extra.blocks || []),
+      faqs: (s.faqs || []).concat(extra.faqs || [])
+    });
+  }
   var p = '../';
   var body = lib.hero({
     prefix: p,
@@ -254,6 +263,12 @@ solutions.forEach(function (s) {
   body += '\n\n<!-- 相关方案 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">MORE SOLUTIONS</span><h2 class="section-title">相关行业方案</h2></div>\n    <div class="features-grid">' + solLinks[s.slug].map(function (k) {
       return '<a class="feature-card" href="' + solShort[k].l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + solShort[k].t + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  if (s.blocks && s.blocks.length) {
+    body += '\n\n<!-- 加深区块 -->\n<section class="section section-soft">\n  <div class="container">\n' +
+      s.blocks.map(function (b) {
+        return lib.contentBlock(b.h, b.paras || null, b.list || null, !!b.ordered);
+      }).join('\n') + '\n  </div>\n</section>';
+  }
   body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">常见问题</h2></div>\n    <div>' + lib.faqItems(s.faqs) + '</div>\n  </div>\n</section>';
   body += '\n\n' + lib.ctaBanner('聊聊您的具体场景', 'AI 匹配 + 顾问解读,把需求变成可执行的出海方案', p);
   write('solutions/' + s.slug + '.html', lib.buildPage({
