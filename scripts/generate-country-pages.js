@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var lib = require('./site-lib');
 var countries = require('./data-countries');
+var countryDeepen = require('./data-countries-deepen');
 var compliance = require('./data-country-compliance');
 var hubs = require('./data-hubs');
 
@@ -16,6 +17,17 @@ function write(file, content) {
 }
 
 countries.forEach(function (c) {
+  // 内容加深层(批次①):按国家 slug 叠加条件/材料/流程/事实/FAQ,不配置则输出不变
+  var extra = countryDeepen[c.slug];
+  if (extra) {
+    c = Object.assign({}, c, {
+      conditions: (c.conditions || []).concat(extra.conditions || []),
+      materials: (c.materials || []).concat(extra.materials || []),
+      flow: (c.flow || []).concat(extra.flow || []),
+      facts: (c.facts || []).concat(extra.facts || []),
+      faqs: (c.faqs || []).concat(extra.faqs || [])
+    });
+  }
   var p = '../';
   var schemas = [
     lib.breadcrumbSchema([
