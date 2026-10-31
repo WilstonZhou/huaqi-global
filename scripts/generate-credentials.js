@@ -120,13 +120,21 @@ const schemas = [
   lib.faqSchema(faqs)
 ];
 
+// 内容加深层(由 data-utility-deepen.js 提供)
+const credDeep = require('./data-utility-deepen').credentials;
+const credExtra = (credDeep && credDeep.sections)
+  ? '\n\n<section class="section section-soft">\n  <div class="container">\n' +
+    credDeep.sections.map((s) => lib.contentBlock(s.h, s.paras || null, s.list || null)).join('\n') +
+    '\n  </div>\n</section>'
+  : '';
+
 const html = lib.buildPage({
   prefix: P,
   title: `下证样本 | 各国公司注册证书 · ${markets} 个市场 ${count} 份 | 华企环球`,
   desc: `${count} 份 2026 年办结的公司注册证书与资质样本,覆盖香港、新加坡、美国、英国、日本、韩国、马来西亚、泰国、越南、阿联酋、开曼、BVI、塞舌尔等 ${markets} 个市场,均已脱敏。`,
   keywords: '下证样本,公司注册证书,香港公司注册证书,新加坡ACRA证书,美国注册证书,开曼注册证书,BVI注册证书,营业执照样本',
   canonical: 'https://hq10000.com/credentials',
-  body,
+  body: body + credExtra,
   schemas,
   relatedModules: 'both'
 });
