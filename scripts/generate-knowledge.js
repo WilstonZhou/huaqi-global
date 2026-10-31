@@ -30,6 +30,17 @@ function sectionHtml(s) {
 }
 
 function articlePage(opt) {
+  // 内容加深层:按 slug 追加章节与 FAQ(未配置则输出不变)
+  var deep = require('./data-knowledge-deepen')[opt.slug];
+  if (deep) {
+    var extraToc = (deep.sections || []).map(function (s) { return { id: s.id, name: s.h2 }; });
+    opt = Object.assign({}, opt, {
+      sections: (opt.sections || []).concat(deep.sections || []),
+      toc: (opt.toc || []).concat(extraToc),
+      faqs: (opt.faqs || []).concat(deep.faqs || []),
+      updateDate: deep.updateDate || opt.updateDate
+    });
+  }
   var p = '../';
   var body = lib.hero({
     prefix: p,
