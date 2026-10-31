@@ -25,7 +25,8 @@ countries.forEach(function (c) {
       materials: (c.materials || []).concat(extra.materials || []),
       flow: (c.flow || []).concat(extra.flow || []),
       facts: (c.facts || []).concat(extra.facts || []),
-      faqs: (c.faqs || []).concat(extra.faqs || [])
+      faqs: (c.faqs || []).concat(extra.faqs || []),
+      blocks: (extra.blocks || [])
     });
   }
   var p = '../';
@@ -65,6 +66,35 @@ countries.forEach(function (c) {
   body += '\n\n<!-- 条件/材料/流程 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">REGISTRATION GUIDE</span><h2 class="section-title">' + c.name + '公司注册指南</h2></div>\n    ' + lib.contentBlock(c.name + '注册核心条件', null, c.conditions) +
     lib.contentBlock('所需材料清单', null, c.materials) +
     lib.contentBlock(c.name + '注册办理流程', null, c.flow, true) + '\n  </div>\n</section>';
+  // 深度正文区块(H2 + 可选对比表 / 列表 / H3 子块),仅 deepen 配置了 blocks 的国家输出
+  if (c.blocks && c.blocks.length) {
+    body += '\n\n<!-- 深度正文 -->\n' + c.blocks.map(function (b) {
+      var out = '<section class="section">\n  <div class="container">\n    <div class="section-header">' +
+        (b.eyebrow ? '<span class="section-eyebrow">' + b.eyebrow + '</span>' : '') +
+        '<h2 class="section-title">' + b.h + '</h2>' +
+        (b.desc ? '<p class="section-desc">' + b.desc + '</p>' : '') + '</div>\n    <div class="content-block">\n';
+      (b.paras || []).forEach(function (para) { out += '      <p>' + para + '</p>\n'; });
+      if (b.table) {
+        var head = b.table.head || [];
+        out += '      <div class="hub-table-wrap mt-24"><table class="pricing-table">\n        <thead><tr>' +
+          head.map(function (th) { return '<th>' + th + '</th>'; }).join('') + '</tr></thead>\n        <tbody>\n';
+        (b.table.rows || []).forEach(function (row) {
+          out += '          <tr>' + row.map(function (cell, i) {
+            return '<td' + (i ? ' data-label="' + head[i] + '"' : '') + '>' + cell + '</td>';
+          }).join('') + '</tr>\n';
+        });
+        out += '        </tbody>\n      </table></div>\n';
+      }
+      if (b.list && b.list.length) {
+        var ltag = b.ordered ? 'ol' : 'ul';
+        out += '      <' + ltag + '>\n' + b.list.map(function (li) { return '        <li>' + li + '</li>'; }).join('\n') + '\n      </' + ltag + '>\n';
+      }
+      out += '    </div>\n';
+      (b.subs || []).forEach(function (s) { out += '    ' + lib.contentBlock(s.h, s.paras || null, s.list || null, !!s.ordered) + '\n'; });
+      return out + '  </div>\n</section>';
+    }).join('\n');
+  }
+
   body += '\n\n<!-- 关联服务 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">RELATED SERVICES</span><h2 class="section-title">' + c.name + '公司相关服务</h2><p class="section-desc">注册只是开始,开户、年审、审计与税务规划配套完成,出海才能顺利落地。</p></div>\n    <div class="features-grid">' + c.related.map(function (r) {
       return '<a class="feature-card" href="' + r.l + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + r.t + '</div><div class="feature-desc">' + r.d + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
