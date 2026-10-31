@@ -244,6 +244,13 @@ var FEES_FAQ;
     { q: '报价后还会不会加价?', a: '不会。所有费用与周期写入合同,办理过程中绝不加价;因我方原因未完成的服务按合同约定退款。' },
     { q: '政府规费是代缴吗?票据齐全吗?', a: '是。政府规费由我们代缴并保留官方收据/电子凭证,随交付文件一并归档至您的交付追踪页。' }
   ]) + '</div>\n  </div>\n</section>';
+  // 内容加深层(由 data-utility-deepen.js 提供)
+  var feesDeep = require('./data-utility-deepen').fees;
+  if (feesDeep && feesDeep.sections) {
+    body += '\n\n<!-- 加深区块 -->\n<section class="section section-soft">\n  <div class="container">\n' +
+      feesDeep.sections.map(function (s) { return lib.contentBlock(s.h, s.paras || null, s.list || null); }).join('\n') +
+      '\n  </div>\n</section>';
+  }
   body += '\n\n' + lib.ctaBanner('获取您的专属报价方案', 'AI 匹配 + 顾问报价,费用周期一目了然', p);
   write('services/fees.html', lib.buildPage({
     prefix: p,

@@ -108,6 +108,13 @@ body += '\n\n<section class="section section-soft">\n  <div class="container con
 
 body += '\n\n<section class="section">\n  <div class="container container-sm">\n    <div class="info-card p-24" style="text-align:left;">\n      <div class="info-label">数据口径与免责说明</div>\n      <p style="font-size:13px;color:var(--c-text-light);line-height:1.8;margin:8px 0 0;">政府规费参考值来自各国官方公布口径与本站既有整理,**可能随官方调整而变化**;部分注册地(如按注册资本计费的地区)无法给出单一数字,已标注计费口径。服务费不在此页定价。所有数字仅供参考,<strong>以最新官方信息与双方合同约定为准</strong>。</p>\n    </div>\n  </div>\n</section>';
 
+// 内容加深层(由 data-utility-deepen.js 提供)
+var calcDeep = require('./data-utility-deepen')['cost-calculator'];
+if (calcDeep && calcDeep.sections) {
+  body += '\n\n<section class="section section-soft">\n  <div class="container container-sm">\n' +
+    calcDeep.sections.map(function (s) { return lib.contentBlock(s.h, s.paras || null, s.list || null); }).join('\n') +
+    '\n  </div>\n</section>';
+}
 body += '\n\n' + lib.ctaBanner('想知道你这个场景的实际报价?', '把目标市场、业务类型与配套需求告诉我们,顾问会给出含项明确的定制报价', p);
 
 body += '\n\n' + script;
