@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var lib = require('./site-lib');
 var services = require('./data-services');
+var deepen = require('./data-services-deepen');
 
 var ROOT = path.join(__dirname, '..');
 function write(file, content) {
@@ -69,6 +70,16 @@ var SIBLINGS = {
 };
 
 services.forEach(function (s) {
+  // 内容加深层:把 data-services-deepen.js 里的补充区块 / FAQ / 事实表合并进来。
+  // 只在数据层叠加,不改渲染逻辑 —— 未配置的页面输出完全不变。
+  var extra = deepen[s.slug];
+  if (extra) {
+    s = Object.assign({}, s, {
+      blocks: (s.blocks || []).concat(extra.blocks || []),
+      faqs: (s.faqs || []).concat(extra.faqs || []),
+      facts: (s.facts || []).concat(extra.facts || [])
+    });
+  }
   var p = '../';
   var url = 'https://hq10000.com/services/' + s.slug;
   var schemas = [

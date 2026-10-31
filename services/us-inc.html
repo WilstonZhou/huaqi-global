@@ -255,6 +255,30 @@
         "@type": "Answer",
         "text": "可以,常见做法是设立新的 INC 并将 LLC 并入(或通过转股)完成转换。转换可能触发资产评估与税务处理,也会影响已有合同与开户关系,建议在转换前做一次完整评估。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "INC 和 LLC 的税负差多少?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不能用单一比例回答:LLC 默认穿透征税,利润直接归入成员个人税表;C-Corp 先缴公司所得税,分红时股东再缴个人所得税。实际差多少取决于利润规模、是否分红、股东税务居民身份以及是否有跨境架构。做一次含分红假设的模拟测算,比看通用比例更可靠。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "外国人可以担任 INC 的董事或股东吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "可以。美国联邦层面不要求董事或股东为美国公民或居民,也不要求持有美国签证;但银行开户、EIN 申请与部分州年报会要求负责人提供身份证明文件。个别受监管行业(如金融、国防相关)另有资质要求。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "授权股数应该设多少?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "授权股数决定可发行上限,同时也是部分州特许经营税的计费基础。设得过低会在融资或期权授予时被迫增发(需要股东会决议与州政府备案),设得过高会抬高年度税费并影响后续每股价格口径。通常按「现有股东 + 期权池 + 未来 1-2 轮预计稀释」测算后确定。"
+      }
     }
   ]
 }
@@ -315,7 +339,7 @@
     "@id": "https://hq10000.com/#organization"
   },
   "datePublished": "2026-09-16",
-  "dateModified": "2026-10-17"
+  "dateModified": "2026-10-31"
 }
 </script>
 <!-- datemodified:end -->
@@ -368,6 +392,17 @@
 <div class="info-card"><div class="info-label">税制</div><div class="info-value">公司层面缴税(可能双重)</div></div>
 <div class="info-card"><div class="info-label">参考周期</div><div class="info-value">1-3 工作日</div></div>
 <div class="info-card"><div class="info-label">适用</div><div class="info-value">融资 · 股权激励 · 上市</div></div></div>
+    <div class="hub-table-wrap mt-24"><table class="pricing-table facts-table">
+      <thead><tr><th>项目</th><th>口径</th></tr></thead>
+      <tbody>
+        <tr><td data-label="项目">法定设立文件</td><td>Certificate of Incorporation</td></tr>
+        <tr><td data-label="项目">公司治理规则</td><td>Bylaws + 董事会/股东会决议</td></tr>
+        <tr><td data-label="项目">纳税身份</td><td>独立纳税实体(C-Corp)</td></tr>
+        <tr><td data-label="项目">典型用途</td><td>融资、期权激励、境外上市架构</td></tr>
+        <tr><td data-label="项目">年度义务</td><td>州年报 + 特许经营税 + 公司税申报</td></tr>
+      </tbody>
+    </table></div>
+    <p class="fs-12 c-text-light mt-16">时限、门槛与审核口径以银行及监管机构最新要求为准;华企环球按季度复核,个案以顾问确认为准。</p>
   </div>
 </section>
 
@@ -403,6 +438,42 @@
 <li>申请 EIN,开户并完成 BOI 受益所有权申报</li>
 </ol>
 </div>
+<div class="content-block">
+<h3>C-Corp 的适用判断</h3>
+<ul>
+<li><strong>适合</strong>:计划引入美元基金或战略投资、需要设置期权池、未来在美或其他市场上市、股东人数多且股权结构复杂的主体</li>
+<li><strong>不适合</strong>:单纯做跨境收款、股东只有 1-2 人且无融资计划的贸易或服务型小主体 —— 这类用 LLC 的税负与合规成本更低</li>
+<li><strong>核心差异</strong>:C-Corp 是独立纳税实体,公司利润先缴公司所得税,分红时股东再缴个人所得税,存在双重征税;换来的好处是投资人熟悉、股结构标准化、可发放期权</li>
+<li><strong>决策顺序</strong>:先定融资节奏与股权激励需求,再定注册州与股结构;股结构改起来比主体形式更贵</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>股份与治理文件(INC 特有)</h3>
+<ul>
+<li><strong>Certificate of Incorporation</strong>:载明公司名称、注册代理、授权发行股数与面值、发起人信息,提交州务卿后生效</li>
+<li><strong>Bylaws</strong>:规定股东会与董事会的议事规则、法定人数、表决机制,是后续治理的程序依据</li>
+<li><strong>授权股数与期权池</strong>:授权股数需覆盖现有股东、期权池与未来融资稀释,签发过多或过少都会在下一轮融资时返工</li>
+<li><strong>首次董事会决议</strong>:确认董事与高管任命、股票发行、财年、开户与税务授权、期权计划等事项,是银行开户与审计时的关键档案</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>INC 的年度义务与融资前置动作</h3>
+<ul>
+<li><strong>州年报与特许经营税</strong>:按注册州要求申报,特拉华等州对授权股数计费,股数设置会直接影响年度成本</li>
+<li><strong>联邦与州税表</strong>:公司所得税申报、股东分红申报(如适用)、薪资与预扣申报(如雇佣)</li>
+<li><strong>公司记录维护</strong>:股东名册、董事会与股东会决议、股票台账必须在每次融资与期权授予后同步更新,尽调时逐项核对</li>
+<li><strong>融资前置</strong>:落地前通常需要完成架构重组、知识产权归属确认、创始人股权与行权安排 —— 这些动作在融资启动后返工的代价更高</li>
+</ul>
+</div>
+<div class="content-block">
+<h3>交付物与双方分工</h3>
+<ul>
+<li><strong>你拿到的</strong>:注册证书(Certificate of Incorporation)、公司章程细则(Bylaws)、首次董事会与股东会决议、股票台账与股东名册模板、EIN 确认函</li>
+<li><strong>你需要配合</strong>:创始人身份文件、授权股数与期权池的初步意向、董事与高管名单、各股东持股与出资安排</li>
+<li><strong>我们负责</strong>:股结构与授权股数测算、设立文件起草与提交、首次决议文书、注册代理对接,以及融资前尽调所需档案的整理清单</li>
+<li><strong>边界说明</strong>:估值、投资条款与股权激励方案的法律意见由持牌律师出具;我们提供架构与落地执行,不替代法律意见</li>
+</ul>
+</div>
   </div>
 </section>
 
@@ -423,7 +494,10 @@
     <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">美国 INC 注册常见问题</h2></div>
     <div><div class="faq-item"><div class="faq-q">为什么融资都要用 C-Corp?</div><div class="faq-a"><p>因为风险投资的标准条款(优先清算权、优先股、董事会席位、反稀释等)是在公司法与判例体系下成熟的,C-Corp 能直接承载。LLC 虽可通过协议模拟,但会增加谈判与执行成本,很多基金直接不接受。</p></div></div>
 <div class="faq-item"><div class="faq-q">C-Corp 的双重征税怎么处理?</div><div class="faq-a"><p>常见思路包括:把合理部分作为工资 / 奖金在税前扣除、控制分红节奏、利润再投资于业务扩张，以及利用研发税收抵免等政策。具体方案需结合业务与个人税负情况设计,建议单独做税务规划。</p></div></div>
-<div class="faq-item"><div class="faq-q">LLC 可以转成 INC 吗?</div><div class="faq-a"><p>可以,常见做法是设立新的 INC 并将 LLC 并入(或通过转股)完成转换。转换可能触发资产评估与税务处理,也会影响已有合同与开户关系,建议在转换前做一次完整评估。</p></div></div></div>
+<div class="faq-item"><div class="faq-q">LLC 可以转成 INC 吗?</div><div class="faq-a"><p>可以,常见做法是设立新的 INC 并将 LLC 并入(或通过转股)完成转换。转换可能触发资产评估与税务处理,也会影响已有合同与开户关系,建议在转换前做一次完整评估。</p></div></div>
+<div class="faq-item"><div class="faq-q">INC 和 LLC 的税负差多少?</div><div class="faq-a"><p>不能用单一比例回答:LLC 默认穿透征税,利润直接归入成员个人税表;C-Corp 先缴公司所得税,分红时股东再缴个人所得税。实际差多少取决于利润规模、是否分红、股东税务居民身份以及是否有跨境架构。做一次含分红假设的模拟测算,比看通用比例更可靠。</p></div></div>
+<div class="faq-item"><div class="faq-q">外国人可以担任 INC 的董事或股东吗?</div><div class="faq-a"><p>可以。美国联邦层面不要求董事或股东为美国公民或居民,也不要求持有美国签证;但银行开户、EIN 申请与部分州年报会要求负责人提供身份证明文件。个别受监管行业(如金融、国防相关)另有资质要求。</p></div></div>
+<div class="faq-item"><div class="faq-q">授权股数应该设多少?</div><div class="faq-a"><p>授权股数决定可发行上限,同时也是部分州特许经营税的计费基础。设得过低会在融资或期权授予时被迫增发(需要股东会决议与州政府备案),设得过高会抬高年度税费并影响后续每股价格口径。通常按「现有股东 + 期权池 + 未来 1-2 轮预计稀释」测算后确定。</p></div></div></div>
   </div>
 </section>
 
@@ -478,7 +552,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <!-- page-updated:start --><div class="page-updated">本页面更新于 <time datetime="2026-10-17">2026-10-17</time></div><!-- page-updated:end -->
+    <!-- page-updated:start --><div class="page-updated">本页面更新于 <time datetime="2026-10-31">2026-10-31</time></div><!-- page-updated:end -->
     <div>Copyright © 2023-2026 华企环球（深圳）国际咨询有限公司 All Rights Reserved</div>
     <div class="footer-disclaimer">免责声明:本网站内容仅供参考,各国政策、办理周期与费用以最新官方信息及双方合同约定为准。如需专业意见,请联系我们的顾问团队。</div>
   </div>
