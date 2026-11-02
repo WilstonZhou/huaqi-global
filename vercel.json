@@ -44,6 +44,36 @@
       "permanent": true
     },
     {
+      "source": "/services/services/:path*",
+      "destination": "/services/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge/knowledge/:path*",
+      "destination": "/knowledge/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/country/country/:path*",
+      "destination": "/country/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/solutions/:path*",
+      "destination": "/solutions/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/news/:path*",
+      "destination": "/news/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/cases/cases/:path*",
+      "destination": "/cases/:path*",
+      "permanent": true
+    },
+    {
       "source": "/en",
       "destination": "/",
       "permanent": true

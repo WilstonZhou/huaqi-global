@@ -69,12 +69,11 @@
     // 兼容历史 .html 写法,统一输出 cleanUrls 无扩展名链接
     var l = String(link).replace(/\.html$/, '');
     if (l === 'index') l = '/';
-    // 检测当前页深度
-    var inSub = /\/(services|knowledge|country|solutions|news|cases)\//.test(location.pathname);
-    if (inSub && l.indexOf('http') !== 0 && l.indexOf('/') !== 0) {
-      return '../' + l;
-    }
-    return l;
+    // 按当前页所在目录的真实深度加前缀(兼容 /services、/country/us 等各层级)
+    if (l.indexOf('http') === 0 || l.indexOf('/') === 0 || l.indexOf('#') === 0) return l;
+    var dir = location.pathname.replace(/\/[^/]*$/, '/');
+    var depth = dir.split('/').filter(Boolean).length;
+    return (depth ? new Array(depth + 1).join('../') : '') + l;
   }
 
   // ============ 公共页脚 ============
