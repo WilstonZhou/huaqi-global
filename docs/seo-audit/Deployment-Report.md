@@ -115,6 +115,30 @@
 | /news/uae-corporate-tax-freezone-2026 | 200 | 新增「四、合格收入与不合格收入怎么分」 |
 | 11 个 description 改动页 | 200 | description 长度 72–83 字符 |
 
-**PR #46 未合并**,等待人工审批。
+**PR #46 已合并**(2026-11-09,详见第 10 节)。
+
+## 10. PR #46 合并后的生产上线(已实测验证)
+
+| 项目 | 值 |
+|---|---|
+| PR | #46(squash merge) |
+| 生产 commit | `a38b53f34aa6a50d5c704fc9d53c791c68db9c53` |
+| 生产部署 | `dpl_8a3EwvcAaQgmKBZH6bQ1w8vBqeVX`,state **READY**,`target: production` |
+
+线上验证(经代理直接请求生产域名,2026-11-09):
+
+| 路径 | 状态 | 校验点 |
+|---|---|---|
+| /services | 200 | 「按企业所处阶段选服务」矩阵命中;description 92 字符 |
+| /news/hk-offshore-claim-2026 | 200 | 「按业务类型准备的举证材料」命中 |
+| /news/th-boi-foreign-ownership-2026 | 200 | 「三条路径怎么选」命中 |
+| /news/uae-corporate-tax-freezone-2026 | 200 | 「合格收入与不合格收入」命中 |
+| / 与 /news | 200 | `/linyi` 页脚链接仍在,title 正常 |
+| /cases/jiagou | 200 | description 83 字符 |
+| /knowledge/sg-annual-return-audit-exemption | 200 | description 81 字符 |
+| /services/hk-tax-filing | 200 | description 72 字符 |
+| sitemap.xml | 200 | 92 条;17 条 `lastmod=2026-11-09` |
+
+> 首轮请求中 `/`、`/news` 出现两次链路超时,重试后均返回 200;属本地到该区域的网络抖动,非站点错误。
 
 ## 9. 待人工执行
