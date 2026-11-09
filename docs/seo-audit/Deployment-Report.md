@@ -77,8 +77,44 @@
 - Vercel 项目配置的 Git 触发规则仅对 `master` 产生生产部署;本次分支 push 只产生 preview 部署(已用 API 确认 `target: null`)。
 - 未修改 DNS、域名、环境变量或任何生产数据。
 
-## 6. 待人工执行
+## 7. PR #45 合并后的生产上线(已实测验证)
 
-1. 审阅 PR #45 并决定是否合并。
-2. 合并后如需立即推动抓取,可在 GSC 重新提交 `https://hq10000.com/sitemap.xml`。
-3. 合并后 7–14 天复查 `/linyi` 收录状态与 `/services`、3 篇 news 的收录变化。
+| 项目 | 值 |
+|---|---|
+| PR | #45(squash merge) |
+| 生产 commit | `d7bbe1ccf8f707ff9850520c7ef690bb58df7ba6` |
+| 生产部署 | `dpl_7cUhGn7DNBpuRKq1VMkqh72Hz6a3`,state **READY**,`target: production` |
+| 上线时间 | 2026-11-09 |
+
+线上验证(经代理直接请求生产域名):
+
+| 检查项 | 结果 |
+|---|---|
+| `https://hq10000.com/` 页脚 | `href="linyi">临沂出海诊断手册` 命中 ✓ |
+| `https://hq10000.com/news` 页脚 | `href="../linyi">临沂出海诊断手册` 命中 ✓ |
+| `https://hq10000.com/sitemap.xml` | `/` 与 `/news` 的 lastmod = `2026-11-09` ✓ |
+| `https://hq10000.com/linyi` | HTTP 200 ✓ |
+
+## 8. 第二轮(PR #46)Preview
+
+| 项目 | 值 |
+|---|---|
+| 分支 | `feat/seo-content-depth` |
+| Commit | `d71570b61df5b61f21471e673abd84b6656a3a0d` |
+| Deployment | `dpl_CrD3GvsBKe5AEcCeRoqPVSgB5CCK` |
+| state | **READY**,`target: null`(未触发生产) |
+| Preview URL | https://huaqi-global-l5bznyco2-wilstonzhou-2644s-projects.vercel.app |
+
+该 Preview 同样启用 Vercel SSO,匿名访问被重定向到 `vercel.com/sso-api`,因此第二轮改动采用相同的等价环境验证(本地复刻 `cleanUrls` / `trailingSlash: false`):
+
+| 路径 | 状态 | 校验点 |
+|---|---|---|
+| /services | 200 | 新增「按企业所处阶段选服务」矩阵,4 行 × 3 列 |
+| /news/hk-offshore-claim-2026 | 200 | 新增「四、按业务类型准备的举证材料」,H2 编号连续 |
+| /news/th-boi-foreign-ownership-2026 | 200 | 新增「四、BOI、FBL 与泰籍股东」对比表 |
+| /news/uae-corporate-tax-freezone-2026 | 200 | 新增「四、合格收入与不合格收入怎么分」 |
+| 11 个 description 改动页 | 200 | description 长度 72–83 字符 |
+
+**PR #46 未合并**,等待人工审批。
+
+## 9. 待人工执行
