@@ -144,6 +144,10 @@
         {
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=60, s-maxage=3600, stale-while-revalidate=86400"
         }
       ]
     },
@@ -152,7 +156,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600, must-revalidate"
+          "value": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=604800"
         }
       ]
     },

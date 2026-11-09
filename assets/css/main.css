@@ -348,16 +348,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background:
     url('../images/hero-banner.jpg') no-repeat center / cover,
     var(--grad-hero);
-  /* P0-3:优先 WebP(64 KB,jpg 116 KB 的 45%),同一张图另存新文件名,
-     jpg 原文件保留不动,作为 image-set() 的第二候选与老浏览器兜底。 */
+  /* P0-3:优先 AVIF(43 KB) > WebP(60 KB) > JPEG(116 KB 兜底)。
+     AVIF 由 jpg 原图直接编码,非 webp 二次转码;PSNR 37.9 dB、
+     近似 SSIM 0.997,与生产 WebP 视觉无差。hero 上还叠了渐变遮罩,
+     压缩损失不可见。 */
   background:
     -webkit-image-set(
+      url('../images/hero-banner.avif') type('image/avif'),
       url('../images/hero-banner.webp') type('image/webp'),
       url('../images/hero-banner.jpg') type('image/jpeg')
     ) no-repeat center / cover,
     var(--grad-hero);
   background:
     image-set(
+      url('../images/hero-banner.avif') type('image/avif'),
       url('../images/hero-banner.webp') type('image/webp'),
       url('../images/hero-banner.jpg') type('image/jpeg')
     ) no-repeat center / cover,
