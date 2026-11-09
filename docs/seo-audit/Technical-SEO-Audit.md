@@ -75,9 +75,35 @@
 
 ## 6. 性能与 Core Web Vitals
 
-- 本轮未取得 CrUX 字段数据(GSC API 不提供 CWV 明细,站点流量过低不满足 CrUX 阈值)。
-- 静态站 + Vercel CDN,HTML 单页 40KB 量级(实测 `/about` 为 39,673 字节),CSS 单文件,JS 三个小文件。
-- **不给出 LCP/INP/CLS 数字**,无数据不编造。待接入 Lighthouse CI 或 Search Console CWV 报表后再评。
+### 6.1 资源与实现(2026-11-09 静态审计)
+
+| 项目 | 实测 |
+|---|---|
+| 图片 | 28 张,`width`+`height` 覆盖 28/28,`loading` 覆盖 28/28,`decoding` 覆盖 28/28(第二轮补齐 1 张) |
+| JS | 3 个外链全部 `defer`(data.js 49 KB、main.js 45 KB、icons.js 20 KB) |
+| CSS | 单文件 70 KB(未手写压缩,由 Vercel 传输层 brotli/gzip 压缩) |
+| 字体 | 无 `@font-face`,全部系统字体栈,无字体加载阻塞 |
+| LCP 资源 | 首页 `preload` hero-banner.webp(`fetchpriority="high"`),webp 64 KB |
+| 首页体量 | 6 个请求、约 118 KB 传输(实验室,经代理链路) |
+
+### 6.2 实验室测量(经代理,非真实用户)
+
+| 页面 | TTFB | FCP | LCP | CLS |
+|---|---|---|---|---|
+| / | 301 ms | 2,444 ms | 2,444 ms | 0 |
+
+- 测试链路为中国大陆 → 代理 → 站点,TTFB 与 LCP 含代理往返,**不能作为真实用户指标**,也不能用于判断是否满足 Core Web Vitals 阈值。
+- CLS 为 0,与「图片全部声明尺寸」的实现一致。
+
+### 6.3 第三方数据可得性
+
+- PageSpeed Insights API:当日配额已耗尽(HTTP 429,共享项目限额),未取得数据。
+- CrUX 字段数据:站点流量低于 CrUX 收录阈值,Google 不提供。
+- **因此本文不给出「移动端 LCP 是否 ≤2.5s」的结论**,避免用代理解析值冒充真实用户指标。
+
+### 6.4 结论
+
+性能侧无阻塞项:无阻塞脚本、无网络字体、LCP 图片已预加载且为 webp、图片尺寸齐备、CLS 为 0。可优化空间在代码分割(data.js 49 KB 全站加载),属 P3,当前不改。
 
 ## 7. 结论
 
