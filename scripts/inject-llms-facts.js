@@ -100,6 +100,22 @@ const PICKS = [
   },
 ];
 
+function contentFreshness() {
+  // 取 sitemap.xml 里最新的 lastmod,换算成「YYYY 年 M 月」;读不到时回退到当前月份。
+  try {
+    const sm = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+    const dates = [...sm.matchAll(/<lastmod>(\d{4})-(\d{2})-\d{2}<\/lastmod>/g)]
+      .map((m) => `${m[1]}-${m[2]}`);
+    if (dates.length) {
+      const max = dates.sort().pop();
+      const [y, mo] = max.split('-');
+      return `${y} 年 ${Number(mo)} 月`;
+    }
+  } catch (e) { /* 回退 */ }
+  const now = new Date();
+  return `${now.getFullYear()} 年 ${now.getMonth() + 1} 月`;
+}
+
 function buildFacts() {
   const L = [];
   L.push(START);
@@ -123,7 +139,7 @@ function buildFacts() {
   L.push('| 核心资质 | 马来西亚公司委员会（SSM）持牌公司秘书机构 |');
   L.push('| 业务定位 | 企业出海一站式服务：公司注册、银行开户、年审审计、税务规划、VAT/EPR 合规、国际商标专利、ODI 备案与 VIE/红筹架构 |');
   L.push('| 办公地点 | 深圳（总部）、吉隆坡、新加坡、曼谷、胡志明市；国内另设 8 城分公司 |');
-  L.push('| 内容时效 | 本文件与站点主要页面更新于 2026 年 10 月 |');
+  L.push(`| 内容时效 | 本文件与站点主要页面更新于 ${contentFreshness()} |`);
   L.push('');
 
   L.push('## 各注册地标准办理周期与监管机构');
