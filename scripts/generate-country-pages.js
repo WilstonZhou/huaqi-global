@@ -5,6 +5,7 @@ var path = require('path');
 var lib = require('./site-lib');
 var countries = require('./data-countries');
 var countryDeepen = require('./data-countries-deepen');
+var countryRelated = require('./data-country-related');
 var compliance = require('./data-country-compliance');
 var hubs = require('./data-hubs');
 
@@ -109,6 +110,18 @@ countries.forEach(function (c) {
         return '<div class="content-block"><h3>' + it.title + '</h3><p>' + it.body + '</p>' +
           '<p><a class="feature-link" href="' + it.link + '">' + it.title + '服务详情 →</a></p></div>';
       }).join('\n') + '\n  </div>\n</section>';
+  }
+
+  // 相关知识(上下文内链):为知识中心与政策解读补正文入链,仅配置了 data-country-related 的国家输出
+  var related = countryRelated[c.slug];
+  if (related) {
+    body += '\n\n<!-- 相关知识 -->\n<section class="section">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">RELATED READING</span>' +
+      '<h2 class="section-title">' + c.name + '注册相关的深度阅读</h2>' +
+      (related.lead ? '<p class="section-desc">' + related.lead + '</p>' : '') + '</div>\n' +
+      '    <div class="features-grid">' + related.items.map(function (r) {
+        return '<a class="feature-card" href="' + p + r.l.replace(/^\//, '') + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + r.t + '</div><div class="feature-desc">' + r.d + '</div></a>';
+      }).join('\n') + '</div>\n  </div>\n</section>';
   }
 
   if (c.article) {
