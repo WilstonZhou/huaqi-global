@@ -687,6 +687,7 @@ window.HQ_DATA = {
         { name: '公司年审', link: 'services/annual-review' },
         { name: '公司审计', link: 'services/audit' },
         { name: '税务规划', link: 'services/tax-planning' },
+        { name: 'BUD 专项基金', link: 'services/bud-fund' },
         { name: 'BUD 电商易', link: 'services/bud-ecommerce' },
         { name: '其他业务', link: 'services/other-services' }
       ]}
