@@ -675,18 +675,22 @@ window.HQ_DATA = {
   // ============ 一级导航 ============
   nav: [
     { name: '首页', link: '/' },
-    { name: '服务', link: 'services/company-registration', dropdown: [
-      { name: '海外公司注册', link: 'services/company-registration' },
-      { name: '热门国家注册', link: 'country' },
-      { name: '公司开户', link: 'services/bank-account' },
-      { name: '公司年审', link: 'services/annual-review' },
-      { name: '公司审计', link: 'services/audit' },
-      { name: '公司注销/转让', link: 'services/company-deregistration' },
-      { name: '税务规划', link: 'services/tax-planning' },
-      { name: '资金规划', link: 'services/fund-planning' },
-      { name: 'BUD 电商易', link: 'services/bud-ecommerce' },
-      { name: '其他业务', link: 'services/other-services' }
-    ]},
+    { name: '服务', link: 'services/company-registration', groups: [
+      { title: '注册与架构', items: [
+        { name: '海外公司注册', link: 'services/company-registration' },
+        { name: '热门国家注册', link: 'country' },
+        { name: '公司注销/转让', link: 'services/company-deregistration' },
+        { name: '资金规划', link: 'services/fund-planning' }
+      ]},
+      { title: '财税与合规', items: [
+        { name: '公司开户', link: 'services/bank-account' },
+        { name: '公司年审', link: 'services/annual-review' },
+        { name: '公司审计', link: 'services/audit' },
+        { name: '税务规划', link: 'services/tax-planning' },
+        { name: 'BUD 电商易', link: 'services/bud-ecommerce' },
+        { name: '其他业务', link: 'services/other-services' }
+      ]}
+    ], all: { name: '查看全部服务 →', link: 'services' }},
     { name: '全球网络', link: 'global-network' },
     { name: 'AI 智能匹配', link: 'ai-match', badge: 'NEW' },
     { name: '交付追踪', link: 'delivery-tracking' },
