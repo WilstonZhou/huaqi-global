@@ -314,7 +314,8 @@ module.exports = [
       { t: '香港公司开户', d: '汇丰/星展/中银香港/招商永隆', l: '../services/bank-account' },
       { t: '香港公司年审', d: '周年申报 + 商业登记证续期', l: '../country/hk/annual-review' },
       { t: '香港公司审计', d: '核数 + 利得税申报', l: '../services/audit' },
-      { t: 'ODI 备案与 VIE 架构', d: '红筹/VIE 核心节点', l: '../knowledge/odi-vie-guide' }
+      { t: 'ODI 备案与 VIE 架构', d: '红筹/VIE 核心节点', l: '../knowledge/odi-vie-guide' },
+      { t: 'BUD 电商易申请', d: '政府 1:3 配对 · 单项目 80 万港元', l: '../services/bud-ecommerce' }
     ]
   },
   {
