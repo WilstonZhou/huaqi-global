@@ -161,7 +161,17 @@ function write(file, content) {
     { t: '香港公司年审逾期:罚款档次、补救与被除名恢复', d: '四档罚款时间轴、两项义务、恢复流程', l: 'hk-annual-review-overdue', tag: '合规日历' },
     { t: '新加坡年审与审计豁免:三项指标怎么算', d: '7 个月期限、豁免三项满足两项、逐年复核', l: 'sg-annual-return-audit-exemption', tag: '国家指南' },
     { t: '美国公司年审:州年报、税表与信息申报', d: '三套义务、选州逻辑、漏报罚则与年度日历', l: 'us-company-annual-filing', tag: '政策解读' },
-    { t: '商标被驳回、被抢注:复审、异议与备用方案', d: '绝对/相对理由、复审流程、抢注两条线', l: 'trademark-rejection-response', tag: '操作指南' }
+    { t: '商标被驳回、被抢注:复审、异议与备用方案', d: '绝对/相对理由、复审流程、抢注两条线', l: 'trademark-rejection-response', tag: '操作指南' },
+    { t: '香港公司审计:什么时候必须做、费用怎么算', d: '谁必须审计、材料清单、费用构成与时间安排', l: 'hk-audit-guide', tag: '税务合规' },
+    { t: '香港利得税报税表:从首份报表到年度申报', d: '首份 3 个月、延期规则、暂缴税与离岸豁免', l: 'hk-profits-tax-return', tag: '税务合规' },
+    { t: '香港公司注销:流程、费用与不注销的代价', d: '四条前提、四步流程、时间费用与除名恢复', l: 'hk-company-deregistration', tag: '操作指南' },
+    { t: '香港公司股权变更与董事变更全流程', d: '转让文书、印花税、ND2A 与银行 KYC 同步', l: 'hk-share-transfer', tag: '操作指南' },
+    { t: '新加坡 GST 注册:门槛、申报与常见误区', d: '100 万新元门槛、强制 vs 自愿、进项抵扣', l: 'sg-gst-registration', tag: '税务合规' },
+    { t: '马来西亚公司年审与审计豁免:时间表怎么排', d: '30 天年度申报、7 个月报表、豁免与复核', l: 'my-annual-review-audit', tag: '国家指南' },
+    { t: '美国 EIN 申请:流程、材料与常见被拒原因', d: 'SS-4 三种提交方式、非居民要点、四个雷区', l: 'us-ein-application', tag: '操作指南' },
+    { t: '37 号文登记:境内个人境外持股必读', d: '谁要办、什么时候办、材料与与 ODI 的区别', l: 'china-37-document', tag: '资本架构' },
+    { t: '开曼/BVI 经济实质:分类、时限与证据', d: '九类活动、纯持股要求、12/6 个月时限', l: 'offshore-economic-substance', tag: '资本架构' },
+    { t: '海外公司注册后第一年:12 个月合规清单', d: '开户、税务登记、做账、首份报表与年审', l: 'first-year-compliance-checklist', tag: '操作指南' }
   ];
   var body = lib.hero({
     prefix: p,
