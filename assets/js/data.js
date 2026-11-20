@@ -684,6 +684,7 @@ window.HQ_DATA = {
       { name: '公司注销/转让', link: 'services/company-deregistration' },
       { name: '税务规划', link: 'services/tax-planning' },
       { name: '资金规划', link: 'services/fund-planning' },
+      { name: 'BUD 电商易', link: 'services/bud-ecommerce' },
       { name: '其他业务', link: 'services/other-services' }
     ]},
     { name: '全球网络', link: 'global-network' },
