@@ -53,8 +53,14 @@ function headerHtml(p) {
     '  <a href="/" class="brand"><div class="brand-logo">华</div><div class="brand-text">华企环球<small>HUAQI GLOBAL</small></div></a>\n' +
     '  <nav class="nav-menu" id="navMenu">\n' +
     '    <div class="nav-item"><a class="nav-link" href="/">首页</a></div>\n' +
-    '    <div class="nav-item"><a class="nav-link" href="' + p + 'services">服务</a><div class="nav-dropdown">\n' +
-    '      <a href="' + p + 'services">服务总览</a><a href="' + p + 'services/company-registration">海外公司注册</a><a href="' + p + 'country">热门国家注册</a><a href="' + p + 'services/bank-account">公司开户</a><a href="' + p + 'services/annual-review">公司年审</a><a href="' + p + 'services/audit">公司审计</a><a href="' + p + 'services/company-deregistration">公司注销/转让</a><a href="' + p + 'services/tax-planning">税务规划</a><a href="' + p + 'services/fund-planning">资金规划</a><a href="' + p + 'services/bud-ecommerce">BUD 电商易</a><a href="' + p + 'services/other-services">其他业务</a>\n' +
+    '    <div class="nav-item"><a class="nav-link" href="' + p + 'services">服务</a><div class="nav-dropdown nav-dropdown-wide">\n' +
+    '      <div class="nav-col"><div class="nav-col-title">注册与架构</div>\n' +
+    '        <a href="' + p + 'services/company-registration">海外公司注册</a><a href="' + p + 'country">热门国家注册</a><a href="' + p + 'services/company-deregistration">公司注销/转让</a><a href="' + p + 'services/fund-planning">资金规划</a>\n' +
+    '      </div>\n' +
+    '      <div class="nav-col"><div class="nav-col-title">财税与合规</div>\n' +
+    '        <a href="' + p + 'services/bank-account">公司开户</a><a href="' + p + 'services/annual-review">公司年审</a><a href="' + p + 'services/audit">公司审计</a><a href="' + p + 'services/tax-planning">税务规划</a><a href="' + p + 'services/bud-ecommerce">BUD 电商易</a><a href="' + p + 'services/other-services">其他业务</a>\n' +
+    '      </div>\n' +
+    '      <a class="nav-all" href="' + p + 'services">查看全部服务 →</a>\n' +
     '    </div></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="' + p + 'global-network">全球网络</a></div>\n' +
     '    <div class="nav-item"><a class="nav-link" href="' + p + 'ai-match">AI 智能匹配<span class="badge-new">NEW</span></a></div>\n' +

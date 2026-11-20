@@ -42,9 +42,18 @@
     if (!header || header.querySelector('.nav-menu')) return;
     var c = D.company || {};
     var nav = (D.nav || []).map(function (item) {
-      var dropdown = item.dropdown ? '<div class="nav-dropdown">' + item.dropdown.map(function (d) {
-        return '<a href="' + relLink(d.link) + '">' + d.name + '</a>';
-      }).join('') + '</div>' : '';
+      var dropdown = '';
+      if (item.groups) {
+        dropdown = '<div class="nav-dropdown nav-dropdown-wide">' + item.groups.map(function (g) {
+          return '<div class="nav-col"><div class="nav-col-title">' + g.title + '</div>' + g.items.map(function (d) {
+            return '<a href="' + relLink(d.link) + '">' + d.name + '</a>';
+          }).join('') + '</div>';
+        }).join('') + (item.all ? '<a class="nav-all" href="' + relLink(item.all.link) + '">' + item.all.name + '</a>' : '') + '</div>';
+      } else if (item.dropdown) {
+        dropdown = '<div class="nav-dropdown">' + item.dropdown.map(function (d) {
+          return '<a href="' + relLink(d.link) + '">' + d.name + '</a>';
+        }).join('') + '</div>';
+      }
       var badge = item.badge ? '<span class="badge-new">' + item.badge + '</span>' : '';
       return '<div class="nav-item"><a class="nav-link" href="' + relLink(item.link) + '">' + item.name + badge + '</a>' + dropdown + '</div>';
     }).join('');
