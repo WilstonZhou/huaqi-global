@@ -71,6 +71,18 @@ function articlePage(opt) {
     desc: opt.metaDesc,
     keywords: opt.keywords,
     schemas: [lib.faqSchema(opt.faqs),
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": opt.title,
+        "description": opt.metaDesc,
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://hq10000.com/knowledge/" + opt.slug,
+        "datePublished": TODAY,
+        "dateModified": TODAY,
+        "author": { "@type": "Organization", "name": "华企环球", "url": "https://hq10000.com" },
+        "publisher": { "@id": "https://hq10000.com/#organization" }
+      },
       lib.breadcrumbSchema([
         { name: '首页', url: 'https://hq10000.com' },
         { name: '知识中心', url: 'https://hq10000.com/knowledge' },
@@ -80,7 +92,10 @@ function articlePage(opt) {
   }));
 }
 
-var ARTICLES = require('./data-case-articles');
+var ARTICLES = [].concat(require('./data-case-articles'),
+                       require('./data-articles-2a'),
+                       require('./data-articles-2b'));
+var TODAY = new Date().toISOString().slice(0, 10);
 ARTICLES.forEach(articlePage);
 console.log('case articles done: ' + ARTICLES.length);
 module.exports = ARTICLES;
