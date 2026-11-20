@@ -40,6 +40,7 @@ var GROUPS = [
       { slug: 'hk-audit', name: '香港公司审计', desc: '香港执业会计师出具法定审计报告,衔接利得税报税表提交。' },
       { slug: 'hk-tax-filing', name: '香港公司报税', desc: '利得税报税表提交、离岸利润豁免申请与税务代表服务。' },
       { slug: 'tax-planning', name: '税务规划', desc: 'VAT/EPR、ODI 备案、GST 与所得税规划、转让定价与 37 号文。' },
+      { slug: 'bud-ecommerce', name: 'BUD 电商易申请', desc: '香港 BUD 专项基金电商易:政府 1:3 配对、单项目 80 万港元上限,从资格预判到审计衔接。' },
       { slug: 'vat', name: 'VAT 注册与 EPR 合规', desc: '欧盟 27 国与英国 VAT 注册申报、OSS/IOSS,包装法/电池法/WEEE。' },
       { slug: 'fund-planning', name: '资金规划', desc: 'VIE / 红筹架构、37 号文登记、ODI/QDII 通道与顶层股权设计。' }
     ]
