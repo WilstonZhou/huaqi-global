@@ -282,7 +282,16 @@ for (const abs of files) {
   if (html.includes('<!-- cn-seo:start')) {
     stat.skipMeta++;
   } else if (html.includes('<meta charset="UTF-8">')) {
-    html = html.replace('<meta charset="UTF-8">', '<meta charset="UTF-8">\n' + CN_META);
+    // charset 写法不统一(<meta charset="UTF-8"> / <meta charset="utf-8" /> / 带属性),
+    // 用正则兜底,否则这类页面会被静默跳过 —— 实测 16 篇 knowledge 文章因此缺转码防护。
+    if (!html.includes('cn-seo:start')) {
+      const m = html.match(/<meta\s+charset=["']?[\w-]+["']?\s*\/?>/i);
+      if (m) {
+        html = html.replace(m[0], m[0] + '\n' + CN_META);
+      } else if (html.includes('</head>')) {
+        html = html.replace('</head>', CN_META + '\n</head>');
+      }
+    }
     stat.meta++;
   } else {
     stat.fail.push(rel + ' (无 charset)');

@@ -68,7 +68,9 @@ function hasWebsiteNode(html) {
     try { data = JSON.parse(m[1]); } catch (e) { continue; }
     const nodes = Array.isArray(data) ? data : (data && data['@graph']) || [data];
     for (const n of nodes) {
-      if (n && n['@type'] === 'WebSite') return true;
+      const ty = n && n['@type'];
+      const tys = Array.isArray(ty) ? ty : [ty];
+      if (tys.includes('WebSite')) return true;
     }
   }
   return false;
@@ -81,7 +83,13 @@ const skipped = [];
 for (const file of files) {
   const html = fs.readFileSync(file, 'utf8');
   if (hasWebsiteNode(html)) continue;
-  const at = html.indexOf('<script type="application/ld+json">');
+  // 别写死 <script type="application/ld+json"> —— 带属性/单引号的写法会整页被跳过,
+  // 实测 22 个页面因此长期缺节点(knowledge 文章、cases、linyi 等)。
+  const m = html.match(/<script[^>]*application\/ld\+json[^>]*>/i);
+  let at = m ? m.index : -1;
+  if (at === -1) {
+    at = html.indexOf('</head>');
+  }
   if (at === -1) { skipped.push(path.relative(ROOT, file)); continue; }
   if (!DRY) fs.writeFileSync(file, html.slice(0, at) + BLOCK + html.slice(at));
   added++;
