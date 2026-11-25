@@ -165,7 +165,7 @@ write('tools/cost-calculator.html', lib.buildPage({
       description: '选择注册地即可查看监管机构、公司类型、参考周期与政府规费。覆盖新加坡、香港、美国、英国、日本、马来西亚、泰国、迪拜等市场,服务费定制报价。',
       inLanguage: 'zh-CN',
       isPartOf: { '@id': 'https://hq10000.com/#website' },
-      datePublished: '2026-11-20',
+      datePublished: '2026-09-16',
       dateModified: '2026-11-25',
       publisher: { '@id': 'https://hq10000.com/#organization' }
     },

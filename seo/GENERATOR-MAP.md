@@ -16,6 +16,7 @@
 | `scripts/generate-tools.js` | `tools/cost-calculator.html` | |
 | `scripts/generate-country-service-pages.js` | `country/{cc}/{service}.html`(5:us/tax、us/annual-review、us/audit、sg/audit、hk/annual-review) | 数据源 `scripts/data-country-services.js`;按「关键词需求 × 情报存量 × 硬事实数量」门槛开页,不铺量 |
 | `scripts/generate-identity-pages.js` | `solutions/identity-planning/{hk,sg,ae}.html`(3) | 数据源 `scripts/data-identity-pages.js`;Hub 仍由 `generate-solutions.js` 产出 |
+| `scripts/generate-news.js` | `news/<slug>.html`(4 篇政策解读) | 数据源 `scripts/data-news.js`;可选 `questionSection` / `pathComparison` 段落,手工加表格必须回填数据源 |
 
 > ⚠️ **英文站已物理删除**(2026-09-17):`en/` 目录与生成器 `generate-en-pages.js` / 数据源 `data-en-countries.js` 已移除;`vercel.json` 已加 `/en`、`/en/*` 的 301 跳转(分别指向对应国家页或首页)。如将来要恢复英文站,可从 git 历史取回。
 
@@ -38,7 +39,8 @@
     而国家页的 `WebPage` 是由链路末尾的 `inject-datemodified.js` 才补出来的 → 第一遍只能加
     hreflang/author,第二遍才把 citation 落上去。实测:重跑 `generate-country-pages.js` 后
     `country/cayman.html` 的 citation 1 → 0,单跑一次 ai-cn 仍为 0,第二遍才回到 1。
-    标准链路请在 `inject-visible-date.js` 之后再补一次 `node scripts/inject-ai-cn.js`。
+    **已固化到 `scripts/postprocess-all.js`**:直接跑该入口,它会按依赖顺序跑完全链,并在
+    `inject-visible-date.js` 之后自动补跑第二遍 ai-cn;不要再手写零散命令。
   - `scripts/inject-country-qa.js` — 国家页问句化问答(条件/材料/流程),数据源 `data-countries.js`
   - `scripts/inject-llms-facts.js` — llms.txt 事实层(实体事实卡/周期表/高频问答)
   - `scripts/inject-datemodified.js` — 全页补 `WebPage` 节点的 `datePublished`/`dateModified`(日期取自该文件 git 提交日期)。**顺序敏感:必须在 `prerender-home.js` 之后、`update-sitemap-lastmod.js` 之前运行**,否则 `prerender-home` 会覆盖首页的注入结果。
