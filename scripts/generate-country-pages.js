@@ -55,7 +55,7 @@ countries.forEach(function (c) {
     title: c.flag + ' ' + c.name + '公司注册',
     subtitle: c.intro
   });
-  body += lib.answerBlock(c.name + '公司注册由 <strong>' + c.regulator + '</strong> 监管,常用主体类型为 ' + c.type + ',标准办理周期 ' + c.period + '。具体条件、材料与费用以顾问确认为准。');
+  body += lib.answerBlock(c.name + '公司注册由 <strong>' + c.regulator + '</strong> 监管,常用主体类型为 ' + c.type + ',标准办理周期 ' + c.period + '。<strong>' + c.name + '公司注册流程</strong>、注册条件与所需材料见下文。');
   body += '\n\n<!-- 核心数据 -->\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">' + c.en.toUpperCase() + '</span><h2 class="section-title">' + c.name + '公司注册核心信息</h2></div>\n    ' + lib.statCards([
       { label: '监管机构', value: c.regulator },
       { label: '公司类型', value: c.type },
