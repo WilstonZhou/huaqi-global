@@ -18,6 +18,29 @@ function write(file, content) {
 // 同链路相关服务(静态内链:补齐「已发现-尚未编入索引」页面的站点内引用密度)
 // 说明:只列与当前服务处在同一业务链路、且客户会在同一阶段同时需要的页面;
 //       目标是让每个服务页都有 4 条以上来自正文的内链,而不是只靠页脚一条。
+// 延伸阅读:服务页 → 知识文章的静态内链(按 slug 配置,避免每次手改 HTML)
+var READING = {
+  'hk-bank-account': [
+    { t: '香港开户选哪家银行', d: '大行/中小行/数字账户的口径对比', l: '/knowledge/hk-bank-selection' },
+    { t: '香港公司开户全流程', d: '从预约到激活的六个环节', l: '/knowledge/hk-bank-process' },
+    { t: '香港公司开户条件', d: '硬条件与软条件、常见被拒情形', l: '/knowledge/hk-bank-conditions' }
+  ],
+  'sg-bank-account': [
+    { t: '新加坡公司开户:材料、条件与费用', d: '材料清单、面签条件与六项费用', l: '/knowledge/sg-account-opening' }
+  ],
+  'offshore': [
+    { t: '开曼公司注册条件', d: '豁免公司四条要求与后续申报', l: '/knowledge/ky-registration-conditions' },
+    { t: '开曼/BVI 经济实质申报', d: '九类活动、时限与证据', l: '/knowledge/offshore-economic-substance' }
+  ],
+  'us-llc': [
+    { t: '美国公司注册条件', d: '选州、注册代理与 EIN', l: '/knowledge/us-registration-conditions' },
+    { t: '美国公司年审:费用、流程与材料', d: '各州年费与三套义务', l: '/knowledge/us-annual-review-fees' }
+  ],
+  'us-inc': [
+    { t: '美国公司注册条件', d: '选州、注册代理与 EIN', l: '/knowledge/us-registration-conditions' }
+  ]
+};
+
 var SIBLINGS = {
   'hk-bank-account': [
     ['bank-account', '公司开户(全地区)', '多地区账户方案对比与选择路径'],
@@ -128,6 +151,18 @@ services.forEach(function (s) {
     body += '\n\n<!-- 同链路服务 -->\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">SAME WORKFLOW</span><h2 class="section-title">同一链路上的相关服务</h2><p class="section-desc">这些服务通常与' + s.name + '在同一阶段一起决定,提前对齐可以少走弯路。</p></div>\n    <div class="features-grid">' + sib.map(function (r) {
       return '<a class="feature-card" href="' + p + 'services/' + r[0] + '" style="text-decoration:none;"><div class="feature-icon">↗</div><div class="feature-title">' + r[1] + '</div><div class="feature-desc">' + r[2] + '</div></a>';
     }).join('\n') + '</div>\n  </div>\n</section>';
+  }
+
+  // 延伸阅读(静态内链)
+  var rd = READING[s.slug] || [];
+  if (rd.length) {
+    body += '\n\n<!-- 延伸阅读 -->\n<section class="section">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">FURTHER READING</span><h2 class="section-title">延伸阅读</h2>' +
+      '<p class="section-desc">把这一页的问题拆开讲清楚的操作指南。</p></div>\n' +
+      '    <div class="features-grid">' + rd.map(function (r) {
+        return '<a class="feature-card" href="' + r.l + '" style="text-decoration:none;"><div class="feature-icon">📄</div>' +
+          '<div class="feature-title">' + r.t + '</div><div class="feature-desc">' + (r.d || '') + '</div></a>';
+      }).join('\n') + '</div>\n  </div>\n</section>';
   }
 
   body += '\n\n<!-- FAQ -->\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">' + s.name + '常见问题</h2></div>\n    <div>' + lib.faqItems(s.faqs) + '</div>\n  </div>\n</section>';
