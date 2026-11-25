@@ -76,6 +76,8 @@ const SOURCES = {
   'knowledge/ae-registration-conditions': [DED],
   'knowledge/ky-registration-conditions': [CIREG],
   'knowledge/us-registration-conditions': [IRS, USA_GOV],
+  'knowledge/sg-account-opening': [MAS],
+  'knowledge/us-annual-review-fees': [IRS],
 
   'knowledge/cross-border-compliance': [EU_TAX, HMRC],
   'knowledge/hk-annual-review-overdue': [CR, IRD],
