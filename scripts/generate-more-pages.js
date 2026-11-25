@@ -172,7 +172,12 @@ function write(file, content) {
     { t: '美国 EIN 申请:流程、材料与常见被拒原因', d: 'SS-4 三种提交方式、非居民要点、四个雷区', l: 'us-ein-application', tag: '操作指南' },
     { t: '37 号文登记:境内个人境外持股必读', d: '谁要办、什么时候办、材料与与 ODI 的区别', l: 'china-37-document', tag: '资本架构' },
     { t: '开曼/BVI 经济实质:分类、时限与证据', d: '九类活动、纯持股要求、12/6 个月时限', l: 'offshore-economic-substance', tag: '资本架构' },
-    { t: '海外公司注册后第一年:12 个月合规清单', d: '开户、税务登记、做账、首份报表与年审', l: 'first-year-compliance-checklist', tag: '操作指南' }
+    { t: '海外公司注册后第一年:12 个月合规清单', d: '开户、税务登记、做账、首份报表与年审', l: 'first-year-compliance-checklist', tag: '操作指南' },
+    { t: '香港公司注册费用:政府规费与服务费拆解', d: '政府规费、秘书与地址年费、首年审计与报价陷阱', l: 'hk-registration-cost', tag: '费用参考' },
+    { t: '香港开户选哪家银行:三类银行口径对比', d: '大行/中小行/数字账户的门槛、功能与选择清单', l: 'hk-bank-selection', tag: '操作指南' },
+    { t: '香港公司开户全流程:从预约到激活', d: '六个环节、资料清单、面签怎么答与常见卡点', l: 'hk-bank-process', tag: '操作指南' },
+    { t: '香港公司开户条件:没有本地业务能不能开', d: '硬条件与软条件、解释路径与常见被拒情形', l: 'hk-bank-conditions', tag: '操作指南' },
+    { t: '马来西亚公司注册条件:Sdn Bhd 硬性门槛', d: '本地董事、持牌秘书、资本、行业准入与常见被拒', l: 'my-registration-conditions', tag: '国家指南' }
   ];
   var body = lib.hero({
     prefix: p,
