@@ -70,3 +70,7 @@
 3. 生成页改完 → 重跑对应生成器(必要时全量重跑)→ `git diff` 核对差异范围
 4. **一类问题一个 commit**(便于单独 revert)
 5. push 用 `git -c http.version=HTTP/1.1`(防 GitHub HTTP2 抖动)
+
+## 服务页延伸阅读(服务页 → 知识文章)
+
+服务页的「延伸阅读」区块不要手改 HTML:生成页(20 个)在 `scripts/generate-service-pages.js` 顶部的 `READING` 表里按 slug 配置;手写页(company-registration / bank-account / annual-review / fees)直接改 HTML,插在 `<!-- FAQ -->` 之前。新增知识文章后,同步补到对应服务的 `READING` 并重跑生成器,再走完整注入链。
