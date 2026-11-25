@@ -220,8 +220,9 @@ function injectAnswer(html) {
   const stripped = stripInjectedAnswer(html);
   html = stripped.html;
 
-  // 生成器已产出的速答（无我们的标记）→ 不重复
-  if (html.includes('>速答<')) return { html, changed: stripped.removed === 0 ? 0 : -1 };
+  // 生成器已产出的速答（无我们的标记）→ 不重复。
+  // 允许「速答」「速答：」「速答:」三种写法，避免手写页被重复插入。
+  if (/>速答[:：]?</.test(html)) return { html, changed: stripped.removed === 0 ? 0 : -1 };
 
   const faq = pickFaq(html);
   if (!faq) return { html, changed: 0 };

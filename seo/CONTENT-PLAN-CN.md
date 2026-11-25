@@ -106,12 +106,19 @@ node scripts/inject-country-qa.js
 # 3) 重跑大陆市场适配注入(meta / Organization / 速答)
 node scripts/inject-cn-seo.js
 
-# 4) 刷新 llms.txt 事实层
+# 4) 补齐 AI/大陆语义层(hreflang / author / 实体 / 官方来源)
+node scripts/inject-ai-cn.js
+
+# 5) 补页脚可见更新时间(必须在 inject-ai-cn 之后)
+node scripts/inject-visible-date.js
+
+# 6) 刷新 llms.txt 事实层
 node scripts/inject-llms-facts.js
 ```
 
 执行顺序不能颠倒:`inject-country-qa` 会新增 FAQ,`inject-cn-seo` 的速答块按
-「与 H1 最相关的 FAQ」重选,`inject-llms-facts` 再从页面抽取问答原文。
+「与 H1 最相关的 FAQ」重选,`inject-ai-cn` 再补实体与官方来源,`inject-visible-date`
+读取最终 `dateModified` 写可见日期,`inject-llms-facts` 最后从页面抽取问答原文。
 
-三个注入脚本都是幂等的:连续执行第二次必须全部报 0 变更。
+上述注入脚本都是幂等的:连续执行第二次必须全部报 0 变更。
 如果报非 0,说明锚点文本被改动过,先 `git diff` 看清再跑。
