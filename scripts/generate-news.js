@@ -51,6 +51,16 @@ articles.forEach(function (a) {
 
   body += lib.answerBlock(a.quick);
 
+  // 可选:在速答之后给出与目标问句完全一致的条件型直答
+  if (a.questionSection) {
+    var qs = a.questionSection;
+    body += '\n\n<!-- 条件直答 -->\n<section class="section">\n  <div class="container container-sm">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">' + qs.eyebrow + '</span><h2 class="section-title">' + qs.h2 + '</h2></div>\n' +
+      '    <div class="content-block">\n' +
+      (qs.paras || []).map(function (p) { return '      <p>' + p + '</p>\n'; }).join('') +
+      '    </div>\n  </div>\n</section>';
+  }
+
   // 事实卡
   body += '\n\n<!-- 事实卡 -->\n<section class="section section-soft">\n  <div class="container">\n' +
     '    <div class="section-header"><span class="section-eyebrow">FACT CARD</span><h2 class="section-title">一、变了什么</h2></div>\n' +
@@ -81,11 +91,32 @@ articles.forEach(function (a) {
     '      <p class="mb-8">本文事实以官方公布为准,原文入口:' +
     '<a href="' + a.source.url + '" rel="nofollow noopener" target="_blank">' + a.source.name + '</a></p>\n' +
     '      <p class="fs-12 c-text-light">核验日期:' + a.reviewedAt + ' · 更新时间:' + a.modified +
+    (a.updateNote ? '(' + a.updateNote + ')' : '') +
     ' · 政策口径变化时本文会同步修订并在文末记录。</p>\n    </div>\n  </div>\n</section>';
+
+  // 可选:路径对比表(用于需要并列比较多种进入方式的文章)
+  if (a.pathComparison) {
+    var pc = a.pathComparison;
+    var pcHead = (pc.table && pc.table.head) || [];
+    body += '\n\n<!-- 路径对比 -->\n<section class="section">\n  <div class="container">\n' +
+      '    <div class="section-header"><span class="section-eyebrow">' + pc.eyebrow + '</span><h2 class="section-title">' + pc.title + '</h2></div>\n' +
+      '    <div class="content-block">\n<p>' + pc.intro + '</p>\n';
+    if (pcHead.length) {
+      body += '<div class="hub-table-wrap"><table class="pricing-table">\n<thead><tr>' +
+        pcHead.map(function (th) { return '<th>' + th + '</th>'; }).join('') + '</tr></thead>\n<tbody>\n' +
+        (pc.table.rows || []).map(function (row) {
+          return '<tr>' + row.map(function (cell, i) {
+            return '<td data-label="' + (pcHead[i] || '') + '">' + cell + '</td>';
+          }).join('') + '</tr>';
+        }).join('\n') + '\n</tbody>\n</table></div>\n';
+    }
+    if (pc.outro) body += '<p>' + pc.outro + '</p>\n';
+    body += '    </div>\n  </div>\n</section>';
+  }
 
   // FAQ
   body += '\n\n<!-- FAQ -->\n<section class="section section-soft">\n  <div class="container container-sm">\n' +
-    '    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">四、常见问题</h2></div>\n' +
+    '    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">' + (a.pathComparison ? '五' : '四') + '、常见问题</h2></div>\n' +
     '    <div>' + lib.faqItems(a.faqs) + '</div>\n  </div>\n</section>';
 
   // 关联服务
