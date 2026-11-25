@@ -33,6 +33,7 @@
 - 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`update-sitemap-lastmod.js`
 - 大陆市场适配层(2026-10-17 新增,均为幂等后处理,**改完页面必须重跑**):
   - `scripts/inject-cn-seo.js` — 百度/国产浏览器适配 meta、Organization 实体增强、速答块补齐
+  - `scripts/inject-ai-cn.js` — 面向大陆 AI 检索的语义层:hreflang(zh-CN/x-default)、author meta、Article 作者挂到 `#organization` 实体、`article:published_time`/`article:modified_time`、`WebPage.inLanguage`/`isPartOf`、知识页与国家页的「官方来源」块及 `citation`。官方来源只列监管机构官网首页,不臆造条款 URL。**顺序:在 `inject-cn-seo.js` 之后、`inject-visible-date.js` 之前运行**;幂等标记为 `ai-cn:source:start/end`。
   - `scripts/inject-country-qa.js` — 国家页问句化问答(条件/材料/流程),数据源 `data-countries.js`
   - `scripts/inject-llms-facts.js` — llms.txt 事实层(实体事实卡/周期表/高频问答)
   - `scripts/inject-datemodified.js` — 全页补 `WebPage` 节点的 `datePublished`/`dateModified`(日期取自该文件 git 提交日期)。**顺序敏感:必须在 `prerender-home.js` 之后、`update-sitemap-lastmod.js` 之前运行**,否则 `prerender-home` 会覆盖首页的注入结果。

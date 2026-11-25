@@ -97,6 +97,8 @@ var body = lib.hero({
   subtitle: '选一个注册地,立刻看到监管机构、公司类型、参考周期与政府规费参考。政府规费为官方公布口径的参考值;服务费因业务复杂度而异,统一采用定制报价。'
 });
 
+body += lib.answerBlock('出海成本与周期速查:选择注册地即可查看监管机构、公司类型、参考周期与政府规费。表中政府规费为公开参考值,不含服务费;服务费统一采用定制报价,具体以官方最新规定与顾问确认为准。');
+
 body += '\n\n<section class="section section-soft">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">QUICK LOOKUP</span><h2 class="section-title">按注册地速查</h2></div>\n    ' + tool + '\n  </div>\n</section>';
 
 body += '\n\n<section class="section">\n  <div class="container">\n    <div class="section-header"><span class="section-eyebrow">FULL TABLE</span><h2 class="section-title">全部注册地对照表</h2><p class="section-desc">下表为各注册地的监管机构、公司类型、参考周期与政府规费参考,服务费统一为定制报价。</p></div>\n    ' + table + '\n  </div>\n</section>';
@@ -115,6 +117,28 @@ if (calcDeep && calcDeep.sections) {
     calcDeep.sections.map(function (s) { return lib.contentBlock(s.h, s.paras || null, s.list || null); }).join('\n') +
     '\n  </div>\n</section>';
 }
+
+var faqs = [
+  {
+    q: '海外公司注册的政府规费大概是多少?',
+    a: '新加坡为核名 S$15 + 注册 S$300;香港约 HKD 1,720 + 商业登记费;英国约 £50;美国各州不同;马来西亚按注册资本档位,泰国按注册资本比例,日本与韩国按资本金计登记税。表中数字为公开规费参考,不含服务费,最终以官方最新公布为准。'
+  },
+  {
+    q: '各国公司注册周期一般多久?',
+    a: '美国 1-3 个工作日、香港 3-7、新加坡 5-7、马来西亚 7-10、日本与韩国约 7-15、泰国 15-20、越南 15-30、印尼 10-20。周期为官方流程标准耗时,不含材料准备与银行开户时间。'
+  },
+  {
+    q: '为什么服务费不做固定标价?',
+    a: '服务费取决于股权结构、是否涉及多层持股、经营范围是否需要额外牌照、是否配套开户与年审等因素。固定标价通常意味着低估复杂度或把成本转到后续环节,因此本站统一采用定制报价,并在交付前写清包含项与不包含项。'
+  },
+  {
+    q: '表里的政府规费会变化吗?',
+    a: '会。政府规费随官方调整而变化,部分注册地按注册资本计费,无法给出单一数字。本页标注的是计费口径与公开参考值,签约前应由顾问按目标市场的最新官方标准复核。'
+  }
+];
+
+body += '\n\n<section class="section">\n  <div class="container container-sm">\n    <div class="section-header"><span class="section-eyebrow">FAQ</span><h2 class="section-title">成本与周期常见问题</h2></div>\n    <div>' + lib.faqItems(faqs) + '</div>\n  </div>\n</section>';
+
 body += '\n\n' + lib.ctaBanner('想知道你这个场景的实际报价?', '把目标市场、业务类型与配套需求告诉我们,顾问会给出含项明确的定制报价', p);
 
 body += '\n\n' + script;
@@ -130,7 +154,32 @@ write('tools/cost-calculator.html', lib.buildPage({
       { name: '首页', url: 'https://hq10000.com' },
       { name: '费用与周期', url: 'https://hq10000.com/services/fees' },
       { name: '成本速查', url: 'https://hq10000.com/tools/cost-calculator' }
-    ])
+    ]),
+    lib.faqSchema(faqs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': 'https://hq10000.com/tools/cost-calculator#webpage',
+      url: 'https://hq10000.com/tools/cost-calculator',
+      name: '出海成本与周期速查工具',
+      description: '选择注册地即可查看监管机构、公司类型、参考周期与政府规费。覆盖新加坡、香港、美国、英国、日本、马来西亚、泰国、迪拜等市场,服务费定制报价。',
+      inLanguage: 'zh-CN',
+      isPartOf: { '@id': 'https://hq10000.com/#website' },
+      datePublished: '2026-11-20',
+      dateModified: '2026-11-25',
+      publisher: { '@id': 'https://hq10000.com/#organization' }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: '出海成本与周期速查工具',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      url: 'https://hq10000.com/tools/cost-calculator',
+      inLanguage: 'zh-CN',
+      isAccessibleForFree: true,
+      provider: { '@id': 'https://hq10000.com/#organization' }
+    }
   ],
   body: body
 }));
