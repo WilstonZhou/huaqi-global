@@ -67,6 +67,12 @@ const ISCA = { name: '新加坡特许会计师协会（ISCA）', url: 'https://i
 const SOURCES = {
   'knowledge/cayman-vs-bvi': [CIREG, BVIFSC],
   'knowledge/china-37-document': [SAFE],
+  'knowledge/hk-registration-cost': [CR, IRD],
+  'knowledge/hk-bank-selection': [HKMA, CR],
+  'knowledge/hk-bank-process': [HKMA, CR],
+  'knowledge/hk-bank-conditions': [HKMA, CR],
+  'knowledge/my-registration-conditions': [SSM],
+
   'knowledge/cross-border-compliance': [EU_TAX, HMRC],
   'knowledge/hk-annual-review-overdue': [CR, IRD],
   'knowledge/hk-audit-guide': [CR, HKICPA],
