@@ -162,6 +162,7 @@ function write(file, content) {
     { t: '新加坡年审与审计豁免:三项指标怎么算', d: '7 个月期限、豁免三项满足两项、逐年复核', l: 'sg-annual-return-audit-exemption', tag: '国家指南' },
     { t: '美国公司年审:州年报、税表与信息申报', d: '三套义务、选州逻辑、漏报罚则与年度日历', l: 'us-company-annual-filing', tag: '政策解读' },
     { t: '商标被驳回、被抢注:复审、异议与备用方案', d: '绝对/相对理由、复审流程、抢注两条线', l: 'trademark-rejection-response', tag: '操作指南' },
+    { t: '香港公司跨境贸易与跨境电商:架构、税务与单据怎么搭', d: '三种业务模式、两级制利得税、报关凭证与档案期限', l: 'hk-cross-border-trade-compliance', tag: '跨境合规' },
     { t: '香港公司审计:什么时候必须做、费用怎么算', d: '谁必须审计、材料清单、费用构成与时间安排', l: 'hk-audit-guide', tag: '税务合规' },
     { t: '香港利得税报税表:从首份报表到年度申报', d: '首份 3 个月、延期规则、暂缴税与离岸豁免', l: 'hk-profits-tax-return', tag: '税务合规' },
     { t: '香港公司注销:流程、费用与不注销的代价', d: '四条前提、四步流程、时间费用与除名恢复', l: 'hk-company-deregistration', tag: '操作指南' },

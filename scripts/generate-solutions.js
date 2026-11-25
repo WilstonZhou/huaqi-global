@@ -47,6 +47,7 @@ var solutions = [
       { q: '商标注册多久?被抢注怎么办?', a: '美国商标约 6-12 个月,欧盟商标约 4-6 个月,快则 3 个月可下证。若已被抢注,可评估异议、无效宣告或协商转让,华企环球提供海外商标布局与维权支持。' }
     ],
     related: [
+      { t: '香港公司跨境贸易合规指南', l: '../knowledge/hk-cross-border-trade-compliance' },
       { t: '海外公司注册', l: '../services/company-registration' },
       { t: '银行开户', l: '../services/bank-account' },
       { t: '税务规划', l: '../services/tax-planning' },
