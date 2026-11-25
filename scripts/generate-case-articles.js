@@ -96,7 +96,8 @@ var ARTICLES = [].concat(require('./data-case-articles'),
                        require('./data-articles-2a'),
                        require('./data-articles-2b'),
                        require('./data-articles-3'),
-                       require('./data-articles-4'));
+                       require('./data-articles-4'),
+                       require('./data-articles-5'));
 var TODAY = new Date().toISOString().slice(0, 10);
 ARTICLES.forEach(articlePage);
 console.log('case articles done: ' + ARTICLES.length);
