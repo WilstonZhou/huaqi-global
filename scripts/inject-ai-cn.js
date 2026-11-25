@@ -72,6 +72,10 @@ const SOURCES = {
   'knowledge/hk-bank-process': [HKMA, CR],
   'knowledge/hk-bank-conditions': [HKMA, CR],
   'knowledge/my-registration-conditions': [SSM],
+  'knowledge/hk-registration-conditions': [CR, IRD],
+  'knowledge/ae-registration-conditions': [DED],
+  'knowledge/ky-registration-conditions': [CIREG],
+  'knowledge/us-registration-conditions': [IRS, USA_GOV],
 
   'knowledge/cross-border-compliance': [EU_TAX, HMRC],
   'knowledge/hk-annual-review-overdue': [CR, IRD],

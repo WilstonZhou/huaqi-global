@@ -177,7 +177,11 @@ function write(file, content) {
     { t: '香港开户选哪家银行:三类银行口径对比', d: '大行/中小行/数字账户的门槛、功能与选择清单', l: 'hk-bank-selection', tag: '操作指南' },
     { t: '香港公司开户全流程:从预约到激活', d: '六个环节、资料清单、面签怎么答与常见卡点', l: 'hk-bank-process', tag: '操作指南' },
     { t: '香港公司开户条件:没有本地业务能不能开', d: '硬条件与软条件、解释路径与常见被拒情形', l: 'hk-bank-conditions', tag: '操作指南' },
-    { t: '马来西亚公司注册条件:Sdn Bhd 硬性门槛', d: '本地董事、持牌秘书、资本、行业准入与常见被拒', l: 'my-registration-conditions', tag: '国家指南' }
+    { t: '马来西亚公司注册条件:Sdn Bhd 硬性门槛', d: '本地董事、持牌秘书、资本、行业准入与常见被拒', l: 'my-registration-conditions', tag: '国家指南' },
+    { t: '香港公司注册条件:四条硬门槛与三个被拒原因', d: '股东、董事、秘书、地址与名称规则', l: 'hk-registration-conditions', tag: '国家指南' },
+    { t: '迪拜公司注册条件:自贸区、本土与离岸三条路径', d: '外资持股、执照活动、资本与地址要求', l: 'ae-registration-conditions', tag: '国家指南' },
+    { t: '开曼公司注册条件:豁免公司的四条要求', d: '注册代理、授权资本、名称限制与后续申报', l: 'ky-registration-conditions', tag: '国家指南' },
+    { t: '美国公司注册条件:选州、代理人与 EIN', d: '州选择、注册代理、外州登记与三套义务', l: 'us-registration-conditions', tag: '国家指南' }
   ];
   var body = lib.hero({
     prefix: p,
