@@ -45,6 +45,7 @@ var META = {
   },
   '审计报税': {
     slug: 'shenji-baoshui',
+    seoTitle: '香港公司审计与报税案例:10 个真实处理路径',
     en: 'AUDIT & TAX',
     answer: '审计与报税的核心是"账实一致":银行流水、平台结算与合同发票能对上。有经营却零申报属于申报不实,补做账目与审计的成本远高于当年合规。',
     checklist: [
@@ -161,6 +162,7 @@ var groups = base.groups.map(function (g) {
     title: g.title,
     desc: g.desc,
     slug: meta.slug,
+    seoTitle: meta.seoTitle,
     en: meta.en,
     answer: meta.answer,
     checklist: meta.checklist,

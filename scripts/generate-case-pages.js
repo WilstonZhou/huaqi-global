@@ -21,7 +21,7 @@ data.groups.forEach(function (g, gi) {
   var body = lib.hero({
     prefix: p,
     breadcrumb: '<a href="/">首页</a> / <a href="/cases">客户案例</a> / ' + CN[g.key] + '案例',
-    title: CN[g.key] + '案例:' + g.items.length + ' 个脱敏实例',
+    title: g.seoTitle || (CN[g.key] + '案例:' + g.items.length + ' 个脱敏实例'),
     subtitle: g.desc
   });
   body += lib.answerBlock(g.answer);
@@ -65,7 +65,7 @@ data.groups.forEach(function (g, gi) {
   write('cases/' + g.slug + '.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/cases/' + g.slug,
-    title: CN[g.key] + '案例:' + g.items.length + ' 个脱敏实例与处理路径 | 华企环球',
+    title: (g.seoTitle || (CN[g.key] + '案例:' + g.items.length + ' 个脱敏实例与处理路径')) + ' | 华企环球',
     desc: '华企环球' + CN[g.key] + '案例库:' + g.items.length + ' 个脱敏实例,每条写明情形、处理、结果与提示,并附' + CN[g.key] + '前的检查清单与常见问题。',
     keywords: CN[g.key] + '案例,出海案例,华企环球案例,' + g.key,
     schemas: [lib.faqSchema(g.faqs),
