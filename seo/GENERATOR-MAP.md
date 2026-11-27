@@ -44,7 +44,7 @@
   - `scripts/inject-country-qa.js` — 国家页问句化问答(条件/材料/流程),数据源 `data-countries.js`
   - `scripts/inject-llms-facts.js` — llms.txt 事实层(实体事实卡/周期表/高频问答)
   - `scripts/inject-datemodified.js` — 全页补 `WebPage` 节点的 `datePublished`/`dateModified`(日期取自该文件 git 提交日期)。**顺序敏感:必须在 `prerender-home.js` 之后、`update-sitemap-lastmod.js` 之前运行**,否则 `prerender-home` 会覆盖首页的注入结果。
-  - `scripts/inject-sameas.js` — 全页 `Organization` 补 `sameAs`(外部权威档案地址)。地址清单写死在脚本 `SAME_AS` 数组,**必须人工核实后填入,禁止猜测**;与生成器解耦,不触发 dateModified 刷新。
+  - `scripts/inject-sameas.js` — 全页 `Organization` 补 `sameAs`(外部权威档案地址)。清单在 `scripts/same-as.json` 的 `profiles`,每条必须带 `verified` 日期(人工核实),**禁止猜测或填入未认领页面**;与生成器解耦,不触发 dateModified 刷新。加一条只需往 JSON 追加 `{label,url,verified}` 再跑脚本。
   - `scripts/inject-visible-date.js` — 页脚可见「本页面更新于 YYYY-MM-DD」,日期由 `<time datetime>` 承载而非纯文本。日期**不另发明**,取该页 JSON-LD 的内容级节点(`Article` 等)`dateModified`,无则回退 `WebPage`,保证可见层与 schema 完全一致;跳过 404 页。**顺序敏感:必须在 `inject-datemodified.js` 与 `prerender-home.js` 之后运行**(要先读到 dateModified,且不能被首页预渲染覆盖)。
   - `scripts/prerender-faq.js` — 把 JS 渲染的 FAQ(`#faqList` 空容器)预渲染进静态 HTML,并补 `FAQPage`;`--check` 可挂提交前检查。不执行 JS 的百度/中文 AI 爬虫看不到运行时填充的问答
   - `scripts/inject-website-node.js` — 为未定义站点的页面补 `WebSite` 节点(`@id` 为 `https://hq10000.com/#website`,publisher 指向 Organization),消除 `isPartOf` 的悬空引用。**不输出 `potentialAction` / `SearchAction`** —— 站内无真实搜索页或接口,虚构搜索入口属禁止项。已有该节点的页面跳过(幂等)。
