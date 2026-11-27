@@ -23,10 +23,41 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const DRY = process.argv.includes('--dry-run');
 
-/* —— 权威档案地址:必须人工核实后填入,禁止猜测 —— */
-const SAME_AS = [
+/* —— 权威档案地址:统一在 scripts/same-as.json 维护 —— */
+/* 规则不变:每条必须有 verified 日期(人工核实过),禁止猜测、禁止填入未认领的页面。 */
+const SAME_AS_FILE = path.join(__dirname, 'same-as.json');
+const SAME_AS_FALLBACK = [
   'https://www.qcc.com/firm/95df37261237d7349c1220650e4a6e79.html'
 ];
+
+function loadSameAs() {
+  if (!fs.existsSync(SAME_AS_FILE)) return SAME_AS_FALLBACK.slice();
+  let cfg;
+  try {
+    cfg = JSON.parse(fs.readFileSync(SAME_AS_FILE, 'utf8'));
+  } catch (e) {
+    console.error('✗ same-as.json 解析失败: ' + e.message);
+    process.exit(2);
+  }
+  const list = (cfg.profiles || []).filter(function (p) {
+    const ok = p && typeof p.url === 'string' && /^https:\/\//.test(p.url) && p.verified;
+    if (!ok) console.error('⚠ 跳过未核实的条目(缺 url 或 verified): ' + JSON.stringify(p));
+    return ok;
+  }).map(function (p) { return p.url; });
+  const seen = {};
+  return list.filter(function (u) {
+    if (seen[u]) return false;
+    seen[u] = 1;
+    return true;
+  });
+}
+
+const SAME_AS = loadSameAs();
+if (!SAME_AS.length) {
+  console.error('✗ same-as.json 里没有已核实的档案地址,中止(避免把 sameAs 清空)');
+  process.exit(2);
+}
+console.log('sameAs 条目 ' + SAME_AS.length + ' 条');
 
 function walk(dir, acc) {
   acc = acc || [];
