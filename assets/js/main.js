@@ -639,6 +639,16 @@
     tel.textContent = '电话 186-1090-2181';
     actions.appendChild(tel);
 
+    // 微信外保留邮件发送作为桌面端兜底；微信内 mailto 会被拦截，不显示。
+    if (!IS_WECHAT) {
+      var email = (D.company && D.company.email) || 'contact@hq10000.com';
+      var mail = document.createElement('a');
+      mail.className = 'btn btn-outline btn-sm';
+      mail.href = 'mailto:' + email + '?subject=' + encodeURIComponent('网站咨询') + '&body=' + encodeURIComponent(summary);
+      mail.textContent = '邮件发送';
+      actions.appendChild(mail);
+    }
+
     box.appendChild(actions);
     if (form.parentNode) form.parentNode.insertBefore(box, form.nextSibling);
     return box;
