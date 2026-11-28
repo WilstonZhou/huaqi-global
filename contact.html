@@ -377,7 +377,8 @@
       <div class="contact-form">
         <h3 class="fs-20 c-primary mb-8 pl-14 border-left-gold"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="inline-icon"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg> 在线留言</h3>
         <p class="fs-13 c-text-light mb-24">填写下方信息,顾问将根据您的需求主动回访并提供定制方案。</p>
-        <form id="contactForm">
+        <form id="contactForm" method="post" action="/api/contact">
+          <input type="hidden" name="type" value="contact">
           <div class="form-row">
             <div class="form-group">
               <label for="contactName">姓名 *</label>
@@ -420,8 +421,9 @@
             <label for="contactMessage">留言</label>
             <textarea id="contactMessage" name="message" rows="4" placeholder="请简要描述您的出海需求、目标国家、业务场景等,便于顾问精准对接"></textarea>
           </div>
-          <button class="btn btn-primary btn-lg w-100" type="submit">提交并发送邮件</button>
-          <div class="form-success" id="formSuccess">✓ 已为您打开邮件客户端,请点击"发送"完成提交;若未自动打开,请直接拨打 186-1090-2181。</div>
+          <input type="text" name="website" id="contactWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <button class="btn btn-primary btn-lg w-100" type="submit">提交咨询</button>
+          <div class="form-success" id="formSuccess">✓ 已收到您的咨询,顾问会尽快联系您。如长时间未回复,请直接拨打 186-1090-2181。</div>
           <p class="fs-12 c-text-light mt-16 ta-center">提交即表示您同意我们通过电话/微信/邮件与您联系,我们承诺保护您的隐私信息。</p>
         </form>
       </div>

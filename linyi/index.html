@@ -352,7 +352,7 @@ footer .copy{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,
 
 <main class="wrap">
   <div class="intro">
-    <p><strong>使用说明：</strong>请按本手册章节顺序填写，完成后点击页面底部「生成并发送至企业邮箱」，系统将自动调起您电脑或手机上的默认邮件客户端，收件人已预置为 <strong>contact@hq10000.com</strong>，核对内容后直接发送即可。</p>
+    <p><strong>使用说明：</strong>请按本手册章节顺序填写，完成后点击页面底部「提交诊断表」；提交未成功时，可点「复制全部内容」或「下载 .eml 邮件文件」，把内容发给顾问。</p>
     <div class="tips">
       <span><i>·</i> 带 <span class="req">*</span> 为必填项</span>
       <span><i>·</i> 填写内容仅保存在您的浏览器本机，自动暂存草稿</span>
@@ -658,7 +658,7 @@ footer .copy{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,
     <div class="card-body">
       <div class="privacy"><span class="ico">i</span><span>本页为纯静态页面，填写内容<strong>仅在您的浏览器本地生成邮件</strong>，不经过任何第三方服务器。点击发送后会调起本机默认邮件客户端（Outlook / Foxmail / 系统邮件等），请在邮件中核对无误后再点击发送；草稿会自动暂存于本机浏览器，刷新页面不会丢失。</span></div>
       <div class="btn-row">
-        <button type="button" class="btn btn-primary" id="btnSend">生成并发送至企业邮箱</button>
+        <button type="button" class="btn btn-primary" id="btnSend">提交诊断表</button>
         <button type="button" class="btn btn-ghost" id="btnCopy">复制全部内容</button>
         <button type="button" class="btn btn-ghost" id="btnEml">下载 .eml 邮件文件</button>
         <button type="button" class="btn btn-ghost" id="btnPrint">打印 / 另存为 PDF</button>
@@ -667,7 +667,7 @@ footer .copy{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,
       <div class="status" id="status" role="status" aria-live="polite"></div>
       <details class="preview">
         <summary>预览即将生成的邮件内容</summary>
-        <pre id="previewBox">点击上方「生成并发送至企业邮箱」或「复制全部内容」后，此处显示邮件正文预览。</pre>
+        <pre id="previewBox">点击上方「提交诊断表」或「复制全部内容」后，此处显示诊断表正文预览。</pre>
       </details>
     </div>
   </section>
@@ -940,14 +940,51 @@ footer .copy{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,
 
   document.getElementById('btnSend').addEventListener('click', function () {
     if (!form.reportValidity()) { setStatus('请先补全带 * 的必填项（企业名称、负责人姓名、微信/电话）。', 'err'); return; }
+    if (typeof fetch !== 'function') { setStatus('当前浏览器不支持在线提交，请使用「复制全部内容」或「下载 .eml 邮件文件」。', 'err'); return; }
     var m = buildMail();
-    var body = m.body.replace(/\n/g, '\r\n');
-    var url = 'mailto:' + TO + '?subject=' + encodeURIComponent(m.subject) + '&body=' + encodeURIComponent(body);
+    var d = collect();
+    var utm = {};
+    try {
+      var params = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+        var v = params.get(k);
+        if (v) utm[k] = v.slice(0, 120);
+      });
+    } catch (e) { /* 忽略 */ }
+    var payload = {
+      type: 'linyi',
+      company: m.company,
+      name: val(d, 'contactName'),
+      phone: val(d, 'contactPhone'),
+      subject: m.subject,
+      message: m.body,
+      source: { page: location.pathname, referrer: (document.referrer || '').slice(0, 300), utm: utm }
+    };
+    var btn = this;
+    var label = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '提交中…';
     updatePreview(m.subject, m.body);
     save();
-    var extra = url.length > 6000 ? ' 内容较长，部分邮件客户端可能截断，建议同时下载 .eml 备用。' : '';
-    setStatus('已调起本机默认邮件客户端，收件人为 contact@hq10000.com，请在邮件中核对后点击发送。若未自动打开，请使用「复制全部内容」或「下载 .eml 邮件文件」。' + extra, 'info');
-    window.location.href = url;
+    setStatus('正在提交诊断表，请稍候…', 'info');
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.json().catch(function () { return {}; }).then(function (data) {
+        if (!response.ok || !data.ok) throw new Error((data && data.error) || ('http_' + response.status));
+        return data;
+      });
+    }).then(function () {
+      btn.textContent = '已提交';
+      setStatus('已提交，顾问会尽快与您联系。如需补充材料，可使用「复制全部内容」或「下载 .eml 邮件文件」。', 'ok');
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+      setStatus('提交未成功。请使用「复制全部内容」或「下载 .eml 邮件文件」，把诊断表发给顾问；也可直接拨打 186-1090-2181（微信同号）。', 'err');
+    });
   });
 
   document.getElementById('btnCopy').addEventListener('click', function () {
@@ -975,7 +1012,7 @@ footer .copy{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,
     form.reset();
     try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ }
     updateScore();
-    previewBox.textContent = '点击上方「生成并发送至企业邮箱」或「复制全部内容」后，此处显示邮件正文预览。';
+    previewBox.textContent = '点击上方「提交诊断表」或「复制全部内容」后，此处显示诊断表正文预览。';
     setStatus('已清空全部内容，可以重新填写。', 'ok');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });

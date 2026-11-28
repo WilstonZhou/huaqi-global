@@ -543,7 +543,8 @@
       <p class="section-desc">注册前先核名,避免重名白跑一趟。提交后顾问将为您免费查询目标国家注册机关的名称可用性,并反馈注册建议(1 个工作日内)。</p>
     </div>
     <div class="namecheck-card">
-      <form id="nameCheckForm" novalidate>
+      <form id="nameCheckForm" method="post" action="/api/contact" novalidate>
+        <input type="hidden" name="type" value="namecheck">
         <div class="form-row">
           <div class="form-group">
             <label for="ncCompany">拟注册的公司名称 *</label>
@@ -569,8 +570,9 @@
           <label for="ncContact">您的电话或微信 *</label>
           <input type="text" id="ncContact" name="contact" placeholder="用于接收核名结果,绝对保密" required>
         </div>
+        <input type="text" name="website" id="ncWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
         <button type="submit" class="btn btn-gold btn-lg w-100" id="nameCheckBtn">提交免费核名申请</button>
-        <div id="nameCheckSuccess">✓ 已为您打开邮件客户端,请点击"发送"完成提交;若未自动打开,请直接拨打 186-1090-2181(微信同号)。</div>
+        <div id="nameCheckSuccess">✓ 已收到核名申请,顾问会在 1 个工作日内反馈。如需加急,请直接拨打 186-1090-2181(微信同号)。</div>
         <p class="namecheck-tip mt-12">提交即表示您同意我们通过电话/微信与您联系。核名结果以目标国家注册机关官方数据库为准,最终可用性由顾问核实后反馈。</p>
       </form>
     </div>
