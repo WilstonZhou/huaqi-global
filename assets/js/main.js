@@ -128,41 +128,6 @@
       '</div>';
   }
 
-  // 企业微信二维码弹层：供右侧「微信二维码」按钮使用。
-  function showWechatPop() {
-    if ($('#wechatPop')) { $('#wechatPop').remove(); return; }
-    var c = D.company || {};
-    var wechatNo = (c.wechat || c.phone || '186-1090-2181').replace(/-/g, '');
-    var pop = el('div', { class: 'wechat-pop', id: 'wechatPop' });
-    pop.innerHTML =
-      '<button type="button" class="wechat-pop-close" aria-label="关闭">×</button>' +
-      '<div class="wechat-pop-title">企业微信</div>' +
-      '<img src="' + relLink('assets/images/wechat-kf-qr.png') + '" alt="企业微信客服二维码" class="wechat-pop-qr">' +
-      '<div class="wechat-pop-tip">打开微信"扫一扫"添加专属顾问</div>' +
-      '<div class="wechat-pop-no">微信号:' + wechatNo + '</div>' +
-      '<button type="button" class="btn btn-outline btn-sm wechat-pop-copy">复制微信号</button>';
-    document.body.appendChild(pop);
-    var close = function () { if (pop.parentNode) pop.parentNode.removeChild(pop); };
-    $('.wechat-pop-close', pop).addEventListener('click', close);
-    pop.addEventListener('click', function (ev) { if (ev.target === pop) close(); });
-    document.addEventListener('keydown', function esc(e) {
-      if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
-    });
-    $('.wechat-pop-copy', pop).addEventListener('click', function () {
-      var done = function () {
-        var tip = el('div', { class: 'float-tip' });
-        tip.textContent = '已复制微信号 ' + wechatNo + ',请到微信搜索添加';
-        document.body.appendChild(tip);
-        setTimeout(function () { tip.remove(); }, 2600);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(wechatNo).then(done, function () { window.prompt('请复制微信号:', wechatNo); });
-      } else {
-        window.prompt('请复制微信号:', wechatNo);
-      }
-    });
-  }
-
   // ============ 右侧贴边联系工具栏 + 移动端底部 CTA 栏 ============
   function renderFloat() {
     if ($('#floatService')) return;
@@ -178,19 +143,8 @@
       '<a class="hq-rail-item is-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener" title="企业微信咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微咨询 <span class="sub">· 秒回</span></span></a>' +
       '<a class="hq-rail-item" href="' + relLink('ai-match.html') + '" title="AI 智能匹配"><span class="ic">' + iconHtml('robot', '', 21) + '</span><span class="lb">AI 智能匹配</span></a>' +
       '<a class="hq-rail-item" href="tel:' + tel + '" title="电话咨询"><span class="ic">' + iconHtml('phone', '', 21) + '</span><span class="lb">' + (c.phone || '电话咨询') + '</span></a>' +
-      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="在线留言"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">在线留言</span></a>' +
-      '<div class="hq-rail-sep"></div>' +
-      '<button type="button" class="hq-rail-item is-minor" title="微信二维码" id="floatWechat"><span class="ic">' + iconHtml('send', '', 19) + '</span><span class="lb">微信二维码</span></button>';
+      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="在线留言"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">在线留言</span></a>';
     document.body.appendChild(rail);
-
-    // 微信二维码按钮
-    var wechat = $('#floatWechat');
-    if (wechat) {
-      wechat.addEventListener('click', function (e) {
-        e.preventDefault();
-        showWechatPop();
-      });
-    }
 
     // 移动端 / 平板底部固定 CTA 栏（CSS 仅在 ≤1024px 显示，替代旧版悬浮圆钮列）
     if (!$('#mobileCtaBar')) {
