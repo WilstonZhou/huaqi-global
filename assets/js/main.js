@@ -140,20 +140,20 @@
     var rail = el('div', { class: 'hq-rail', id: 'floatService' });
     rail.setAttribute('aria-label', '联系华企环球');
     rail.innerHTML =
-      '<a class="hq-rail-item is-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener" title="企业微信咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微咨询 <span class="sub">· 秒回</span></span></a>' +
-      '<a class="hq-rail-item" href="' + relLink('ai-match.html') + '" title="AI 智能匹配"><span class="ic">' + iconHtml('robot', '', 21) + '</span><span class="lb">AI 智能匹配</span></a>' +
-      '<a class="hq-rail-item" href="tel:' + tel + '" title="电话咨询"><span class="ic">' + iconHtml('phone', '', 21) + '</span><span class="lb">' + (c.phone || '电话咨询') + '</span></a>' +
-      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="需求在线提交通道"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">需求在线提交通道</span></a>';
+      '<a class="hq-rail-item is-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener" title="企微客服咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微客服咨询 <span class="sub">· 秒回</span></span></a>' +
+      '<a class="hq-rail-item" href="' + relLink('ai-match.html') + '" title="AI 智能匹配 · 先帮你判断"><span class="ic">' + iconHtml('robot', '', 21) + '</span><span class="lb">AI 智能匹配 <span class="sub">· 先帮你判断</span></span></a>' +
+      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="需求在线提交通道 · 提交完整需求"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">需求在线提交通道 <span class="sub">· 提交完整需求</span></span></a>' +
+      '<a class="hq-rail-item" href="tel:' + tel + '" title="电话支持 · 紧急/复杂事项"><span class="ic">' + iconHtml('phone', '', 21) + '</span><span class="lb">电话支持 <span class="sub">· 紧急/复杂事项</span></span></a>';
     document.body.appendChild(rail);
 
     // 移动端 / 平板底部固定 CTA 栏（CSS 仅在 ≤1024px 显示，替代旧版悬浮圆钮列）
     if (!$('#mobileCtaBar')) {
       var bar = el('div', { class: 'mobile-cta-bar', id: 'mobileCtaBar' });
       bar.innerHTML =
-        '<a class="btn btn-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener">' + iconHtml('headphones', 'inline-icon', 18) + ' 企微</a>' +
-        '<a class="btn btn-primary" href="tel:' + tel + '">' + iconHtml('phone', 'inline-icon', 18) + ' 电话</a>' +
-        '<a class="btn btn-outline" href="' + relLink('contact.html') + '">' + iconHtml('chat', 'inline-icon', 18) + ' 需求</a>' +
-        '<a class="btn btn-outline" href="' + relLink('ai-match.html') + '">' + iconHtml('robot', 'inline-icon', 18) + ' AI</a>';
+        '<a class="btn btn-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener" title="企微客服咨询 · 秒回">' + iconHtml('headphones', 'inline-icon', 18) + ' 企微</a>' +
+        '<a class="btn btn-primary" href="' + relLink('ai-match.html') + '" title="AI 智能匹配 · 先帮你判断">' + iconHtml('robot', 'inline-icon', 18) + ' AI</a>' +
+        '<a class="btn btn-outline" href="' + relLink('contact.html') + '" title="需求在线提交通道 · 提交完整需求">' + iconHtml('chat', 'inline-icon', 18) + ' 需求</a>' +
+        '<a class="btn btn-outline" href="tel:' + tel + '" title="电话支持 · 紧急/复杂事项">' + iconHtml('phone', 'inline-icon', 18) + ' 电话</a>';
       document.body.appendChild(bar);
     }
   }
@@ -232,6 +232,8 @@
     var input = $('.ai-input input', demo);
     var dialog = (D.aiMatch && D.aiMatch.sampleDialog) || [];
     var idx = 0;
+    var history = [];
+    var lastLeadCta = null;
 
     function appendMsg(role, text) {
       var m = el('div', { class: 'ai-msg ' + role });
@@ -265,6 +267,7 @@
       '日本': 'JP', '韩国': 'KR', '越南': 'VN', '菲律宾': 'PH',
       '阿联酋': 'AE', '迪拜': 'AE', '沙特': 'SA'
     };
+    var COUNTRY_NAMES = { SG: '新加坡', US: '美国', MY: '马来西亚', TH: '泰国', ID: '印尼', HK: '香港', CAY: '开曼/BVI', UK: '英国', JP: '日本' };
     var SERVICE_MAP = {
       '注册': 'company-registration', '设立': 'company-registration', '开公司': 'company-registration', '成立公司': 'company-registration',
       '开户': 'bank-account', '银行': 'bank-account', '账户': 'bank-account', '开户行': 'bank-account',
@@ -352,20 +355,60 @@
       reply += '━━━━━━━━━━━━━━\n';
       reply += '⏱️ 综合周期:约 2-6 周(视服务组合)\n';
       reply += '💰 费用:顾问将根据需求精准报价,承诺无隐形消费\n\n';
-      reply += '下一步:\n• 继续提问可细化方案(如"加银行开户")\n• 拨打 ' + phone + ' 转 5 年+ 资深顾问获取报价\n• 或填写联系表单,顾问 30 秒内响应';
+      reply += '下一步:\n• 继续提问可细化方案(如"加银行开户")\n• 拨打 ' + phone + ' 转 5 年+ 资深顾问获取报价';
       return reply;
+    }
+
+    function matchSummary(match) {
+      var parts = [];
+      if (match.scenario) parts.push(match.scenario);
+      if (match.country) parts.push(COUNTRY_NAMES[match.country] || match.country);
+      if (match.services && match.services.length) parts.push(match.services.map(function (s) { return s.name; }).join('、'));
+      return parts.join(' / ');
+    }
+
+    function appendLeadCta(match) {
+      var summary = matchSummary(match);
+      if (!summary) return;
+      if (lastLeadCta && lastLeadCta.parentNode) lastLeadCta.parentNode.removeChild(lastLeadCta);
+
+      var prefill = {
+        service: match.services.length > 1 ? 'multiple' : (match.services[0] ? match.services[0].id : ''),
+        aiNeed: 'AI 匹配：' + summary,
+        message: '我在 AI 智能匹配里描述：' + history.join('；')
+      };
+
+      var cta = el('div', { class: 'ai-msg ai ai-lead-cta' });
+      var pre = document.createElement('pre');
+      pre.textContent = '你这个情况建议填一下完整需求单。我把刚才聊的「' + summary + '」先预填进去了，你补两行联系方式就行。';
+      cta.appendChild(pre);
+
+      var link = document.createElement('a');
+      link.className = 'btn btn-gold btn-sm ai-lead-link';
+      link.href = relLink('contact.html') + '#contactForm';
+      link.textContent = '去提交需求单 →';
+      link.addEventListener('click', function () {
+        try { sessionStorage.setItem('hq_ai_prefill', JSON.stringify(prefill)); } catch (e) { /* 隐私模式忽略 */ }
+      });
+      cta.appendChild(link);
+
+      body.appendChild(cta);
+      body.scrollTop = body.scrollHeight;
+      lastLeadCta = cta;
     }
 
     function send() {
       var val = (input && input.value || '').trim();
       if (!val) return;
       appendMsg('user', val);
+      history.push(val);
       input.value = '';
       var t = typing();
       setTimeout(function () {
         t.remove();
         var match = matchRule(val);
         appendMsg('ai', generateReply(match));
+        appendLeadCta(match);
       }, 700 + Math.random() * 500);
     }
 
@@ -595,6 +638,40 @@
     box.appendChild(actions);
     if (form.parentNode) form.parentNode.insertBefore(box, form.nextSibling);
     return box;
+  }
+
+  // 把 AI 智能匹配的结果预填到联系页表单。
+  function applyAiPrefill() {
+    var form = $('#contactForm');
+    if (!form) return;
+    var raw;
+    try { raw = sessionStorage.getItem('hq_ai_prefill'); } catch (e) { return; }
+    if (!raw) return;
+    var data;
+    try { data = JSON.parse(raw); } catch (e) { return; }
+
+    var aiNeed = $('#contactAiNeed');
+    var message = $('#contactMessage');
+    var service = $('#contactService');
+    if (aiNeed && !aiNeed.value) aiNeed.value = data.aiNeed || '';
+    if (message && !message.value) message.value = data.message || '';
+    if (service && data.service) {
+      service.value = data.service;
+      if (service.value !== data.service) service.value = 'unsure';
+    }
+    try { sessionStorage.removeItem('hq_ai_prefill'); } catch (e) { /* 隐私模式忽略 */ }
+
+    if (form.parentNode && !document.getElementById('aiPrefillNote')) {
+      var note = document.createElement('div');
+      note.id = 'aiPrefillNote';
+      note.className = 'form-prefill-note';
+      note.textContent = '已根据刚才的 AI 对话预填需求，补充姓名和电话即可提交。';
+      form.parentNode.insertBefore(note, form);
+    }
+    var name = $('#contactName');
+    if (name) setTimeout(function () {
+      try { name.focus({ preventScroll: true }); } catch (e) { name.focus(); }
+    }, 300);
   }
 
   // ============ 联系表单 ============
@@ -1042,6 +1119,7 @@
     bindConfigurator();
     bindFAQ();
     bindContactForm();
+    applyAiPrefill();
     bindNameCheck();
     bindScrollAnim();
     highlightNav();
