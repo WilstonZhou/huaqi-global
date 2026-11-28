@@ -244,6 +244,22 @@ function ctaBanner(title, sub, prefix) {
     '      </div>\n    </div>\n  </div>\n</section>';
 }
 
+// 知识文章段尾 CTA:长文读完处优先给人工咨询(企微 → 电话 → 留言),而不是只给 AI 匹配。
+function consultCta(prefix) {
+  var wecom = 'https://work.weixin.qq.com/kfid/kfcccf23b17172fd661';
+  return '<section class="section pt-0">\n  <div class="container">\n    <div class="cta-banner cta-consult">\n' +
+    '      <div class="cta-consult-eyebrow">不确定从哪开始?</div>\n' +
+    '      <h2>带着你的情况,聊 10 分钟</h2>\n' +
+    '      <p>文章给的是通用路径。把你的主体、业务和目标市场说清楚,顾问先用 10 分钟帮你判断:现在能不能做、先补什么、大概周期。</p>\n' +
+    '      <div class="hero-actions">\n' +
+    '        <a class="btn btn-wecom btn-lg" href="' + wecom + '" target="_blank" rel="noopener">企微客服 · 直接咨询</a>\n' +
+    '        <a class="btn btn-gold btn-lg" href="tel:+8618610902181">电话 186-1090-2181</a>\n' +
+    '        <a class="btn btn-outline btn-lg btn-outline-light" href="' + prefix + 'contact">在线留言</a>\n' +
+    '      </div>\n' +
+    '      <p class="cta-consult-note">10 分钟用于初步判断方向,不替代正式法律、税务或银行意见。</p>\n' +
+    '    </div>\n  </div>\n</section>';
+}
+
 /* ---------- English (EN) section layout ----------
    英文国家页是独立区块:Lang=en、英文导航与页脚,并与中文对应页互挂 hreflang。
    导航/页脚保持与中文站相同的 id 与 class,以复用 assets/js/main.js 的移动端菜单逻辑。 */
@@ -478,6 +494,7 @@ module.exports = {
   caseLibrary: caseLibrary,
   faqItems: faqItems,
   ctaBanner: ctaBanner,
+  consultCta: consultCta,
   breadcrumbSchema: breadcrumbSchema,
   schemaScript: schemaScript
 };

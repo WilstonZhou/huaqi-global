@@ -66,12 +66,14 @@ function wrapFooterPhone(html) {
 }
 
 function ensureWecom(html) {
-  // 页面已有静态企微入口（如 contact.html 的二维码卡片）时不重复添加。
-  if (html.indexOf('work.weixin.qq.com') !== -1) return html;
+  // contact.html 已有独立企微二维码卡片，不重复添加；其他页面即使正文 CTA
+  // 已有企微入口，页脚仍保留一条，保证全站页脚联系方式一致。
+  if (html.indexOf('contact-wechat-card') !== -1) return html;
 
   const range = footerRange(html);
   if (!range) return html;
   const footer = html.slice(range.start, range.end);
+  if (footer.indexOf('work.weixin.qq.com') !== -1) return html;
 
   // 标准页脚：紧跟手机号链接追加，保持同一行，避免额外占高。
   let added = false;

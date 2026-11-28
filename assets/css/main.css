@@ -715,6 +715,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .cta-banner h2 { font-size: 32px; font-weight: 800; margin-bottom: 14px; }
 .cta-banner p { font-size: 16px; opacity: 0.85; margin-bottom: 28px; }
 .cta-banner .hero-actions { justify-content: center; margin-bottom: 0; }
+.cta-consult .cta-consult-eyebrow { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-bottom: 10px; }
+.cta-consult .hero-actions { flex-wrap: wrap; }
+.cta-consult .cta-consult-note { font-size: 12px; line-height: 1.7; opacity: 0.6; margin: 16px 0 0; }
 
 /* ---------- 全球网络 ---------- */
 .region-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }

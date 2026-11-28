@@ -41,6 +41,7 @@ function sectionHtml(s, i) {
 
 function articlePage(opt) {
   var p = '../';
+  var publishDate = existingPublishDate('knowledge/' + opt.slug + '.html');
   var body = lib.hero({
     prefix: p,
     breadcrumb: '<a href="/">首页</a> / <a href="/knowledge">知识中心</a> / ' + opt.shortTitle,
@@ -61,7 +62,7 @@ function articlePage(opt) {
     '        <div class="sidebar-card">\n          <h3>🤖 AI 智能匹配</h3>\n          <p class="fs-14 c-text-light mb-12 lh-16">不确定怎么处理?AI 3 分钟根据情况给出路径参考。</p>\n          <a class="btn btn-gold btn-sm" href="../ai-match">立即匹配</a>\n        </div>\n' +
     '        <div class="sidebar-card">\n          <h3>📞 咨询顾问</h3>\n          <p class="fs-14 c-text-light mb-12 lh-16">电话/微信 186-1090-2181,顾问将在 1 个工作日内回复。</p>\n          <a class="btn btn-outline btn-sm" href="../contact">联系顾问</a>\n        </div>\n' +
     '      </aside>\n    </div>\n  </div>\n</section>\n\n' +
-    lib.ctaBanner('看完还有疑问?', '把您的具体情况告诉 AI,3 分钟生成处理路径参考', p);
+    lib.consultCta(p);
   write('knowledge/' + opt.slug + '.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/knowledge/' + opt.slug,
@@ -78,7 +79,7 @@ function articlePage(opt) {
         "description": opt.metaDesc,
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://hq10000.com/knowledge/" + opt.slug,
-        "datePublished": TODAY,
+        "datePublished": publishDate,
         "dateModified": TODAY,
         "author": { "@type": "Organization", "name": "华企环球", "url": "https://hq10000.com" },
         "publisher": { "@id": "https://hq10000.com/#organization" }
@@ -100,6 +101,18 @@ var ARTICLES = [].concat(require('./data-case-articles'),
                        require('./data-articles-5'),
                        require('./data-articles-6'));
 var TODAY = new Date().toISOString().slice(0, 10);
+
+// 重跑生成器不应改写文章首次发布日期:已有页面沿用其 datePublished。
+function existingPublishDate(file) {
+  try {
+    var html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    var m = html.match(/"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})"/);
+    return m ? m[1] : TODAY;
+  } catch (e) {
+    return TODAY;
+  }
+}
+
 ARTICLES.forEach(articlePage);
 console.log('case articles done: ' + ARTICLES.length);
 module.exports = ARTICLES;
