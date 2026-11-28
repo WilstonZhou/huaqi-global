@@ -841,6 +841,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr; gap: 28px; margin-bottom: 44px; }
 .footer-brand .brand { color: white; margin-bottom: 16px; }
 .footer-brand p { font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
+.footer-tel { color: var(--c-gold); font-weight: 600; }
+.footer-tel:hover { color: var(--c-gold); text-decoration: underline; }
+.footer-wecom { color: #07C160; font-weight: 600; }
+.footer-wecom:hover { color: #3DDC84; text-decoration: underline; }
 .footer-col h3 { font-size: 14px; color: white; margin-bottom: 16px; font-weight: 600; }
 .footer-col a { display: block; padding: 6px 0; font-size: 13px; color: rgba(255,255,255,0.7); }
 .footer-col a:hover { color: var(--c-gold); }

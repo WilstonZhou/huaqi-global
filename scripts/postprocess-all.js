@@ -28,6 +28,7 @@ const STEPS = [
   'scripts/inject-ai-cn.js',          // 第二遍：WebPage 已存在，citation 落位
   'scripts/inject-website-node.js',
   'scripts/inject-sameas.js',
+  'scripts/inject-static-contact.js', // 页脚手机号 tel: 静态兜底（不依赖 main.js）
   'scripts/update-sitemap-lastmod.js'
 ];
 
