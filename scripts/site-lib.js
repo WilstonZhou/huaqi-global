@@ -244,7 +244,7 @@ function ctaBanner(title, sub, prefix) {
     '      </div>\n    </div>\n  </div>\n</section>';
 }
 
-// 知识文章段尾 CTA:长文读完处优先给人工咨询(企微 → 电话 → 留言),而不是只给 AI 匹配。
+// 知识文章段尾 CTA:长文读完处优先给人工咨询(企微 → 电话 → 需求提交),而不是只给 AI 匹配。
 function consultCta(prefix) {
   var wecom = 'https://work.weixin.qq.com/kfid/kfcccf23b17172fd661';
   return '<section class="section pt-0">\n  <div class="container">\n    <div class="cta-banner cta-consult">\n' +
@@ -254,7 +254,7 @@ function consultCta(prefix) {
     '      <div class="hero-actions">\n' +
     '        <a class="btn btn-wecom btn-lg" href="' + wecom + '" target="_blank" rel="noopener">企微客服 · 直接咨询</a>\n' +
     '        <a class="btn btn-gold btn-lg" href="tel:+8618610902181">电话 186-1090-2181</a>\n' +
-    '        <a class="btn btn-outline btn-lg btn-outline-light" href="' + prefix + 'contact">在线留言</a>\n' +
+    '        <a class="btn btn-outline btn-lg btn-outline-light" href="' + prefix + 'contact">需求在线提交通道</a>\n' +
     '      </div>\n' +
     '      <p class="cta-consult-note">10 分钟用于初步判断方向,不替代正式法律、税务或银行意见。</p>\n' +
     '    </div>\n  </div>\n</section>';

@@ -143,7 +143,7 @@
       '<a class="hq-rail-item is-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener" title="企业微信咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微咨询 <span class="sub">· 秒回</span></span></a>' +
       '<a class="hq-rail-item" href="' + relLink('ai-match.html') + '" title="AI 智能匹配"><span class="ic">' + iconHtml('robot', '', 21) + '</span><span class="lb">AI 智能匹配</span></a>' +
       '<a class="hq-rail-item" href="tel:' + tel + '" title="电话咨询"><span class="ic">' + iconHtml('phone', '', 21) + '</span><span class="lb">' + (c.phone || '电话咨询') + '</span></a>' +
-      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="在线留言"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">在线留言</span></a>';
+      '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="需求在线提交通道"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">需求在线提交通道</span></a>';
     document.body.appendChild(rail);
 
     // 移动端 / 平板底部固定 CTA 栏（CSS 仅在 ≤1024px 显示，替代旧版悬浮圆钮列）
@@ -152,7 +152,7 @@
       bar.innerHTML =
         '<a class="btn btn-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener">' + iconHtml('headphones', 'inline-icon', 18) + ' 企微</a>' +
         '<a class="btn btn-primary" href="tel:' + tel + '">' + iconHtml('phone', 'inline-icon', 18) + ' 电话</a>' +
-        '<a class="btn btn-outline" href="' + relLink('contact.html') + '">' + iconHtml('chat', 'inline-icon', 18) + ' 留言</a>' +
+        '<a class="btn btn-outline" href="' + relLink('contact.html') + '">' + iconHtml('chat', 'inline-icon', 18) + ' 需求</a>' +
         '<a class="btn btn-outline" href="' + relLink('ai-match.html') + '">' + iconHtml('robot', 'inline-icon', 18) + ' AI</a>';
       document.body.appendChild(bar);
     }
