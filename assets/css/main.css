@@ -857,7 +857,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer-col a { display: block; padding: 6px 0; font-size: 13px; color: rgba(255,255,255,0.7); }
 .footer-col a:hover { color: var(--c-gold); }
 .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; text-align: center; }
+.footer-official { margin-bottom: 6px; color: rgba(255,255,255,0.65); }
+.footer-official a { color: var(--c-gold); font-weight: 600; }
+.footer-official a:hover { color: #fff; }
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 8px; max-width: 880px; margin-left: auto; margin-right: auto; }
+
+/* ---------- 唯一官网声明 ---------- */
+.official-notice { background: linear-gradient(135deg, #fffaf0 0%, #fff 100%); border: 1px solid rgba(200,169,104,0.55); border-left: 4px solid var(--c-gold); border-radius: var(--radius-lg); padding: 28px 30px; box-shadow: var(--shadow-sm); }
+.official-notice-badge { display: inline-block; font-size: 12px; letter-spacing: 1px; color: var(--c-gold); background: rgba(200,169,104,0.12); padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; font-weight: 700; }
+.official-notice h2 { font-size: 24px; color: var(--c-ink); margin: 0 0 12px; line-height: 1.4; }
+.official-notice p { font-size: 15px; line-height: 1.85; color: var(--c-text); margin: 0 0 18px; }
+.official-notice-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.official-domain-note { background: rgba(200,169,104,0.12); border: 1px solid rgba(200,169,104,0.4); border-radius: var(--radius-md); padding: 12px 16px; font-size: 14px; line-height: 1.7; color: var(--c-text); margin: 0 0 24px; }
+.official-domain-note a { color: var(--c-primary); font-weight: 600; }
+@media (max-width: 768px) {
+  .official-notice { padding: 22px 20px; }
+  .official-notice h2 { font-size: 20px; }
+}
 
 /* ---------- 响应式工具类（移动端优先，替代内联 grid 样式） ---------- */
 .grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }

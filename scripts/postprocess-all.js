@@ -32,6 +32,7 @@ const STEPS = [
   'scripts/inject-sameas.js',
   'scripts/inject-analytics.js',      // 生成器重建 <head> 后补 Vercel Analytics / Speed Insights
   'scripts/inject-static-contact.js', // 页脚手机号 tel: 静态兜底（不依赖 main.js）
+  'scripts/inject-official-domain.js', // 页脚唯一官网声明（链接 /official 核验）
   'scripts/update-sitemap-lastmod.js'
 ];
 
