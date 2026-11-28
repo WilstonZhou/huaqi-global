@@ -31,7 +31,8 @@
 - `scripts/site-lib.js` — 布局:buildPage / header / footer / 面包屑 / FAQ / JSON-LD 辅助
 - 数据:`scripts/data-services.js`、`data-countries.js`、`data-country-services.js`(国家×服务子页)
 - 前端:`assets/js/data.js`(**stats / nav / FAQ 由 JS 渲染**)、`assets/js/main.js`
-- 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`update-sitemap-lastmod.js`
+- 辅助脚本:`scripts/baidu-push.js`、`inject-faq-schema.js`、`inject-analytics.js`、`update-sitemap-lastmod.js`
+  - `inject-analytics.js` — 全站补 Vercel Web Analytics / Speed Insights 脚本(幂等)。生成器会重建 `<head>`,重跑后统计脚本会丢;已纳入 `postprocess-all.js` 链尾。
 - 大陆市场适配层(2026-10-17 新增,均为幂等后处理,**改完页面必须重跑**):
   - `scripts/inject-cn-seo.js` — 百度/国产浏览器适配 meta、Organization 实体增强、速答块补齐
   - `scripts/inject-ai-cn.js` — 面向大陆 AI 检索的语义层:hreflang(zh-CN/x-default)、author meta、Article 作者挂到 `#organization` 实体、`article:published_time`/`article:modified_time`、`WebPage.inLanguage`/`isPartOf`、知识页与国家页的「官方来源」块及 `citation`。官方来源只列监管机构官网首页,不臆造条款 URL。**顺序:在 `inject-cn-seo.js` 之后、`inject-visible-date.js` 之前运行**;幂等标记为 `ai-cn:source:start/end`。
