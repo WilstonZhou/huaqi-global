@@ -8,6 +8,8 @@
  *   - inject-visible-date.js 必须在 inject-datemodified.js 与 prerender-home.js 之后
  *   - inject-ai-cn.js 必须跑两遍：国家页的 WebPage 节点由 inject-datemodified.js
  *     在链路末尾补出，第一遍跑时节点还不存在，citation 会静默丢失；第二遍补挂。
+ *   - inject-analytics.js 放在链尾：生成器会重建 <head>，后处理必须补回
+ *     Vercel Analytics / Speed Insights 脚本。
  *
  * 用法: node scripts/postprocess-all.js
  * 全链跑完后 git diff 应为 0（确定性 canary，见 GENERATOR-MAP.md 第六节）。
@@ -28,6 +30,7 @@ const STEPS = [
   'scripts/inject-ai-cn.js',          // 第二遍：WebPage 已存在，citation 落位
   'scripts/inject-website-node.js',
   'scripts/inject-sameas.js',
+  'scripts/inject-analytics.js',      // 生成器重建 <head> 后补 Vercel Analytics / Speed Insights
   'scripts/inject-static-contact.js', // 页脚手机号 tel: 静态兜底（不依赖 main.js）
   'scripts/update-sitemap-lastmod.js'
 ];
