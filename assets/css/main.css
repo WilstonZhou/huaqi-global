@@ -835,10 +835,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hq-rail-item.is-wecom .ic { color: #07C160; }
 .hq-rail-item.is-wecom:hover { background: rgba(7,193,96,0.08); color: #05974A; }
 .hq-rail-dot { position: absolute; top: -1px; right: -1px; width: 8px; height: 8px; border-radius: 50%; background: #F97316; border: 2px solid #fff; }
-.hq-rail-sep { height: 1px; margin: 8px 13px; background: var(--c-border); }
-/* 二维码为次要动作：低对比、更矮 */
-.hq-rail-item.is-minor { height: 44px; color: var(--c-text-light); }
-.hq-rail-item.is-minor:hover { color: var(--c-accent); }
 
 /* 移动端底部 CTA 中的应用宝/企微主按钮 */
 .btn-wecom { background: linear-gradient(135deg, #07C160, #05974A); color: #fff; box-shadow: 0 6px 18px rgba(7,193,96,.28); }
@@ -1120,35 +1116,6 @@ a:focus-visible, button:focus-visible,
   #heroAICard { min-height: 366px; }  /* 桌面端 1366 实测 365.55 */
 }
 
-/* ---------- 悬浮微信提示 ---------- */
-.float-tip {
-  position: fixed; right: 24px; bottom: 150px; z-index: 999;
-  background: var(--c-ink); color: #fff; font-size: 13px; line-height: 1.5;
-  padding: 12px 16px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg);
-  animation: fadeIn .25s ease;
-}
-
-/* ---------- 企业微信二维码弹层 ---------- */
-.wechat-pop {
-  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  z-index: 1000; width: 280px; padding: 26px 24px 22px; text-align: center;
-  background: #fff; border-radius: var(--radius-lg); box-shadow: 0 20px 60px rgba(6,26,58,0.35);
-  border: 1px solid var(--c-border);
-}
-.wechat-pop-close {
-  position: absolute; top: 8px; right: 10px; width: 30px; height: 30px; line-height: 1;
-  border: none; background: transparent; font-size: 22px; color: var(--c-text-light); cursor: pointer;
-}
-.wechat-pop-close:hover { color: var(--c-primary); }
-.wechat-pop-title { font-size: 17px; font-weight: 700; color: var(--c-ink); margin-bottom: 14px; }
-.wechat-pop-qr {
-  width: 180px; height: 180px; object-fit: contain; border-radius: var(--radius-sm);
-  border: 1px solid var(--c-border); padding: 6px; background: #fff; margin: 0 auto 12px;
-}
-.wechat-pop-tip { font-size: 13px; color: var(--c-text-light); margin-bottom: 6px; }
-.wechat-pop-no { font-size: 13px; color: var(--c-primary); font-weight: 600; margin-bottom: 12px; }
-.wechat-pop-copy { width: 100%; }
-
 /* ---------- 联系页二维码卡片 ---------- */
 .contact-wechat-card .wechat-qr {
   display: block; margin-top: 12px; border-radius: var(--radius-sm);
@@ -1159,10 +1126,6 @@ a:focus-visible, button:focus-visible,
   .contact-wechat-card .wechat-cta { display: inline-block; margin-top: 12px; }
   .contact-wechat-card .wechat-qr { display: none; }
 }
-@media (max-width: 560px) {
-  .wechat-pop { width: 260px; }
-}
-
 /* ---------- 行业墙 / 案例卡片 ---------- */
 .industry-pill {
   display: inline-block; padding: 8px 18px; border-radius: var(--radius-full);
