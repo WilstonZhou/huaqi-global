@@ -752,6 +752,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-success { display: none; background: rgba(43,168,91,0.1); border: 1px solid var(--c-success); color: var(--c-success); padding: 12px 16px; border-radius: var(--radius-md); margin-top: 16px; font-size: 14px; }
 .form-success.show { display: block; }
+.form-fallback { margin-top: 18px; padding: 18px 20px; border: 1px solid rgba(200,169,104,0.55); background: #fff9ec; border-radius: var(--radius-md); text-align: left; }
+.form-fallback-title { font-weight: 700; color: var(--c-ink); margin-bottom: 8px; }
+.form-fallback p { font-size: 13px; line-height: 1.7; color: var(--c-text-light); margin: 0 0 10px; }
+.form-fallback textarea { width: 100%; min-height: 120px; padding: 10px 12px; border: 1px solid var(--c-border); border-radius: 8px; background: #fff; color: var(--c-text); font-size: 12px; line-height: 1.6; resize: vertical; }
+.form-fallback-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.form-fallback-actions .btn { flex: 0 0 auto; }
 
 /* ---------- 关于页 ---------- */
 .about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }

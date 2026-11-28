@@ -6,6 +6,9 @@
 (function () {
   'use strict';
   var D = window.HQ_DATA || {};
+  var IS_WECHAT = /MicroMessenger/i.test(navigator.userAgent);
+  var WECOM_URL = 'https://work.weixin.qq.com/kfid/kfcccf23b17172fd661';
+  if (IS_WECHAT) document.documentElement.classList.add('is-wechat');
 
   // ============ 工具 ============
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
@@ -125,12 +128,57 @@
       '</div>';
   }
 
+  // 企业微信二维码弹层：微信外点击企微链接时兜底，避免 weixin:// 自定义 scheme 失败。
+  function showWechatPop() {
+    if ($('#wechatPop')) { $('#wechatPop').remove(); return; }
+    var c = D.company || {};
+    var wechatNo = (c.wechat || c.phone || '186-1090-2181').replace(/-/g, '');
+    var pop = el('div', { class: 'wechat-pop', id: 'wechatPop' });
+    pop.innerHTML =
+      '<button type="button" class="wechat-pop-close" aria-label="关闭">×</button>' +
+      '<div class="wechat-pop-title">企业微信</div>' +
+      '<img src="' + relLink('assets/images/wechat-kf-qr.png') + '" alt="企业微信客服二维码" class="wechat-pop-qr">' +
+      '<div class="wechat-pop-tip">打开微信"扫一扫"添加专属顾问</div>' +
+      '<div class="wechat-pop-no">微信号:' + wechatNo + '</div>' +
+      '<button type="button" class="btn btn-outline btn-sm wechat-pop-copy">复制微信号</button>';
+    document.body.appendChild(pop);
+    var close = function () { if (pop.parentNode) pop.parentNode.removeChild(pop); };
+    $('.wechat-pop-close', pop).addEventListener('click', close);
+    pop.addEventListener('click', function (ev) { if (ev.target === pop) close(); });
+    document.addEventListener('keydown', function esc(e) {
+      if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+    });
+    $('.wechat-pop-copy', pop).addEventListener('click', function () {
+      var done = function () {
+        var tip = el('div', { class: 'float-tip' });
+        tip.textContent = '已复制微信号 ' + wechatNo + ',请到微信搜索添加';
+        document.body.appendChild(tip);
+        setTimeout(function () { tip.remove(); }, 2600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(wechatNo).then(done, function () { window.prompt('请复制微信号:', wechatNo); });
+      } else {
+        window.prompt('请复制微信号:', wechatNo);
+      }
+    });
+  }
+
+  function bindWecomFallback() {
+    document.addEventListener('click', function (e) {
+      if (IS_WECHAT) return;
+      var target = e.target;
+      var link = target && target.closest ? target.closest('a[href*="work.weixin.qq.com"]') : null;
+      if (!link) return;
+      e.preventDefault();
+      showWechatPop();
+    });
+  }
+
   // ============ 右侧贴边联系工具栏 + 移动端底部 CTA 栏 ============
   function renderFloat() {
     if ($('#floatService')) return;
     var c = D.company || {};
     var tel = (c.phone || '').replace(/[^0-9+]/g, '');
-    var WECOM = 'https://work.weixin.qq.com/kfid/kfcccf23b17172fd661';
 
     // 桌面端（≥1025px，由 CSS 控制显示）：右侧贴边竖栏。
     // 收起仅占 48px 宽、不遮挡正文；鼠标悬停或键盘聚焦时向左展开文字标签；
@@ -138,7 +186,7 @@
     var rail = el('div', { class: 'hq-rail', id: 'floatService' });
     rail.setAttribute('aria-label', '联系华企环球');
     rail.innerHTML =
-      '<a class="hq-rail-item is-wecom" href="' + WECOM + '" target="_blank" rel="noopener" title="企业微信咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微咨询 <span class="sub">· 秒回</span></span></a>' +
+      '<a class="hq-rail-item is-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener" title="企业微信咨询（秒回）"><span class="ic">' + iconHtml('headphones', '', 21) + '<span class="hq-rail-dot"></span></span><span class="lb">企微咨询 <span class="sub">· 秒回</span></span></a>' +
       '<a class="hq-rail-item" href="' + relLink('ai-match.html') + '" title="AI 智能匹配"><span class="ic">' + iconHtml('robot', '', 21) + '</span><span class="lb">AI 智能匹配</span></a>' +
       '<a class="hq-rail-item" href="tel:' + tel + '" title="电话咨询"><span class="ic">' + iconHtml('phone', '', 21) + '</span><span class="lb">' + (c.phone || '电话咨询') + '</span></a>' +
       '<a class="hq-rail-item" href="' + relLink('contact.html') + '" title="在线留言"><span class="ic">' + iconHtml('chat', '', 21) + '</span><span class="lb">在线留言</span></a>' +
@@ -146,41 +194,12 @@
       '<button type="button" class="hq-rail-item is-minor" title="微信二维码" id="floatWechat"><span class="ic">' + iconHtml('send', '', 19) + '</span><span class="lb">微信二维码</span></button>';
     document.body.appendChild(rail);
 
-    // 微信按钮:展示企业微信二维码弹层(可复制微信号)
+    // 微信二维码按钮
     var wechat = $('#floatWechat');
     if (wechat) {
       wechat.addEventListener('click', function (e) {
         e.preventDefault();
-        if ($('#wechatPop')) { $('#wechatPop').remove(); return; }
-        var wechatNo = (c.wechat || c.phone || '186-1090-2181').replace(/-/g, '');
-        var pop = el('div', { class: 'wechat-pop', id: 'wechatPop' });
-        pop.innerHTML =
-          '<button type="button" class="wechat-pop-close" aria-label="关闭">×</button>' +
-          '<div class="wechat-pop-title">企业微信</div>' +
-          '<img src="' + relLink('assets/images/wechat-kf-qr.png') + '" alt="企业微信客服二维码" class="wechat-pop-qr">' +
-          '<div class="wechat-pop-tip">打开微信"扫一扫"添加专属顾问</div>' +
-          '<div class="wechat-pop-no">微信号:' + wechatNo + '</div>' +
-          '<button type="button" class="btn btn-outline btn-sm wechat-pop-copy">复制微信号</button>';
-        document.body.appendChild(pop);
-        var close = function () { if (pop.parentNode) pop.parentNode.removeChild(pop); };
-        $('.wechat-pop-close', pop).addEventListener('click', close);
-        pop.addEventListener('click', function (ev) { if (ev.target === pop) close(); });
-        document.addEventListener('keydown', function esc(e) {
-          if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
-        });
-        $('.wechat-pop-copy', pop).addEventListener('click', function () {
-          var done = function () {
-            var tip = el('div', { class: 'float-tip' });
-            tip.textContent = '已复制微信号 ' + wechatNo + ',请到微信搜索添加';
-            document.body.appendChild(tip);
-            setTimeout(function () { tip.remove(); }, 2600);
-          };
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(wechatNo).then(done, function () { window.prompt('请复制微信号:', wechatNo); });
-          } else {
-            window.prompt('请复制微信号:', wechatNo);
-          }
-        });
+        showWechatPop();
       });
     }
 
@@ -188,7 +207,7 @@
     if (!$('#mobileCtaBar')) {
       var bar = el('div', { class: 'mobile-cta-bar', id: 'mobileCtaBar' });
       bar.innerHTML =
-        '<a class="btn btn-wecom" href="' + WECOM + '" target="_blank" rel="noopener">' + iconHtml('headphones', 'inline-icon', 18) + ' 企微</a>' +
+        '<a class="btn btn-wecom" href="' + WECOM_URL + '" target="_blank" rel="noopener">' + iconHtml('headphones', 'inline-icon', 18) + ' 企微</a>' +
         '<a class="btn btn-primary" href="tel:' + tel + '">' + iconHtml('phone', 'inline-icon', 18) + ' 电话</a>' +
         '<a class="btn btn-outline" href="' + relLink('contact.html') + '">' + iconHtml('chat', 'inline-icon', 18) + ' 留言</a>' +
         '<a class="btn btn-outline" href="' + relLink('ai-match.html') + '">' + iconHtml('robot', 'inline-icon', 18) + ' AI</a>';
@@ -486,36 +505,181 @@
     });
   }
 
+  // ============ 表单提交（服务端 /api/contact） ============
+  function collectSource() {
+    var utm = {};
+    try {
+      var params = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+        var v = params.get(k);
+        if (v) utm[k] = v.slice(0, 120);
+      });
+    } catch (e) { /* 老 WebView 忽略 */ }
+    return {
+      page: location.pathname,
+      referrer: (document.referrer || '').slice(0, 300),
+      utm: utm
+    };
+  }
+
+  function postLead(payload) {
+    payload.source = collectSource();
+    if (typeof fetch !== 'function') {
+      return Promise.reject(new Error('fetch_unavailable'));
+    }
+    return fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.json().catch(function () { return {}; }).then(function (data) {
+        if (!response.ok || !data.ok) throw new Error((data && data.error) || ('http_' + response.status));
+        return data;
+      });
+    });
+  }
+
+  function leadSummary(type, data) {
+    var lines = [];
+    if (type === 'namecheck') {
+      lines.push('免费核名申请');
+      lines.push('公司名称: ' + (data.company || ''));
+      lines.push('目标国家: ' + (data.country || ''));
+      lines.push('电话/微信: ' + (data.contact || ''));
+    } else if (type === 'linyi') {
+      lines.push(data.subject || '临沂出海诊断表');
+      lines.push(data.message || '');
+    } else {
+      lines.push('网站咨询');
+      lines.push('姓名: ' + (data.name || ''));
+      lines.push('电话: ' + (data.phone || ''));
+      if (data.email) lines.push('邮箱: ' + data.email);
+      if (data.company) lines.push('公司: ' + data.company);
+      if (data.service) lines.push('业务: ' + data.service);
+      if (data.aiNeed) lines.push('AI 需求: ' + data.aiNeed);
+      if (data.message) lines.push('留言: ' + data.message);
+    }
+    return lines.join('\n');
+  }
+
+  function copyText(text, btn) {
+    function done() {
+      if (!btn) return;
+      btn.textContent = '已复制';
+      setTimeout(function () { btn.textContent = '复制内容'; }, 2200);
+    }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) done();
+      else if (btn) btn.textContent = '请长按选择复制';
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  function showLeadFallback(summary, form) {
+    var old = document.getElementById('leadFallback');
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    var success = form.querySelector('.form-success');
+    if (success) success.classList.remove('show');
+
+    var box = document.createElement('div');
+    box.className = 'form-fallback';
+    box.id = 'leadFallback';
+
+    var title = document.createElement('div');
+    title.className = 'form-fallback-title';
+    title.textContent = '提交未成功';
+    box.appendChild(title);
+
+    var tip = document.createElement('p');
+    tip.textContent = IS_WECHAT
+      ? '微信内可能拦截了提交。请长按下面的内容复制，发给顾问；或点右上角 ··· 在浏览器打开后重试。'
+      : '请复制下面的内容发给顾问，或直接使用电话 / 企业微信联系。';
+    box.appendChild(tip);
+
+    var area = document.createElement('textarea');
+    area.readOnly = true;
+    area.value = summary;
+    box.appendChild(area);
+
+    var actions = document.createElement('div');
+    actions.className = 'form-fallback-actions';
+
+    var copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'btn btn-outline btn-sm';
+    copyBtn.textContent = '复制内容';
+    copyBtn.addEventListener('click', function () { copyText(summary, copyBtn); });
+    actions.appendChild(copyBtn);
+
+    var wecom = document.createElement('a');
+    wecom.className = 'btn btn-wecom btn-sm';
+    wecom.href = WECOM_URL;
+    wecom.target = '_blank';
+    wecom.rel = 'noopener';
+    wecom.textContent = '企微客服';
+    actions.appendChild(wecom);
+
+    var tel = document.createElement('a');
+    tel.className = 'btn btn-gold btn-sm';
+    tel.href = 'tel:+8618610902181';
+    tel.textContent = '电话 186-1090-2181';
+    actions.appendChild(tel);
+
+    box.appendChild(actions);
+    if (form.parentNode) form.parentNode.insertBefore(box, form.nextSibling);
+    return box;
+  }
+
   // ============ 联系表单 ============
   function bindContactForm() {
     var form = $('#contactForm');
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var email = (D.company && D.company.email) || '';
       var success = $('#formSuccess', form);
       var d = new FormData(form);
       function val(k) { var v = d.get(k); return v ? String(v).trim() : ''; }
-      var lines = [
-        '姓名: ' + val('name'),
-        '电话: ' + val('phone'),
-        '邮箱: ' + val('email'),
-        '公司名称: ' + val('company'),
-        '咨询业务: ' + val('service'),
-        'AI 匹配需求: ' + val('aiNeed'),
-        '留言: ' + val('message')
-      ];
-      var subject = encodeURIComponent('网站咨询-' + (val('service') || '综合需求') + '-' + (val('name') || '未留名'));
-      var body = encodeURIComponent(lines.join('\n'));
-      form.reset();
-      if (email) {
-        // 静态站无后端:调起用户邮件客户端发送,邮件内容即表单字段
-        window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
-      }
-      if (success) {
-        success.classList.add('show');
-        setTimeout(function () { success.classList.remove('show'); }, 8000);
-      }
+      var data = {
+        type: 'contact',
+        name: val('name'),
+        phone: val('phone'),
+        email: val('email'),
+        company: val('company'),
+        service: val('service'),
+        aiNeed: val('aiNeed'),
+        message: val('message'),
+        website: val('website')
+      };
+      var btn = form.querySelector('[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = '提交中…'; }
+      postLead(data).then(function () {
+        form.reset();
+        if (success) {
+          success.classList.add('show');
+          setTimeout(function () { success.classList.remove('show'); }, 8000);
+        }
+        var old = document.getElementById('leadFallback');
+        if (old && old.parentNode) old.parentNode.removeChild(old);
+      }).catch(function () {
+        showLeadFallback(leadSummary('contact', data), form);
+      }).then(function () {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+      });
     });
   }
 
@@ -532,19 +696,23 @@
       var contact = $('#ncContact').value.trim();
       if (!company) { alert('请填写拟注册的公司名称'); return; }
       if (!contact) { alert('请留下您的电话或微信,顾问才能反馈查重结果'); return; }
-      var subject = encodeURIComponent('免费核名申请-' + country + '-' + company);
-      var body = encodeURIComponent(
-        '公司名称:' + company + '\n' +
-        '目标国家:' + country + '\n' +
-        '联系电话/微信:' + contact + '\n\n' +
-        '请顾问协助查询名称是否可用并反馈注册建议,谢谢。'
-      );
-      window.location.href = 'mailto:' + (D.company && D.company.email ? D.company.email : 'contact@hq10000.com') +
-        '?subject=' + subject + '&body=' + body;
-      if (success) {
-        success.style.display = 'block';
-        btn && btn.setAttribute('disabled', 'disabled');
-      }
+      var data = {
+        type: 'namecheck',
+        company: company,
+        country: country,
+        contact: contact,
+        website: $('#ncWebsite') ? $('#ncWebsite').value : ''
+      };
+      if (btn) { btn.disabled = true; btn.textContent = '提交中…'; }
+      postLead(data).then(function () {
+        if (success) success.style.display = 'block';
+        if (btn) { btn.disabled = true; btn.textContent = '已提交'; }
+        var old = document.getElementById('leadFallback');
+        if (old && old.parentNode) old.parentNode.removeChild(old);
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = '提交免费核名申请'; }
+        showLeadFallback(leadSummary('namecheck', data), form);
+      });
     };
     form.addEventListener('submit', submit);
     var trigger = $('#nameCheckGo');
@@ -914,6 +1082,7 @@
     renderHeader();
     renderFooter();
     renderFloat();
+    bindWecomFallback();
     renderDataDriven();
     bindNav();
     bindCountryTabs();
