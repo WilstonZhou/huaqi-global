@@ -653,6 +653,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .ai-input { display: flex; padding: 12px 16px; background: white; border-top: 1px solid var(--c-border); gap: 8px; }
 .ai-input input { flex: 1; padding: 10px 14px; border: 1px solid var(--c-border); border-radius: var(--radius-md); font-size: 14px; font-family: inherit; outline: none; }
 .ai-input input:focus { border-color: var(--c-primary); }
+.ai-lead-cta pre { margin-bottom: 0; }
+.ai-lead-cta .ai-lead-link { margin-top: 10px; }
 
 /* ---------- 知识文章 ---------- */
 .article-layout { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
@@ -752,6 +754,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-success { display: none; background: rgba(43,168,91,0.1); border: 1px solid var(--c-success); color: var(--c-success); padding: 12px 16px; border-radius: var(--radius-md); margin-top: 16px; font-size: 14px; }
 .form-success.show { display: block; }
+.form-prefill-note { background: rgba(200,169,104,0.12); border: 1px solid rgba(200,169,104,0.45); color: var(--c-text); padding: 10px 14px; border-radius: var(--radius-md); font-size: 13px; line-height: 1.65; margin-bottom: 14px; }
 .form-fallback { margin-top: 18px; padding: 18px 20px; border: 1px solid rgba(200,169,104,0.55); background: #fff9ec; border-radius: var(--radius-md); text-align: left; }
 .form-fallback-title { font-weight: 700; color: var(--c-ink); margin-bottom: 8px; }
 .form-fallback p { font-size: 13px; line-height: 1.7; color: var(--c-text-light); margin: 0 0 10px; }
@@ -825,12 +828,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hq-rail-item:hover { background: var(--c-bg-tint); color: var(--c-accent); }
 .hq-rail-item .ic { position: relative; width: 24px; height: 24px; flex: 0 0 24px; display: flex; align-items: center; justify-content: center; }
 .hq-rail-item .lb {
-  max-width: 0; opacity: 0; overflow: hidden; font-weight: 600;
+  max-width: 0; opacity: 0; overflow: hidden; font-weight: 600; line-height: 1.25;
   transition: max-width .3s cubic-bezier(.2,.7,.3,1), opacity .2s, margin-left .3s;
 }
-.hq-rail-item .lb .sub { font-weight: 500; color: var(--c-text-light); }
+.hq-rail-item .lb .sub { display: block; font-size: 11px; font-weight: 500; color: var(--c-text-light); margin-top: 1px; }
 .hq-rail:hover .hq-rail-item .lb,
-.hq-rail:focus-within .hq-rail-item .lb { max-width: 140px; opacity: 1; margin-left: 11px; }
+.hq-rail:focus-within .hq-rail-item .lb { max-width: 200px; opacity: 1; margin-left: 11px; }
 /* 企微：品牌绿 + 未读红点，作为第一入口 */
 .hq-rail-item.is-wecom .ic { color: #07C160; }
 .hq-rail-item.is-wecom:hover { background: rgba(7,193,96,0.08); color: #05974A; }
