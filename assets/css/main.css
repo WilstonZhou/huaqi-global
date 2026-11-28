@@ -1116,16 +1116,6 @@ a:focus-visible, button:focus-visible,
   #heroAICard { min-height: 366px; }  /* 桌面端 1366 实测 365.55 */
 }
 
-/* ---------- 联系页二维码卡片 ---------- */
-.contact-wechat-card .wechat-qr {
-  display: block; margin-top: 12px; border-radius: var(--radius-sm);
-  border: 1px solid var(--c-border); padding: 6px; background: #fff;
-}
-.contact-wechat-card .wechat-cta { display: none; }
-@media (max-width: 768px) {
-  .contact-wechat-card .wechat-cta { display: inline-block; margin-top: 12px; }
-  .contact-wechat-card .wechat-qr { display: none; }
-}
 /* ---------- 行业墙 / 案例卡片 ---------- */
 .industry-pill {
   display: inline-block; padding: 8px 18px; border-radius: var(--radius-full);

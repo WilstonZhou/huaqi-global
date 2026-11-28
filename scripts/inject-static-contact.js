@@ -53,23 +53,20 @@ function wrapFooterPhone(html) {
 
   let wrapped = 0;
   const next = footer
-    .replace(/📞 186-1090-2181\(微信同号\)/g, function () {
+    .replace(/📞 186-1090-2181/g, function () {
       wrapped += 1;
-      return '📞 ' + LINK + '(微信同号)';
+      return '📞 ' + LINK;
     })
-    .replace(/<\/svg> 186-1090-2181\(微信同号\)/g, function () {
+    .replace(/<\/svg> 186-1090-2181/g, function () {
       wrapped += 1;
-      return '</svg> ' + LINK + '(微信同号)';
+      return '</svg> ' + LINK;
     });
   if (wrapped === 0) return { html: html, wrapped: 0 };
   return { html: html.slice(0, range.start) + next + html.slice(range.end), wrapped: wrapped };
 }
 
 function ensureWecom(html) {
-  // contact.html 已有独立企微二维码卡片，不重复添加；其他页面即使正文 CTA
-  // 已有企微入口，页脚仍保留一条，保证全站页脚联系方式一致。
-  if (html.indexOf('contact-wechat-card') !== -1) return html;
-
+  // 所有页面统一在页脚保留一条企微入口；正文或 CTA 已有企微链接也不影响。
   const range = footerRange(html);
   if (!range) return html;
   const footer = html.slice(range.start, range.end);
@@ -78,7 +75,7 @@ function ensureWecom(html) {
   // 标准页脚：紧跟手机号链接追加，保持同一行，避免额外占高。
   let added = false;
   let next = footer.replace(
-    /(<a class="footer-tel" href="tel:\+8618610902181">186-1090-2181<\/a>\(微信同号\))/,
+    /(<a class="footer-tel" href="tel:\+8618610902181">186-1090-2181<\/a>)/,
     function (match) {
       added = true;
       return match + ' · ' + WECOM_LINK;
@@ -88,7 +85,7 @@ function ensureWecom(html) {
   // 自定义页脚（linyi）：在咨询热线段后新增一行。
   if (!added) {
     next = footer.replace(
-      /(<p>咨询热线（微信同号）：<a href="tel:\+8618610902181">186-1090-2181<\/a><\/p>)/,
+      /(<p>咨询热线：<a href="tel:\+8618610902181">186-1090-2181<\/a><\/p>)/,
       function (match) {
         added = true;
         return match + '\n        <p>' + WECOM_LINK + '</p>';
