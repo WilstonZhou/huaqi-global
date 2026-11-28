@@ -109,7 +109,7 @@
               '<div class="brand-text" style="color:white;">华企环球<small style="color:rgba(255,255,255,0.5);">HUAQI GLOBAL</small></div>' +
             '</a>' +
             '<p>' + (c.fullName || '') + '<br>前身为会计事务所,2018 年发展至今,8 年出海落地合规服务精研。总部深圳,业务覆盖全球 ' + (c.countriesCovered || '') + ' 个国家/地区。</p>' +
-            '<p>📞 ' + (c.phone || '') + '(微信同号)<br>✉️ ' + (c.email || '') + '<br>📍 ' + (c.address || '') + '</p>' +
+            '<p>📞 ' + (c.phone || '') + '<br>✉️ ' + (c.email || '') + '<br>📍 ' + (c.address || '') + '</p>' +
           '</div>' +
           '<div class="footer-col"><h4>服务范围</h4>' + services + '</div>' +
           '<div class="footer-col"><h4>知识中心</h4>' + knowledge + '</div>' +
