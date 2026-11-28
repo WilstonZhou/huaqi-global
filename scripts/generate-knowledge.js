@@ -61,7 +61,7 @@ function articlePage(opt) {
     '        <div class="sidebar-card">\n          <h3>🤖 AI 智能匹配</h3>\n          <p class="fs-14 c-text-light mb-12 lh-16">不确定哪种方案适合您?AI 3 分钟根据业务推荐最优方案。</p>\n          <a class="btn btn-gold btn-sm" href="../ai-match">立即匹配</a>\n        </div>\n' +
     '        <div class="sidebar-card">\n          <h3>📞 咨询顾问</h3>\n          <p class="fs-14 c-text-light mb-12 lh-16">电话/微信 186-1090-2181,顾问将在 1 个工作日内回复。</p>\n          <a class="btn btn-outline btn-sm" href="../contact">联系顾问</a>\n        </div>\n' +
     '      </aside>\n    </div>\n  </div>\n</section>\n\n' +
-    lib.ctaBanner('看完还有疑问?', '把您的具体情况告诉 AI,3 分钟生成定制方案参考', p);
+    lib.consultCta(p);
   write('knowledge/' + opt.slug + '.html', lib.buildPage({
     prefix: p,
     canonical: 'https://hq10000.com/knowledge/' + opt.slug,
