@@ -108,7 +108,7 @@
               '<div class="brand-logo">华</div>' +
               '<div class="brand-text" style="color:white;">华企环球<small style="color:rgba(255,255,255,0.5);">HUAQI GLOBAL</small></div>' +
             '</a>' +
-            '<p>' + (c.fullName || '') + '<br>前身为会计事务所,2018 年发展至今,8 年出海落地合规服务精研。总部深圳,业务覆盖全球 ' + (c.countriesCovered || '') + ' 个国家/地区。</p>' +
+            '<p>' + (c.fullName || '') + '<br>华企环球团队自 2018 年起从事企业出海服务；现运营主体成立于 2023 年 11 月。总部深圳,业务覆盖全球 ' + (c.countriesCovered || '') + ' 个国家/地区。</p>' +
             '<p>📞 ' + (c.phone || '') + '<br>✉️ ' + (c.email || '') + '<br>📍 ' + (c.address || '') + '</p>' +
           '</div>' +
           '<div class="footer-col"><h4>服务范围</h4>' + services + '</div>' +
