@@ -128,7 +128,7 @@
       '</div>';
   }
 
-  // 企业微信二维码弹层：微信外点击企微链接时兜底，避免 weixin:// 自定义 scheme 失败。
+  // 企业微信二维码弹层：供右侧「微信二维码」按钮使用。
   function showWechatPop() {
     if ($('#wechatPop')) { $('#wechatPop').remove(); return; }
     var c = D.company || {};
@@ -160,17 +160,6 @@
       } else {
         window.prompt('请复制微信号:', wechatNo);
       }
-    });
-  }
-
-  function bindWecomFallback() {
-    document.addEventListener('click', function (e) {
-      if (IS_WECHAT) return;
-      var target = e.target;
-      var link = target && target.closest ? target.closest('a[href*="work.weixin.qq.com"]') : null;
-      if (!link) return;
-      e.preventDefault();
-      showWechatPop();
     });
   }
 
@@ -1092,7 +1081,6 @@
     renderHeader();
     renderFooter();
     renderFloat();
-    bindWecomFallback();
     renderDataDriven();
     bindNav();
     bindCountryTabs();
